@@ -4,12 +4,12 @@ import VisionMission from "../../components/home/VisionMission";
 import WhyChooseUs from "../../components/home/WhyChooseUs";
 import ProgramsSection from "../../components/home/ProgramsSection";
 import ImpactCounter from "../../components/home/ImpactCounter";
-// import FeaturedProjects from "../../components/home/FeaturedProjects";
-// import SuccessStories from "../../components/home/SuccessStories";
-// import PartnersSection from "../../components/home/PartnersSection";
-// import LatestNews from "../../components/home/LatestNews";
 import Newsletter from "../../components/common/Newsletter";
 import FeaturedProjects from "../../components/home/FeaturedProjects";
+import UpcomingEvents from "../../components/home/UpcomingEvents";
+import PartnersSection from "../../components/home/PartnersSection";
+import LatestNews from "../../components/home/LatestNews";
+import CallToAction from "../../components/home/CallToAction";
 
 
 function Home() {
@@ -29,11 +29,13 @@ function Home() {
 
        <FeaturedProjects /> 
 
-      {/* <SuccessStories /> */}
+      <UpcomingEvents />
 
-      {/* <PartnersSection /> */}
+      <PartnersSection />
 
-      {/* <LatestNews /> */}
+      <LatestNews />
+
+      <CallToAction />
 
       <Newsletter />
     </>

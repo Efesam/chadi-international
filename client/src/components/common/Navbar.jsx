@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "./Logo";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,7 +20,9 @@ function Navbar() {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
+    { name: "Programs", path: "/programs" },
     { name: "Projects", path: "/projects" },
+    { name: "News", path: "/news" },
     { name: "Get Involved", path: "/get-involved" },
     { name: "Contact", path: "/contact" },
   ];
@@ -36,18 +39,11 @@ function Navbar() {
 
         {/* Logo */}
 
-        <Link
-          to="/"
-          className={`text-2xl font-black transition ${
-            scrolled ? "text-chadi-green" : "text-white"
-          }`}
-        >
-          CHADI
-        </Link>
+        <Logo light={!scrolled} />
 
         {/* Desktop */}
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
@@ -77,6 +73,8 @@ function Navbar() {
         {/* Mobile Button */}
 
         <button
+          type="button"
+          aria-label="Toggle navigation menu"
           onClick={() => setMobileMenu(!mobileMenu)}
           className={`text-2xl lg:hidden ${
             scrolled ? "text-chadi-green" : "text-white"
@@ -90,7 +88,7 @@ function Navbar() {
 
       <div
         className={`overflow-hidden bg-white transition-all duration-500 lg:hidden ${
-          mobileMenu ? "max-h-96" : "max-h-0"
+          mobileMenu ? "max-h-[34rem]" : "max-h-0"
         }`}
       >
         <div className="flex flex-col p-6">

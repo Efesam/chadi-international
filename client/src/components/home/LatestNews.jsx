@@ -1,15 +1,40 @@
 
-function LatestNews() {
-  return (
-    <section className="py-24 bg-chadi-cream">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-4xl font-bold text-center">
-          Latest News
-        </h2>
+import { Link } from "react-router-dom";
+import { news } from "../../data/news";
+import NewsCard from "../ui/NewsCard";
 
-        <p className="mt-4 text-center text-gray-600">
-          News and updates from CHADI International.
-        </p>
+function LatestNews() {
+  const latest = news.slice(0, 2);
+
+  return (
+    <section className="bg-chadi-cream py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="font-semibold uppercase tracking-widest text-chadi-gold">
+              Latest News
+            </p>
+            <h2 className="mt-3 text-4xl font-bold text-chadi-green">
+              Updates From CHADI
+            </h2>
+            <p className="mt-4 max-w-2xl text-gray-600">
+              Follow program milestones, field activities and community stories.
+            </p>
+          </div>
+
+          <Link
+            to="/news"
+            className="font-semibold text-chadi-green hover:text-chadi-gold"
+          >
+            View All News
+          </Link>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          {latest.map((article) => (
+            <NewsCard key={article.id} article={article} />
+          ))}
+        </div>
       </div>
     </section>
   );

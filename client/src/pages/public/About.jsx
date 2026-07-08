@@ -1,64 +1,30 @@
 import PageHeader from "../../components/common/PageHeader";
+import OurStory from "../../components/about/OurStory";
+import VisionMission from "../../components/home/VisionMission";
+import CoreValues from "../../components/about/CoreValues";
+import ImpactTimeline from "../../components/about/ImpactTimeline";
+import TeamPreview from "../../components/about/TeamPreview";
+import Newsletter from "../../components/common/Newsletter";
 
 function About() {
   return (
     <>
       <PageHeader
-        title="About CHADI International"
-        subtitle="Building resilient communities through innovation, education, humanitarian response and sustainable development."
+        title="About CHADI"
+        subtitle="Empowering Marginalized Individuals & Underserved Communities"
       />
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
+      <OurStory />
 
-          <div className="grid gap-12 lg:grid-cols-2">
+      <VisionMission />
 
-            <div>
-              <h2 className="mb-6 text-4xl font-bold text-chadi-green">
-                Who We Are
-              </h2>
+      <CoreValues />
 
-              <p className="mb-6 leading-8 text-gray-700">
-                CHADI International is a non-governmental organization
-                committed to transforming lives through sustainable
-                development, innovation, education, healthcare,
-                environmental sustainability and humanitarian action.
-              </p>
+      <ImpactTimeline />
 
-              <p className="leading-8 text-gray-700">
-                We collaborate with communities, governments,
-                development partners and volunteers to create lasting
-                impact across Nigeria and beyond.
-              </p>
-            </div>
+      <TeamPreview />
 
-            <div className="rounded-3xl bg-chadi-green p-10 text-white">
-              <h3 className="mb-5 text-3xl font-bold">
-                Our Mission
-              </h3>
-
-              <p className="leading-8">
-                To empower vulnerable communities through
-                sustainable development initiatives that improve
-                education, health, livelihoods and innovation.
-              </p>
-
-              <hr className="my-8 border-white/20" />
-
-              <h3 className="mb-5 text-3xl font-bold">
-                Our Vision
-              </h3>
-
-              <p className="leading-8">
-                A world where every community has equal access to
-                opportunities, dignity and sustainable growth.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+      <Newsletter />
     </>
   );
 }

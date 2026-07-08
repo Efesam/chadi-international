@@ -1,0 +1,10 @@
+{
+  "name": "chadi-international",
+  "private": true,
+  "scripts": {
+    "dev:client": "npm --prefix client run dev",
+    "dev:api": "npm --prefix server run dev",
+    "build": "npm --prefix client run build",
+    "lint": "npm --prefix client run lint"
+  }
+}

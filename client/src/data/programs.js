@@ -1,94 +1,74 @@
-import {
-  FaHeartbeat,
-  FaLaptopCode,
-  FaGraduationCap,
-  FaSeedling,
-  FaFemale,
-  FaLeaf,
-} from "react-icons/fa";
-
 export const programs = [
   {
-  id: 1,
-
-  slug: "health-nutrition",
-
-  title: "Health & Nutrition",
-
-  shortDescription:
-    "Improving maternal and child health through sustainable nutrition interventions.",
-
-  description:
-    "Our Health & Nutrition initiative focuses on reducing malnutrition, improving maternal health, promoting infant and young child nutrition, and supporting vulnerable families through community-based healthcare interventions.",
-
-  beneficiaries: [
-    "Children under five",
-    "Pregnant women",
-    "Nursing mothers",
-    "Rural communities",
-  ],
-
-  objectives: [
-    "Reduce child malnutrition",
-    "Improve maternal health",
-    "Promote nutrition education",
-    "Strengthen community healthcare",
-  ],
-
-  icon: FaHeartbeat,
-
-  color: "bg-red-100",
-
-  image: "/images/programs/health.jpg",
-},
+    id: 1,
+    slug: "miycn",
+    title: "MIYCN",
+    category: "Health & Nutrition",
+    description:
+      "Promoting maternal, infant and young child nutrition through education, advocacy and community engagement.",
+    icon: "❤️",
+  },
   {
     id: 2,
-    title: "SORCEST",
     slug: "sorcest",
-    icon: FaLaptopCode,
-    color: "bg-blue-100",
-    beneficiaries: "Orphans • Children with Disabilities",
+    title: "SORCEST",
+    category: "Education",
     description:
-      "Providing education, digital skills, mentorship and talent development for vulnerable children.",
+      "Providing education, mentorship and digital skills for vulnerable children and youth.",
+    icon: "🎓",
   },
   {
     id: 3,
-    title: "START",
-    slug: "start",
-    icon: FaGraduationCap,
-    color: "bg-yellow-100",
-    beneficiaries: "Youth",
+    slug: "help",
+    title: "HELP",
+    category: "Humanitarian",
     description:
-      "Supporting Talent Advancement in Rural Africa for Transformation through skills development and innovation.",
+      "Delivering emergency relief, food support and livelihood assistance.",
+    icon: "🤝",
   },
   {
     id: 4,
-    title: "HELP",
-    slug: "help",
-    icon: FaSeedling,
-    color: "bg-green-100",
-    beneficiaries: "Families",
+    slug: "start",
+    title: "START",
+    category: "Youth Development",
     description:
-      "Hunger Eradication and Livelihood Promotion through food security and economic empowerment.",
+      "Building leadership, entrepreneurship and life skills among young people.",
+    icon: "🚀",
   },
   {
     id: 5,
-    title: "Girlie M3",
-    slug: "girlie-m3",
-    icon: FaFemale,
-    color: "bg-pink-100",
-    beneficiaries: "Girls & Women",
+    slug: "spot",
+    title: "SPOT",
+    category: "Protection",
     description:
-      "Empowering women through mental wellness, menstrual health, skills acquisition and motherhood support.",
+      "Creating safe spaces and promoting child protection initiatives.",
+    icon: "🛡️",
   },
   {
     id: 6,
-    title: "SAFE Project",
-    slug: "safe-project",
-    icon: FaLeaf,
-    color: "bg-emerald-100",
-    beneficiaries: "Communities",
+    slug: "safe",
+    title: "SAFE",
+    category: "Community Safety",
     description:
-      "Climate action, environmental sustainability and resilience for vulnerable communities.",
+      "Improving safety, resilience and emergency preparedness within communities.",
+    icon: "🏥",
+  },
+  {
+    id: 7,
+    slug: "girlie-m3",
+    title: "GIRLIE M3",
+    category: "Women & Girls",
+    description:
+      "Empowering adolescent girls and young women through education and mentorship.",
+    icon: "👩",
+  },
+  {
+    id: 8,
+    slug: "still-here",
+    title: "STILL HERE",
+    category: "Mental Health",
+    description:
+      "Providing psychosocial support and hope for vulnerable individuals.",
+    icon: "💙",
   },
 ];

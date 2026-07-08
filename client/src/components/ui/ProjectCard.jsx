@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 function ProjectCard({ project }) {
   return (
     <div className="group overflow-hidden rounded-3xl bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
-
       {/* Image */}
-
       <div className="relative h-60 overflow-hidden bg-gray-200">
         <img
           src={project.image}
@@ -19,17 +17,14 @@ function ProjectCard({ project }) {
       </div>
 
       <div className="space-y-4 p-6">
-
         <div className="flex items-center justify-between">
-
-          <span className="rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
+          <span className="rounded-full bg-chadi-lightgreen px-3 py-1 text-sm font-semibold text-chadi-green">
             {project.status}
           </span>
 
           <span className="text-sm text-gray-500">
             {project.location}
           </span>
-
         </div>
 
         <h3 className="text-2xl font-bold text-chadi-green">
@@ -41,7 +36,6 @@ function ProjectCard({ project }) {
         </p>
 
         <div className="pt-2">
-
           <p className="text-sm text-gray-500">
             Beneficiaries
           </p>
@@ -49,7 +43,6 @@ function ProjectCard({ project }) {
           <p className="font-semibold">
             {project.beneficiaries}
           </p>
-
         </div>
 
         <Link
@@ -58,7 +51,6 @@ function ProjectCard({ project }) {
         >
           Learn More →
         </Link>
-
       </div>
     </div>
   );

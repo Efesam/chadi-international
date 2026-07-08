@@ -10,10 +10,6 @@ function Hero() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
 
-      {/* Decorative Blobs */}
-      <div className="absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-chadi-gold/20 blur-3xl" />
-      <div className="absolute -right-52 bottom-0 h-[550px] w-[550px] rounded-full bg-chadi-lightgreen/20 blur-3xl" />
-
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 pt-24 lg:px-12">
 
         <div className="grid w-full items-center gap-3 lg:grid-cols-[42%_58%]">
