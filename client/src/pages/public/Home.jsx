@@ -10,6 +10,7 @@ import UpcomingEvents from "../../components/home/UpcomingEvents";
 import PartnersSection from "../../components/home/PartnersSection";
 import LatestNews from "../../components/home/LatestNews";
 import CallToAction from "../../components/home/CallToAction";
+import SuccessStories from "../../components/home/SuccessStories";
 
 
 function Home() {
@@ -28,6 +29,8 @@ function Home() {
       <ImpactCounter />
 
        <FeaturedProjects /> 
+
+      <SuccessStories />
 
       <UpcomingEvents />
 

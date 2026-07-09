@@ -1,151 +1,116 @@
-import { createServer } from "node:http";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { events, news, programs, projects, stats } from "./data.js";
+import express from "express";
+import { programs, news } from "./data.js";
+import { createCrudRouter } from "./lib/crud.js";
+import { createSubmissionRouter } from "./lib/submissions.js";
+import { readCollection } from "./lib/store.js";
+import { requireAuth } from "./lib/auth.js";
+import {
+  seedProjects,
+  seedEvents,
+  seedTeam,
+  seedGallery,
+  seedPartners,
+  seedStories,
+  seedSettings,
+} from "./lib/seeds.js";
+import authRouter from "./routes/auth.js";
+import usersRouter from "./routes/users.js";
+import settingsRouter from "./routes/settings.js";
 
-const submissionsFile = new URL("../data/submissions.json", import.meta.url);
 const port = Number(process.env.PORT || 4000);
+const app = express();
 
-const routes = {
-  "/api/health": { status: "ok", service: "chadi-api" },
-  "/api/programs": programs,
-  "/api/projects": projects,
-  "/api/news": news,
-  "/api/events": events,
-  "/api/stats": stats,
-};
+app.use(express.json({ limit: "1mb" }));
 
-function sendJson(response, statusCode, payload) {
-  response.writeHead(statusCode, {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Content-Type": "application/json",
-  });
-  response.end(JSON.stringify(payload));
-}
+// Manual CORS so the client can be served from any origin during development.
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-async function readJsonBody(request) {
-  let body = "";
-
-  for await (const chunk of request) {
-    body += chunk;
-
-    if (body.length > 1_000_000) {
-      throw new Error("Request body is too large");
-    }
-  }
-
-  return body ? JSON.parse(body) : {};
-}
-
-async function readSubmissions() {
-  try {
-    const file = await readFile(submissionsFile, "utf8");
-    return JSON.parse(file);
-  } catch {
-    return {
-      contacts: [],
-      volunteers: [],
-      newsletter: [],
-      donations: [],
-    };
-  }
-}
-
-async function saveSubmission(type, payload) {
-  const submissions = await readSubmissions();
-  const entry = {
-    id: `${type}-${Date.now()}`,
-    createdAt: new Date().toISOString(),
-    ...payload,
-  };
-
-  submissions[type] = [entry, ...(submissions[type] || [])];
-
-  await mkdir(new URL("../data/", import.meta.url), { recursive: true });
-  await writeFile(submissionsFile, JSON.stringify(submissions, null, 2));
-
-  return entry;
-}
-
-function requireFields(payload, fields) {
-  const missing = fields.filter((field) => !String(payload[field] || "").trim());
-
-  if (missing.length) {
-    return `Missing required field: ${missing.join(", ")}`;
-  }
-
-  return "";
-}
-
-async function handlePost(path, request, response) {
-  const payload = await readJsonBody(request);
-
-  const postRoutes = {
-    "/api/contact": {
-      type: "contacts",
-      fields: ["name", "email", "subject", "message"],
-    },
-    "/api/volunteers": {
-      type: "volunteers",
-      fields: ["name", "email", "area"],
-    },
-    "/api/newsletter": {
-      type: "newsletter",
-      fields: ["email"],
-    },
-    "/api/donations": {
-      type: "donations",
-      fields: ["name", "email", "interest"],
-    },
-  };
-
-  const config = postRoutes[path];
-
-  if (!config) {
-    sendJson(response, 404, { error: "Route not found" });
+  if (req.method === "OPTIONS") {
+    res.sendStatus(204);
     return;
   }
 
-  const validationError = requireFields(payload, config.fields);
-
-  if (validationError) {
-    sendJson(response, 400, { error: validationError });
-    return;
-  }
-
-  const entry = await saveSubmission(config.type, payload);
-  sendJson(response, 201, { message: "Submission received", data: entry });
-}
-
-const server = createServer(async (request, response) => {
-  const url = new URL(request.url || "/", `http://${request.headers.host}`);
-  const path = url.pathname;
-
-  if (request.method === "OPTIONS") {
-    sendJson(response, 204, {});
-    return;
-  }
-
-  try {
-    if (request.method === "GET" && routes[path]) {
-      sendJson(response, 200, routes[path]);
-      return;
-    }
-
-    if (request.method === "POST") {
-      await handlePost(path, request, response);
-      return;
-    }
-
-    sendJson(response, 404, { error: "Route not found" });
-  } catch (error) {
-    sendJson(response, 500, {
-      error: error.message || "Server error",
-    });
-  }
+  next();
 });
 
-server.listen(port, () => {
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", service: "chadi-api" });
+});
+
+// Static reference content - not managed by the CMS.
+app.get("/api/programs", (req, res) => res.json(programs));
+app.get("/api/news", (req, res) => res.json(news));
+
+// CMS-managed collections. GET is public (the marketing site reads from
+// these); POST/PUT/DELETE require an authenticated admin session.
+app.use("/api/projects", createCrudRouter({ name: "projects", seed: seedProjects, requiredFields: ["title"] }));
+app.use("/api/events", createCrudRouter({ name: "events", seed: seedEvents, requiredFields: ["title", "date"] }));
+app.use("/api/team", createCrudRouter({ name: "team", seed: seedTeam, requiredFields: ["name", "role"] }));
+app.use("/api/gallery", createCrudRouter({ name: "gallery", seed: seedGallery, requiredFields: ["title", "image"] }));
+app.use("/api/partners", createCrudRouter({ name: "partners", seed: seedPartners, requiredFields: ["name"] }));
+app.use("/api/stories", createCrudRouter({ name: "stories", seed: seedStories, requiredFields: ["title"] }));
+
+// Site-wide settings (stats shown on the home page, contact info, socials).
+app.use("/api/settings", settingsRouter);
+// Kept for backwards compatibility with the old static /api/stats route.
+app.get("/api/stats", async (req, res) => {
+  const settings = await readCollection("settings", seedSettings);
+  res.json(settings.stats);
+});
+
+// Public form submissions. Anyone can POST; only admins can list/manage them.
+app.use("/api/contact", createSubmissionRouter({ name: "contacts", requiredFields: ["name", "email", "subject", "message"] }));
+app.use("/api/volunteers", createSubmissionRouter({ name: "volunteers", requiredFields: ["name", "email", "area"] }));
+app.use("/api/newsletter", createSubmissionRouter({ name: "newsletter", requiredFields: ["email"] }));
+app.use("/api/donations", createSubmissionRouter({ name: "donations", requiredFields: ["name", "email", "interest"] }));
+
+// Auth + admin user management.
+app.use("/api/auth", authRouter);
+app.use("/api/users", usersRouter);
+
+// Aggregate counts for the dashboard overview page.
+app.get("/api/admin/summary", requireAuth, async (req, res) => {
+  const [contacts, volunteers, newsletter, donations, projects, events, team, gallery, partners, stories] =
+    await Promise.all([
+      readCollection("contacts", () => []),
+      readCollection("volunteers", () => []),
+      readCollection("newsletter", () => []),
+      readCollection("donations", () => []),
+      readCollection("projects", seedProjects),
+      readCollection("events", seedEvents),
+      readCollection("team", seedTeam),
+      readCollection("gallery", seedGallery),
+      readCollection("partners", seedPartners),
+      readCollection("stories", seedStories),
+    ]);
+
+  res.json({
+    messages: contacts.length,
+    unreadMessages: contacts.filter((c) => !c.read).length,
+    volunteers: volunteers.length,
+    newsletterSubscribers: newsletter.length,
+    donationInterests: donations.length,
+    projects: projects.length,
+    events: events.length,
+    team: team.length,
+    gallery: gallery.length,
+    partners: partners.length,
+    stories: stories.length,
+  });
+});
+
+app.use((req, res) => {
+  res.status(404).json({ error: "Route not found" });
+});
+
+app.use((error, req, res, next) => {
+  console.error(error);
+  res.status(500).json({ error: error.message || "Server error" });
+});
+
+app.listen(port, () => {
   console.log(`CHADI API running on http://127.0.0.1:${port}`);
 });

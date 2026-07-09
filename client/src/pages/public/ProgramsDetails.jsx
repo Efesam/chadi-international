@@ -3,10 +3,12 @@ import PageHeader from "../../components/common/PageHeader";
 import ProgramCard from "../../components/ui/ProgramCard";
 import ProjectCard from "../../components/ui/ProjectCard";
 import { programs } from "../../data/programs";
-import { projects } from "../../data/projects";
+import { useCollection } from "../../hooks/useCollection";
+import { projectsApi } from "../../services/api";
 
 function ProgramsDetails() {
   const { slug } = useParams();
+  const { data: projects } = useCollection(projectsApi.list);
 
   const program = programs.find((item) => item.slug === slug);
 
@@ -25,10 +27,10 @@ function ProgramsDetails() {
     );
   }
 
-  const relatedProjects = projects.filter((project) =>
+  const relatedProjects = (projects || []).filter((project) =>
     project.program.toLowerCase().includes(program.title.toLowerCase()) ||
     program.title.toLowerCase().includes(project.program.toLowerCase()) ||
-    project.summary.toLowerCase().includes(program.title.toLowerCase())
+    (project.summary || "").toLowerCase().includes(program.title.toLowerCase())
   );
 
   const otherPrograms = programs.filter((item) => item.slug !== program.slug);

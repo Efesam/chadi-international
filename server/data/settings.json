@@ -1,0 +1,29 @@
+{
+  "stats": [
+    {
+      "label": "Projects",
+      "value": 16
+    },
+    {
+      "label": "Beneficiaries",
+      "value": 12000
+    },
+    {
+      "label": "Volunteers",
+      "value": 250
+    },
+    {
+      "label": "Communities",
+      "value": 30
+    }
+  ],
+  "contactEmail": "info@chadiinternational.org",
+  "focusRegion": "Nigeria and underserved African communities",
+  "officeHours": "Monday to Friday, 9:00 AM - 5:00 PM",
+  "socials": {
+    "facebook": "",
+    "twitter": "",
+    "instagram": "",
+    "linkedin": ""
+  }
+}

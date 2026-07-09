@@ -1,9 +1,11 @@
 import { useState } from "react";
 import PageHeader from "../../components/common/PageHeader";
-import { sendContactMessage } from "../../services/api";
+import { sendContactMessage, getSettings } from "../../services/api";
+import { useCollection } from "../../hooks/useCollection";
 
 function Contact() {
   const [status, setStatus] = useState("");
+  const { data: settings } = useCollection(getSettings);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,15 +43,21 @@ function Contact() {
             <div className="mt-10 space-y-5">
               <div>
                 <p className="font-semibold text-chadi-green">Email</p>
-                <p className="text-gray-600">info@chadiinternational.org</p>
+                <p className="text-gray-600">
+                  {settings?.contactEmail || "info@chadiinternational.org"}
+                </p>
               </div>
               <div>
                 <p className="font-semibold text-chadi-green">Focus Region</p>
-                <p className="text-gray-600">Nigeria and underserved African communities</p>
+                <p className="text-gray-600">
+                  {settings?.focusRegion || "Nigeria and underserved African communities"}
+                </p>
               </div>
               <div>
                 <p className="font-semibold text-chadi-green">Office Hours</p>
-                <p className="text-gray-600">Monday to Friday, 9:00 AM - 5:00 PM</p>
+                <p className="text-gray-600">
+                  {settings?.officeHours || "Monday to Friday, 9:00 AM - 5:00 PM"}
+                </p>
               </div>
             </div>
           </div>

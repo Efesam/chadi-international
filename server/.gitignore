@@ -1,1 +1,8 @@
 data/submissions.json
+data/contacts.json
+data/volunteers.json
+data/newsletter.json
+data/donations.json
+data/users.json
+node_modules/
+*.log

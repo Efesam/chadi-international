@@ -1,13 +1,21 @@
 import { useParams } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
-import { projects } from "../../data/projects";
+import { useCollection } from "../../hooks/useCollection";
+import { projectsApi } from "../../services/api";
 
 function ProjectDetails() {
   const { slug } = useParams();
+  const { data: project, loading, error } = useCollection(() => projectsApi.get(slug), [slug]);
 
-  const project = projects.find((p) => p.slug === slug);
+  if (loading) {
+    return (
+      <section className="bg-white py-28 text-center">
+        <p className="text-gray-500">Loading project...</p>
+      </section>
+    );
+  }
 
-  if (!project) {
+  if (error || !project) {
     return (
       <section className="bg-white py-28 text-center">
         <div className="mx-auto max-w-3xl px-6">

@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
-import { events } from "../../data/events";
+import { useCollection } from "../../hooks/useCollection";
+import { eventsApi } from "../../services/api";
 
 function UpcomingEvents() {
+  const { data, loading } = useCollection(eventsApi.list);
+  const events = (data || []).slice(0, 3);
+
+  if (!loading && events.length === 0) return null;
+
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6">
@@ -14,20 +20,24 @@ function UpcomingEvents() {
           </h2>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {events.map((event) => (
-            <article
-              key={event.id}
-              className="rounded-xl bg-chadi-cream p-6 shadow-sm"
-            >
-              <p className="font-semibold text-chadi-gold">{event.date}</p>
-              <h3 className="mt-3 text-2xl font-bold text-chadi-green">
-                {event.title}
-              </h3>
-              <p className="mt-2 text-gray-600">{event.location}</p>
-            </article>
-          ))}
-        </div>
+        {loading ? (
+          <p className="text-center text-gray-500">Loading events...</p>
+        ) : (
+          <div className="grid gap-6 lg:grid-cols-3">
+            {events.map((event) => (
+              <article
+                key={event.id}
+                className="rounded-xl bg-chadi-cream p-6 shadow-sm"
+              >
+                <p className="font-semibold text-chadi-gold">{event.date}</p>
+                <h3 className="mt-3 text-2xl font-bold text-chadi-green">
+                  {event.title}
+                </h3>
+                <p className="mt-2 text-gray-600">{event.location}</p>
+              </article>
+            ))}
+          </div>
+        )}
 
         <div className="mt-10 text-center">
           <Link

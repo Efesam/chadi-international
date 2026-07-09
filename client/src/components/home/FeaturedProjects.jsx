@@ -1,16 +1,15 @@
-import { projects } from "../../data/projects";
+import { useCollection } from "../../hooks/useCollection";
+import { projectsApi } from "../../services/api";
 import ProjectCard from "../ui/ProjectCard";
 
 function FeaturedProjects() {
-  const featured = projects.filter(project => project.featured);
+  const { data, loading } = useCollection(projectsApi.list);
+  const featured = (data || []).filter((project) => project.featured);
 
   return (
     <section className="bg-gray-50 py-24">
-
       <div className="mx-auto max-w-7xl px-6">
-
         <div className="mb-16 text-center">
-
           <span className="font-semibold uppercase tracking-widest text-chadi-gold">
             OUR PROJECTS
           </span>
@@ -24,22 +23,18 @@ function FeaturedProjects() {
             CHADI International is transforming lives across underserved
             communities.
           </p>
-
         </div>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-
-          {featured.map(project => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-            />
-          ))}
-
-        </div>
-
+        {loading ? (
+          <p className="text-center text-gray-500">Loading projects...</p>
+        ) : (
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+            {featured.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        )}
       </div>
-
     </section>
   );
 }

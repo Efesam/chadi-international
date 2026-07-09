@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
+import { useCollection } from "../../hooks/useCollection";
+import { partnersApi } from "../../services/api";
 
 const partnerTypes = [
   "Community organizations",
@@ -11,6 +13,8 @@ const partnerTypes = [
 ];
 
 function Partners() {
+  const { data: partners, loading, error } = useCollection(partnersApi.list);
+
   return (
     <>
       <PageHeader
@@ -48,6 +52,43 @@ function Partners() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="text-3xl font-bold text-chadi-green">Our Partners</h2>
+
+          {loading ? (
+            <p className="mt-8 text-gray-500">Loading partners...</p>
+          ) : error ? (
+            <p className="mt-8 font-semibold text-red-600">{error}</p>
+          ) : partners.length === 0 ? (
+            <p className="mt-8 text-gray-500">
+              We're building this list. Reach out if your organization would like to partner with CHADI.
+            </p>
+          ) : (
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {partners.map((partner) => (
+                <a
+                  key={partner.id}
+                  href={partner.website || "#"}
+                  target={partner.website ? "_blank" : undefined}
+                  rel={partner.website ? "noreferrer" : undefined}
+                  className="block rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                >
+                  {partner.logo && (
+                    <img src={partner.logo} alt={partner.name} className="h-12 object-contain" />
+                  )}
+                  <p className="mt-4 font-bold text-chadi-green">{partner.name}</p>
+                  <p className="mt-1 text-sm text-gray-500">{partner.type}</p>
+                  {partner.description && (
+                    <p className="mt-3 text-sm text-gray-600">{partner.description}</p>
+                  )}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>
