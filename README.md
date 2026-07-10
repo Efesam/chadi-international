@@ -36,9 +36,22 @@ should set these before deploying anywhere real:
 | `ADMIN_EMAIL`    | Seeds the first admin account (only used once)         | `admin@chadi-international.org` |
 | `ADMIN_PASSWORD` | Seeds the first admin account's password (only used once) | `ChadiAdmin!2026`         |
 | `PORT`           | API port                                               | `4000`                        |
+| `PAYSTACK_SECRET_KEY` | Verifies donations made through the Donate page (server-side only, never exposed to the browser) | none - payments return a clear error until set |
 
 The client reads `VITE_API_URL` if you need to point it at a non-default API
-URL (e.g. in production); it falls back to `http://127.0.0.1:4000/api`.
+URL (e.g. in production); it falls back to `http://127.0.0.1:4000/api`. It
+also reads `VITE_PAYSTACK_PUBLIC_KEY` for the Paystack checkout popup - set
+this in `client/.env` (create the file if it doesn't exist):
+
+```
+VITE_PAYSTACK_PUBLIC_KEY=pk_test_xxxxxxxxxxxx
+```
+
+Get both keys from your Paystack dashboard under Settings → API Keys & Webhooks.
+Use the `pk_test_...` / `sk_test_...` pair while developing, and switch to the
+live pair only once you're ready to accept real payments. Without a secret key
+set, the Donate page still works - it just shows a friendly notice on the
+payment form and falls back to the "Other Ways to Give" interest form.
 
 ## Admin dashboard
 
@@ -52,7 +65,9 @@ From the dashboard you can manage:
 - **Projects, Events, Team, Gallery, Partners, Stories** - full create/edit/delete,
   and changes appear on the public site immediately (no rebuild needed).
 - **Messages, Volunteers, Donations** - view and manage submissions from the
-  public Contact, Volunteer and Donate forms.
+  public Contact, Volunteer and Donate forms. Donations includes both real
+  Paystack payments (verified server-side) and "other ways to give" interest
+  submissions, shown together with a Type column.
 - **Admin Users** - add or remove who can log in to the dashboard.
 - **Settings** - the four homepage stat counters, contact email, focus
   region, office hours and social links.

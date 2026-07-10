@@ -16,6 +16,7 @@ import {
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import settingsRouter from "./routes/settings.js";
+import paymentsRouter from "./routes/payments.js";
 
 const port = Number(process.env.PORT || 4000);
 const app = express();
@@ -71,6 +72,9 @@ app.use("/api/donations", createSubmissionRouter({ name: "donations", requiredFi
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
 
+// Paystack payment verification (donations made via the Donate page).
+app.use("/api/payments", paymentsRouter);
+
 // Aggregate counts for the dashboard overview page.
 app.get("/api/admin/summary", requireAuth, async (req, res) => {
   const [contacts, volunteers, newsletter, donations, projects, events, team, gallery, partners, stories] =
@@ -87,12 +91,17 @@ app.get("/api/admin/summary", requireAuth, async (req, res) => {
       readCollection("stories", seedStories),
     ]);
 
+  const completedPayments = donations.filter((d) => d.type === "payment");
+  const totalRaised = completedPayments.reduce((sum, d) => sum + (d.amount || 0), 0);
+
   res.json({
     messages: contacts.length,
     unreadMessages: contacts.filter((c) => !c.read).length,
     volunteers: volunteers.length,
     newsletterSubscribers: newsletter.length,
-    donationInterests: donations.length,
+    donationInterests: donations.filter((d) => d.type !== "payment").length,
+    completedPayments: completedPayments.length,
+    totalRaised,
     projects: projects.length,
     events: events.length,
     team: team.length,

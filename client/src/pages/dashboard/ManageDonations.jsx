@@ -4,10 +4,22 @@ import { donationsApi } from "../../services/api";
 const columns = [
   { key: "name", label: "Name" },
   { key: "email", label: "Email" },
-  { key: "interest", label: "Interest" },
+  {
+    key: "type",
+    label: "Type",
+    render: (item) => (item.type === "payment" ? "Paid Donation" : "Interest Only"),
+  },
+  {
+    key: "detail",
+    label: "Amount / Interest",
+    render: (item) =>
+      item.type === "payment"
+        ? `₦${Number(item.amount || 0).toLocaleString()} (${item.channel || "card"})`
+        : item.interest,
+  },
   {
     key: "createdAt",
-    label: "Submitted",
+    label: "Date",
     render: (item) => new Date(item.createdAt).toLocaleDateString(),
   },
 ];
@@ -15,11 +27,11 @@ const columns = [
 function ManageDonations() {
   return (
     <SubmissionManager
-      title="Donation Interest"
-      description="Donation interest submitted through the public Donate page."
+      title="Donations"
+      description="Paid donations (verified via Paystack) and donation interest submitted through the Donate page."
       api={donationsApi}
       columns={columns}
-      emptyMessage="No donation interest submitted yet."
+      emptyMessage="No donations or donation interest submitted yet."
     />
   );
 }

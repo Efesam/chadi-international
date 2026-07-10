@@ -53,6 +53,10 @@ export function recordDonationInterest(payload) {
   return request("/donations", { method: "POST", body: JSON.stringify(payload) });
 }
 
+export function verifyPayment(reference) {
+  return request("/payments/verify", { method: "POST", body: JSON.stringify({ reference }) });
+}
+
 // ---- Auth ----
 
 export async function login(email, password) {

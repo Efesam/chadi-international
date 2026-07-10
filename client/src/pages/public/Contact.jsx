@@ -9,13 +9,14 @@ function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
     setStatus("Sending...");
 
     try {
       await sendContactMessage(Object.fromEntries(formData.entries()));
-      event.currentTarget.reset();
+      form.reset();
       setStatus("Message sent. CHADI will follow up soon.");
     } catch {
       setStatus("Message could not be sent right now. Please try again.");

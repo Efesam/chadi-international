@@ -7,13 +7,14 @@ function Volunteer() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
     setStatus("Submitting...");
 
     try {
       await submitVolunteerApplication(Object.fromEntries(formData.entries()));
-      event.currentTarget.reset();
+      form.reset();
       setStatus("Application received. CHADI will reach out soon.");
     } catch {
       setStatus("We could not submit this right now. Please try again.");
