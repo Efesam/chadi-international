@@ -2,57 +2,36 @@ import { Link } from "react-router-dom";
 
 function ProjectCard({ project }) {
   return (
-    <div className="group overflow-hidden rounded-3xl bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      {/* Image */}
-      <div className="relative h-60 overflow-hidden bg-gray-200">
+    <Link
+      to={`/projects/${project.slug}`}
+      className="group block overflow-hidden border border-chadi-ink/10 bg-white transition hover:border-chadi-green"
+    >
+      <div className="relative h-56 overflow-hidden bg-chadi-ink/5">
         <img
           src={project.image}
           alt={project.title}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
         />
-
-        <span className="absolute left-5 top-5 rounded-full bg-chadi-green px-4 py-2 text-sm font-semibold text-white">
-          {project.program}
-        </span>
       </div>
 
-      <div className="space-y-4 p-6">
-        <div className="flex items-center justify-between">
-          <span className="rounded-full bg-chadi-lightgreen px-3 py-1 text-sm font-semibold text-chadi-green">
-            {project.status}
-          </span>
-
-          <span className="text-sm text-gray-500">
-            {project.location}
-          </span>
+      <div className="space-y-3 p-6">
+        <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide">
+          <span className="text-chadi-green">{project.program}</span>
+          <span className="text-chadi-ink/40">{project.location}</span>
         </div>
 
-        <h3 className="text-2xl font-bold text-chadi-green">
-          {project.title}
-        </h3>
+        <h3 className="font-serif text-2xl text-chadi-ink">{project.title}</h3>
 
-        <p className="text-gray-600">
-          {project.summary}
-        </p>
+        <p className="leading-6 text-chadi-ink/60">{project.summary}</p>
 
-        <div className="pt-2">
-          <p className="text-sm text-gray-500">
-            Beneficiaries
-          </p>
-
-          <p className="font-semibold">
+        <div className="flex items-center justify-between border-t border-chadi-ink/10 pt-4 text-sm">
+          <span className="text-chadi-ink/50">{project.status}</span>
+          <span className="font-semibold text-chadi-ink">
             {project.beneficiaries}
-          </p>
+          </span>
         </div>
-
-        <Link
-          to={`/projects/${project.slug}`}
-          className="inline-flex font-semibold text-chadi-green hover:text-chadi-gold"
-        >
-          Learn More →
-        </Link>
       </div>
-    </div>
+    </Link>
   );
 }
 

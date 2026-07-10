@@ -3,33 +3,29 @@ import { programs } from "../../data/programs";
 
 function ProgramsSection() {
   return (
-    <section className="bg-gray-50 py-24">
-      <div className="mx-auto max-w-7xl px-6">
-
-        <div className="mb-16 text-center">
-
-          <span className="rounded-full bg-chadi-gold px-5 py-2 text-sm font-semibold">
-            Our Flagship Initiatives
-          </span>
-
-          <h2 className="mt-6 text-5xl font-bold text-chadi-green">
-            Transforming Lives Across Africa
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
-            CHADI International implements strategic initiatives focused on
-            sustainable development, humanitarian response, education,
-            healthcare and community empowerment.
+    <section className="bg-chadi-cream py-24">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[4px] text-chadi-green">
+            Flagship Initiatives
           </p>
 
+          <h2 className="mt-5 text-4xl leading-tight text-chadi-ink sm:text-5xl">
+            Six programs, one goal.
+          </h2>
+
+          <p className="mt-6 text-lg leading-8 text-chadi-ink/60">
+            Each initiative targets a specific, practical gap &mdash;
+            nutrition, education, livelihoods, or resilience &mdash; identified
+            directly with the communities we work in.
+          </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8">
           {programs.map((program) => (
             <ProgramCard key={program.id} program={program} />
           ))}
         </div>
-
       </div>
     </section>
   );
