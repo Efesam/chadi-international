@@ -7,10 +7,11 @@ import { requireAuth } from "./auth.js";
  * applications, newsletter signups, donation interest). Anyone can POST;
  * only authenticated admins can list, mark read, or delete entries.
  */
-export function createSubmissionRouter({ name, requiredFields = [] }) {
+export function createSubmissionRouter({ name, requiredFields = [], limiter }) {
   const router = Router();
+  const postGuard = limiter ? [limiter] : [];
 
-  router.post("/", async (req, res) => {
+  router.post("/", ...postGuard, async (req, res) => {
     const missing = requiredFields.filter((field) => !String(req.body?.[field] || "").trim());
 
     if (missing.length) {

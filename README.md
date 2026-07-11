@@ -114,6 +114,15 @@ it directly in the response outside production) so you can test the flow.
 Wire up a real provider (e.g. Resend, Postmark, or SMTP via `nodemailer`)
 before relying on this for real users.
 
+## Rate limiting
+
+The API applies a generous baseline limit (300 requests / 15 min per IP) to
+everything under `/api`, plus stricter limits on the routes most worth
+protecting: 5 submissions / 15 min per IP on the public Contact, Volunteer,
+Newsletter and Donate-interest forms, and 10 attempts / 15 min per IP on
+login/forgot-password/reset-password. A real visitor should never notice
+either limit; scripted spam/abuse will.
+
 ## Data storage
 
 The API stores everything as JSON files in `server/data/` - there's no

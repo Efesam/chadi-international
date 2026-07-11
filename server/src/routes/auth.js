@@ -9,10 +9,11 @@ import {
   resetPasswordWithToken,
   getUsers,
 } from "../lib/auth.js";
+import { authLimiter } from "../lib/rateLimit.js";
 
 const router = Router();
 
-router.post("/login", async (req, res) => {
+router.post("/login", authLimiter, async (req, res) => {
   const { email, password } = req.body || {};
 
   if (!email || !password) {
@@ -43,7 +44,7 @@ router.get("/me", requireAuth, async (req, res) => {
   res.json({ user: publicUser(user) });
 });
 
-router.post("/forgot-password", async (req, res) => {
+router.post("/forgot-password", authLimiter, async (req, res) => {
   const { email } = req.body || {};
 
   if (!email) {
@@ -70,7 +71,7 @@ router.post("/forgot-password", async (req, res) => {
   });
 });
 
-router.post("/reset-password", async (req, res) => {
+router.post("/reset-password", authLimiter, async (req, res) => {
   const { token, password } = req.body || {};
 
   if (!token || !password) {

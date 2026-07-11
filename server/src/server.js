@@ -17,6 +17,7 @@ import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import settingsRouter from "./routes/settings.js";
 import paymentsRouter from "./routes/payments.js";
+import { apiLimiter, formLimiter } from "./lib/rateLimit.js";
 
 const port = Number(process.env.PORT || 4000);
 const app = express();
@@ -50,6 +51,11 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", service: "chadi-api" });
 });
 
+// Baseline abuse protection across the whole API. The stricter per-endpoint
+// limiters below (formLimiter, authLimiter) layer on top of this for the
+// most sensitive routes.
+app.use("/api", apiLimiter);
+
 // Static reference content - not managed by the CMS.
 app.get("/api/programs", (req, res) => res.json(programs));
 app.get("/api/news", (req, res) => res.json(news));
@@ -72,10 +78,10 @@ app.get("/api/stats", async (req, res) => {
 });
 
 // Public form submissions. Anyone can POST; only admins can list/manage them.
-app.use("/api/contact", createSubmissionRouter({ name: "contacts", requiredFields: ["name", "email", "subject", "message"] }));
-app.use("/api/volunteers", createSubmissionRouter({ name: "volunteers", requiredFields: ["name", "email", "area"] }));
-app.use("/api/newsletter", createSubmissionRouter({ name: "newsletter", requiredFields: ["email"] }));
-app.use("/api/donations", createSubmissionRouter({ name: "donations", requiredFields: ["name", "email", "interest"] }));
+app.use("/api/contact", createSubmissionRouter({ name: "contacts", requiredFields: ["name", "email", "subject", "message"], limiter: formLimiter }));
+app.use("/api/volunteers", createSubmissionRouter({ name: "volunteers", requiredFields: ["name", "email", "area"], limiter: formLimiter }));
+app.use("/api/newsletter", createSubmissionRouter({ name: "newsletter", requiredFields: ["email"], limiter: formLimiter }));
+app.use("/api/donations", createSubmissionRouter({ name: "donations", requiredFields: ["name", "email", "interest"], limiter: formLimiter }));
 
 // Auth + admin user management.
 app.use("/api/auth", authRouter);
