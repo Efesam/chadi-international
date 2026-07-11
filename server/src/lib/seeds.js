@@ -43,6 +43,48 @@ export function seedTeam() {
   ];
 }
 
+export function seedPrograms() {
+  return [
+    { id: "program_miycn", slug: "miycn", title: "MIYCN", category: "Health & Nutrition", description: "Promoting maternal, infant and young child nutrition through education, advocacy and community engagement.", icon: "❤️" },
+    { id: "program_sorcest", slug: "sorcest", title: "SORCEST", category: "Education", description: "Providing education, mentorship and digital skills for vulnerable children and youth.", icon: "🎓" },
+    { id: "program_help", slug: "help", title: "HELP", category: "Humanitarian", description: "Delivering emergency relief, food support and livelihood assistance.", icon: "🤝" },
+    { id: "program_start", slug: "start", title: "START", category: "Youth Development", description: "Building leadership, entrepreneurship and life skills among young people.", icon: "🚀" },
+    { id: "program_spot", slug: "spot", title: "SPOT", category: "Protection", description: "Creating safe spaces and promoting child protection initiatives.", icon: "🛡️" },
+    { id: "program_safe", slug: "safe", title: "SAFE", category: "Community Safety", description: "Improving safety, resilience and emergency preparedness within communities.", icon: "🏥" },
+    { id: "program_girlie_m3", slug: "girlie-m3", title: "GIRLIE M3", category: "Women & Girls", description: "Empowering adolescent girls and young women through education and mentorship.", icon: "👩" },
+    { id: "program_still_here", slug: "still-here", title: "STILL HERE", category: "Mental Health", description: "Providing psychosocial support and hope for vulnerable individuals.", icon: "💙" },
+  ];
+}
+
+export function seedNews() {
+  return [
+    {
+      id: "news_1",
+      slug: "miycn-community-outreach",
+      title: "CHADI Reaches Hundreds Through MIYCN Community Outreach",
+      category: "Health",
+      date: "July 5, 2026",
+      author: "CHADI Communications",
+      image: "",
+      excerpt: "Our MIYCN outreach empowered mothers and caregivers with practical nutrition knowledge.",
+      content:
+        "<p>Caleb Hope Alive Development Initiative (CHADI) successfully concluded a Maternal, Infant and Young Child Nutrition (MIYCN) outreach in Gombe State.</p><p>The outreach provided nutrition education, health screening, and counselling sessions for mothers and caregivers.</p><p>Over 500 beneficiaries participated in the program.</p>",
+    },
+    {
+      id: "news_2",
+      slug: "digital-skills-training",
+      title: "Youth Complete Digital Skills Training",
+      category: "Education",
+      date: "June 18, 2026",
+      author: "CHADI Communications",
+      image: "",
+      excerpt: "Young people graduated after completing CHADI's digital literacy programme.",
+      content:
+        "<p>Participants completed intensive training in digital literacy, graphic design, entrepreneurship, and productivity tools.</p><p>The programme prepares young people for employment and self-employment opportunities.</p>",
+    },
+  ];
+}
+
 // Gallery, Partners and Stories are brand-new content types with no existing
 // real data - they seed empty on purpose so the admin adds genuine content
 // through the dashboard rather than shipping placeholder/fake entries.

@@ -5,9 +5,9 @@ const fields = [
   { name: "title", label: "Title", required: true },
   { name: "personName", label: "Featured Person" },
   { name: "program", label: "Related Program" },
-  { name: "image", label: "Image URL" },
+  { name: "image", label: "Image", type: "image" },
   { name: "excerpt", label: "Short Excerpt", type: "textarea" },
-  { name: "content", label: "Full Story", type: "textarea", fullWidth: true },
+  { name: "content", label: "Full Story", type: "richtext" },
 ];
 
 const columns = [

@@ -3,7 +3,7 @@ import { galleryApi } from "../../services/api";
 
 const fields = [
   { name: "title", label: "Title", required: true },
-  { name: "image", label: "Image URL", required: true, hint: "e.g. /uploads/gallery/photo1.jpg" },
+  { name: "image", label: "Image", type: "image", required: true },
   { name: "category", label: "Category", hint: "e.g. Health, Education, Events" },
 ];
 

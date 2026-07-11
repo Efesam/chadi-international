@@ -146,3 +146,19 @@ export function requireAuth(req, res, next) {
   req.user = payload;
   next();
 }
+
+/**
+ * Requires a valid session AND an "admin" role. Use this for anything an
+ * "editor" shouldn't be able to do - managing other admin accounts, or
+ * changing site-wide settings. Content management (projects, events, etc.)
+ * stays open to any authenticated user, editor or admin.
+ */
+export function requireAdmin(req, res, next) {
+  requireAuth(req, res, () => {
+    if (req.user.role !== "admin") {
+      res.status(403).json({ error: "This action requires an admin account" });
+      return;
+    }
+    next();
+  });
+}

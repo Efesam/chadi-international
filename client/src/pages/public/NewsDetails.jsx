@@ -1,12 +1,21 @@
 import { Link, useParams } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
-import { news } from "../../data/news";
+import { useCollection } from "../../hooks/useCollection";
+import { newsApi } from "../../services/api";
 
 function NewsDetails() {
   const { slug } = useParams();
-  const article = news.find((item) => item.slug === slug);
+  const { data: article, loading, error } = useCollection(() => newsApi.get(slug), [slug]);
 
-  if (!article) {
+  if (loading) {
+    return (
+      <section className="bg-white py-28 text-center">
+        <p className="text-gray-500">Loading article...</p>
+      </section>
+    );
+  }
+
+  if (error || !article) {
     return (
       <section className="bg-white py-28 text-center">
         <div className="mx-auto max-w-3xl px-6">
@@ -41,14 +50,10 @@ function NewsDetails() {
             <span>{article.author}</span>
           </div>
 
-          <div className="mt-10 space-y-6 text-lg leading-8 text-gray-700">
-            {article.content
-              .trim()
-              .split("\n\n")
-              .map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-          </div>
+          <div
+            className="prose prose-lg mt-10 max-w-none text-gray-700"
+            dangerouslySetInnerHTML={{ __html: article.content || "" }}
+          />
 
           <Link
             to="/news"

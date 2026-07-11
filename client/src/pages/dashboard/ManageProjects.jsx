@@ -4,7 +4,7 @@ import { projectsApi } from "../../services/api";
 const fields = [
   { name: "title", label: "Title", required: true },
   { name: "slug", label: "Slug", required: true, hint: "Used in the project URL, e.g. community-miycn" },
-  { name: "image", label: "Image URL", hint: "e.g. /uploads/projects/miycn.jpg" },
+  { name: "image", label: "Image", type: "image" },
   { name: "program", label: "Program" },
   { name: "location", label: "Location" },
   {

@@ -44,7 +44,10 @@ function Stories() {
                     {story.excerpt}
                   </p>
                   {story.content && (
-                    <p className="mt-4 leading-7 text-gray-600">{story.content}</p>
+                    <div
+                      className="prose prose-sm mt-4 max-w-none text-gray-600"
+                      dangerouslySetInnerHTML={{ __html: story.content }}
+                    />
                   )}
                   {story.personName && (
                     <p className="mt-5 font-semibold text-gray-700">

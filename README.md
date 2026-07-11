@@ -93,8 +93,10 @@ login** - go to Admin Users in the dashboard sidebar.
 
 From the dashboard you can manage:
 
-- **Projects, Events, Team, Gallery, Partners, Stories** - full create/edit/delete,
-  and changes appear on the public site immediately (no rebuild needed).
+- **Projects, Programs, News, Events, Team, Gallery, Partners, Stories** - full create/edit/delete,
+  and changes appear on the public site immediately (no rebuild needed). Image
+  fields support uploading a file directly (stored on the server under
+  `server/uploads/`) or pasting a URL.
 - **Messages, Volunteers, Donations** - view and manage submissions from the
   public Contact, Volunteer and Donate forms. Donations includes both real
   Paystack payments (verified server-side) and "other ways to give" interest
@@ -129,3 +131,11 @@ The API stores everything as JSON files in `server/data/` - there's no
 database to set up. Content collections (projects, events, team, etc.) are
 tracked in git as the site's real content. Submission data and the admin
 `users.json` file (which contains password hashes) are gitignored on purpose.
+
+Uploaded images (`server/uploads/`) are also stored on local disk and
+gitignored - fine for getting started, but this means uploaded images live
+only on whichever server/disk is running the API. If you redeploy to a new
+server or the disk is lost, uploaded images go with it (your seeded content
+images in `client/public/uploads/` are unaffected - those are committed to
+git). Before relying on this for real, consider moving uploads to a cloud
+storage provider (S3, Cloudinary, etc.).

@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./ProtectedRoute";
+import RequireAdmin from "./RequireAdmin";
 import PublicRoute from "./PublicRoute";
 
 import Home from "../pages/public/Home";
@@ -35,7 +36,9 @@ import ForgotPassword from "../pages/auth/ForgotPassword";
 import ResetPassword from "../pages/auth/ResetPassword";
 
 import Dashboard from "../pages/dashboard/Dashboard";
+import ManagePrograms from "../pages/dashboard/ManagePrograms";
 import ManageProjects from "../pages/dashboard/ManageProjects";
+import ManageNews from "../pages/dashboard/ManageNews";
 import ManageEvents from "../pages/dashboard/ManageEvents";
 import ManageTeam from "../pages/dashboard/ManageTeam";
 import ManageGallery from "../pages/dashboard/ManageGallery";
@@ -99,7 +102,9 @@ function AppRoutes() {
         <Route element={<DashboardLayout />}>
           <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/programs" element={<ManagePrograms />} />
           <Route path="/admin/projects" element={<ManageProjects />} />
+          <Route path="/admin/news" element={<ManageNews />} />
           <Route path="/admin/events" element={<ManageEvents />} />
           <Route path="/admin/team" element={<ManageTeam />} />
           <Route path="/admin/gallery" element={<ManageGallery />} />
@@ -108,8 +113,10 @@ function AppRoutes() {
           <Route path="/admin/messages" element={<ManageMessages />} />
           <Route path="/admin/volunteers" element={<ManageVolunteers />} />
           <Route path="/admin/donations" element={<ManageDonations />} />
-          <Route path="/admin/users" element={<ManageUsers />} />
-          <Route path="/admin/settings" element={<Settings />} />
+          <Route element={<RequireAdmin />}>
+            <Route path="/admin/users" element={<ManageUsers />} />
+            <Route path="/admin/settings" element={<Settings />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

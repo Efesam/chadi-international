@@ -10,6 +10,7 @@ import {
   getUsers,
 } from "../lib/auth.js";
 import { authLimiter } from "../lib/rateLimit.js";
+import { sendMail } from "../lib/mailer.js";
 
 const router = Router();
 
@@ -54,20 +55,36 @@ router.post("/forgot-password", authLimiter, async (req, res) => {
 
   const token = await createPasswordResetToken(email);
 
-  // No email/SMTP provider is configured, so the reset link is logged to the
-  // server console (and returned in the response) instead of actually being
-  // emailed. Wire up a real provider (e.g. Resend, Postmark, nodemailer+SMTP)
-  // before relying on this in production.
+  // Sends a real email if SMTP_HOST/SMTP_USER/SMTP_PASS are set (see
+  // server/.env.example); otherwise the reset link is logged to the server
+  // console instead, so this still works end-to-end while testing locally.
+  let emailResult = { sent: false };
   if (token) {
     const resetUrl = `${req.headers.origin || "http://localhost:5173"}/admin/reset-password?token=${token}`;
-    console.log(`[auth] Password reset requested for ${email}: ${resetUrl}`);
+
+    emailResult = await sendMail({
+      to: email,
+      subject: "Reset your CHADI International admin password",
+      text: `Someone requested a password reset for your CHADI International admin account.\n\nReset it here: ${resetUrl}\n\nThis link expires in 1 hour. If you didn't request this, you can safely ignore this email.`,
+      html: `
+        <p>Someone requested a password reset for your CHADI International admin account.</p>
+        <p><a href="${resetUrl}">Click here to reset your password</a></p>
+        <p>This link expires in 1 hour. If you didn't request this, you can safely ignore this email.</p>
+      `,
+    });
+
+    if (!emailResult.sent) {
+      console.log(`[auth] Password reset requested for ${email}: ${resetUrl}`);
+    }
   }
 
   // Always respond the same way whether or not the email exists, so this
   // endpoint can't be used to discover which emails have accounts.
   res.json({
     message: "If that email exists, a reset link has been generated.",
-    ...(token && process.env.NODE_ENV !== "production" ? { devResetToken: token } : {}),
+    ...(token && !emailResult.sent && process.env.NODE_ENV !== "production"
+      ? { devResetToken: token }
+      : {}),
   });
 });
 

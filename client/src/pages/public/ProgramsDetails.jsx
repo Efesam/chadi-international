@@ -2,15 +2,23 @@ import { useParams } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
 import ProgramCard from "../../components/ui/ProgramCard";
 import ProjectCard from "../../components/ui/ProjectCard";
-import { programs } from "../../data/programs";
 import { useCollection } from "../../hooks/useCollection";
-import { projectsApi } from "../../services/api";
+import { projectsApi, programsApi } from "../../services/api";
 
 function ProgramsDetails() {
   const { slug } = useParams();
   const { data: projects } = useCollection(projectsApi.list);
+  const { data: programs, loading } = useCollection(programsApi.list);
 
-  const program = programs.find((item) => item.slug === slug);
+  const program = (programs || []).find((item) => item.slug === slug);
+
+  if (loading) {
+    return (
+      <section className="bg-white py-28 text-center">
+        <p className="text-gray-500">Loading program...</p>
+      </section>
+    );
+  }
 
   if (!program) {
     return (
@@ -33,7 +41,7 @@ function ProgramsDetails() {
     (project.summary || "").toLowerCase().includes(program.title.toLowerCase())
   );
 
-  const otherPrograms = programs.filter((item) => item.slug !== program.slug);
+  const otherPrograms = (programs || []).filter((item) => item.slug !== program.slug);
 
   return (
     <>

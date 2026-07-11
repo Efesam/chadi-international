@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import Logo from "./Logo";
+import { useCollection } from "../../hooks/useCollection";
+import { getSettings } from "../../services/api";
+
+const socialIcons = {
+  facebook: FaFacebookF,
+  twitter: FaXTwitter,
+  instagram: FaInstagram,
+  linkedin: FaLinkedinIn,
+};
 
 function Footer() {
+  const { data: settings } = useCollection(getSettings);
+  const socials = settings?.socials || {};
+  const activeSocials = Object.entries(socials).filter(([, url]) => url);
+
   const footerLinks = [
     { label: "Programs", path: "/programs" },
     { label: "Projects", path: "/projects" },
@@ -23,6 +37,28 @@ function Footer() {
             Empowering marginalized individuals and underserved communities
             through innovation, compassion and sustainable development.
           </p>
+
+          {activeSocials.length > 0 && (
+            <div className="mt-6 flex gap-3">
+              {activeSocials.map(([platform, url]) => {
+                const Icon = socialIcons[platform];
+                if (!Icon) return null;
+
+                return (
+                  <a
+                    key={platform}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`CHADI International on ${platform}`}
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-chadi-gold hover:text-black"
+                  >
+                    <Icon size={14} />
+                  </a>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">

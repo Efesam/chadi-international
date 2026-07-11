@@ -7,7 +7,7 @@ const fields = [
   { name: "department", label: "Department" },
   { name: "email", label: "Email", type: "email" },
   { name: "linkedin", label: "LinkedIn URL" },
-  { name: "image", label: "Photo URL", hint: "Leave blank to show initials" },
+  { name: "image", label: "Photo", type: "image", hint: "Leave blank to show initials" },
   { name: "bio", label: "Bio", type: "textarea", fullWidth: true },
 ];
 

@@ -1,6 +1,5 @@
 import express from "express";
 import helmet from "helmet";
-import { programs, news } from "./data.js";
 import { createCrudRouter } from "./lib/crud.js";
 import { createSubmissionRouter } from "./lib/submissions.js";
 import { readCollection } from "./lib/store.js";
@@ -13,11 +12,15 @@ import {
   seedPartners,
   seedStories,
   seedSettings,
+  seedPrograms,
+  seedNews,
 } from "./lib/seeds.js";
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import settingsRouter from "./routes/settings.js";
 import paymentsRouter from "./routes/payments.js";
+import uploadsRouter from "./routes/uploads.js";
+import { uploadsDir } from "./lib/upload.js";
 import { apiLimiter, formLimiter } from "./lib/rateLimit.js";
 
 const port = Number(process.env.PORT || 4000);
@@ -72,12 +75,10 @@ app.get("/api/health", (req, res) => {
 // most sensitive routes.
 app.use("/api", apiLimiter);
 
-// Static reference content - not managed by the CMS.
-app.get("/api/programs", (req, res) => res.json(programs));
-app.get("/api/news", (req, res) => res.json(news));
-
 // CMS-managed collections. GET is public (the marketing site reads from
 // these); POST/PUT/DELETE require an authenticated admin session.
+app.use("/api/programs", createCrudRouter({ name: "programs", seed: seedPrograms, requiredFields: ["title"] }));
+app.use("/api/news", createCrudRouter({ name: "news", seed: seedNews, requiredFields: ["title"] }));
 app.use("/api/projects", createCrudRouter({ name: "projects", seed: seedProjects, requiredFields: ["title"] }));
 app.use("/api/events", createCrudRouter({ name: "events", seed: seedEvents, requiredFields: ["title", "date"] }));
 app.use("/api/team", createCrudRouter({ name: "team", seed: seedTeam, requiredFields: ["name", "role"] }));
@@ -105,6 +106,11 @@ app.use("/api/users", usersRouter);
 
 // Paystack payment verification (donations made via the Donate page).
 app.use("/api/payments", paymentsRouter);
+
+// Image uploads for the admin dashboard - authenticated users upload here,
+// then everyone (including the public site) can load the file back by URL.
+app.use("/api/uploads", uploadsRouter);
+app.use("/uploads", express.static(uploadsDir));
 
 // Aggregate counts for the dashboard overview page.
 app.get("/api/admin/summary", requireAuth, async (req, res) => {

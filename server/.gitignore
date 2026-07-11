@@ -4,6 +4,8 @@ data/volunteers.json
 data/newsletter.json
 data/donations.json
 data/users.json
+uploads/*
+!uploads/.gitkeep
 node_modules/
 *.log
 .env

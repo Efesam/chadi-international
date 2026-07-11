@@ -1,7 +1,10 @@
 import ProgramCard from "../ui/ProgramCard";
-import { programs } from "../../data/programs";
+import { useCollection } from "../../hooks/useCollection";
+import { programsApi } from "../../services/api";
 
 function ProgramsSection() {
+  const { data: programs, loading, error } = useCollection(programsApi.list);
+
   return (
     <section className="bg-gray-50 py-24">
       <div className="mx-auto max-w-7xl px-6">
@@ -24,11 +27,17 @@ function ProgramsSection() {
 
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {programs.map((program) => (
-            <ProgramCard key={program.id} program={program} />
-          ))}
-        </div>
+        {loading ? (
+          <p className="text-center text-gray-500">Loading programs...</p>
+        ) : error ? (
+          <p className="text-center font-semibold text-red-600">{error}</p>
+        ) : (
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {programs.map((program) => (
+              <ProgramCard key={program.id} program={program} />
+            ))}
+          </div>
+        )}
 
       </div>
     </section>

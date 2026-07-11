@@ -16,13 +16,17 @@ import {
   FaBars,
   FaTimes,
   FaSignOutAlt,
+  FaLayerGroup,
+  FaNewspaper,
 } from "react-icons/fa";
 import Logo from "../components/common/Logo";
 import { useAuth } from "../hooks/useAuth";
 
 const navItems = [
   { to: "/admin/dashboard", label: "Dashboard", icon: FaTachometerAlt },
+  { to: "/admin/programs", label: "Programs", icon: FaLayerGroup },
   { to: "/admin/projects", label: "Projects", icon: FaProjectDiagram },
+  { to: "/admin/news", label: "News", icon: FaNewspaper },
   { to: "/admin/events", label: "Events", icon: FaCalendarAlt },
   { to: "/admin/team", label: "Team", icon: FaUsers },
   { to: "/admin/gallery", label: "Gallery", icon: FaImages },
@@ -31,13 +35,14 @@ const navItems = [
   { to: "/admin/messages", label: "Messages", icon: FaEnvelope },
   { to: "/admin/volunteers", label: "Volunteers", icon: FaHandsHelping },
   { to: "/admin/donations", label: "Donations", icon: FaDonate },
-  { to: "/admin/users", label: "Admin Users", icon: FaUserShield },
-  { to: "/admin/settings", label: "Settings", icon: FaCog },
+  { to: "/admin/users", label: "Admin Users", icon: FaUserShield, adminOnly: true },
+  { to: "/admin/settings", label: "Settings", icon: FaCog, adminOnly: true },
 ];
 
 function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user, signOut } = useAuth();
+  const visibleNavItems = navItems.filter((item) => !item.adminOnly || user?.role === "admin");
 
   return (
     <div className="min-h-screen bg-gray-50 lg:flex">
@@ -66,7 +71,7 @@ function DashboardLayout() {
         </div>
 
         <nav className="mt-2 space-y-1 px-4">
-          {navItems.map(({ to, label, icon: Icon }) => (
+          {visibleNavItems.map(({ to, label, icon: Icon }) => (
             <NavLink
               key={to}
               to={to}

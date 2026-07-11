@@ -35,6 +35,26 @@ async function request(path, options = {}) {
   return data;
 }
 
+export async function uploadImage(file) {
+  const token = getToken();
+  const formData = new FormData();
+  formData.append("image", file);
+
+  const response = await fetch(`${API_BASE_URL}/uploads`, {
+    method: "POST",
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    body: formData,
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw new Error(data.error || "Upload failed");
+  }
+
+  return data.url;
+}
+
 // ---- Public form submissions ----
 
 export function sendContactMessage(payload) {
@@ -100,16 +120,6 @@ export function updateSettings(payload) {
   return request("/settings", { method: "PUT", body: JSON.stringify(payload) });
 }
 
-// ---- Read-only reference content ----
-
-export function getPrograms() {
-  return request("/programs");
-}
-
-export function getNews() {
-  return request("/news");
-}
-
 // ---- Generic CRUD resource client, used for every CMS-managed collection ----
 
 export function createResourceApi(resource) {
@@ -129,6 +139,8 @@ export const teamApi = createResourceApi("team");
 export const galleryApi = createResourceApi("gallery");
 export const partnersApi = createResourceApi("partners");
 export const storiesApi = createResourceApi("stories");
+export const programsApi = createResourceApi("programs");
+export const newsApi = createResourceApi("news");
 export const usersApi = createResourceApi("users");
 export const messagesApi = createResourceApi("contact");
 export const volunteersApi = createResourceApi("volunteers");

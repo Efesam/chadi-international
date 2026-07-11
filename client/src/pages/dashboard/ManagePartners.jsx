@@ -17,7 +17,7 @@ const fields = [
     ],
   },
   { name: "website", label: "Website URL" },
-  { name: "logo", label: "Logo URL" },
+  { name: "logo", label: "Logo", type: "image" },
   { name: "description", label: "Description", type: "textarea", fullWidth: true },
 ];
 

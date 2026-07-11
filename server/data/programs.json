@@ -1,0 +1,66 @@
+[
+  {
+    "id": "program_miycn",
+    "slug": "miycn",
+    "title": "MIYCN",
+    "category": "Health & Nutrition",
+    "description": "Promoting maternal, infant and young child nutrition through education, advocacy and community engagement.",
+    "icon": "❤️"
+  },
+  {
+    "id": "program_sorcest",
+    "slug": "sorcest",
+    "title": "SORCEST",
+    "category": "Education",
+    "description": "Providing education, mentorship and digital skills for vulnerable children and youth.",
+    "icon": "🎓"
+  },
+  {
+    "id": "program_help",
+    "slug": "help",
+    "title": "HELP",
+    "category": "Humanitarian",
+    "description": "Delivering emergency relief, food support and livelihood assistance.",
+    "icon": "🤝"
+  },
+  {
+    "id": "program_start",
+    "slug": "start",
+    "title": "START",
+    "category": "Youth Development",
+    "description": "Building leadership, entrepreneurship and life skills among young people.",
+    "icon": "🚀"
+  },
+  {
+    "id": "program_spot",
+    "slug": "spot",
+    "title": "SPOT",
+    "category": "Protection",
+    "description": "Creating safe spaces and promoting child protection initiatives.",
+    "icon": "🛡️"
+  },
+  {
+    "id": "program_safe",
+    "slug": "safe",
+    "title": "SAFE",
+    "category": "Community Safety",
+    "description": "Improving safety, resilience and emergency preparedness within communities.",
+    "icon": "🏥"
+  },
+  {
+    "id": "program_girlie_m3",
+    "slug": "girlie-m3",
+    "title": "GIRLIE M3",
+    "category": "Women & Girls",
+    "description": "Empowering adolescent girls and young women through education and mentorship.",
+    "icon": "👩"
+  },
+  {
+    "id": "program_still_here",
+    "slug": "still-here",
+    "title": "STILL HERE",
+    "category": "Mental Health",
+    "description": "Providing psychosocial support and hope for vulnerable individuals.",
+    "icon": "💙"
+  }
+]

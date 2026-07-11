@@ -1,10 +1,14 @@
 
 import { Link } from "react-router-dom";
-import { news } from "../../data/news";
+import { useCollection } from "../../hooks/useCollection";
+import { newsApi } from "../../services/api";
 import NewsCard from "../ui/NewsCard";
 
 function LatestNews() {
-  const latest = news.slice(0, 2);
+  const { data, loading } = useCollection(newsApi.list);
+  const latest = (data || []).slice(0, 2);
+
+  if (!loading && latest.length === 0) return null;
 
   return (
     <section className="bg-chadi-cream py-24">
@@ -30,11 +34,15 @@ function LatestNews() {
           </Link>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {latest.map((article) => (
-            <NewsCard key={article.id} article={article} />
-          ))}
-        </div>
+        {loading ? (
+          <p className="text-gray-500">Loading news...</p>
+        ) : (
+          <div className="grid gap-8 md:grid-cols-2">
+            {latest.map((article) => (
+              <NewsCard key={article.id} article={article} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

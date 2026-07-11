@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getUsers, saveUsers, hashPassword, publicUser, requireAuth } from "../lib/auth.js";
+import { getUsers, saveUsers, hashPassword, publicUser, requireAdmin } from "../lib/auth.js";
 import { generateId } from "../lib/store.js";
 
 const router = Router();
 
-router.use(requireAuth);
+router.use(requireAdmin);
 
 router.get("/", async (req, res) => {
   const users = await getUsers();
