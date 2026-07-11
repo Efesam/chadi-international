@@ -7,27 +7,28 @@ function FeaturedProjects() {
   const featured = (data || []).filter((project) => project.featured);
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-gray-50 py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-14 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[4px] text-chadi-green">
-            Our Projects
-          </p>
+        <div className="mb-16 text-center">
+          <span className="font-semibold uppercase tracking-widest text-chadi-gold">
+            OUR PROJECTS
+          </span>
 
-          <h2 className="mt-5 text-4xl leading-tight text-chadi-ink sm:text-5xl">
-            Creating sustainable impact
+          <h2 className="mt-4 text-5xl font-bold text-chadi-green">
+            Creating Sustainable Impact
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-chadi-ink/60">
-            Through practical programs and strategic partnerships, CHADI is
-            transforming lives across underserved communities.
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-600">
+            Through innovative programs and strategic partnerships,
+            CHADI International is transforming lives across underserved
+            communities.
           </p>
         </div>
 
         {loading ? (
-          <p className="text-center text-chadi-ink/50">Loading projects...</p>
+          <p className="text-center text-gray-500">Loading projects...</p>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

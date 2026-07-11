@@ -1,28 +1,31 @@
 import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
 
 function ProgramCard({ program }) {
   return (
-    <Link
-      to={`/programs/${program.slug}`}
-      className="group block border-t border-chadi-ink/10 py-8 transition first:border-t-0"
-    >
-      <div className="flex items-start justify-between gap-6">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[3px] text-chadi-green">
-            {program.category}
-          </p>
-          <h3 className="mt-3 font-serif text-3xl text-chadi-ink">
-            {program.title}
-          </h3>
-          <p className="mt-3 max-w-xl leading-7 text-chadi-ink/60">
-            {program.description}
-          </p>
-        </div>
-
-        <FaArrowRight className="mt-2 shrink-0 text-chadi-ink/30 transition group-hover:translate-x-1 group-hover:text-chadi-green" />
+    <div className="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-xl">
+      <div className="text-5xl">
+        {program.icon}
       </div>
-    </Link>
+
+      <h3 className="mt-6 text-2xl font-bold text-chadi-green">
+        {program.title}
+      </h3>
+
+      <p className="mt-2 font-semibold text-chadi-gold">
+        {program.category}
+      </p>
+
+      <p className="mt-5 text-gray-600">
+        {program.description}
+      </p>
+
+      <Link
+        to={`/programs/${program.slug}`}
+        className="mt-6 inline-block font-semibold text-chadi-green hover:text-chadi-gold"
+      >
+        Learn More →
+      </Link>
+    </div>
   );
 }
 

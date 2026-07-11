@@ -119,7 +119,7 @@ function ProgramsDetails() {
             Explore More Programs
           </h2>
 
-          <div className="mt-6 max-w-2xl">
+          <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {otherPrograms.slice(0, 3).map((item) => (
               <ProgramCard key={item.id} program={item} />
             ))}
