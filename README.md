@@ -53,6 +53,37 @@ live pair only once you're ready to accept real payments. Without a secret key
 set, the Donate page still works - it just shows a friendly notice on the
 payment form and falls back to the "Other Ways to Give" interest form.
 
+### Paystack webhook (important - do this before relying on real donations)
+
+The Donate page shows a donor an on-screen confirmation as soon as their
+browser gets a response back after paying, but that alone isn't reliable -
+if their browser closes or loses connection at the wrong moment, the payment
+would succeed on Paystack's side while your site never finds out. A webhook
+fixes this: Paystack calls your server directly, independent of the donor's
+browser, the moment a payment actually succeeds.
+
+To turn it on:
+
+1. Deploy the API somewhere with a public URL (a webhook can't reach
+   `localhost` - see "Testing the webhook locally" below if you want to test
+   before deploying).
+2. In your Paystack dashboard, go to Settings → API Keys & Webhooks.
+3. Set the webhook URL to `https://your-domain.com/api/payments/webhook`.
+4. Save. Paystack will send a `charge.success` event here for every
+   successful payment, and it's verified using your `PAYSTACK_SECRET_KEY` -
+   requests without a valid signature are rejected automatically.
+
+Once this is set, the webhook is the authoritative record of a payment; the
+on-screen confirmation via `/api/payments/verify` is just a UX nicety layered
+on top; both write to the same donations list and won't double-record the
+same transaction.
+
+**Testing the webhook locally**: install the
+[Paystack CLI](https://paystack.com/docs/developer-tools/paystack-cli/) or
+use a tunnel like [ngrok](https://ngrok.com) (`ngrok http 4000`) to get a
+temporary public URL for your local server, then use that URL in the
+dashboard while testing.
+
 ## Admin dashboard
 
 Visit `/admin/login` on the running site. The first time the server starts,

@@ -1,19 +1,53 @@
 import { Router } from "express";
+import { createHmac, timingSafeEqual } from "node:crypto";
 import { readCollection, writeCollection, generateId } from "../lib/store.js";
 
 const router = Router();
 
-// Read lazily (not at import time) so tests / restarts pick up env changes
-// without needing a process reload in dev.
 function getSecretKey() {
   return process.env.PAYSTACK_SECRET_KEY;
 }
 
 /**
- * Verifies a Paystack transaction reference directly with Paystack's API
- * using the secret key, and only then records it as a completed donation.
- * The client never gets to assert "this payment succeeded" on its own -
- * only Paystack's own server-to-server response is trusted.
+ * Records a completed Paystack transaction as a donation, unless it's
+ * already been recorded (the client-side verify call and the webhook can
+ * both fire for the same payment - this keeps it idempotent either way).
+ */
+async function recordPayment(data) {
+  const donations = await readCollection("donations", () => []);
+  const alreadyRecorded = donations.some((entry) => entry.reference === data.reference);
+
+  if (alreadyRecorded) return donations.find((entry) => entry.reference === data.reference);
+
+  const name = data.customer?.first_name
+    ? `${data.customer.first_name} ${data.customer.last_name || ""}`.trim()
+    : data.customer?.email;
+
+  const entry = {
+    id: generateId("payment"),
+    createdAt: new Date().toISOString(),
+    read: false,
+    type: "payment",
+    name,
+    email: data.customer?.email,
+    amount: data.amount / 100,
+    currency: data.currency,
+    reference: data.reference,
+    channel: data.channel,
+    paidAt: data.paid_at,
+  };
+
+  donations.unshift(entry);
+  await writeCollection("donations", donations);
+  return entry;
+}
+
+/**
+ * Called by the donor's own browser right after the Paystack popup closes,
+ * so we can show them an immediate on-screen confirmation. This is a
+ * best-effort UX nicety, NOT the authoritative record - see /webhook below
+ * for that. If the browser closes before this fires, the webhook still
+ * catches the payment.
  */
 router.post("/verify", async (req, res) => {
   const { reference } = req.body || {};
@@ -44,38 +78,57 @@ router.post("/verify", async (req, res) => {
       return;
     }
 
-    const { data } = result;
-
-    const donations = await readCollection("donations", () => []);
-    const alreadyRecorded = donations.some((entry) => entry.reference === data.reference);
-
-    if (!alreadyRecorded) {
-      const name = data.customer?.first_name
-        ? `${data.customer.first_name} ${data.customer.last_name || ""}`.trim()
-        : data.customer?.email;
-
-      const entry = {
-        id: generateId("payment"),
-        createdAt: new Date().toISOString(),
-        read: false,
-        type: "payment",
-        name,
-        email: data.customer?.email,
-        amount: data.amount / 100,
-        currency: data.currency,
-        reference: data.reference,
-        channel: data.channel,
-        paidAt: data.paid_at,
-      };
-
-      donations.unshift(entry);
-      await writeCollection("donations", donations);
-    }
-
-    res.json({ status: "success", amount: data.amount / 100, reference: data.reference });
+    const entry = await recordPayment(result.data);
+    res.json({ status: "success", amount: entry.amount, reference: entry.reference });
   } catch (error) {
     console.error("[payments] verify error:", error);
     res.status(502).json({ error: "Could not reach the payment provider. Please try again." });
+  }
+});
+
+/**
+ * The authoritative source of truth for completed payments. Paystack calls
+ * this directly (server-to-server) the moment a charge succeeds, regardless
+ * of whether the donor's browser is even still open. Configure this URL in
+ * your Paystack dashboard under Settings -> API Keys & Webhooks:
+ *
+ *   https://your-domain.com/api/payments/webhook
+ *
+ * Only requests with a valid Paystack signature are accepted - anyone else
+ * POSTing here is rejected before anything is recorded.
+ */
+router.post("/webhook", async (req, res) => {
+  const secretKey = getSecretKey();
+  const signature = req.headers["x-paystack-signature"];
+
+  if (!secretKey || !signature || !req.rawBody) {
+    res.sendStatus(400);
+    return;
+  }
+
+  const expectedSignature = createHmac("sha512", secretKey).update(req.rawBody).digest("hex");
+
+  const sigBuf = Buffer.from(signature, "utf8");
+  const expectedBuf = Buffer.from(expectedSignature, "utf8");
+
+  if (sigBuf.length !== expectedBuf.length || !timingSafeEqual(sigBuf, expectedBuf)) {
+    console.warn("[payments] webhook signature mismatch - rejecting");
+    res.sendStatus(401);
+    return;
+  }
+
+  // Acknowledge immediately so Paystack doesn't retry; do the actual work
+  // after responding since Paystack only cares about a fast 200.
+  res.sendStatus(200);
+
+  const event = req.body;
+
+  if (event?.event === "charge.success" && event.data?.status === "success") {
+    try {
+      await recordPayment(event.data);
+    } catch (error) {
+      console.error("[payments] webhook recording error:", error);
+    }
   }
 });
 

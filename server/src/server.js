@@ -21,7 +21,16 @@ import paymentsRouter from "./routes/payments.js";
 const port = Number(process.env.PORT || 4000);
 const app = express();
 
-app.use(express.json({ limit: "1mb" }));
+app.use(
+  express.json({
+    limit: "1mb",
+    // Keep the raw bytes around too - Paystack's webhook signature is
+    // computed over the exact raw body, not the re-serialized JSON.
+    verify: (req, res, buf) => {
+      req.rawBody = buf;
+    },
+  })
+);
 
 // Manual CORS so the client can be served from any origin during development.
 app.use((req, res, next) => {
