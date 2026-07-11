@@ -1,4 +1,5 @@
 import express from "express";
+import helmet from "helmet";
 import { programs, news } from "./data.js";
 import { createCrudRouter } from "./lib/crud.js";
 import { createSubmissionRouter } from "./lib/submissions.js";
@@ -22,6 +23,18 @@ import { apiLimiter, formLimiter } from "./lib/rateLimit.js";
 const port = Number(process.env.PORT || 4000);
 const app = express();
 
+// Sets a range of standard HTTP security headers (clickjacking protection,
+// MIME-sniffing protection, etc.). Safe defaults for a JSON-only API - no
+// HTML is served here, so helmet's content-security-policy defaults don't
+// need any adjustment. crossOriginResourcePolicy is relaxed to "cross-origin"
+// on purpose: this API is meant to be called from the client running on a
+// different origin/port, which helmet's same-origin default would block.
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  })
+);
+
 app.use(
   express.json({
     limit: "1mb",
@@ -34,6 +47,9 @@ app.use(
 );
 
 // Manual CORS so the client can be served from any origin during development.
+// TODO: once you have a real production domain, lock this down to it (plus
+// localhost for local dev) instead of "*". Wide-open CORS is fine while
+// everything only runs locally, but should be tightened before going live.
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
