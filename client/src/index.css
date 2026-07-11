@@ -35,3 +35,12 @@ h5,
 h6 {
   font-family: var(--font-heading);
 }
+
+/* Consistent, visible focus ring for keyboard navigation. Only shows for
+   keyboard focus (not mouse clicks), so it doesn't add visual noise for
+   mouse/touch users while still being there for anyone tabbing through. */
+:focus-visible {
+  outline: 3px solid var(--color-chadi-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
