@@ -57,20 +57,13 @@ function Hero() {
               </button>
 
               <Link
-                to="/projects"
+                to="/get-involved"
                 className="group flex items-center gap-3 rounded-xl border-2 border-white px-7 py-4 font-semibold text-white transition duration-300 hover:bg-white hover:text-chadi-green"
               >
-                Explore Projects
+                Get Involved
 
                 <FaArrowRight className="transition group-hover:translate-x-2" />
 
-              </Link>
-
-              <Link
-                to="/get-involved"
-                className="rounded-xl border-2 border-white px-7 py-4 font-semibold text-white transition duration-300 hover:bg-white hover:text-chadi-green"
-              >
-                Get Involved
               </Link>
 
             </div>

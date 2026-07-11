@@ -59,22 +59,22 @@ function DonateModal({ open, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-chadi-ink/60 p-4">
-      <div className="relative w-full max-w-md rounded-2xl bg-chadi-cream p-8 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+      <div className="relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-5 top-5 text-chadi-ink/50 hover:text-chadi-ink"
+          className="absolute right-5 top-5 text-gray-400 hover:text-gray-700"
           aria-label="Close"
         >
           <FaTimes size={18} />
         </button>
 
-        <p className="font-serif text-xs uppercase tracking-[3px] text-chadi-green/70">
+        <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold">
           CHADI International
         </p>
-        <h3 className="mt-2 font-serif text-3xl text-chadi-ink">Give Today</h3>
-        <p className="mt-2 text-sm text-chadi-ink/60">
+        <h3 className="mt-2 text-3xl font-bold text-chadi-green">Give Today</h3>
+        <p className="mt-2 text-sm text-gray-600">
           Secure checkout by card or bank transfer, powered by Paystack.
         </p>
 
@@ -85,7 +85,7 @@ function DonateModal({ open, onClose }) {
             placeholder="Full name"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className="w-full rounded-lg border border-chadi-ink/15 bg-white px-4 py-3 text-sm outline-none focus:border-chadi-green"
+            className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
           />
           <input
             type="email"
@@ -93,7 +93,7 @@ function DonateModal({ open, onClose }) {
             placeholder="Email address"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="w-full rounded-lg border border-chadi-ink/15 bg-white px-4 py-3 text-sm outline-none focus:border-chadi-green"
+            className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
           />
           <input
             type="number"
@@ -102,7 +102,7 @@ function DonateModal({ open, onClose }) {
             required
             value={amount}
             onChange={(event) => setAmount(event.target.value)}
-            className="w-full rounded-lg border border-chadi-ink/15 bg-white px-4 py-3 text-sm outline-none focus:border-chadi-green"
+            className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
           />
 
           <div className="flex flex-wrap gap-2">
@@ -114,7 +114,7 @@ function DonateModal({ open, onClose }) {
                 className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition ${
                   Number(amount) === preset
                     ? "border-chadi-green bg-chadi-green text-white"
-                    : "border-chadi-ink/20 text-chadi-ink/70 hover:border-chadi-green"
+                    : "border-gray-200 text-gray-600 hover:border-chadi-green"
                 }`}
               >
                 ₦{preset.toLocaleString()}
@@ -130,7 +130,7 @@ function DonateModal({ open, onClose }) {
             <button
               type="submit"
               disabled={paying}
-              className="w-full rounded-lg bg-chadi-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-chadi-green disabled:opacity-60"
+              className="w-full rounded-lg bg-chadi-green px-6 py-3 text-sm font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
             >
               {paying ? "Processing..." : `Give ₦${Number(amount || 0).toLocaleString()}`}
             </button>
