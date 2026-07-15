@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { verifyPayment } from "../../services/api";
+import { useModalA11y } from "../../hooks/useModalA11y";
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 const PRESET_AMOUNTS = [2000, 5000, 10000, 25000];
@@ -11,6 +12,10 @@ function DonateModal({ open, onClose }) {
   const [email, setEmail] = useState("");
   const [paying, setPaying] = useState(false);
   const [result, setResult] = useState(null);
+
+  // Called unconditionally (hooks can't follow an early return) - it's a
+  // no-op internally whenever `open` is false.
+  const containerRef = useModalA11y(open, onClose);
 
   const configured = Boolean(PAYSTACK_PUBLIC_KEY) && typeof window !== "undefined" && window.PaystackPop;
 
@@ -60,7 +65,13 @@ function DonateModal({ open, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-      <div className="relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
+      <div
+        ref={containerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="donate-modal-title"
+        className="relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl"
+      >
         <button
           type="button"
           onClick={onClose}
@@ -73,7 +84,9 @@ function DonateModal({ open, onClose }) {
         <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold">
           CHADI International
         </p>
-        <h3 className="mt-2 text-3xl font-bold text-chadi-green">Give Today</h3>
+        <h3 id="donate-modal-title" className="mt-2 text-3xl font-bold text-chadi-green">
+          Give Today
+        </h3>
         <p className="mt-2 text-sm text-gray-600">
           Secure checkout by card or bank transfer, powered by Paystack.
         </p>
