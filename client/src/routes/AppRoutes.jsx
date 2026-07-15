@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
@@ -31,24 +32,35 @@ import Contact from "../pages/public/Contact";
 import Donate from "../pages/public/Donate";
 import NotFound from "../pages/public/NotFound";
 
-import Login from "../pages/auth/Login";
-import ForgotPassword from "../pages/auth/ForgotPassword";
-import ResetPassword from "../pages/auth/ResetPassword";
+// The admin dashboard (and its rich text editor, etc.) is a completely
+// separate "app within an app" that only staff ever visit - lazy-loading it
+// keeps all that extra weight out of every public visitor's first page load.
+const Login = lazy(() => import("../pages/auth/Login"));
+const ForgotPassword = lazy(() => import("../pages/auth/ForgotPassword"));
+const ResetPassword = lazy(() => import("../pages/auth/ResetPassword"));
 
-import Dashboard from "../pages/dashboard/Dashboard";
-import ManagePrograms from "../pages/dashboard/ManagePrograms";
-import ManageProjects from "../pages/dashboard/ManageProjects";
-import ManageNews from "../pages/dashboard/ManageNews";
-import ManageEvents from "../pages/dashboard/ManageEvents";
-import ManageTeam from "../pages/dashboard/ManageTeam";
-import ManageGallery from "../pages/dashboard/ManageGallery";
-import ManagePartners from "../pages/dashboard/ManagePartners";
-import ManageStories from "../pages/dashboard/ManageStories";
-import ManageMessages from "../pages/dashboard/ManageMessages";
-import ManageVolunteers from "../pages/dashboard/ManageVolunteers";
-import ManageDonations from "../pages/dashboard/ManageDonations";
-import ManageUsers from "../pages/dashboard/ManageUsers";
-import Settings from "../pages/dashboard/Settings";
+const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
+const ManagePrograms = lazy(() => import("../pages/dashboard/ManagePrograms"));
+const ManageProjects = lazy(() => import("../pages/dashboard/ManageProjects"));
+const ManageNews = lazy(() => import("../pages/dashboard/ManageNews"));
+const ManageEvents = lazy(() => import("../pages/dashboard/ManageEvents"));
+const ManageTeam = lazy(() => import("../pages/dashboard/ManageTeam"));
+const ManageGallery = lazy(() => import("../pages/dashboard/ManageGallery"));
+const ManagePartners = lazy(() => import("../pages/dashboard/ManagePartners"));
+const ManageStories = lazy(() => import("../pages/dashboard/ManageStories"));
+const ManageMessages = lazy(() => import("../pages/dashboard/ManageMessages"));
+const ManageVolunteers = lazy(() => import("../pages/dashboard/ManageVolunteers"));
+const ManageDonations = lazy(() => import("../pages/dashboard/ManageDonations"));
+const ManageUsers = lazy(() => import("../pages/dashboard/ManageUsers"));
+const Settings = lazy(() => import("../pages/dashboard/Settings"));
+
+function AdminLoading() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-chadi-cream">
+      <p className="font-semibold text-chadi-green">Loading...</p>
+    </div>
+  );
+}
 
 function AppRoutes() {
   return (
@@ -91,9 +103,30 @@ function AppRoutes() {
       {/* Admin auth pages - redirect to the dashboard if already signed in */}
       <Route element={<PublicRoute />}>
         <Route element={<AuthLayout />}>
-          <Route path="/admin/login" element={<Login />} />
-          <Route path="/admin/forgot-password" element={<ForgotPassword />} />
-          <Route path="/admin/reset-password" element={<ResetPassword />} />
+          <Route
+            path="/admin/login"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <Login />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/forgot-password"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ForgotPassword />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/reset-password"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ResetPassword />
+              </Suspense>
+            }
+          />
         </Route>
       </Route>
 
@@ -101,21 +134,119 @@ function AppRoutes() {
       <Route element={<ProtectedRoute />}>
         <Route element={<DashboardLayout />}>
           <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-          <Route path="/admin/programs" element={<ManagePrograms />} />
-          <Route path="/admin/projects" element={<ManageProjects />} />
-          <Route path="/admin/news" element={<ManageNews />} />
-          <Route path="/admin/events" element={<ManageEvents />} />
-          <Route path="/admin/team" element={<ManageTeam />} />
-          <Route path="/admin/gallery" element={<ManageGallery />} />
-          <Route path="/admin/partners" element={<ManagePartners />} />
-          <Route path="/admin/stories" element={<ManageStories />} />
-          <Route path="/admin/messages" element={<ManageMessages />} />
-          <Route path="/admin/volunteers" element={<ManageVolunteers />} />
-          <Route path="/admin/donations" element={<ManageDonations />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <Dashboard />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/programs"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManagePrograms />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/projects"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageProjects />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/news"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageNews />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/events"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageEvents />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/team"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageTeam />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/gallery"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageGallery />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/partners"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManagePartners />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/stories"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageStories />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/messages"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageMessages />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/volunteers"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageVolunteers />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/donations"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageDonations />
+              </Suspense>
+            }
+          />
           <Route element={<RequireAdmin />}>
-            <Route path="/admin/users" element={<ManageUsers />} />
-            <Route path="/admin/settings" element={<Settings />} />
+            <Route
+              path="/admin/users"
+              element={
+                <Suspense fallback={<AdminLoading />}>
+                  <ManageUsers />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/admin/settings"
+              element={
+                <Suspense fallback={<AdminLoading />}>
+                  <Settings />
+                </Suspense>
+              }
+            />
           </Route>
         </Route>
       </Route>
