@@ -46,6 +46,12 @@ function DashboardLayout() {
 
   return (
     <div className="min-h-screen bg-gray-50 lg:flex">
+      <a
+        href="#dashboard-main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-chadi-green focus:px-5 focus:py-3 focus:font-semibold focus:text-white"
+      >
+        Skip to main content
+      </a>
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/40 lg:hidden"
@@ -118,7 +124,7 @@ function DashboardLayout() {
           </button>
         </header>
 
-        <main className="p-6 lg:p-10">
+        <main id="dashboard-main-content" className="p-6 lg:p-10">
           <Outlet />
         </main>
       </div>
