@@ -13,7 +13,7 @@ const columns = [
     label: "Preview",
     render: (item) =>
       item.image ? (
-        <img src={item.image} alt={item.title} className="h-12 w-16 rounded object-cover" />
+        <img src={item.image} alt={item.title} loading="lazy" className="h-12 w-16 rounded object-cover" />
       ) : (
         "—"
       ),

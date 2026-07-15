@@ -9,6 +9,7 @@ function OurStory() {
           <img
             src={aboutImage}
             alt="CHADI Community Outreach"
+            loading="lazy"
             className="rounded-3xl shadow-xl"
           />
         </div>

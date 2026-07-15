@@ -32,6 +32,7 @@ function Gallery() {
                   <img
                     src={photo.image}
                     alt={photo.title}
+                    loading="lazy"
                     className="h-72 w-full object-cover"
                   />
                   <figcaption className="p-5 font-semibold text-chadi-green">

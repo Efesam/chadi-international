@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaHeart } from "react-icons/fa";
-import heroImage from "../../assets/hero.png";
+import heroImage from "../../assets/hero.jpg";
 import DonateModal from "../common/DonateModal";
 
 function Hero() {

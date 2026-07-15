@@ -32,6 +32,7 @@ function Stories() {
                   <img
                     src={story.image}
                     alt={story.title}
+                    loading="lazy"
                     className="h-56 w-full rounded-lg object-cover"
                   />
                 )}

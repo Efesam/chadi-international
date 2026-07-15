@@ -78,7 +78,7 @@ function Partners() {
                   className="block rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
                 >
                   {partner.logo && (
-                    <img src={partner.logo} alt={partner.name} className="h-12 object-contain" />
+                    <img src={partner.logo} alt={partner.name} loading="lazy" className="h-12 object-contain" />
                   )}
                   <p className="mt-4 font-bold text-chadi-green">{partner.name}</p>
                   <p className="mt-1 text-sm text-gray-500">{partner.type}</p>
