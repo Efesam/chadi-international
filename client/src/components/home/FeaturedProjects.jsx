@@ -1,6 +1,7 @@
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi } from "../../services/api";
 import ProjectCard from "../ui/ProjectCard";
+import CardGridSkeleton from "../common/CardGridSkeleton";
 
 function FeaturedProjects() {
   const { data, loading } = useCollection(projectsApi.list);
@@ -26,7 +27,7 @@ function FeaturedProjects() {
         </div>
 
         {loading ? (
-          <p className="text-center text-gray-500">Loading projects...</p>
+          <CardGridSkeleton count={3} columns={3} />
         ) : (
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((project) => (

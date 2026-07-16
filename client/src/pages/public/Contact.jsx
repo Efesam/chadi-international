@@ -1,10 +1,11 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import PageHeader from "../../components/common/PageHeader";
 import { sendContactMessage, getSettings } from "../../services/api";
 import { useCollection } from "../../hooks/useCollection";
 
 function Contact() {
-  const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
   const { data: settings } = useCollection(getSettings);
 
   const handleSubmit = async (event) => {
@@ -12,14 +13,16 @@ function Contact() {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    setStatus("Sending...");
+    setSending(true);
 
     try {
       await sendContactMessage(Object.fromEntries(formData.entries()));
       form.reset();
-      setStatus("Message sent. CHADI will follow up soon.");
+      toast.success("Message sent. CHADI will follow up soon.");
     } catch {
-      setStatus("Message could not be sent right now. Please try again.");
+      toast.error("Message could not be sent right now. Please try again.");
+    } finally {
+      setSending(false);
     }
   };
 
@@ -110,14 +113,11 @@ function Contact() {
 
             <button
               type="submit"
-              className="mt-8 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
+              disabled={sending}
+              className="mt-8 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
             >
-              Send Message
+              {sending ? "Sending..." : "Send Message"}
             </button>
-
-            {status && (
-              <p className="mt-4 font-semibold text-chadi-green">{status}</p>
-            )}
           </form>
         </div>
       </section>

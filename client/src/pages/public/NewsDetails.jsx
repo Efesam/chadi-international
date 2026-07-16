@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
+import DetailSkeleton from "../../components/common/DetailSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { newsApi } from "../../services/api";
 
@@ -8,11 +9,7 @@ function NewsDetails() {
   const { data: article, loading, error } = useCollection(() => newsApi.get(slug), [slug]);
 
   if (loading) {
-    return (
-      <section className="bg-white py-28 text-center">
-        <p className="text-gray-500">Loading article...</p>
-      </section>
-    );
+    return <DetailSkeleton />;
   }
 
   if (error || !article) {

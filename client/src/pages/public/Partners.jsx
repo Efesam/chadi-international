@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
+import CardGridSkeleton from "../../components/common/CardGridSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { partnersApi } from "../../services/api";
 
@@ -60,7 +61,7 @@ function Partners() {
           <h2 className="text-3xl font-bold text-chadi-green">Our Partners</h2>
 
           {loading ? (
-            <p className="mt-8 text-gray-500">Loading partners...</p>
+            <CardGridSkeleton count={3} columns={3} />
           ) : error ? (
             <p className="mt-8 font-semibold text-red-600">{error}</p>
           ) : partners.length === 0 ? (

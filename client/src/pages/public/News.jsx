@@ -1,5 +1,6 @@
 import PageHeader from "../../components/common/PageHeader";
 import NewsCard from "../../components/ui/NewsCard";
+import CardGridSkeleton from "../../components/common/CardGridSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { newsApi } from "../../services/api";
 
@@ -16,7 +17,7 @@ function News() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
           {loading ? (
-            <p className="text-center text-gray-500">Loading news...</p>
+            <CardGridSkeleton count={6} columns={3} />
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : news.length === 0 ? (

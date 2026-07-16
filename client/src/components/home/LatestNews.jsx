@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useCollection } from "../../hooks/useCollection";
 import { newsApi } from "../../services/api";
 import NewsCard from "../ui/NewsCard";
+import CardGridSkeleton from "../common/CardGridSkeleton";
 
 function LatestNews() {
   const { data, loading } = useCollection(newsApi.list);
@@ -35,7 +36,7 @@ function LatestNews() {
         </div>
 
         {loading ? (
-          <p className="text-gray-500">Loading news...</p>
+          <CardGridSkeleton count={2} columns={2} />
         ) : (
           <div className="grid gap-8 md:grid-cols-2">
             {latest.map((article) => (

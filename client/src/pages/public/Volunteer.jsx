@@ -1,23 +1,26 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import PageHeader from "../../components/common/PageHeader";
 import { submitVolunteerApplication } from "../../services/api";
 
 function Volunteer() {
-  const [status, setStatus] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    setStatus("Submitting...");
+    setSubmitting(true);
 
     try {
       await submitVolunteerApplication(Object.fromEntries(formData.entries()));
       form.reset();
-      setStatus("Application received. CHADI will reach out soon.");
+      toast.success("Application received. CHADI will reach out soon.");
     } catch {
-      setStatus("We could not submit this right now. Please try again.");
+      toast.error("We could not submit this right now. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -97,14 +100,11 @@ function Volunteer() {
 
             <button
               type="submit"
-              className="mt-6 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
+              disabled={submitting}
+              className="mt-6 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
             >
-              Submit Application
+              {submitting ? "Submitting..." : "Submit Application"}
             </button>
-
-            {status && (
-              <p className="mt-4 font-semibold text-chadi-green">{status}</p>
-            )}
           </form>
         </div>
       </section>

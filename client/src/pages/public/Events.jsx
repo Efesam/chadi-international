@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
+import CardGridSkeleton from "../../components/common/CardGridSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { eventsApi } from "../../services/api";
 
@@ -16,7 +17,7 @@ function Events() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           {loading ? (
-            <p className="text-center text-gray-500">Loading events...</p>
+            <CardGridSkeleton count={3} columns={3} />
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : events.length === 0 ? (

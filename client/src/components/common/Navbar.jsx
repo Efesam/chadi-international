@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "./Logo";
+import DonateModal from "./DonateModal";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [donateOpen, setDonateOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,12 +64,13 @@ function Navbar() {
             </NavLink>
           ))}
 
-          <Link
-            to="/donate"
+          <button
+            type="button"
+            onClick={() => setDonateOpen(true)}
             className="rounded-lg bg-chadi-gold px-6 py-3 font-semibold text-black transition hover:scale-105"
           >
             Donate
-          </Link>
+          </button>
         </nav>
 
         {/* Mobile Button */}
@@ -103,15 +106,20 @@ function Navbar() {
             </NavLink>
           ))}
 
-          <Link
-            to="/donate"
-            onClick={() => setMobileMenu(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenu(false);
+              setDonateOpen(true);
+            }}
             className="mt-6 rounded-lg bg-chadi-gold py-3 text-center font-semibold text-black"
           >
             Donate
-          </Link>
+          </button>
         </div>
       </div>
+
+      <DonateModal open={donateOpen} onClose={() => setDonateOpen(false)} />
     </header>
   );
 }

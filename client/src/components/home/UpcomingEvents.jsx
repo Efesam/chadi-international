@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCollection } from "../../hooks/useCollection";
 import { eventsApi } from "../../services/api";
+import CardGridSkeleton from "../common/CardGridSkeleton";
 
 function UpcomingEvents() {
   const { data, loading } = useCollection(eventsApi.list);
@@ -21,7 +22,7 @@ function UpcomingEvents() {
         </div>
 
         {loading ? (
-          <p className="text-center text-gray-500">Loading events...</p>
+          <CardGridSkeleton count={3} columns={3} />
         ) : (
           <div className="grid gap-6 lg:grid-cols-3">
             {events.map((event) => (

@@ -1,5 +1,6 @@
 import PageHeader from "../../components/common/PageHeader";
 import TeamCard from "../../components/ui/TeamCard";
+import CardGridSkeleton from "../../components/common/CardGridSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { teamApi } from "../../services/api";
 
@@ -16,7 +17,7 @@ function Team() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">
           {loading ? (
-            <p className="text-center text-gray-500">Loading team...</p>
+            <CardGridSkeleton count={6} columns={3} />
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : (

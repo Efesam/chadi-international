@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
+import DetailSkeleton from "../../components/common/DetailSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi } from "../../services/api";
 
@@ -8,11 +9,7 @@ function ProjectDetails() {
   const { data: project, loading, error } = useCollection(() => projectsApi.get(slug), [slug]);
 
   if (loading) {
-    return (
-      <section className="bg-white py-28 text-center">
-        <p className="text-gray-500">Loading project...</p>
-      </section>
-    );
+    return <DetailSkeleton />;
   }
 
   if (error || !project) {

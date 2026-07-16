@@ -1,6 +1,7 @@
 import ProgramCard from "../ui/ProgramCard";
 import { useCollection } from "../../hooks/useCollection";
 import { programsApi } from "../../services/api";
+import CardGridSkeleton from "../common/CardGridSkeleton";
 
 function ProgramsSection() {
   const { data: programs, loading, error } = useCollection(programsApi.list);
@@ -28,7 +29,7 @@ function ProgramsSection() {
         </div>
 
         {loading ? (
-          <p className="text-center text-gray-500">Loading programs...</p>
+          <CardGridSkeleton count={6} columns={3} />
         ) : error ? (
           <p className="text-center font-semibold text-red-600">{error}</p>
         ) : (

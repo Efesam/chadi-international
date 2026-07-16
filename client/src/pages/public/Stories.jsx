@@ -1,4 +1,5 @@
 import PageHeader from "../../components/common/PageHeader";
+import CardGridSkeleton from "../../components/common/CardGridSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { storiesApi } from "../../services/api";
 
@@ -15,7 +16,7 @@ function Stories() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-5xl space-y-8 px-6">
           {loading ? (
-            <p className="text-center text-gray-500">Loading stories...</p>
+            <CardGridSkeleton count={2} columns={2} />
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : stories.length === 0 ? (

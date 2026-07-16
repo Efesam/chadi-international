@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import PageHeader from "../../components/common/PageHeader";
 import { recordDonationInterest, verifyPayment } from "../../services/api";
 
@@ -139,21 +140,23 @@ function DonationForm() {
 }
 
 function InterestForm() {
-  const [status, setStatus] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    setStatus("Saving...");
+    setSubmitting(true);
 
     try {
       await recordDonationInterest(Object.fromEntries(formData.entries()));
       form.reset();
-      setStatus("Thanks. CHADI will contact you with details.");
+      toast.success("Thanks. CHADI will contact you with details.");
     } catch {
-      setStatus("We could not save this right now. Please use the contact page.");
+      toast.error("We could not save this right now. Please use the contact page.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -197,9 +200,10 @@ function InterestForm() {
 
       <button
         type="submit"
-        className="mt-8 rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
+        disabled={submitting}
+        className="mt-8 rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
       >
-        Submit Interest
+        {submitting ? "Saving..." : "Submit Interest"}
       </button>
 
       <Link
@@ -208,10 +212,6 @@ function InterestForm() {
       >
         Contact instead
       </Link>
-
-      {status && (
-        <p className="mt-4 font-semibold text-chadi-green">{status}</p>
-      )}
     </form>
   );
 }

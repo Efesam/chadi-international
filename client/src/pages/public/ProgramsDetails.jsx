@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
 import ProgramCard from "../../components/ui/ProgramCard";
 import ProjectCard from "../../components/ui/ProjectCard";
+import DetailSkeleton from "../../components/common/DetailSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi, programsApi } from "../../services/api";
 
@@ -13,11 +14,7 @@ function ProgramsDetails() {
   const program = (programs || []).find((item) => item.slug === slug);
 
   if (loading) {
-    return (
-      <section className="bg-white py-28 text-center">
-        <p className="text-gray-500">Loading program...</p>
-      </section>
-    );
+    return <DetailSkeleton />;
   }
 
   if (!program) {

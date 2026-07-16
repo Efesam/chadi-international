@@ -1,4 +1,5 @@
 import PageHeader from "../../components/common/PageHeader";
+import CardGridSkeleton from "../../components/common/CardGridSkeleton";
 import { useCollection } from "../../hooks/useCollection";
 import { galleryApi } from "../../services/api";
 
@@ -15,7 +16,7 @@ function Gallery() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           {loading ? (
-            <p className="text-center text-gray-500">Loading gallery...</p>
+            <CardGridSkeleton count={6} columns={3} />
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : photos.length === 0 ? (
