@@ -4,6 +4,7 @@
     "slug": "miycn",
     "title": "MIYCN",
     "category": "Health & Nutrition",
+    "tagline": "From Survival to Strength",
     "description": "Promoting maternal, infant and young child nutrition through education, advocacy and community engagement.",
     "icon": "❤️"
   },
@@ -12,6 +13,7 @@
     "slug": "sorcest",
     "title": "SORCEST",
     "category": "Education",
+    "tagline": "From Forgotten to Empowered",
     "description": "Providing education, mentorship and digital skills for vulnerable children and youth.",
     "icon": "🎓"
   },
@@ -20,6 +22,7 @@
     "slug": "help",
     "title": "HELP",
     "category": "Humanitarian",
+    "tagline": "From Poverty to Possibility",
     "description": "Delivering emergency relief, food support and livelihood assistance.",
     "icon": "🤝"
   },
@@ -28,6 +31,7 @@
     "slug": "start",
     "title": "START",
     "category": "Youth Development",
+    "tagline": "From Forgotten to Empowered",
     "description": "Building leadership, entrepreneurship and life skills among young people.",
     "icon": "🚀"
   },
@@ -36,6 +40,7 @@
     "slug": "spot",
     "title": "SPOT",
     "category": "Protection",
+    "tagline": "From Crisis to Dignity",
     "description": "Creating safe spaces and promoting child protection initiatives.",
     "icon": "🛡️"
   },
@@ -44,6 +49,7 @@
     "slug": "safe",
     "title": "SAFE",
     "category": "Community Safety",
+    "tagline": "From Vulnerability to Resilience",
     "description": "Improving safety, resilience and emergency preparedness within communities.",
     "icon": "🏥"
   },
@@ -52,6 +58,7 @@
     "slug": "girlie-m3",
     "title": "GIRLIE M3",
     "category": "Women & Girls",
+    "tagline": "From Silence to Strength",
     "description": "Empowering adolescent girls and young women through education and mentorship.",
     "icon": "👩"
   },
@@ -60,6 +67,7 @@
     "slug": "still-here",
     "title": "STILL HERE",
     "category": "Mental Health",
+    "tagline": "From Struggle to Strength",
     "description": "Providing psychosocial support and hope for vulnerable individuals.",
     "icon": "💙"
   }

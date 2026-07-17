@@ -25,6 +25,7 @@ import FAQ from "../pages/public/FAQ";
 import Careers from "../pages/public/Careers";
 import Volunteer from "../pages/public/Volunteer";
 import Privacy from "../pages/public/Privacy";
+import Transparency from "../pages/public/Transparency";
 import Terms from "../pages/public/Terms";
 import ProjectDetails from "../pages/public/ProjectDetails";
 import GetInvolved from "../pages/public/GetInvolved";
@@ -93,6 +94,7 @@ function AppRoutes() {
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/transparency" element={<Transparency />} />
         <Route path="/terms" element={<Terms />} />
 
         <Route path="/contact" element={<Contact />} />

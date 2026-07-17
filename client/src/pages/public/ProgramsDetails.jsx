@@ -44,7 +44,7 @@ function ProgramsDetails() {
     <>
       <PageHeader
         title={program.title}
-        subtitle={program.description}
+        subtitle={program.tagline || program.description}
       />
 
       <section className="bg-white py-20">

@@ -45,14 +45,14 @@ export function seedTeam() {
 
 export function seedPrograms() {
   return [
-    { id: "program_miycn", slug: "miycn", title: "MIYCN", category: "Health & Nutrition", description: "Promoting maternal, infant and young child nutrition through education, advocacy and community engagement.", icon: "❤️" },
-    { id: "program_sorcest", slug: "sorcest", title: "SORCEST", category: "Education", description: "Providing education, mentorship and digital skills for vulnerable children and youth.", icon: "🎓" },
-    { id: "program_help", slug: "help", title: "HELP", category: "Humanitarian", description: "Delivering emergency relief, food support and livelihood assistance.", icon: "🤝" },
-    { id: "program_start", slug: "start", title: "START", category: "Youth Development", description: "Building leadership, entrepreneurship and life skills among young people.", icon: "🚀" },
-    { id: "program_spot", slug: "spot", title: "SPOT", category: "Protection", description: "Creating safe spaces and promoting child protection initiatives.", icon: "🛡️" },
-    { id: "program_safe", slug: "safe", title: "SAFE", category: "Community Safety", description: "Improving safety, resilience and emergency preparedness within communities.", icon: "🏥" },
-    { id: "program_girlie_m3", slug: "girlie-m3", title: "GIRLIE M3", category: "Women & Girls", description: "Empowering adolescent girls and young women through education and mentorship.", icon: "👩" },
-    { id: "program_still_here", slug: "still-here", title: "STILL HERE", category: "Mental Health", description: "Providing psychosocial support and hope for vulnerable individuals.", icon: "💙" },
+    { id: "program_miycn", slug: "miycn", title: "MIYCN", category: "Health & Nutrition", tagline: "From Survival to Strength", description: "Promoting maternal, infant and young child nutrition through education, advocacy and community engagement.", icon: "❤️" },
+    { id: "program_sorcest", slug: "sorcest", title: "SORCEST", category: "Education", tagline: "From Forgotten to Empowered", description: "Providing education, mentorship and digital skills for vulnerable children and youth.", icon: "🎓" },
+    { id: "program_help", slug: "help", title: "HELP", category: "Humanitarian", tagline: "From Poverty to Possibility", description: "Delivering emergency relief, food support and livelihood assistance.", icon: "🤝" },
+    { id: "program_start", slug: "start", title: "START", category: "Youth Development", tagline: "From Forgotten to Empowered", description: "Building leadership, entrepreneurship and life skills among young people.", icon: "🚀" },
+    { id: "program_spot", slug: "spot", title: "SPOT", category: "Protection", tagline: "From Crisis to Dignity", description: "Creating safe spaces and promoting child protection initiatives.", icon: "🛡️" },
+    { id: "program_safe", slug: "safe", title: "SAFE", category: "Community Safety", tagline: "From Vulnerability to Resilience", description: "Improving safety, resilience and emergency preparedness within communities.", icon: "🏥" },
+    { id: "program_girlie_m3", slug: "girlie-m3", title: "GIRLIE M3", category: "Women & Girls", tagline: "From Silence to Strength", description: "Empowering adolescent girls and young women through education and mentorship.", icon: "👩" },
+    { id: "program_still_here", slug: "still-here", title: "STILL HERE", category: "Mental Health", tagline: "From Struggle to Strength", description: "Providing psychosocial support and hope for vulnerable individuals.", icon: "💙" },
   ];
 }
 
@@ -107,6 +107,11 @@ export function seedSettings() {
       { label: "Beneficiaries", value: 12000 },
       { label: "Volunteers", value: 250 },
       { label: "Communities", value: 30 },
+    ],
+    fundAllocation: [
+      { category: "Programs & Field Work", percentage: 80 },
+      { category: "Administration", percentage: 12 },
+      { category: "Fundraising & Outreach", percentage: 8 },
     ],
     contactEmail: "info@chadiinternational.org",
     focusRegion: "Nigeria and underserved African communities",

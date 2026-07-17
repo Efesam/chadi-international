@@ -23,6 +23,7 @@ function Footer() {
     { label: "Events", path: "/events" },
     { label: "Gallery", path: "/gallery" },
     { label: "Partners", path: "/partners" },
+    { label: "Transparency", path: "/transparency" },
     { label: "FAQ", path: "/faq" },
     { label: "Privacy", path: "/privacy" },
     { label: "Terms", path: "/terms" },
@@ -34,8 +35,8 @@ function Footer() {
         <div>
           <Logo light />
           <p className="mt-5 max-w-2xl leading-7 text-white/80">
-            Empowering marginalized individuals and underserved communities
-            through innovation, compassion and sustainable development.
+            We restore dignity, create opportunity, and bring hope alive
+            &mdash; through action.
           </p>
 
           {activeSocials.length > 0 && (

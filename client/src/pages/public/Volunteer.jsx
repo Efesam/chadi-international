@@ -31,6 +31,50 @@ function Volunteer() {
         subtitle="Use your skills, time and compassion to support CHADI communities."
       />
 
+      <section className="bg-chadi-green py-16 text-white">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[3px] text-chadi-gold">
+            CHADI Kind Humans
+          </p>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            Become a State CHADI SPARK Ambassador
+          </h2>
+          <p className="mt-4 text-white/80">
+            <strong>SPARK</strong> &mdash; Spreading And Performing Random
+            Acts of Kindness. State ambassadors lead small, impactful
+            projects in their own community under CHADI's supervision.
+          </p>
+
+          <div className="mt-10 grid gap-6 text-left sm:grid-cols-3">
+            <div className="rounded-2xl bg-white/10 p-6">
+              <h3 className="font-bold text-chadi-gold">Your Role</h3>
+              <p className="mt-2 text-sm text-white/80">
+                Plan and run small acts-of-kindness projects in your state,
+                with CHADI's guidance and support.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/10 p-6">
+              <h3 className="font-bold text-chadi-gold">Recognition</h3>
+              <p className="mt-2 text-sm text-white/80">
+                The best SPARK project each year is voted on and celebrated
+                across CHADI's channels.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/10 p-6">
+              <h3 className="font-bold text-chadi-gold">Visibility</h3>
+              <p className="mt-2 text-sm text-white/80">
+                Featured on the CHADI website and social media &mdash;
+                building grassroots ownership in your community.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-8 text-sm text-white/70">
+            Interested? Select "State SPARK Ambassador" as your area below.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
           <div>
@@ -90,6 +134,7 @@ function Volunteer() {
               <option>Education and mentoring</option>
               <option>Media and communications</option>
               <option>Research and data</option>
+              <option>State SPARK Ambassador</option>
             </select>
 
             <textarea

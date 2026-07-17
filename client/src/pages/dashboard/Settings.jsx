@@ -22,6 +22,17 @@ function Settings() {
     });
   };
 
+  const updateAllocation = (index, key, value) => {
+    setSettings((prev) => {
+      const fundAllocation = [...(prev.fundAllocation || [])];
+      fundAllocation[index] = {
+        ...fundAllocation[index],
+        [key]: key === "percentage" ? Number(value) : value,
+      };
+      return { ...prev, fundAllocation };
+    });
+  };
+
   const updateField = (key, value) => {
     setSettings((prev) => ({ ...prev, [key]: value }));
   };
@@ -82,6 +93,50 @@ function Settings() {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="rounded-2xl bg-white p-6 shadow-sm">
+          <h2 className="font-bold text-chadi-green">Fund Allocation</h2>
+          <p className="mt-1 text-sm text-gray-500">
+            Shown as a chart on the public Transparency page. Percentages should add up to 100.
+          </p>
+
+          <div className="mt-4 space-y-3">
+            {(settings.fundAllocation || []).map((item, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <input
+                  type="text"
+                  value={item.category}
+                  onChange={(event) => updateAllocation(index, "category", event.target.value)}
+                  className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-chadi-green"
+                />
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  value={item.percentage}
+                  onChange={(event) => updateAllocation(index, "percentage", event.target.value)}
+                  className="w-20 rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-chadi-green"
+                />
+                <span className="text-sm text-gray-400">%</span>
+              </div>
+            ))}
+          </div>
+
+          {(settings.fundAllocation || []).length > 0 && (
+            <p
+              className={`mt-3 text-xs font-semibold ${
+                (settings.fundAllocation || []).reduce((sum, i) => sum + Number(i.percentage || 0), 0) === 100
+                  ? "text-gray-400"
+                  : "text-red-500"
+              }`}
+            >
+              Total:{" "}
+              {(settings.fundAllocation || []).reduce((sum, i) => sum + Number(i.percentage || 0), 0)}%
+              {(settings.fundAllocation || []).reduce((sum, i) => sum + Number(i.percentage || 0), 0) !== 100 &&
+                " (should add up to 100)"}
+            </p>
+          )}
         </section>
 
         <section className="rounded-2xl bg-white p-6 shadow-sm">

@@ -17,6 +17,20 @@
       "value": 30
     }
   ],
+  "fundAllocation": [
+    {
+      "category": "Programs & Field Work",
+      "percentage": 80
+    },
+    {
+      "category": "Administration",
+      "percentage": 12
+    },
+    {
+      "category": "Fundraising & Outreach",
+      "percentage": 8
+    }
+  ],
   "contactEmail": "info@chadiinternational.org",
   "focusRegion": "Nigeria and underserved African communities",
   "officeHours": "Monday to Friday, 9:00 AM - 5:00 PM",

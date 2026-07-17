@@ -15,6 +15,12 @@ function ProgramCard({ program }) {
         {program.category}
       </p>
 
+      {program.tagline && (
+        <p className="mt-1 text-sm italic text-chadi-green/80">
+          {program.tagline}
+        </p>
+      )}
+
       <p className="mt-5 text-gray-600">
         {program.description}
       </p>

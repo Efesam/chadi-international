@@ -5,6 +5,7 @@ const fields = [
   { name: "title", label: "Title", required: true },
   { name: "slug", label: "Slug", required: true, hint: "Used in the program URL, e.g. miycn" },
   { name: "category", label: "Category" },
+  { name: "tagline", label: "Transformation Tagline", hint: "e.g. From Survival to Strength" },
   { name: "icon", label: "Icon (emoji)", hint: "e.g. ❤️" },
   { name: "description", label: "Description", type: "textarea", fullWidth: true },
 ];
