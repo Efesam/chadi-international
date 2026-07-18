@@ -12,7 +12,7 @@ const PRESET_AMOUNTS = [
   { amount: 25000, label: "Supports a family for a month" },
 ];
 
-function DonateModal({ open, onClose }) {
+function DonateModal({ open, onClose, project }) {
   const [frequency, setFrequency] = useState("once");
   const [amount, setAmount] = useState("5000");
   const [name, setName] = useState("");
@@ -47,7 +47,7 @@ function DonateModal({ open, onClose }) {
       email,
       amount: Math.round(nairaAmount * 100),
       currency: "NGN",
-      metadata: { name },
+      metadata: { name, projectId: project?.id, projectTitle: project?.title },
       callback: (response) => {
         verifyPayment(response.reference)
           .then((data) => {
@@ -86,6 +86,8 @@ function DonateModal({ open, onClose }) {
         name,
         email,
         interest: `Hope Alive Circle - Monthly ₦${Number(amount).toLocaleString()}`,
+        projectId: project?.id,
+        projectTitle: project?.title,
       });
       setResult({
         type: "success",
@@ -122,9 +124,15 @@ function DonateModal({ open, onClose }) {
         <h3 id="donate-modal-title" className="mt-2 text-3xl font-bold text-chadi-green">
           Give Today
         </h3>
-        <p className="mt-2 text-sm text-gray-600">
-          You're not just giving money &mdash; you're giving hope, dignity and a second chance.
-        </p>
+        {project?.title ? (
+          <p className="mt-2 text-sm text-gray-600">
+            Supporting: <span className="font-semibold text-chadi-green">{project.title}</span>
+          </p>
+        ) : (
+          <p className="mt-2 text-sm text-gray-600">
+            You're not just giving money &mdash; you're giving hope, dignity and a second chance.
+          </p>
+        )}
 
         <div className="mt-5 flex rounded-lg bg-gray-100 p-1 text-sm font-semibold">
           <button

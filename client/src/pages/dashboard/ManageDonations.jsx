@@ -18,6 +18,11 @@ const columns = [
         : item.interest,
   },
   {
+    key: "project",
+    label: "Project",
+    render: (item) => item.projectTitle || "General",
+  },
+  {
     key: "createdAt",
     label: "Date",
     render: (item) => new Date(item.createdAt).toLocaleDateString(),

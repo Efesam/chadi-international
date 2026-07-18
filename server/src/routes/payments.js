@@ -35,6 +35,10 @@ async function recordPayment(data) {
     reference: data.reference,
     channel: data.channel,
     paidAt: data.paid_at,
+    // Set when someone donates from a specific project's page, via
+    // Paystack's metadata field - lets us track and show per-project totals.
+    projectId: data.metadata?.projectId || null,
+    projectTitle: data.metadata?.projectTitle || null,
   };
 
   donations.unshift(entry);
@@ -130,6 +134,22 @@ router.post("/webhook", async (req, res) => {
       console.error("[payments] webhook recording error:", error);
     }
   }
+});
+
+/**
+ * Public aggregate totals for a project's donations - no individual donor
+ * details are exposed here, just a sum and a count, similar to a
+ * crowdfunding progress bar.
+ */
+router.get("/project-summary/:projectId", async (req, res) => {
+  const donations = await readCollection("donations", () => []);
+  const projectDonations = donations.filter(
+    (entry) => entry.type === "payment" && entry.projectId === req.params.projectId
+  );
+
+  const totalRaised = projectDonations.reduce((sum, entry) => sum + (entry.amount || 0), 0);
+
+  res.json({ totalRaised, donorCount: projectDonations.length });
 });
 
 export default router;

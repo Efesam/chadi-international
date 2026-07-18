@@ -1,12 +1,20 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { FaHeart } from "react-icons/fa";
 import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
+import DonateModal from "../../components/common/DonateModal";
 import { useCollection } from "../../hooks/useCollection";
-import { projectsApi } from "../../services/api";
+import { projectsApi, getProjectDonationSummary } from "../../services/api";
 
 function ProjectDetails() {
   const { slug } = useParams();
+  const [donateOpen, setDonateOpen] = useState(false);
   const { data: project, loading, error } = useCollection(() => projectsApi.get(slug), [slug]);
+  const { data: summary } = useCollection(
+    () => (project ? getProjectDonationSummary(project.id) : Promise.resolve(null)),
+    [project?.id]
+  );
 
   if (loading) {
     return <DetailSkeleton />;
@@ -87,10 +95,37 @@ function ProjectDetails() {
                   <p className="font-semibold">{project.beneficiaries}</p>
                 </div>
               </div>
+
+              <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
+                <p className="text-sm text-gray-500">Raised for this project</p>
+                <p className="mt-1 text-3xl font-bold text-chadi-green">
+                  ₦{Number(summary?.totalRaised || 0).toLocaleString()}
+                </p>
+                {summary?.donorCount > 0 && (
+                  <p className="mt-1 text-xs text-gray-400">
+                    from {summary.donorCount} supporter{summary.donorCount === 1 ? "" : "s"}
+                  </p>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => setDonateOpen(true)}
+                  className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-chadi-gold px-6 py-3 font-semibold text-black transition hover:scale-105"
+                >
+                  <FaHeart size={14} />
+                  Donate to this Project
+                </button>
+              </div>
             </aside>
           </div>
         </div>
       </section>
+
+      <DonateModal
+        open={donateOpen}
+        onClose={() => setDonateOpen(false)}
+        project={{ id: project.id, title: project.title }}
+      />
     </>
   );
 }

@@ -77,6 +77,10 @@ export function verifyPayment(reference) {
   return request("/payments/verify", { method: "POST", body: JSON.stringify({ reference }) });
 }
 
+export function getProjectDonationSummary(projectId) {
+  return request(`/payments/project-summary/${encodeURIComponent(projectId)}`);
+}
+
 // ---- Auth ----
 
 export async function login(email, password) {
