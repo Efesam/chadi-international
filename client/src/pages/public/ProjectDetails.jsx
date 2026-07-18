@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaHandsHelping } from "react-icons/fa";
 import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
 import DonateModal from "../../components/common/DonateModal";
+import VolunteerModal from "../../components/common/VolunteerModal";
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi, getProjectDonationSummary } from "../../services/api";
 
 function ProjectDetails() {
   const { slug } = useParams();
   const [donateOpen, setDonateOpen] = useState(false);
+  const [volunteerOpen, setVolunteerOpen] = useState(false);
   const { data: project, loading, error } = useCollection(() => projectsApi.get(slug), [slug]);
   const { data: summary } = useCollection(
     () => (project ? getProjectDonationSummary(project.id) : Promise.resolve(null)),
@@ -202,6 +204,15 @@ function ProjectDetails() {
                   <FaHeart size={14} />
                   Donate to this Project
                 </button>
+
+                <button
+                  type="button"
+                  onClick={() => setVolunteerOpen(true)}
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-chadi-green px-6 py-3 font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white"
+                >
+                  <FaHandsHelping size={14} />
+                  Volunteer for this Project
+                </button>
               </div>
             </aside>
           </div>
@@ -211,6 +222,12 @@ function ProjectDetails() {
       <DonateModal
         open={donateOpen}
         onClose={() => setDonateOpen(false)}
+        project={{ id: project.id, title: project.title }}
+      />
+
+      <VolunteerModal
+        open={volunteerOpen}
+        onClose={() => setVolunteerOpen(false)}
         project={{ id: project.id, title: project.title }}
       />
     </>

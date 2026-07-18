@@ -4,6 +4,11 @@ import { volunteersApi } from "../../services/api";
 const columns = [
   { key: "name", label: "Name" },
   { key: "email", label: "Email" },
+  {
+    key: "project",
+    label: "Project",
+    render: (item) => item.projectTitle || "General",
+  },
   { key: "area", label: "Area of Interest" },
   {
     key: "createdAt",

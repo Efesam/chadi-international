@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaHandsHelping } from "react-icons/fa";
 import DonateModal from "../common/DonateModal";
+import VolunteerModal from "../common/VolunteerModal";
 
 function ProjectCard({ project }) {
   const [donateOpen, setDonateOpen] = useState(false);
+  const [volunteerOpen, setVolunteerOpen] = useState(false);
 
   return (
     <div className="group overflow-hidden rounded-3xl bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
@@ -51,7 +53,7 @@ function ProjectCard({ project }) {
           </p>
         </div>
 
-        <div className="flex items-center justify-between pt-2">
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
           <Link
             to={`/projects/${project.slug}`}
             className="inline-flex font-semibold text-chadi-green hover:text-chadi-gold"
@@ -59,20 +61,37 @@ function ProjectCard({ project }) {
             Learn More →
           </Link>
 
-          <button
-            type="button"
-            onClick={() => setDonateOpen(true)}
-            className="flex items-center gap-2 rounded-full bg-chadi-gold px-4 py-2 text-sm font-semibold text-black transition hover:scale-105"
-          >
-            <FaHeart size={12} />
-            Donate
-          </button>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setVolunteerOpen(true)}
+              className="flex items-center gap-2 rounded-full border border-chadi-green px-4 py-2 text-sm font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white"
+            >
+              <FaHandsHelping size={12} />
+              Volunteer
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setDonateOpen(true)}
+              className="flex items-center gap-2 rounded-full bg-chadi-gold px-4 py-2 text-sm font-semibold text-black transition hover:scale-105"
+            >
+              <FaHeart size={12} />
+              Donate
+            </button>
+          </div>
         </div>
       </div>
 
       <DonateModal
         open={donateOpen}
         onClose={() => setDonateOpen(false)}
+        project={{ id: project.id, title: project.title }}
+      />
+
+      <VolunteerModal
+        open={volunteerOpen}
+        onClose={() => setVolunteerOpen(false)}
         project={{ id: project.id, title: project.title }}
       />
     </div>
