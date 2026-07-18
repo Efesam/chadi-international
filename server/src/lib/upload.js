@@ -7,8 +7,16 @@ import { randomBytes } from "node:crypto";
 export const uploadsDir = fileURLToPath(new URL("../../uploads/", import.meta.url));
 mkdirSync(uploadsDir, { recursive: true });
 
-const ALLOWED_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
-const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+const ALLOWED_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+  "video/mp4",
+  "video/webm",
+  "video/quicktime",
+]);
+const MAX_SIZE = 100 * 1024 * 1024; // 100MB - generous for short project videos
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, uploadsDir),
@@ -21,7 +29,7 @@ const storage = multer.diskStorage({
 
 function fileFilter(req, file, cb) {
   if (!ALLOWED_TYPES.has(file.mimetype)) {
-    cb(new Error("Only JPEG, PNG, WebP and GIF images are allowed"));
+    cb(new Error("Only JPEG, PNG, WebP, GIF images or MP4/WebM/MOV videos are allowed"));
     return;
   }
   cb(null, true);

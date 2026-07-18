@@ -2,6 +2,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { uploadImage } from "../../services/api";
 import RichTextEditor from "./RichTextEditor";
+import RepeaterField from "./RepeaterField";
 
 /**
  * An image field that uploads immediately on file selection and stores the
@@ -82,7 +83,9 @@ function ResourceForm({ fields, initialValues = {}, onSubmit, onCancel, submitti
   const [values, setValues] = useState(() => {
     const defaults = {};
     fields.forEach((field) => {
-      defaults[field.name] = initialValues[field.name] ?? (field.type === "checkbox" ? false : "");
+      defaults[field.name] =
+        initialValues[field.name] ??
+        (field.type === "checkbox" ? false : field.type === "repeater" ? [] : "");
     });
     return defaults;
   });
@@ -100,7 +103,12 @@ function ResourceForm({ fields, initialValues = {}, onSubmit, onCancel, submitti
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         {fields.map((field) => {
-          const wide = field.type === "textarea" || field.type === "image" || field.type === "richtext" || field.fullWidth;
+          const wide =
+            field.type === "textarea" ||
+            field.type === "image" ||
+            field.type === "richtext" ||
+            field.type === "repeater" ||
+            field.fullWidth;
 
           return (
             <label key={field.name} className={`block ${wide ? "sm:col-span-2" : ""}`}>
@@ -111,6 +119,8 @@ function ResourceForm({ fields, initialValues = {}, onSubmit, onCancel, submitti
 
               {field.type === "image" ? (
                 <ImageField field={field} value={values[field.name]} onChange={handleChange} />
+              ) : field.type === "repeater" ? (
+                <RepeaterField field={field} value={values[field.name]} onChange={handleChange} />
               ) : field.type === "richtext" ? (
                 <RichTextEditor
                   value={values[field.name]}

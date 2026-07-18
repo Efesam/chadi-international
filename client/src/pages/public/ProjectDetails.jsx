@@ -35,6 +35,11 @@ function ProjectDetails() {
     );
   }
 
+  const media = project.media || [];
+  const spending = project.spending || [];
+  const totalSpent = spending.reduce((sum, item) => sum + Number(item.amount || 0), 0);
+  const totalRaised = Number(summary?.totalRaised || 0);
+
   return (
     <>
       <PageHeader title={project.title} subtitle={project.program} />
@@ -69,6 +74,71 @@ function ProjectDetails() {
                   <li>Create measurable impact for underserved communities.</li>
                 </ul>
               </div>
+
+              {media.length > 0 && (
+                <div className="mt-10">
+                  <h3 className="text-2xl font-bold text-chadi-green">
+                    Photos &amp; Videos
+                  </h3>
+                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                    {media.map((item, index) => (
+                      <figure key={index} className="overflow-hidden rounded-2xl bg-gray-100">
+                        {item.type === "video" ? (
+                          <video src={item.url} controls className="h-56 w-full object-cover" />
+                        ) : (
+                          <img
+                            src={item.url}
+                            alt={item.caption || project.title}
+                            loading="lazy"
+                            className="h-56 w-full object-cover"
+                          />
+                        )}
+                        {item.caption && (
+                          <figcaption className="p-3 text-sm text-gray-600">
+                            {item.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {spending.length > 0 && (
+                <div className="mt-10 rounded-3xl border border-chadi-green/20 p-8">
+                  <h3 className="text-2xl font-bold text-chadi-green">
+                    How Funds Were Used
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-500">
+                    A transparent record of spending on this project so far.
+                  </p>
+
+                  <ul className="mt-6 divide-y divide-gray-100">
+                    {spending.map((item, index) => (
+                      <li key={index} className="flex items-center justify-between py-3">
+                        <div>
+                          <p className="font-semibold text-gray-800">{item.description}</p>
+                          {item.date && (
+                            <p className="text-xs text-gray-400">
+                              {new Date(item.date).toLocaleDateString()}
+                            </p>
+                          )}
+                        </div>
+                        <p className="font-bold text-chadi-green">
+                          ₦{Number(item.amount || 0).toLocaleString()}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-4">
+                    <p className="font-bold text-gray-800">Total Spent</p>
+                    <p className="text-xl font-bold text-chadi-green">
+                      ₦{totalSpent.toLocaleString()}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
 
             <aside className="rounded-3xl bg-gray-50 p-8 shadow-lg">
@@ -99,12 +169,29 @@ function ProjectDetails() {
               <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
                 <p className="text-sm text-gray-500">Raised for this project</p>
                 <p className="mt-1 text-3xl font-bold text-chadi-green">
-                  ₦{Number(summary?.totalRaised || 0).toLocaleString()}
+                  ₦{totalRaised.toLocaleString()}
                 </p>
                 {summary?.donorCount > 0 && (
                   <p className="mt-1 text-xs text-gray-400">
                     from {summary.donorCount} supporter{summary.donorCount === 1 ? "" : "s"}
                   </p>
+                )}
+
+                {spending.length > 0 && (
+                  <div className="mt-4 space-y-1 border-t border-gray-100 pt-4 text-sm">
+                    <div className="flex justify-between text-gray-500">
+                      <span>Spent so far</span>
+                      <span className="font-semibold text-gray-700">
+                        ₦{totalSpent.toLocaleString()}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-gray-500">
+                      <span>Remaining</span>
+                      <span className="font-semibold text-chadi-green">
+                        ₦{Math.max(totalRaised - totalSpent, 0).toLocaleString()}
+                      </span>
+                    </div>
+                  </div>
                 )}
 
                 <button
