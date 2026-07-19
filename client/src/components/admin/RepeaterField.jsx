@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { FaTrash, FaPlus, FaUpload } from "react-icons/fa";
 import { uploadImage } from "../../services/api";
 
-function MediaUploadButton({ value, onChange }) {
+function MediaUploadButton({ value, onUploaded, onUrlChange }) {
   const [uploading, setUploading] = useState(false);
 
   const handleFileChange = async (event) => {
@@ -13,7 +13,11 @@ function MediaUploadButton({ value, onChange }) {
     setUploading(true);
     try {
       const url = await uploadImage(file);
-      onChange(url);
+      // Detect image vs video straight from the file itself, so the admin
+      // never has to remember to flip a separate "type" dropdown - that
+      // manual step was the actual bug behind videos silently not showing.
+      const mediaType = file.type.startsWith("video/") ? "video" : "image";
+      onUploaded(url, mediaType);
       toast.success("Uploaded");
     } catch (err) {
       toast.error(err.message || "Upload failed");
@@ -29,7 +33,7 @@ function MediaUploadButton({ value, onChange }) {
         type="text"
         placeholder="File URL"
         value={value || ""}
-        onChange={(event) => onChange(event.target.value)}
+        onChange={(event) => onUrlChange(event.target.value)}
         className="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-chadi-green"
       />
       <label className="flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg border border-chadi-green px-3 py-2 text-xs font-semibold text-chadi-green hover:bg-chadi-green hover:text-white">
@@ -60,6 +64,11 @@ function RepeaterField({ field, value, onChange }) {
     onChange(field.name, next);
   };
 
+  const updateItemFields = (index, patch) => {
+    const next = items.map((item, i) => (i === index ? { ...item, ...patch } : item));
+    onChange(field.name, next);
+  };
+
   const addItem = () => {
     const blank = {};
     field.itemFields.forEach((f) => {
@@ -74,6 +83,8 @@ function RepeaterField({ field, value, onChange }) {
 
   return (
     <div className="mt-2 space-y-3">
+      {field.hint && <p className="text-xs text-gray-400">{field.hint}</p>}
+
       {items.map((item, index) => (
         <div key={index} className="rounded-lg border border-gray-200 p-3">
           <div className="grid gap-2 sm:grid-cols-2">
@@ -84,8 +95,16 @@ function RepeaterField({ field, value, onChange }) {
                   <div className="mt-1">
                     <MediaUploadButton
                       value={item[itemField.name]}
-                      onChange={(val) => updateItem(index, itemField.name, val)}
+                      onUrlChange={(val) => updateItem(index, itemField.name, val)}
+                      onUploaded={(url, mediaType) =>
+                        updateItemFields(index, { [itemField.name]: url, type: mediaType })
+                      }
                     />
+                    {item.type && (
+                      <span className="mt-1 inline-block rounded-full bg-chadi-lightgreen px-2 py-0.5 text-[10px] font-semibold text-chadi-green">
+                        Detected: {item.type}
+                      </span>
+                    )}
                   </div>
                 ) : itemField.type === "select" ? (
                   <select

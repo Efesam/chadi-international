@@ -23,8 +23,8 @@ const fields = [
     itemLabel: "Photo or Video",
     hint: "Add as many photos or videos as you like - shown in a gallery on the project's page.",
     itemFields: [
-      { name: "type", label: "Type", type: "select", options: ["image", "video"] },
       { name: "url", label: "File", type: "media" },
+      { name: "type", label: "Type (auto-detected on upload; set manually if pasting a URL)", type: "select", options: ["image", "video"] },
       { name: "caption", label: "Caption" },
     ],
   },
