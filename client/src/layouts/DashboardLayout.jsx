@@ -16,7 +16,6 @@ import {
   FaBars,
   FaTimes,
   FaSignOutAlt,
-  FaLayerGroup,
   FaNewspaper,
 } from "react-icons/fa";
 import Logo from "../components/common/Logo";
@@ -24,7 +23,6 @@ import { useAuth } from "../hooks/useAuth";
 
 const navItems = [
   { to: "/admin/dashboard", label: "Dashboard", icon: FaTachometerAlt },
-  { to: "/admin/programs", label: "Programs", icon: FaLayerGroup },
   { to: "/admin/projects", label: "Projects", icon: FaProjectDiagram },
   { to: "/admin/news", label: "News", icon: FaNewspaper },
   { to: "/admin/events", label: "Events", icon: FaCalendarAlt },

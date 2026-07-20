@@ -2,7 +2,6 @@ import Hero from "../../components/home/Hero";
 import AboutPreview from "../../components/home/AboutPreview";
 import VisionMission from "../../components/home/VisionMission";
 import WhyChooseUs from "../../components/home/WhyChooseUs";
-import ProgramsSection from "../../components/home/ProgramsSection";
 import ImpactCounter from "../../components/home/ImpactCounter";
 import Newsletter from "../../components/common/Newsletter";
 import FeaturedProjects from "../../components/home/FeaturedProjects";
@@ -23,8 +22,6 @@ function Home() {
       <VisionMission />
 
       <WhyChooseUs />
-
-      <ProgramsSection />
 
       <ImpactCounter />
 

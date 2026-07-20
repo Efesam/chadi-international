@@ -22,7 +22,6 @@ function Navbar() {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Programs", path: "/programs" },
     { name: "Projects", path: "/projects" },
     { name: "News", path: "/news" },
     { name: "Get Involved", path: "/get-involved" },

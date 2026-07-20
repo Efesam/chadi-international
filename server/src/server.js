@@ -12,7 +12,6 @@ import {
   seedPartners,
   seedStories,
   seedSettings,
-  seedPrograms,
   seedNews,
 } from "./lib/seeds.js";
 import authRouter from "./routes/auth.js";
@@ -77,7 +76,6 @@ app.use("/api", apiLimiter);
 
 // CMS-managed collections. GET is public (the marketing site reads from
 // these); POST/PUT/DELETE require an authenticated admin session.
-app.use("/api/programs", createCrudRouter({ name: "programs", seed: seedPrograms, requiredFields: ["title"] }));
 app.use("/api/news", createCrudRouter({ name: "news", seed: seedNews, requiredFields: ["title"] }));
 app.use("/api/projects", createCrudRouter({ name: "projects", seed: seedProjects, requiredFields: ["title"] }));
 app.use("/api/events", createCrudRouter({ name: "events", seed: seedEvents, requiredFields: ["title", "date"] }));

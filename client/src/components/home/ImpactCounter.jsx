@@ -2,6 +2,8 @@ import { FaProjectDiagram, FaUsers, FaHandsHelping, FaGlobeAfrica } from "react-
 import { useCollection } from "../../hooks/useCollection";
 import { getSettings } from "../../services/api";
 import StatCard from "../ui/StatCard";
+import Reveal from "../common/Reveal";
+import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 
 // Stats content (labels/numbers) comes from the CMS settings; icons stay
 // fixed locally since they aren't serializable through the API.
@@ -14,32 +16,35 @@ function ImpactCounter() {
   return (
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold text-gray-900">
-            Our Impact in Numbers
-          </h2>
+        <Reveal>
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold text-gray-900">
+              Our Impact in Numbers
+            </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-lg text-gray-600">
-            Every project represents lives transformed and communities empowered.
-          </p>
-        </div>
+            <p className="mx-auto mt-5 max-w-3xl text-lg text-gray-600">
+              Every project represents lives transformed and communities empowered.
+            </p>
+          </div>
+        </Reveal>
 
         {loading ? (
           <p className="text-center text-gray-500">Loading...</p>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, index) => (
-              <StatCard
-                key={stat.label}
-                stat={{
-                  number: stat.value,
-                  suffix: "+",
-                  label: stat.label,
-                  icon: icons[index % icons.length],
-                }}
-              />
+              <StaggerItem key={stat.label}>
+                <StatCard
+                  stat={{
+                    number: stat.value,
+                    suffix: "+",
+                    label: stat.label,
+                    icon: icons[index % icons.length],
+                  }}
+                />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGrid>
         )}
       </div>
     </section>

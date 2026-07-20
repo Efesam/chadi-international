@@ -11,8 +11,6 @@ import PublicRoute from "./PublicRoute";
 import Home from "../pages/public/Home";
 import About from "../pages/public/About";
 import Projects from "../pages/public/Projects";
-import Programs from "../pages/public/Programs";
-import ProgramsDetails from "../pages/public/ProgramsDetails";
 import News from "../pages/public/News";
 import NewsDetails from "../pages/public/NewsDetails";
 import Team from "../pages/public/Team";
@@ -41,7 +39,6 @@ const ForgotPassword = lazy(() => import("../pages/auth/ForgotPassword"));
 const ResetPassword = lazy(() => import("../pages/auth/ResetPassword"));
 
 const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
-const ManagePrograms = lazy(() => import("../pages/dashboard/ManagePrograms"));
 const ManageProjects = lazy(() => import("../pages/dashboard/ManageProjects"));
 const ManageNews = lazy(() => import("../pages/dashboard/ManageNews"));
 const ManageEvents = lazy(() => import("../pages/dashboard/ManageEvents"));
@@ -70,9 +67,6 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
 
         <Route path="/about" element={<About />} />
-
-        <Route path="/programs" element={<Programs />} />
-        <Route path="/programs/:slug" element={<ProgramsDetails />} />
 
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetails />} />
@@ -141,14 +135,6 @@ function AppRoutes() {
             element={
               <Suspense fallback={<AdminLoading />}>
                 <Dashboard />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/admin/programs"
-            element={
-              <Suspense fallback={<AdminLoading />}>
-                <ManagePrograms />
               </Suspense>
             }
           />
