@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
+import Reveal from "../../components/common/Reveal";
 import { useCollection } from "../../hooks/useCollection";
 import { newsApi } from "../../services/api";
 
@@ -39,18 +40,20 @@ function NewsDetails() {
 
       <article className="bg-white py-20">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-gray-500">
-            <span className="rounded-full bg-chadi-gold px-4 py-2 text-black">
-              {article.category}
-            </span>
-            <span>{article.date}</span>
-            <span>{article.author}</span>
-          </div>
+          <Reveal>
+            <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-gray-500">
+              <span className="rounded-full bg-chadi-gold px-4 py-2 text-black">
+                {article.category}
+              </span>
+              <span>{article.date}</span>
+              <span>{article.author}</span>
+            </div>
 
-          <div
-            className="prose prose-lg mt-10 max-w-none text-gray-700"
-            dangerouslySetInnerHTML={{ __html: article.content || "" }}
-          />
+            <div
+              className="prose prose-lg mt-10 max-w-none text-gray-700"
+              dangerouslySetInnerHTML={{ __html: article.content || "" }}
+            />
+          </Reveal>
 
           <Link
             to="/news"

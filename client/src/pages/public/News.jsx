@@ -1,6 +1,7 @@
 import PageHeader from "../../components/common/PageHeader";
 import NewsCard from "../../components/ui/NewsCard";
 import CardGridSkeleton from "../../components/common/CardGridSkeleton";
+import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { useCollection } from "../../hooks/useCollection";
 import { newsApi } from "../../services/api";
 
@@ -23,11 +24,13 @@ function News() {
           ) : news.length === 0 ? (
             <p className="text-center text-gray-500">No news articles yet.</p>
           ) : (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {news.map((article) => (
-                <NewsCard key={article.id} article={article} />
+                <StaggerItem key={article.id}>
+                  <NewsCard article={article} />
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerGrid>
           )}
         </div>
       </section>
