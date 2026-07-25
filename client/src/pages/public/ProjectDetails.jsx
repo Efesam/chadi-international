@@ -5,6 +5,8 @@ import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
 import DonateModal from "../../components/common/DonateModal";
 import VolunteerModal from "../../components/common/VolunteerModal";
+import Reveal from "../../components/common/Reveal";
+import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi, getProjectDonationSummary } from "../../services/api";
 
@@ -48,15 +50,18 @@ function ProjectDetails() {
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <img
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-            className="h-96 w-full rounded-3xl object-cover shadow-lg md:h-[500px]"
-          />
+          <Reveal>
+            <img
+              src={project.image}
+              alt={project.title}
+              loading="lazy"
+              className="h-96 w-full rounded-3xl object-cover shadow-lg md:h-[500px]"
+            />
+          </Reveal>
 
           <div className="mt-12 grid gap-12 lg:grid-cols-3">
-            <div className="lg:col-span-2">
+            <Reveal direction="left" className="lg:col-span-2">
+              <div>
               <h2 className="text-4xl font-bold text-chadi-green">
                 About this Project
               </h2>
@@ -82,27 +87,29 @@ function ProjectDetails() {
                   <h3 className="text-2xl font-bold text-chadi-green">
                     Photos &amp; Videos
                   </h3>
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  <StaggerGrid className="mt-5 grid gap-4 sm:grid-cols-2">
                     {media.map((item, index) => (
-                      <figure key={index} className="overflow-hidden rounded-2xl bg-gray-100">
-                        {item.type === "video" ? (
-                          <video src={item.url} controls className="h-56 w-full object-cover" />
-                        ) : (
-                          <img
-                            src={item.url}
-                            alt={item.caption || project.title}
-                            loading="lazy"
-                            className="h-56 w-full object-cover"
-                          />
-                        )}
-                        {item.caption && (
-                          <figcaption className="p-3 text-sm text-gray-600">
-                            {item.caption}
-                          </figcaption>
-                        )}
-                      </figure>
+                      <StaggerItem key={index}>
+                        <figure className="overflow-hidden rounded-2xl bg-gray-100 transition hover:-translate-y-1 hover:shadow-lg">
+                          {item.type === "video" ? (
+                            <video src={item.url} controls className="h-56 w-full object-cover" />
+                          ) : (
+                            <img
+                              src={item.url}
+                              alt={item.caption || project.title}
+                              loading="lazy"
+                              className="h-56 w-full object-cover"
+                            />
+                          )}
+                          {item.caption && (
+                            <figcaption className="p-3 text-sm text-gray-600">
+                              {item.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      </StaggerItem>
                     ))}
-                  </div>
+                  </StaggerGrid>
                 </div>
               )}
 
@@ -141,9 +148,11 @@ function ProjectDetails() {
                   </div>
                 </div>
               )}
-            </div>
+              </div>
+            </Reveal>
 
-            <aside className="rounded-3xl bg-gray-50 p-8 shadow-lg">
+            <Reveal direction="right" delay={0.15}>
+              <aside className="rounded-3xl bg-gray-50 p-8 shadow-lg">
               <h3 className="text-2xl font-bold">Project Details</h3>
 
               <div className="mt-8 space-y-6">
@@ -214,7 +223,8 @@ function ProjectDetails() {
                   Volunteer for this Project
                 </button>
               </div>
-            </aside>
+              </aside>
+            </Reveal>
           </div>
         </div>
       </section>
