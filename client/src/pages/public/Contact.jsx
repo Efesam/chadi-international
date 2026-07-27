@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import PageHeader from "../../components/common/PageHeader";
 import { sendContactMessage, getSettings } from "../../services/api";
 import { useCollection } from "../../hooks/useCollection";
+import Reveal from "../../components/common/Reveal";
 
 function Contact() {
   const [sending, setSending] = useState(false);
@@ -35,7 +36,8 @@ function Contact() {
 
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
-          <div className="lg:col-span-1">
+          <Reveal direction="left" className="lg:col-span-1">
+            <div>
             <h2 className="text-4xl font-bold text-chadi-green">
               Let us hear from you
             </h2>
@@ -64,11 +66,13 @@ function Contact() {
                 </p>
               </div>
             </div>
-          </div>
+            </div>
+          </Reveal>
 
+          <Reveal direction="right" delay={0.15} className="lg:col-span-2">
           <form
             onSubmit={handleSubmit}
-            className="rounded-3xl bg-chadi-cream p-8 shadow-lg lg:col-span-2"
+            className="rounded-3xl bg-chadi-cream p-8 shadow-lg"
           >
             <div className="grid gap-6 md:grid-cols-2">
               <label className="block">
@@ -114,11 +118,12 @@ function Contact() {
             <button
               type="submit"
               disabled={sending}
-              className="mt-8 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
+              className="mt-8 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:scale-105 hover:bg-chadi-gold hover:text-black disabled:opacity-60"
             >
               {sending ? "Sending..." : "Send Message"}
             </button>
           </form>
+          </Reveal>
         </div>
       </section>
     </>
