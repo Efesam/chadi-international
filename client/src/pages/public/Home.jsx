@@ -1,3 +1,4 @@
+import Seo from "../../components/common/Seo";
 import Hero from "../../components/home/Hero";
 import AboutPreview from "../../components/home/AboutPreview";
 import VisionMission from "../../components/home/VisionMission";
@@ -15,6 +16,11 @@ import SuccessStories from "../../components/home/SuccessStories";
 function Home() {
   return (
     <>
+      <Seo
+        path="/"
+        description="CHADI International empowers marginalized individuals and underserved communities in Nigeria and across Africa through health, education, livelihood and community development programs."
+      />
+
       <Hero />
 
       <AboutPreview />

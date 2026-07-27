@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import { recordDonationInterest } from "../../services/api";
 import DonateModal from "../../components/common/DonateModal";
 import Reveal from "../../components/common/Reveal";
+import Newsletter from "../../components/common/Newsletter";
 
 function InterestForm() {
   const [submitting, setSubmitting] = useState(false);
@@ -75,7 +77,7 @@ function InterestForm() {
 
       <Link
         to="/contact"
-        className="ml-4 inline-block font-semibold text-chadi-green hover:text-chadi-gold"
+        className="ml-4 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark"
       >
         Contact instead
       </Link>
@@ -88,6 +90,12 @@ function Donate() {
 
   return (
     <>
+      <Seo
+        title="Donate"
+        path="/donate"
+        description="Support CHADI International's work with underserved communities through a secure online donation."
+      />
+
       <PageHeader
         title="Donate"
         subtitle="Support CHADI's work with underserved communities."
@@ -97,7 +105,7 @@ function Donate() {
         <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2">
           <Reveal direction="left">
             <div>
-              <h2 className="text-4xl font-bold text-chadi-green">
+              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
                 Help Sustain Community Impact
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -125,6 +133,8 @@ function Donate() {
       </section>
 
       <DonateModal open={donateOpen} onClose={() => setDonateOpen(false)} />
+
+      <Newsletter />
     </>
   );
 }

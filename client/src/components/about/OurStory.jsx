@@ -1,26 +1,27 @@
 import aboutImage from "../../assets/about.jpg";
+import Reveal from "../common/Reveal";
 
 function OurStory() {
   return (
     <section className="py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
 
-        <div>
+        <Reveal direction="left">
           <img
             src={aboutImage}
             alt="CHADI Community Outreach"
             loading="lazy"
             className="rounded-3xl shadow-xl"
           />
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal direction="right" delay={0.15}>
 
-          <span className="font-semibold uppercase tracking-widest text-chadi-gold">
+          <span className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
             Our Story
           </span>
 
-          <h2 className="mt-4 text-5xl font-bold text-chadi-green">
+          <h2 className="mt-4 text-4xl font-bold text-chadi-green sm:text-5xl">
             Empowering Lives.
             <br />
             Transforming Communities.
@@ -42,7 +43,7 @@ function OurStory() {
             the circumstances surrounding them.
           </p>
 
-        </div>
+        </Reveal>
 
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaHeart, FaHandsHelping } from "react-icons/fa";
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
 import DonateModal from "../../components/common/DonateModal";
@@ -9,6 +10,7 @@ import Reveal from "../../components/common/Reveal";
 import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi, getProjectDonationSummary } from "../../services/api";
+import Newsletter from "../../components/common/Newsletter";
 
 function ProjectDetails() {
   const { slug } = useParams();
@@ -27,6 +29,7 @@ function ProjectDetails() {
   if (error || !project) {
     return (
       <section className="bg-white py-28 text-center">
+        <Seo title="Project Not Found" noindex />
         <div className="mx-auto max-w-3xl px-6">
           <h1 className="text-4xl font-bold text-chadi-green">
             Project Not Found
@@ -46,6 +49,13 @@ function ProjectDetails() {
 
   return (
     <>
+      <Seo
+        title={project.title}
+        path={`/projects/${slug}`}
+        description={project.summary || `Learn about CHADI International's ${project.title} project.`}
+        image={project.image}
+      />
+
       <PageHeader title={project.title} subtitle={project.program} />
 
       <section className="bg-white py-20">
@@ -62,7 +72,7 @@ function ProjectDetails() {
           <div className="mt-12 grid gap-12 lg:grid-cols-3">
             <Reveal direction="left" className="lg:col-span-2">
               <div>
-              <h2 className="text-4xl font-bold text-chadi-green">
+              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
                 About this Project
               </h2>
 
@@ -240,6 +250,8 @@ function ProjectDetails() {
         onClose={() => setVolunteerOpen(false)}
         project={{ id: project.id, title: project.title }}
       />
+
+      <Newsletter />
     </>
   );
 }

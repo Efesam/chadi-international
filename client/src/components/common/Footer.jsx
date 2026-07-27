@@ -3,6 +3,7 @@ import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/
 import Logo from "./Logo";
 import { useCollection } from "../../hooks/useCollection";
 import { getSettings } from "../../services/api";
+import footerImage from "../../assets/projects/sorces-classroom-2.jpg";
 
 const socialIcons = {
   facebook: FaFacebookF,
@@ -53,8 +54,13 @@ function Footer() {
   const activeSocials = Object.entries(socials).filter(([, url]) => url);
 
   return (
-    <footer className="bg-chadi-green py-14 text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.3fr_2fr]">
+    <footer
+      className="relative overflow-hidden bg-chadi-green bg-cover bg-center py-14 text-white"
+      style={{ backgroundImage: `url(${footerImage})` }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-chadi-green/90 via-chadi-green/95 to-chadi-green" />
+
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.3fr_2fr]">
         <div>
           <Logo light />
           <p className="mt-5 max-w-sm leading-7 text-white/80">
@@ -107,7 +113,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl border-t border-white/15 px-6 pt-6 text-sm text-white/70">
+      <div className="relative mx-auto mt-10 max-w-7xl border-t border-white/15 px-6 pt-6 text-sm text-white/70">
         © {new Date().getFullYear()} CHADI International. All rights reserved.
       </div>
     </footer>

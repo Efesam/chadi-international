@@ -52,7 +52,9 @@ function Navbar() {
               className={({ isActive }) =>
                 `font-medium transition ${
                   isActive
-                    ? "text-chadi-gold"
+                    ? scrolled
+                      ? "text-chadi-gold-dark"
+                      : "text-chadi-gold"
                     : scrolled
                     ? "text-gray-700 hover:text-chadi-green"
                     : "text-white hover:text-chadi-gold"
@@ -99,7 +101,9 @@ function Navbar() {
               key={item.path}
               to={item.path}
               onClick={() => setMobileMenu(false)}
-              className="border-b py-4 text-gray-700"
+              className={({ isActive }) =>
+                `border-b py-4 ${isActive ? "font-bold text-chadi-green" : "text-gray-700"}`
+              }
             >
               {item.name}
             </NavLink>

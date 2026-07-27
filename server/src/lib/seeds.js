@@ -29,17 +29,17 @@ export function seedEvents() {
 
 export function seedTeam() {
   return [
-    { id: "team_1", name: "Caleb Omale", role: "Chief Executive Officer", department: "Executive", bio: "Founder of CHADI International.", email: "", linkedin: "", image: "" },
-    { id: "team_2", name: "Doxa Ojo", role: "Programs Officer", department: "Programs", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_3", name: "Sarah Phrantline", role: "Assistant Programs Officer", department: "Programs", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_4", name: "Adonai O. Eveso", role: "Creativity, Research & Development Officer", department: "Research", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_5", name: "Rebecca Dongs", role: "Assistant Creativity, Research & Development Officer", department: "Research", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_6", name: "Williams Bissong", role: "Training & Community Mobilization Officer", department: "Community", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_7", name: "Hajara Waziri", role: "Health & Welfare Officer", department: "Health", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_8", name: "Liyatu Mala'aiki Abidan", role: "Assistant Health & Welfare Officer", department: "Health", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_9", name: "Juliet Jules", role: "Finance & Partnership Officer", department: "Finance", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_10", name: "Praise Zinariya", role: "Assistant Finance & Partnership Officer", department: "Finance", bio: "", email: "", linkedin: "", image: "" },
-    { id: "team_11", name: "Bathsheba Queen", role: "Community & Communications Manager", department: "Communications", bio: "", email: "", linkedin: "", image: "" },
+    { id: "team_1", name: "Caleb Omale", role: "Chief Executive Officer", department: "Executive", bio: "Founder of CHADI International.", email: "", linkedin: "", twitter: "", image: "", featured: true },
+    { id: "team_2", name: "Doxa Ojo", role: "Programs Officer", department: "Programs", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_3", name: "Sarah Phrantline", role: "Assistant Programs Officer", department: "Programs", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_4", name: "Adonai O. Eveso", role: "Creativity, Research & Development Officer", department: "Research", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_5", name: "Rebecca Dongs", role: "Assistant Creativity, Research & Development Officer", department: "Research", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_6", name: "Williams Bissong", role: "Training & Community Mobilization Officer", department: "Community", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_7", name: "Hajara Waziri", role: "Health & Welfare Officer", department: "Health", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_8", name: "Liyatu Mala'aiki Abidan", role: "Assistant Health & Welfare Officer", department: "Health", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_9", name: "Juliet Jules", role: "Finance & Partnership Officer", department: "Finance", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_10", name: "Praise Zinariya", role: "Assistant Finance & Partnership Officer", department: "Finance", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_11", name: "Bathsheba Queen", role: "Community & Communications Manager", department: "Communications", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
   ];
 }
 

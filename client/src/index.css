@@ -15,6 +15,11 @@
   --color-chadi-lightgreen: #C0EBA6;
   --color-chadi-cream: #FFFBE6;
   --color-chadi-gold: #FCCD2A;
+  /* Same gold hue, darkened for use as text on white/cream backgrounds -
+     the bright gold above is only accessible as a background (with black
+     text) or as text on the dark green background; on light backgrounds it
+     fails WCAG AA contrast (1.51:1). This passes at 4.92:1. */
+  --color-chadi-gold-dark: #8a6d00;
 }
 
 html {

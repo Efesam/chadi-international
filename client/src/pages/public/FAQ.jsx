@@ -1,4 +1,7 @@
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
+import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
+import Newsletter from "../../components/common/Newsletter";
 
 const faqs = [
   {
@@ -26,23 +29,33 @@ const faqs = [
 function FAQ() {
   return (
     <>
+      <Seo
+        title="FAQ"
+        path="/faq"
+        description="Answers to common questions about CHADI International's programs, volunteering and partnerships."
+      />
+
       <PageHeader
         title="FAQ"
         subtitle="Answers to common questions about CHADI International."
       />
 
       <section className="bg-white py-20">
-        <div className="mx-auto max-w-4xl space-y-5 px-6">
+        <StaggerGrid className="mx-auto max-w-4xl space-y-5 px-6">
           {faqs.map((item) => (
-            <article key={item.question} className="rounded-xl bg-chadi-cream p-6">
-              <h2 className="text-2xl font-bold text-chadi-green">
-                {item.question}
-              </h2>
-              <p className="mt-3 leading-7 text-gray-600">{item.answer}</p>
-            </article>
+            <StaggerItem key={item.question}>
+              <article className="rounded-xl bg-chadi-cream p-6">
+                <h2 className="text-2xl font-bold text-chadi-green">
+                  {item.question}
+                </h2>
+                <p className="mt-3 leading-7 text-gray-600">{item.answer}</p>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGrid>
       </section>
+
+      <Newsletter />
     </>
   );
 }

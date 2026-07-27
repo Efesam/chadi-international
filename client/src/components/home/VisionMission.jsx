@@ -9,7 +9,7 @@ function VisionMission() {
 
         <Reveal>
           <div className="mb-16 text-center">
-            <h2 className="text-5xl font-bold text-chadi-green">
+            <h2 className="text-4xl font-bold text-chadi-green sm:text-5xl">
               Our Purpose
             </h2>
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FaTimes, FaHandsHelping } from "react-icons/fa";
+import { FaHandsHelping } from "react-icons/fa";
 import { submitVolunteerApplication } from "../../services/api";
-import { useModalA11y } from "../../hooks/useModalA11y";
+import Modal from "./Modal";
 
 function VolunteerModal({ open, onClose, project }) {
   const [name, setName] = useState("");
@@ -10,12 +10,6 @@ function VolunteerModal({ open, onClose, project }) {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState(null);
-
-  // Called unconditionally (hooks can't follow an early return) - it's a
-  // no-op internally whenever `open` is false.
-  const containerRef = useModalA11y(open, onClose);
-
-  if (!open) return null;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,24 +42,8 @@ function VolunteerModal({ open, onClose, project }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 p-4">
-      <div
-        ref={containerRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="volunteer-modal-title"
-        className="relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl"
-      >
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute right-5 top-5 text-gray-400 hover:text-gray-700"
-          aria-label="Close"
-        >
-          <FaTimes size={18} />
-        </button>
-
-        <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold">
+    <Modal open={open} onClose={onClose} labelledBy="volunteer-modal-title">
+        <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold-dark">
           CHADI International
         </p>
         <h3 id="volunteer-modal-title" className="mt-2 text-3xl font-bold text-chadi-green">
@@ -131,8 +109,7 @@ function VolunteerModal({ open, onClose, project }) {
             </p>
           )}
         </form>
-      </div>
-    </div>
+    </Modal>
   );
 }
 

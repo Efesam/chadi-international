@@ -3,6 +3,7 @@ data/contacts.json
 data/volunteers.json
 data/newsletter.json
 data/donations.json
+data/plans.json
 data/users.json
 uploads/*
 !uploads/.gitkeep

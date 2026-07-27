@@ -16,6 +16,11 @@ function getConfig() {
   };
 }
 
+/** Whether SMTP is configured - lets callers give a clear message upfront instead of a confusing per-recipient "failed" count. */
+export function isMailConfigured() {
+  return Boolean(getConfig());
+}
+
 function getTransport(config) {
   const configKey = JSON.stringify(config);
   if (cachedTransport && cachedConfigKey === configKey) return cachedTransport;

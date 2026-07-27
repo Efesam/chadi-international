@@ -45,7 +45,7 @@ function ResetPassword() {
         </p>
         <Link
           to="/admin/forgot-password"
-          className="mt-6 block text-center text-sm font-semibold text-chadi-green hover:text-chadi-gold"
+          className="mt-6 block text-center text-sm font-semibold text-chadi-green hover:text-chadi-gold-dark"
         >
           Request a new link
         </Link>

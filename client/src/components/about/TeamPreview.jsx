@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import Reveal from "../common/Reveal";
 
 function TeamPreview() {
   return (
     <section className="bg-gray-50 py-24">
-      <div className="mx-auto max-w-7xl px-6 text-center">
-        <h2 className="text-5xl font-bold text-chadi-green">
+      <Reveal className="mx-auto max-w-7xl px-6 text-center">
+        <h2 className="text-4xl font-bold text-chadi-green sm:text-5xl">
           Meet Our Leadership
         </h2>
 
@@ -19,7 +20,7 @@ function TeamPreview() {
         >
           Meet the Team
         </Link>
-      </div>
+      </Reveal>
     </section>
   );
 }

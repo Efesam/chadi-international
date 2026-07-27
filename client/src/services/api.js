@@ -77,6 +77,20 @@ export function verifyPayment(reference) {
   return request("/payments/verify", { method: "POST", body: JSON.stringify({ reference }) });
 }
 
+/** Gets (or has the server create) a reusable Paystack Plan for a monthly Hope Alive Circle amount. */
+export function getOrCreateMonthlyPlan(amount) {
+  return request("/payments/plan", { method: "POST", body: JSON.stringify({ amount }) });
+}
+
+export function cancelSubscription(donationId) {
+  return request(`/payments/subscriptions/${encodeURIComponent(donationId)}/cancel`, { method: "POST" });
+}
+
+/** Sends an update email to every newsletter subscriber (new/updated project or news announcement). */
+export function sendBroadcast(payload) {
+  return request("/broadcast", { method: "POST", body: JSON.stringify(payload) });
+}
+
 export function getProjectDonationSummary(projectId) {
   return request(`/payments/project-summary/${encodeURIComponent(projectId)}`);
 }

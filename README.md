@@ -53,6 +53,28 @@ live pair only once you're ready to accept real payments. Without a secret key
 set, the Donate page still works - it just shows a friendly notice on the
 payment form and falls back to the "Other Ways to Give" interest form.
 
+### Hope Alive Circle (monthly recurring donations)
+
+Choosing "Monthly" in the Donate modal creates a real recurring Paystack
+subscription, not just a one-time charge or a lead for follow-up. The first
+time anyone picks a given amount, the server asks Paystack for a reusable
+billing Plan for that amount (creating one if it doesn't exist yet - see
+`plans.json` in `server/data/`), then the checkout popup is opened against
+that plan instead of a bare amount. Paystack tokenizes the donor's card on
+that first charge and automatically bills it again every month afterwards -
+no server-side cron job or scheduled task is involved; Paystack's own
+infrastructure does the recurring billing.
+
+Each recurring charge (the first one and every one after it) arrives via
+the webhook below as a normal `charge.success` event and is recorded in
+Donations same as a one-time payment, just with `type: "subscription"`.
+Shortly after the first charge, Paystack also sends a `subscription.create`
+event carrying the subscription's code, which is what lets an admin cancel
+it later from Admin → Donations → view a subscription entry → Cancel
+Subscription. Paystack test mode fully supports plans and subscriptions, so
+this can be exercised end-to-end with `sk_test_...`/`pk_test_...` keys
+before ever touching a live key.
+
 ### Paystack webhook (important - do this before relying on real donations)
 
 The Donate page shows a donor an on-screen confirmation as soon as their
@@ -105,16 +127,25 @@ From the dashboard you can manage:
 - **Settings** - the four homepage stat counters, contact email, focus
   region, office hours and social links.
 
-**Programs and News are intentionally not CMS-managed** - they stay as static
-content in `client/src/data/`. Ask if you'd like those made editable too.
+### Email (receipts, password reset, subscriber updates)
 
-### Password reset
+All outgoing email goes through `server/src/lib/mailer.js`, which sends via
+SMTP if `SMTP_HOST`/`SMTP_USER`/`SMTP_PASS` are set (see
+`server/.env.example` - works with Gmail via an app password, Resend,
+SendGrid, Mailgun, Postmark, etc.) and otherwise logs the content to the
+server console instead, so every flow below still works end-to-end locally
+without a real provider configured.
 
-No email provider is configured, so "Forgot password" doesn't actually send
-an email - it logs the reset link to the API server's console (and returns
-it directly in the response outside production) so you can test the flow.
-Wire up a real provider (e.g. Resend, Postmark, or SMTP via `nodemailer`)
-before relying on this for real users.
+- **Password reset** - "Forgot password" logs the reset link to the console
+  (and returns it directly in the response outside production) until SMTP
+  is configured, at which point it emails the link for real.
+- **Donation receipts** - every completed one-time payment or Hope Alive
+  Circle charge automatically emails the donor a receipt, fire-and-forget
+  (a slow or failed send never delays their on-screen confirmation).
+- **Subscriber updates** - from Admin → Projects or Admin → News, the
+  megaphone icon next to any entry opens a pre-filled email (editable
+  before sending) that goes out individually to everyone on the newsletter
+  list - use it to announce a new or updated project or article.
 
 ## Rate limiting
 
@@ -132,10 +163,46 @@ database to set up. Content collections (projects, events, team, etc.) are
 tracked in git as the site's real content. Submission data and the admin
 `users.json` file (which contains password hashes) are gitignored on purpose.
 
-Uploaded images (`server/uploads/`) are also stored on local disk and
-gitignored - fine for getting started, but this means uploaded images live
-only on whichever server/disk is running the API. If you redeploy to a new
-server or the disk is lost, uploaded images go with it (your seeded content
-images in `client/public/uploads/` are unaffected - those are committed to
-git). Before relying on this for real, consider moving uploads to a cloud
-storage provider (S3, Cloudinary, etc.).
+Uploaded images (`server/uploads/`) are stored on local disk and gitignored
+by default - fine for a VPS with persistent storage, but this means uploaded
+images live only on whichever server/disk is running the API. If you
+redeploy to a new server or the disk is lost, uploaded images go with it
+(your seeded content images in `client/public/uploads/` are unaffected -
+those are committed to git).
+
+For ephemeral hosts (Render, Railway, Heroku, etc.) where the filesystem is
+wiped on every redeploy, set `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`
+and `CLOUDINARY_API_SECRET` (see `server/.env.example`) - once configured,
+new uploads go straight to Cloudinary instead of local disk, with no other
+code changes needed. Existing local-disk uploads aren't migrated
+automatically if you turn this on later.
+
+## Deployment
+
+Each app has its own `Dockerfile` (`server/Dockerfile`, `client/Dockerfile`
+building to a static `nginx` image), plus a root `docker-compose.yml` that
+runs both together for local production-parity testing:
+
+```bash
+# fill in server/.env first (see server/.env.example)
+docker compose up --build
+```
+
+This serves the client at `http://localhost:8080` and the API at
+`http://localhost:4000`. `server/data` and `server/uploads` are mounted as
+named volumes so content and local-disk uploads survive container restarts
+(set up Cloudinary instead if you're deploying to a host without persistent
+volumes - see above).
+
+The client's `VITE_*` env vars are baked in at build time, not read at
+runtime - pass them as build args (`docker-compose.yml` reads
+`VITE_API_URL`/`VITE_PAYSTACK_PUBLIC_KEY`/`VITE_SITE_URL` from your shell
+environment, or `docker build --build-arg VITE_API_URL=... ./client`
+directly).
+
+Not tied to Docker: the client is also just a static build
+(`npm run build` → `client/dist/`) deployable to any static host (Netlify,
+Vercel, Cloudflare Pages, S3+CloudFront, etc.), and the server is a plain
+Node/Express app (`npm start`) deployable anywhere Node runs. A GitHub
+Actions workflow (`.github/workflows/ci.yml`) runs lint, tests and the
+client build on every push and pull request.

@@ -17,6 +17,14 @@ dist-ssr
 .env.*
 !.env.example
 
+# Raw photo dumps kept locally as source material - only the curated,
+# renamed copies under src/assets/projects/ are actually used by the site
+# and committed. These folders are large (100MB+ each) and would bloat the
+# repo for no benefit.
+src/assets/The Sorces  Project Dec 2023day1edited/
+src/assets/The Sorces  Project Dec 2023day2edited/
+src/assets/The Sorces  Project Dec 2023day3edited/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

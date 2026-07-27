@@ -1,15 +1,23 @@
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import NewsCard from "../../components/ui/NewsCard";
 import CardGridSkeleton from "../../components/common/CardGridSkeleton";
 import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { useCollection } from "../../hooks/useCollection";
 import { newsApi } from "../../services/api";
+import Newsletter from "../../components/common/Newsletter";
 
 function News() {
   const { data: news, loading, error } = useCollection(newsApi.list);
 
   return (
     <>
+      <Seo
+        title="News"
+        path="/news"
+        description="Read the latest news, updates and announcements from CHADI International."
+      />
+
       <PageHeader
         title="News"
         subtitle="Latest updates from CHADI."
@@ -34,6 +42,8 @@ function News() {
           )}
         </div>
       </section>
+
+      <Newsletter />
     </>
   );
 }

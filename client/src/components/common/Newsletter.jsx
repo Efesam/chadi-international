@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { subscribeToNewsletter } from "../../services/api";
+import Reveal from "./Reveal";
+import newsletterImage from "../../assets/projects/sorces-classroom-1.jpg";
 
 function Newsletter() {
   const [email, setEmail] = useState("");
@@ -19,8 +21,12 @@ function Newsletter() {
   };
 
   return (
-    <section className="bg-chadi-green py-20 text-white">
-      <div className="mx-auto max-w-4xl px-6 text-center">
+    <section
+      className="relative overflow-hidden bg-chadi-green bg-cover bg-center py-20 text-white"
+      style={{ backgroundImage: `url(${newsletterImage})` }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-chadi-green/75 via-chadi-green/85 to-chadi-green/90" />
+      <Reveal className="relative mx-auto max-w-4xl px-6 text-center">
         <h2 className="text-4xl font-bold">
           Stay Updated
         </h2>
@@ -55,7 +61,7 @@ function Newsletter() {
             {status}
           </p>
         )}
-      </div>
+      </Reveal>
     </section>
   );
 }

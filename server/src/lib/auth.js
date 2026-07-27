@@ -5,6 +5,20 @@ import { readCollection, writeCollection, generateId } from "./store.js";
 // lightweight while still hashing passwords properly (scrypt) and signing
 // session tokens (HMAC-SHA256) so they cannot be forged or tampered with.
 
+const isProduction = process.env.NODE_ENV === "production";
+
+if (isProduction && !process.env.AUTH_SECRET) {
+  // AUTH_SECRET signs every admin session token - the hardcoded fallback is
+  // public (it's right here in source control), so anyone could forge a
+  // valid admin session against a production server that fell back to it.
+  // Refuse to boot rather than silently running with forgeable sessions.
+  throw new Error(
+    "[auth] Refusing to start: AUTH_SECRET is not set. Generate one with " +
+      '`node -e "console.log(require(\'crypto\').randomBytes(48).toString(\'hex\'))"` ' +
+      "and set it in your production environment."
+  );
+}
+
 const AUTH_SECRET = process.env.AUTH_SECRET || "chadi-dev-secret-change-me";
 const TOKEN_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 const RESET_TOKEN_TTL_MS = 60 * 60 * 1000; // 1 hour
@@ -17,6 +31,15 @@ if (!process.env.AUTH_SECRET) {
 
 const DEFAULT_ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@chadi-international.org";
 const DEFAULT_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "ChadiAdmin!2026";
+
+if (isProduction && !process.env.ADMIN_PASSWORD) {
+  console.warn(
+    "[auth] ADMIN_PASSWORD is not set in production - the seed admin account " +
+      "will use a password that is publicly visible in this project's source " +
+      "code. Set ADMIN_PASSWORD before the server's first boot, or log in and " +
+      "change it immediately via Admin Users in the dashboard."
+  );
+}
 
 export function hashPassword(password) {
   const salt = randomBytes(16).toString("hex");

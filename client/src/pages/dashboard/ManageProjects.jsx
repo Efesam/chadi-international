@@ -49,6 +49,17 @@ const columns = [
   { key: "status", label: "Status" },
 ];
 
+function buildProjectEmail(project) {
+  const siteUrl = import.meta.env.VITE_SITE_URL || window.location.origin;
+  return {
+    subject: `New update: ${project.title}`,
+    heading: project.title,
+    message: project.summary || `See the latest on CHADI International's ${project.title} project.`,
+    ctaText: "View Project",
+    ctaUrl: `${siteUrl}/projects/${project.slug}`,
+  };
+}
+
 function ManageProjects() {
   return (
     <ResourceManager
@@ -57,6 +68,7 @@ function ManageProjects() {
       api={projectsApi}
       fields={fields}
       columns={columns}
+      notify={buildProjectEmail}
     />
   );
 }

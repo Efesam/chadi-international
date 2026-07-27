@@ -1,9 +1,12 @@
 import Skeleton from "./Skeleton";
 
+// Matches the breakpoints the real content grids use (md:grid-cols-N
+// lg:grid-cols-N) so the skeleton doesn't reflow into a different column
+// count the instant real data replaces it.
 const GRID_CLASSES = {
-  2: "sm:grid-cols-2",
-  3: "sm:grid-cols-2 lg:grid-cols-3",
-  4: "sm:grid-cols-2 lg:grid-cols-4",
+  2: "md:grid-cols-2",
+  3: "md:grid-cols-2 lg:grid-cols-3",
+  4: "md:grid-cols-2 lg:grid-cols-4",
 };
 
 /**

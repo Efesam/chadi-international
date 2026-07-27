@@ -18,6 +18,17 @@ const columns = [
   { key: "date", label: "Date" },
 ];
 
+function buildNewsEmail(article) {
+  const siteUrl = import.meta.env.VITE_SITE_URL || window.location.origin;
+  return {
+    subject: `News update: ${article.title}`,
+    heading: article.title,
+    message: article.excerpt || `Read the latest from CHADI International: ${article.title}.`,
+    ctaText: "Read Article",
+    ctaUrl: `${siteUrl}/news/${article.slug}`,
+  };
+}
+
 function ManageNews() {
   return (
     <ResourceManager
@@ -26,6 +37,7 @@ function ManageNews() {
       api={newsApi}
       fields={fields}
       columns={columns}
+      notify={buildNewsEmail}
     />
   );
 }

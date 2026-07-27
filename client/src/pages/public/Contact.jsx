@@ -1,9 +1,11 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import { sendContactMessage, getSettings } from "../../services/api";
 import { useCollection } from "../../hooks/useCollection";
 import Reveal from "../../components/common/Reveal";
+import Newsletter from "../../components/common/Newsletter";
 
 function Contact() {
   const [sending, setSending] = useState(false);
@@ -29,6 +31,12 @@ function Contact() {
 
   return (
     <>
+      <Seo
+        title="Contact Us"
+        path="/contact"
+        description="Get in touch with CHADI International for partnerships, volunteering, donations and program inquiries."
+      />
+
       <PageHeader
         title="Contact CHADI"
         subtitle="Reach out for partnerships, volunteering, donations and program inquiries."
@@ -38,7 +46,7 @@ function Contact() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
           <Reveal direction="left" className="lg:col-span-1">
             <div>
-            <h2 className="text-4xl font-bold text-chadi-green">
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
               Let us hear from you
             </h2>
             <p className="mt-6 leading-8 text-gray-600">
@@ -126,6 +134,8 @@ function Contact() {
           </Reveal>
         </div>
       </section>
+
+      <Newsletter />
     </>
   );
 }

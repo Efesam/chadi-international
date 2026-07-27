@@ -32,7 +32,7 @@ function SuccessStories() {
                 <motion.span
                   animate={{ scale: [1, 1.15, 1] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="inline-block text-chadi-gold"
+                  className="inline-block text-chadi-gold-dark"
                 >
                   <FaQuoteLeft size={22} />
                 </motion.span>

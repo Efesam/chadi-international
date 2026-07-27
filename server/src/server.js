@@ -18,6 +18,7 @@ import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import settingsRouter from "./routes/settings.js";
 import paymentsRouter from "./routes/payments.js";
+import broadcastRouter from "./routes/broadcast.js";
 import uploadsRouter from "./routes/uploads.js";
 import { uploadsDir } from "./lib/upload.js";
 import { apiLimiter, formLimiter } from "./lib/rateLimit.js";
@@ -48,12 +49,25 @@ app.use(
   })
 );
 
-// Manual CORS so the client can be served from any origin during development.
-// TODO: once you have a real production domain, lock this down to it (plus
-// localhost for local dev) instead of "*". Wide-open CORS is fine while
-// everything only runs locally, but should be tightened before going live.
+// Manual CORS. Set ALLOWED_ORIGINS (comma-separated) to your real production
+// domain(s) once you have one - only those origins get the header then.
+// Left unset, every origin is allowed, which is fine for local development
+// but should be tightened before going live.
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  const requestOrigin = req.headers.origin;
+
+  if (allowedOrigins.length === 0) {
+    res.header("Access-Control-Allow-Origin", "*");
+  } else if (requestOrigin && allowedOrigins.includes(requestOrigin)) {
+    res.header("Access-Control-Allow-Origin", requestOrigin);
+    res.header("Vary", "Origin");
+  }
+
   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
@@ -98,6 +112,9 @@ app.use("/api/volunteers", createSubmissionRouter({ name: "volunteers", required
 app.use("/api/newsletter", createSubmissionRouter({ name: "newsletter", requiredFields: ["email"], limiter: formLimiter }));
 app.use("/api/donations", createSubmissionRouter({ name: "donations", requiredFields: ["name", "email", "interest"], limiter: formLimiter }));
 
+// Admin-triggered update emails to newsletter subscribers (new/updated project or news announcements).
+app.use("/api/broadcast", broadcastRouter);
+
 // Auth + admin user management.
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
@@ -126,17 +143,21 @@ app.get("/api/admin/summary", requireAuth, async (req, res) => {
       readCollection("stories", seedStories),
     ]);
 
-  const completedPayments = donations.filter((d) => d.type === "payment");
+  const completedPayments = donations.filter((d) => d.type === "payment" || d.type === "subscription");
   const totalRaised = completedPayments.reduce((sum, d) => sum + (d.amount || 0), 0);
+  const activeSubscriptions = donations.filter(
+    (d) => d.type === "subscription" && d.subscriptionStatus !== "cancelled"
+  ).length;
 
   res.json({
     messages: contacts.length,
     unreadMessages: contacts.filter((c) => !c.read).length,
     volunteers: volunteers.length,
     newsletterSubscribers: newsletter.length,
-    donationInterests: donations.filter((d) => d.type !== "payment").length,
+    donationInterests: donations.filter((d) => d.type !== "payment" && d.type !== "subscription").length,
     completedPayments: completedPayments.length,
     totalRaised,
+    activeSubscriptions,
     projects: projects.length,
     events: events.length,
     team: team.length,

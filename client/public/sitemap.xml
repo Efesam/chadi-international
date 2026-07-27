@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace https://www.chadi-international.org with the real production domain once it's decided. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.chadi-international.org/</loc></url>
+  <url><loc>https://www.chadi-international.org/about</loc></url>
+  <url><loc>https://www.chadi-international.org/projects</loc></url>
+  <url><loc>https://www.chadi-international.org/news</loc></url>
+  <url><loc>https://www.chadi-international.org/team</loc></url>
+  <url><loc>https://www.chadi-international.org/events</loc></url>
+  <url><loc>https://www.chadi-international.org/gallery</loc></url>
+  <url><loc>https://www.chadi-international.org/stories</loc></url>
+  <url><loc>https://www.chadi-international.org/partners</loc></url>
+  <url><loc>https://www.chadi-international.org/resources</loc></url>
+  <url><loc>https://www.chadi-international.org/faq</loc></url>
+  <url><loc>https://www.chadi-international.org/careers</loc></url>
+  <url><loc>https://www.chadi-international.org/get-involved</loc></url>
+  <url><loc>https://www.chadi-international.org/volunteer</loc></url>
+  <url><loc>https://www.chadi-international.org/donate</loc></url>
+  <url><loc>https://www.chadi-international.org/contact</loc></url>
+  <url><loc>https://www.chadi-international.org/transparency</loc></url>
+  <url><loc>https://www.chadi-international.org/privacy</loc></url>
+  <url><loc>https://www.chadi-international.org/terms</loc></url>
+</urlset>

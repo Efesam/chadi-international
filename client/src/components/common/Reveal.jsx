@@ -11,21 +11,26 @@ const DIRECTIONS = {
 /**
  * Fades and slides an element in as it scrolls into view. Used site-wide
  * for a consistent "content arrives gently" feel instead of everything
- * just popping in immediately on page load.
+ * just popping in immediately on page load. Renders a <motion.div> by
+ * default; pass `as="form"` (or any intrinsic tag) plus that element's own
+ * props (e.g. onSubmit) when the animated wrapper needs to be that element
+ * itself rather than an extra wrapping div.
  */
-function Reveal({ children, direction = "up", delay = 0, duration = 0.6, className = "" }) {
+function Reveal({ children, direction = "up", delay = 0, duration = 0.6, className = "", as = "div", ...rest }) {
   const offset = DIRECTIONS[direction] || DIRECTIONS.up;
+  const MotionTag = motion[as] || motion.div;
 
   return (
-    <motion.div
+    <MotionTag
       initial={{ opacity: 0, ...offset }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration, delay, ease: "easeOut" }}
       className={className}
+      {...rest}
     >
       {children}
-    </motion.div>
+    </MotionTag>
   );
 }
 

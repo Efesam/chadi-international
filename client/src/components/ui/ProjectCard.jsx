@@ -56,7 +56,7 @@ function ProjectCard({ project }) {
         <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
           <Link
             to={`/projects/${project.slug}`}
-            className="inline-flex font-semibold text-chadi-green hover:text-chadi-gold"
+            className="inline-flex font-semibold text-chadi-green hover:text-chadi-gold-dark"
           >
             Learn More →
           </Link>

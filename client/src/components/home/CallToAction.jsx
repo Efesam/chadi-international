@@ -3,13 +3,19 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import DonateModal from "../common/DonateModal";
 import Reveal from "../common/Reveal";
+import ctaImage from "../../assets/projects/women-business.jpg";
 
 function CallToAction() {
   const [donateOpen, setDonateOpen] = useState(false);
 
   return (
-    <section className="bg-chadi-green py-20 text-white">
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-6 lg:flex-row lg:items-center">
+    <section
+      className="relative overflow-hidden bg-chadi-green bg-cover bg-center py-20 text-white"
+      style={{ backgroundImage: `url(${ctaImage})` }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-chadi-green/95 via-chadi-green/85 to-chadi-green/60" />
+
+      <div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-8 px-6 lg:flex-row lg:items-center">
         <Reveal direction="left">
           <div>
             <h2 className="text-4xl font-bold">

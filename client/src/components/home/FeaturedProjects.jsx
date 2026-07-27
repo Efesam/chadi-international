@@ -14,7 +14,7 @@ function FeaturedProjects() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-16 text-center">
-            <span className="font-semibold uppercase tracking-widest text-chadi-gold">
+            <span className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
               OUR PROJECTS
             </span>
 

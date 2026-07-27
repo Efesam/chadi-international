@@ -1,3 +1,6 @@
+import Reveal from "../common/Reveal";
+import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
+
 const values = [
   {
     title: "Compassion",
@@ -37,32 +40,33 @@ function CoreValues() {
 
       <div className="mx-auto max-w-7xl px-6">
 
-        <h2 className="text-center text-5xl font-bold text-chadi-green">
-          Our Core Values
-        </h2>
+        <Reveal>
+          <h2 className="text-center text-4xl font-bold text-chadi-green sm:text-5xl">
+            Our Core Values
+          </h2>
+        </Reveal>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <StaggerGrid className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
           {values.map((value) => (
 
-            <div
-              key={value.title}
-              className="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-2"
-            >
+            <StaggerItem key={value.title}>
+              <div className="rounded-3xl bg-white p-8 shadow-lg transition hover:-translate-y-2">
 
-              <h3 className="text-2xl font-bold text-chadi-green">
-                {value.title}
-              </h3>
+                <h3 className="text-2xl font-bold text-chadi-green">
+                  {value.title}
+                </h3>
 
-              <p className="mt-4 text-gray-600">
-                {value.description}
-              </p>
+                <p className="mt-4 text-gray-600">
+                  {value.description}
+                </p>
 
-            </div>
+              </div>
+            </StaggerItem>
 
           ))}
 
-        </div>
+        </StaggerGrid>
 
       </div>
 

@@ -1,9 +1,13 @@
 import { useState } from "react";
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import ProjectCard from "../../components/ui/ProjectCard";
 import CardGridSkeleton from "../../components/common/CardGridSkeleton";
+import Reveal from "../../components/common/Reveal";
+import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi } from "../../services/api";
+import Newsletter from "../../components/common/Newsletter";
 
 function Projects() {
   const { data, loading, error } = useCollection(projectsApi.list);
@@ -30,6 +34,12 @@ function Projects() {
 
   return (
     <>
+      <Seo
+        title="Our Projects"
+        path="/projects"
+        description="Explore CHADI International's active projects across health, education, livelihood and community development."
+      />
+
       <PageHeader
         title="Our Projects"
         subtitle="Empowering Marginalised Individuals & Underserved Communities"
@@ -45,7 +55,7 @@ function Projects() {
             <>
               {/* Search */}
 
-              <div className="mb-8">
+              <Reveal className="mb-8">
                 <input
                   type="text"
                   placeholder="Search projects..."
@@ -53,11 +63,11 @@ function Projects() {
                   onChange={(e) => setSearch(e.target.value)}
                   className="w-full rounded-xl border px-5 py-4 outline-none focus:border-chadi-green"
                 />
-              </div>
+              </Reveal>
 
               {/* Categories */}
 
-              <div className="mb-12 flex flex-wrap gap-3">
+              <Reveal delay={0.1} className="mb-12 flex flex-wrap gap-3">
                 {categories.map((item) => (
                   <button
                     key={item}
@@ -72,23 +82,27 @@ function Projects() {
                     {item}
                   </button>
                 ))}
-              </div>
+              </Reveal>
 
               {/* Grid */}
 
               {filteredProjects.length === 0 ? (
                 <p className="text-center text-gray-500">No projects match your search.</p>
               ) : (
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {filteredProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
+                    <StaggerItem key={project.id}>
+                      <ProjectCard project={project} />
+                    </StaggerItem>
                   ))}
-                </div>
+                </StaggerGrid>
               )}
             </>
           )}
         </div>
       </section>
+
+      <Newsletter />
     </>
   );
 }

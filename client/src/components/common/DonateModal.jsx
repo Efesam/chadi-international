@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FaTimes, FaShieldAlt } from "react-icons/fa";
-import { verifyPayment, recordDonationInterest } from "../../services/api";
-import { useModalA11y } from "../../hooks/useModalA11y";
+import { FaShieldAlt } from "react-icons/fa";
+import { verifyPayment, getOrCreateMonthlyPlan } from "../../services/api";
+import Modal from "./Modal";
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 
@@ -20,13 +20,7 @@ function DonateModal({ open, onClose, project }) {
   const [paying, setPaying] = useState(false);
   const [result, setResult] = useState(null);
 
-  // Called unconditionally (hooks can't follow an early return) - it's a
-  // no-op internally whenever `open` is false.
-  const containerRef = useModalA11y(open, onClose);
-
   const configured = Boolean(PAYSTACK_PUBLIC_KEY) && typeof window !== "undefined" && window.PaystackPop;
-
-  if (!open) return null;
 
   const activeLabel = PRESET_AMOUNTS.find((p) => p.amount === Number(amount))?.label;
 
@@ -72,53 +66,68 @@ function DonateModal({ open, onClose, project }) {
     handler.openIframe();
   };
 
-  // Recurring billing isn't wired up to Paystack subscriptions yet, so a
-  // "monthly" pledge is recorded as interest for CHADI's team to follow up
-  // on directly, rather than silently charging a one-time payment and
-  // calling it recurring.
+  // Joining Hope Alive Circle creates a real recurring subscription: the
+  // server finds or creates a Paystack Plan for this amount, then the popup
+  // is opened against that plan (instead of a one-off amount). Paystack
+  // tokenizes the donor's card on the first charge and automatically bills
+  // it again every month afterwards - no further action needed here or on
+  // the server beyond recording each charge as it comes in (see the
+  // charge.success webhook handler on the server).
   const handleJoinMonthly = async (event) => {
     event.preventDefault();
+
+    const nairaAmount = Number(amount);
+    if (!nairaAmount || nairaAmount < 100) {
+      setResult({ type: "error", message: "Please enter an amount of at least ₦100." });
+      return;
+    }
+
     setPaying(true);
     setResult(null);
 
     try {
-      await recordDonationInterest({
-        name,
+      const { planCode } = await getOrCreateMonthlyPlan(nairaAmount);
+
+      const handler = window.PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY,
         email,
-        interest: `Hope Alive Circle - Monthly ₦${Number(amount).toLocaleString()}`,
-        projectId: project?.id,
-        projectTitle: project?.title,
+        plan: planCode,
+        currency: "NGN",
+        metadata: { name, projectId: project?.id, projectTitle: project?.title, interval: "monthly" },
+        callback: (response) => {
+          verifyPayment(response.reference)
+            .then((data) => {
+              setResult({
+                type: "success",
+                message: `Welcome to Hope Alive Circle! Your card will be charged ₦${data.amount.toLocaleString()} automatically every month - cancel anytime by contacting CHADI.`,
+              });
+            })
+            .catch(() => {
+              setResult({
+                type: "error",
+                message:
+                  "Your first payment went through but we could not confirm it automatically. Please contact us with your reference: " +
+                  response.reference,
+              });
+            })
+            .finally(() => setPaying(false));
+        },
+        onClose: () => setPaying(false),
       });
-      setResult({
-        type: "success",
-        message: "Thank you for joining Hope Alive Circle! CHADI will reach out to set up your monthly giving.",
-      });
-    } catch {
-      setResult({ type: "error", message: "We could not save this right now. Please try again." });
-    } finally {
+
+      handler.openIframe();
+    } catch (err) {
       setPaying(false);
+      setResult({
+        type: "error",
+        message: err.message || "We could not set up your monthly giving right now. Please try again.",
+      });
     }
   };
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 p-4">
-      <div
-        ref={containerRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="donate-modal-title"
-        className="relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl"
-      >
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute right-5 top-5 text-gray-400 hover:text-gray-700"
-          aria-label="Close"
-        >
-          <FaTimes size={18} />
-        </button>
-
-        <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold">
+    <Modal open={open} onClose={onClose} labelledBy="donate-modal-title">
+        <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold-dark">
           CHADI International
         </p>
         <h3 id="donate-modal-title" className="mt-2 text-3xl font-bold text-chadi-green">
@@ -208,7 +217,14 @@ function DonateModal({ open, onClose, project }) {
             <p className="text-xs font-semibold text-chadi-green">{activeLabel}</p>
           )}
 
-          {frequency === "once" && !configured ? (
+          {frequency === "monthly" && (
+            <p className="text-xs text-gray-500">
+              Your card is charged ₦{Number(amount || 0).toLocaleString()} automatically every month until you
+              cancel. Cancel anytime by contacting CHADI.
+            </p>
+          )}
+
+          {!configured ? (
             <p className="rounded-lg bg-yellow-50 p-3 text-xs text-yellow-800">
               Online payment isn't configured on this site yet. Please use the Contact page instead.
             </p>
@@ -222,7 +238,7 @@ function DonateModal({ open, onClose, project }) {
                 ? "Processing..."
                 : frequency === "once"
                 ? `Give ₦${Number(amount || 0).toLocaleString()}`
-                : "Join Hope Alive Circle"}
+                : `Join Hope Alive Circle - ₦${Number(amount || 0).toLocaleString()}/month`}
             </button>
           )}
 
@@ -240,8 +256,7 @@ function DonateModal({ open, onClose, project }) {
             </p>
           )}
         </form>
-      </div>
-    </div>
+    </Modal>
   );
 }
 

@@ -16,7 +16,7 @@ function UpcomingEvents() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-12 text-center">
-            <p className="font-semibold uppercase tracking-widest text-chadi-gold">
+            <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
               Events
             </p>
             <h2 className="mt-3 text-4xl font-bold text-chadi-green">
@@ -32,7 +32,7 @@ function UpcomingEvents() {
             {events.map((event) => (
               <StaggerItem key={event.id}>
                 <article className="h-full rounded-xl bg-chadi-cream p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                  <p className="font-semibold text-chadi-gold">{event.date}</p>
+                  <p className="font-semibold text-chadi-gold-dark">{event.date}</p>
                   <h3 className="mt-3 text-2xl font-bold text-chadi-green">
                     {event.title}
                   </h3>

@@ -60,7 +60,7 @@ function ForgotPassword() {
 
       <Link
         to="/admin/login"
-        className="mt-6 block text-center text-sm font-semibold text-chadi-green hover:text-chadi-gold"
+        className="mt-6 block text-center text-sm font-semibold text-chadi-green hover:text-chadi-gold-dark"
       >
         Back to login
       </Link>

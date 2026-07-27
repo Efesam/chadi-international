@@ -19,7 +19,7 @@ function LatestNews() {
         <Reveal>
           <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <p className="font-semibold uppercase tracking-widest text-chadi-gold">
+              <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
                 Latest News
               </p>
               <h2 className="mt-3 text-4xl font-bold text-chadi-green">
@@ -32,7 +32,7 @@ function LatestNews() {
 
             <Link
               to="/news"
-              className="font-semibold text-chadi-green hover:text-chadi-gold"
+              className="font-semibold text-chadi-green hover:text-chadi-gold-dark"
             >
               View All News
             </Link>

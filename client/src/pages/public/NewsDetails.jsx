@@ -1,9 +1,11 @@
 import { Link, useParams } from "react-router-dom";
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
 import Reveal from "../../components/common/Reveal";
 import { useCollection } from "../../hooks/useCollection";
 import { newsApi } from "../../services/api";
+import Newsletter from "../../components/common/Newsletter";
 
 function NewsDetails() {
   const { slug } = useParams();
@@ -16,6 +18,7 @@ function NewsDetails() {
   if (error || !article) {
     return (
       <section className="bg-white py-28 text-center">
+        <Seo title="Article Not Found" noindex />
         <div className="mx-auto max-w-3xl px-6">
           <h1 className="text-4xl font-bold text-chadi-green">
             Article Not Found
@@ -36,6 +39,13 @@ function NewsDetails() {
 
   return (
     <>
+      <Seo
+        title={article.title}
+        path={`/news/${slug}`}
+        description={article.excerpt || `Read the latest from CHADI International: ${article.title}.`}
+        image={article.image}
+      />
+
       <PageHeader title={article.title} subtitle={article.excerpt} />
 
       <article className="bg-white py-20">
@@ -57,12 +67,14 @@ function NewsDetails() {
 
           <Link
             to="/news"
-            className="mt-12 inline-block font-semibold text-chadi-green hover:text-chadi-gold"
+            className="mt-12 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark"
           >
             Back to News
           </Link>
         </div>
       </article>
+
+      <Newsletter />
     </>
   );
 }

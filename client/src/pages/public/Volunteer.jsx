@@ -1,7 +1,12 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
+import Reveal from "../../components/common/Reveal";
+import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { submitVolunteerApplication } from "../../services/api";
+import sparkImage from "../../assets/projects/digital-skills.jpg";
+import Newsletter from "../../components/common/Newsletter";
 
 function Volunteer() {
   const [submitting, setSubmitting] = useState(false);
@@ -26,13 +31,23 @@ function Volunteer() {
 
   return (
     <>
+      <Seo
+        title="Volunteer"
+        path="/volunteer"
+        description="Use your skills, time and compassion to support CHADI International's community programs. Apply to volunteer today."
+      />
+
       <PageHeader
         title="Volunteer"
         subtitle="Use your skills, time and compassion to support CHADI communities."
       />
 
-      <section className="bg-chadi-green py-16 text-white">
-        <div className="mx-auto max-w-5xl px-6 text-center">
+      <section
+        className="relative overflow-hidden bg-chadi-green bg-cover bg-center py-16 text-white"
+        style={{ backgroundImage: `url(${sparkImage})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-chadi-green/70 via-chadi-green/80 to-chadi-green/90" />
+        <Reveal className="relative mx-auto max-w-5xl px-6 text-center">
           <p className="text-xs font-semibold uppercase tracking-[3px] text-chadi-gold">
             CHADI Kind Humans
           </p>
@@ -45,40 +60,46 @@ function Volunteer() {
             projects in their own community under CHADI's supervision.
           </p>
 
-          <div className="mt-10 grid gap-6 text-left sm:grid-cols-3">
-            <div className="rounded-2xl bg-white/10 p-6">
-              <h3 className="font-bold text-chadi-gold">Your Role</h3>
-              <p className="mt-2 text-sm text-white/80">
-                Plan and run small acts-of-kindness projects in your state,
-                with CHADI's guidance and support.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-white/10 p-6">
-              <h3 className="font-bold text-chadi-gold">Recognition</h3>
-              <p className="mt-2 text-sm text-white/80">
-                The best SPARK project each year is voted on and celebrated
-                across CHADI's channels.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-white/10 p-6">
-              <h3 className="font-bold text-chadi-gold">Visibility</h3>
-              <p className="mt-2 text-sm text-white/80">
-                Featured on the CHADI website and social media &mdash;
-                building grassroots ownership in your community.
-              </p>
-            </div>
-          </div>
+          <StaggerGrid className="mt-10 grid gap-6 text-left sm:grid-cols-3">
+            <StaggerItem>
+              <div className="rounded-2xl bg-white/10 p-6">
+                <h3 className="font-bold text-chadi-gold">Your Role</h3>
+                <p className="mt-2 text-sm text-white/80">
+                  Plan and run small acts-of-kindness projects in your state,
+                  with CHADI's guidance and support.
+                </p>
+              </div>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="rounded-2xl bg-white/10 p-6">
+                <h3 className="font-bold text-chadi-gold">Recognition</h3>
+                <p className="mt-2 text-sm text-white/80">
+                  The best SPARK project each year is voted on and celebrated
+                  across CHADI's channels.
+                </p>
+              </div>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="rounded-2xl bg-white/10 p-6">
+                <h3 className="font-bold text-chadi-gold">Visibility</h3>
+                <p className="mt-2 text-sm text-white/80">
+                  Featured on the CHADI website and social media &mdash;
+                  building grassroots ownership in your community.
+                </p>
+              </div>
+            </StaggerItem>
+          </StaggerGrid>
 
           <p className="mt-8 text-sm text-white/70">
             Interested? Select "State SPARK Ambassador" as your area below.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
-          <div>
-            <h2 className="text-4xl font-bold text-chadi-green">
+          <Reveal direction="left">
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
               Volunteer Areas
             </h2>
             <ul className="mt-6 space-y-4 leading-7 text-gray-600">
@@ -88,9 +109,12 @@ function Volunteer() {
               <li>Media, communications and storytelling</li>
               <li>Research, monitoring and evaluation</li>
             </ul>
-          </div>
+          </Reveal>
 
-          <form
+          <Reveal
+            direction="right"
+            delay={0.15}
+            as="form"
             onSubmit={handleSubmit}
             className="rounded-3xl bg-chadi-cream p-8 shadow-lg lg:col-span-2"
           >
@@ -150,9 +174,11 @@ function Volunteer() {
             >
               {submitting ? "Submitting..." : "Submit Application"}
             </button>
-          </form>
+          </Reveal>
         </div>
       </section>
+
+      <Newsletter />
     </>
   );
 }

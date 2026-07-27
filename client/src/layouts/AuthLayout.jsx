@@ -14,7 +14,7 @@ function AuthLayout() {
 
       <Link
         to="/"
-        className="mt-8 text-sm font-semibold text-chadi-green hover:text-chadi-gold"
+        className="mt-8 text-sm font-semibold text-chadi-green hover:text-chadi-gold-dark"
       >
         &larr; Back to the CHADI website
       </Link>

@@ -17,7 +17,7 @@ function PartnersSection() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_1.2fr] lg:items-center">
         <Reveal direction="left">
           <div>
-            <p className="font-semibold uppercase tracking-widest text-chadi-gold">
+            <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
               Partnerships
             </p>
             <h2 className="mt-3 text-4xl font-bold text-chadi-green">

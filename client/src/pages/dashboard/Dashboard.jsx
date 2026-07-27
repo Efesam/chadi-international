@@ -12,6 +12,7 @@ import {
   FaBookOpen,
   FaEnvelopeOpenText,
   FaMoneyBillWave,
+  FaSyncAlt,
 } from "react-icons/fa";
 import { getAdminSummary } from "../../services/api";
 import { useAuth } from "../../hooks/useAuth";
@@ -25,6 +26,7 @@ const cards = [
     format: (value) => `₦${Number(value || 0).toLocaleString()}`,
   },
   { key: "completedPayments", label: "Completed Donations", icon: FaDonate, to: "/admin/donations" },
+  { key: "activeSubscriptions", label: "Hope Alive Circle Members", icon: FaSyncAlt, to: "/admin/donations" },
   { key: "unreadMessages", label: "Unread Messages", icon: FaEnvelope, to: "/admin/messages" },
   { key: "volunteers", label: "Volunteer Applications", icon: FaHandsHelping, to: "/admin/volunteers" },
   { key: "donationInterests", label: "Donation Interest", icon: FaDonate, to: "/admin/donations" },
@@ -41,10 +43,12 @@ function Dashboard() {
   const { user } = useAuth();
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     getAdminSummary()
       .then(setSummary)
+      .catch((err) => setError(err.message || "Could not load the overview"))
       .finally(() => setLoading(false));
   }, []);
 
@@ -58,7 +62,17 @@ function Dashboard() {
       </p>
 
       {loading ? (
-        <p className="mt-8 text-gray-500">Loading overview...</p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {cards.map(({ key }) => (
+            <div key={key} className="animate-pulse rounded-2xl bg-white p-6 shadow-sm">
+              <div className="h-6 w-6 rounded bg-gray-200" />
+              <div className="mt-4 h-8 w-20 rounded bg-gray-200" />
+              <div className="mt-2 h-4 w-28 rounded bg-gray-100" />
+            </div>
+          ))}
+        </div>
+      ) : error ? (
+        <p className="mt-8 rounded-2xl bg-red-50 p-6 font-semibold text-red-700">{error}</p>
       ) : (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {cards.map(({ key, label, icon: Icon, to, format }) => (

@@ -1,0 +1,2 @@
+# Personal/local tool permissions - not project config, shouldn't be shared.
+.claude/settings.local.json

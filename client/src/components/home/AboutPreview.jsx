@@ -23,7 +23,7 @@ function AboutPreview() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="font-semibold uppercase tracking-[4px] text-chadi-gold">
+          <span className="font-semibold uppercase tracking-[4px] text-chadi-gold-dark">
             ABOUT US
           </span>
 
