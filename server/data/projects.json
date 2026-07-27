@@ -17,11 +17,30 @@
     "title": "Digital Skills for Orphans",
     "image": "/uploads/projects/sorcest.jpg",
     "program": "SOVCEST",
-    "location": "Bauchi State",
+    "location": "Gombe State",
     "status": "Ongoing",
     "featured": true,
     "summary": "Providing technology education, mentorship and digital skills training for orphaned children.",
-    "beneficiaries": "150 Students"
+    "beneficiaries": "150 Students",
+    "media": [
+      {
+        "url": "http://127.0.0.1:4000/uploads/1784446633782-0b20466a4b152fd2.jpg",
+        "type": "image",
+        "caption": "learning"
+      },
+      {
+        "url": "http://127.0.0.1:4000/uploads/1784446661265-4c5007eaea42916d.jpg",
+        "type": "image",
+        "caption": "learning"
+      },
+      {
+        "url": "http://127.0.0.1:4000/uploads/1784446686163-f07ac6d98f7f440c.jpg",
+        "type": "image",
+        "caption": ""
+      }
+    ],
+    "spending": [],
+    "updatedAt": "2026-07-19T07:48:16.043Z"
   },
   {
     "id": "project_help",
