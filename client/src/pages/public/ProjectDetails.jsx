@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { FaHeart, FaHandsHelping } from "react-icons/fa";
+import { FaHeart, FaHandsHelping, FaExpand, FaPlay } from "react-icons/fa";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
@@ -8,6 +8,7 @@ import DonateModal from "../../components/common/DonateModal";
 import VolunteerModal from "../../components/common/VolunteerModal";
 import Reveal from "../../components/common/Reveal";
 import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
+import Lightbox from "../../components/common/Lightbox";
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi, getProjectDonationSummary } from "../../services/api";
 import Newsletter from "../../components/common/Newsletter";
@@ -16,6 +17,7 @@ function ProjectDetails() {
   const { slug } = useParams();
   const [donateOpen, setDonateOpen] = useState(false);
   const [volunteerOpen, setVolunteerOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const { data: project, loading, error } = useCollection(() => projectsApi.get(slug), [slug]);
   const { data: summary } = useCollection(
     () => (project ? getProjectDonationSummary(project.id) : Promise.resolve(null)),
@@ -43,7 +45,18 @@ function ProjectDetails() {
   }
 
   const media = project.media || [];
+  const lightboxItems = project.image
+    ? [{ type: "image", url: project.image, caption: project.title }, ...media]
+    : media;
   const spending = project.spending || [];
+
+  const navigateLightbox = (delta) => {
+    setLightboxIndex((current) => {
+      if (current === null) return current;
+      const total = lightboxItems.length;
+      return (current + delta + total) % total;
+    });
+  };
   const totalSpent = spending.reduce((sum, item) => sum + Number(item.amount || 0), 0);
   const totalRaised = Number(summary?.totalRaised || 0);
 
@@ -61,12 +74,25 @@ function ProjectDetails() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              className="h-96 w-full rounded-3xl object-cover shadow-lg md:h-[500px]"
-            />
+            <button
+              type="button"
+              onClick={() => setLightboxIndex(0)}
+              aria-label={`View ${project.title} photo fullscreen`}
+              className="group relative block h-96 w-full overflow-hidden rounded-3xl shadow-lg md:h-[500px]"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+              />
+              <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition group-hover:bg-black/30">
+                <FaExpand
+                  size={28}
+                  className="text-white opacity-0 transition group-hover:opacity-100"
+                />
+              </span>
+            </button>
           </Reveal>
 
           <div className="mt-12 grid gap-12 lg:grid-cols-3">
@@ -100,23 +126,55 @@ function ProjectDetails() {
                   <StaggerGrid className="mt-5 grid gap-4 sm:grid-cols-2">
                     {media.map((item, index) => (
                       <StaggerItem key={index}>
-                        <figure className="overflow-hidden rounded-2xl bg-gray-100 transition hover:-translate-y-1 hover:shadow-lg">
-                          {item.type === "video" ? (
-                            <video src={item.url} controls className="h-56 w-full object-cover" />
-                          ) : (
-                            <img
-                              src={item.url}
-                              alt={item.caption || project.title}
-                              loading="lazy"
-                              className="h-56 w-full object-cover"
-                            />
-                          )}
+                        <button
+                          type="button"
+                          onClick={() => setLightboxIndex(index + 1)}
+                          aria-label={
+                            item.type === "video"
+                              ? `Play ${item.caption || "video"} fullscreen`
+                              : `View ${item.caption || "photo"} fullscreen`
+                          }
+                          className="group block w-full overflow-hidden rounded-2xl bg-gray-100 text-left transition hover:-translate-y-1 hover:shadow-lg"
+                        >
+                          <div className="relative h-56 w-full overflow-hidden bg-black">
+                            {item.type === "video" ? (
+                              <>
+                                <video
+                                  src={item.url}
+                                  muted
+                                  playsInline
+                                  preload="metadata"
+                                  className="h-full w-full object-cover opacity-90 transition group-hover:opacity-70"
+                                />
+                                <span className="absolute inset-0 flex items-center justify-center">
+                                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-chadi-green transition group-hover:scale-110">
+                                    <FaPlay size={18} className="ml-1" />
+                                  </span>
+                                </span>
+                              </>
+                            ) : (
+                              <>
+                                <img
+                                  src={item.url}
+                                  alt={item.caption || project.title}
+                                  loading="lazy"
+                                  className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                                />
+                                <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition group-hover:bg-black/30">
+                                  <FaExpand
+                                    size={22}
+                                    className="text-white opacity-0 transition group-hover:opacity-100"
+                                  />
+                                </span>
+                              </>
+                            )}
+                          </div>
                           {item.caption && (
                             <figcaption className="p-3 text-sm text-gray-600">
                               {item.caption}
                             </figcaption>
                           )}
-                        </figure>
+                        </button>
                       </StaggerItem>
                     ))}
                   </StaggerGrid>
@@ -249,6 +307,13 @@ function ProjectDetails() {
         open={volunteerOpen}
         onClose={() => setVolunteerOpen(false)}
         project={{ id: project.id, title: project.title }}
+      />
+
+      <Lightbox
+        items={lightboxItems}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onNavigate={navigateLightbox}
       />
 
       <Newsletter />
