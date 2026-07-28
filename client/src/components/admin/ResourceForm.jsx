@@ -74,6 +74,70 @@ function ImageField({ field, value, onChange }) {
 }
 
 /**
+ * A generic file field (PDFs, etc.) - same immediate-upload behavior as
+ * ImageField, but without an image preview (shows a "View current file"
+ * link instead, since the file isn't necessarily renderable as an <img>).
+ */
+function FileField({ field, value, onChange }) {
+  const [uploading, setUploading] = useState(false);
+
+  const handleFileChange = async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const url = await uploadImage(file);
+      onChange(field.name, url);
+      toast.success("File uploaded");
+    } catch (err) {
+      toast.error(err.message || "Upload failed");
+    } finally {
+      setUploading(false);
+      event.target.value = "";
+    }
+  };
+
+  return (
+    <div className="mt-2 space-y-3">
+      {value && (
+        <a
+          href={value}
+          target="_blank"
+          rel="noreferrer"
+          className="block truncate text-sm font-semibold text-chadi-green underline"
+        >
+          View current file
+        </a>
+      )}
+
+      <div className="flex flex-wrap items-center gap-3">
+        <label className="cursor-pointer rounded-lg border border-chadi-green px-4 py-2 text-sm font-semibold text-chadi-green hover:bg-chadi-green hover:text-white">
+          {uploading ? "Uploading..." : value ? "Replace File" : "Upload File"}
+          <input
+            type="file"
+            accept={field.accept || "application/pdf"}
+            onChange={handleFileChange}
+            disabled={uploading}
+            className="hidden"
+          />
+        </label>
+
+        {value && (
+          <button
+            type="button"
+            onClick={() => onChange(field.name, "")}
+            className="text-sm font-semibold text-red-500 hover:text-red-700"
+          >
+            Remove
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/**
  * Renders a form from a declarative field list and calls onSubmit with the
  * collected values. Used for every content collection (projects, events,
  * team, gallery, partners, stories) so each admin page only needs to
@@ -106,6 +170,7 @@ function ResourceForm({ fields, initialValues = {}, onSubmit, onCancel, submitti
           const wide =
             field.type === "textarea" ||
             field.type === "image" ||
+            field.type === "file" ||
             field.type === "richtext" ||
             field.type === "repeater" ||
             field.fullWidth;
@@ -119,6 +184,8 @@ function ResourceForm({ fields, initialValues = {}, onSubmit, onCancel, submitti
 
               {field.type === "image" ? (
                 <ImageField field={field} value={values[field.name]} onChange={handleChange} />
+              ) : field.type === "file" ? (
+                <FileField field={field} value={values[field.name]} onChange={handleChange} />
               ) : field.type === "repeater" ? (
                 <RepeaterField field={field} value={values[field.name]} onChange={handleChange} />
               ) : field.type === "richtext" ? (

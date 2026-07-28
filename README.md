@@ -53,6 +53,36 @@ live pair only once you're ready to accept real payments. Without a secret key
 set, the Donate page still works - it just shows a friendly notice on the
 payment form and falls back to the "Other Ways to Give" interest form.
 
+### PayPal (optional second payment option)
+
+For donors who'd rather not enter a card through Paystack (common for
+international/diaspora givers), set `PAYPAL_CLIENT_ID`/`PAYPAL_CLIENT_SECRET`
+in `server/.env` (see `.env.example`) and `VITE_PAYPAL_CLIENT_ID` in
+`client/.env` - a "Pay with PayPal" option then appears under the amount
+picker on one-time donations. Get sandbox credentials for free from
+[developer.paypal.com](https://developer.paypal.com) to test the whole flow
+before ever touching live credentials, same as Paystack's test/live keys.
+Left unset (the default), the Donate modal looks and behaves exactly as it
+does today - nothing PayPal-related renders or loads.
+
+### Analytics and error monitoring (optional)
+
+Both are entirely opt-in and do nothing until configured - set these in
+`client/.env`:
+
+```
+VITE_PLAUSIBLE_DOMAIN=www.chadi-international.org
+VITE_SENTRY_DSN=https://xxxxxxxx@xxxxx.ingest.sentry.io/xxxxxxx
+```
+
+`VITE_PLAUSIBLE_DOMAIN` turns on [Plausible](https://plausible.io) pageview
+tracking (cookie-free, GDPR-friendly by design - no cookie consent banner
+interaction needed for it specifically). `VITE_SENTRY_DSN` turns on
+[Sentry](https://sentry.io) error reporting - unhandled errors caught by the
+app's error boundary are sent there instead of just disappearing into a
+visitor's console. Get a DSN from Sentry → your project → Settings → Client
+Keys.
+
 ### Hope Alive Circle (monthly recurring donations)
 
 Choosing "Monthly" in the Donate modal creates a real recurring Paystack
@@ -155,6 +185,19 @@ protecting: 5 submissions / 15 min per IP on the public Contact, Volunteer,
 Newsletter and Donate-interest forms, and 10 attempts / 15 min per IP on
 login/forgot-password/reset-password. A real visitor should never notice
 either limit; scripted spam/abuse will.
+
+## Adding a second language
+
+The client is wired up with `react-i18next` (see `client/src/i18n.js`), but
+English (`client/src/locales/en/common.json`) is the only complete language -
+the Navbar is the one place currently wired through it, as a working example
+of the pattern rather than a finished multi-language site. To add a real
+language: create `client/src/locales/<code>/common.json` with the same keys,
+register it in `i18n.js`'s `resources`, and convert more components from
+plain text to `t("key")` the same way Navbar.jsx does. Get any translation
+reviewed by a native or professional speaker before publishing it - an
+inaccurate machine translation of program, health or safety information is a
+real risk for a nonprofit's public site, not just a typo.
 
 ## Data storage
 

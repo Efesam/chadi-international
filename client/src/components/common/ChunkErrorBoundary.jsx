@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { reportError } from "../../lib/monitoring";
 
 /**
  * Catches errors from lazy-loaded routes - most commonly a dynamically
@@ -14,6 +15,10 @@ class ChunkErrorBoundary extends Component {
 
   static getDerivedStateFromError() {
     return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    reportError(error, { componentStack: info?.componentStack });
   }
 
   render() {

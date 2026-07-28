@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
+import { FaFileDownload, FaFilePdf } from "react-icons/fa";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import AllocationChart from "../../components/ui/AllocationChart";
 import Reveal from "../../components/common/Reveal";
 import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { useCollection } from "../../hooks/useCollection";
-import { getSettings } from "../../services/api";
+import { getSettings, reportsApi } from "../../services/api";
 import reportImage from "../../assets/projects/community-health.jpg";
 import Newsletter from "../../components/common/Newsletter";
 
 function Transparency() {
   const { data: settings, loading } = useCollection(getSettings);
+  const { data: reportsData, loading: reportsLoading } = useCollection(reportsApi.list);
   const allocation = settings?.fundAllocation || [];
+  const reports = reportsData || [];
 
   return (
     <>
@@ -55,6 +58,39 @@ function Transparency() {
               </p>
             )}
           </Reveal>
+
+          {!reportsLoading && reports.length > 0 && (
+            <Reveal delay={0.15} className="mt-14">
+              <h2 className="text-2xl font-bold text-chadi-green">
+                Reports &amp; Financial Statements
+              </h2>
+              <StaggerGrid className="mt-6 grid gap-4 sm:grid-cols-2">
+                {reports.map((report) => (
+                  <StaggerItem key={report.id}>
+                    <a
+                      href={report.file}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-4 rounded-2xl border border-chadi-green/20 p-5 transition hover:border-chadi-green hover:shadow-md"
+                    >
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-chadi-green/10 text-chadi-green">
+                        <FaFilePdf size={20} />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate font-semibold text-chadi-green">
+                          {report.title}
+                        </span>
+                        {report.year && (
+                          <span className="block text-sm text-gray-500">{report.year}</span>
+                        )}
+                      </span>
+                      <FaFileDownload className="shrink-0 text-gray-400" />
+                    </a>
+                  </StaggerItem>
+                ))}
+              </StaggerGrid>
+            </Reveal>
+          )}
 
           <StaggerGrid className="mt-14 grid gap-6 sm:grid-cols-3">
             <StaggerItem>

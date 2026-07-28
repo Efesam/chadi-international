@@ -7,6 +7,7 @@ import { recordDonationInterest } from "../../services/api";
 import DonateModal from "../../components/common/DonateModal";
 import Reveal from "../../components/common/Reveal";
 import Newsletter from "../../components/common/Newsletter";
+import Honeypot from "../../components/common/Honeypot";
 
 function InterestForm() {
   const [submitting, setSubmitting] = useState(false);
@@ -40,6 +41,7 @@ function InterestForm() {
         partnership? Share your details and CHADI will follow up.
       </p>
 
+      <Honeypot />
       <input
         className="mt-6 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
         name="name"

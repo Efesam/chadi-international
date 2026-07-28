@@ -8,6 +8,7 @@ import { sendContactMessage, getSettings } from "../../services/api";
 import { useCollection } from "../../hooks/useCollection";
 import Reveal from "../../components/common/Reveal";
 import Newsletter from "../../components/common/Newsletter";
+import Honeypot from "../../components/common/Honeypot";
 import contactImage from "../../assets/projects/women-business.jpg";
 
 const socialIcons = {
@@ -139,6 +140,7 @@ function Contact() {
               onSubmit={handleSubmit}
               className="rounded-3xl bg-chadi-cream p-8 shadow-lg"
             >
+              <Honeypot />
               <div className="grid gap-6 md:grid-cols-2">
                 <label className="block">
                   <span className="font-semibold text-gray-700">Full Name</span>

@@ -1,6 +1,16 @@
 import { Router } from "express";
-import { readCollection, writeCollection, generateId } from "./store.js";
+import { readCollection, updateCollection, generateId } from "./store.js";
 import { requireAuth } from "./auth.js";
+
+// A hidden field every public form includes (see Honeypot.jsx) but no real
+// visitor ever sees or fills in. Real, unsophisticated spam bots that
+// auto-fill every input on a form fill this too, outing themselves - a
+// filled honeypot gets a normal-looking success response (so the bot has no
+// signal to adapt to) but is silently dropped instead of saved. The name is
+// deliberately generic/synthetic rather than something like "website" -
+// common honeypot names double as browser autocomplete categories, which
+// risks a password manager filling it in for a real visitor.
+const HONEYPOT_FIELD = "hp_field";
 
 /**
  * Builds a router for a public submission type (contact messages, volunteer
@@ -12,23 +22,32 @@ export function createSubmissionRouter({ name, requiredFields = [], limiter }) {
   const postGuard = limiter ? [limiter] : [];
 
   router.post("/", ...postGuard, async (req, res) => {
-    const missing = requiredFields.filter((field) => !String(req.body?.[field] || "").trim());
+    const { [HONEYPOT_FIELD]: honeypot, ...body } = req.body || {};
+
+    if (honeypot) {
+      res.status(201).json({ message: "Submission received" });
+      return;
+    }
+
+    const missing = requiredFields.filter((field) => !String(body?.[field] || "").trim());
 
     if (missing.length) {
       res.status(400).json({ error: `Missing required field: ${missing.join(", ")}` });
       return;
     }
 
-    const items = await readCollection(name, () => []);
     const entry = {
       id: generateId(name.replace(/s$/, "")),
       createdAt: new Date().toISOString(),
       read: false,
-      ...req.body,
+      ...body,
     };
 
-    items.unshift(entry);
-    await writeCollection(name, items);
+    await updateCollection(name, () => [], (items) => ({
+      data: [entry, ...items],
+      result: entry,
+    }));
+
     res.status(201).json({ message: "Submission received", data: entry });
   });
 
@@ -38,29 +57,35 @@ export function createSubmissionRouter({ name, requiredFields = [], limiter }) {
   });
 
   router.patch("/:id", requireAuth, async (req, res) => {
-    const items = await readCollection(name, () => []);
-    const index = items.findIndex((i) => i.id === req.params.id);
+    const updated = await updateCollection(name, () => [], (items) => {
+      const index = items.findIndex((i) => i.id === req.params.id);
+      if (index === -1) return { result: null };
 
-    if (index === -1) {
+      const next = [...items];
+      next[index] = { ...items[index], ...req.body };
+      return { data: next, result: next[index] };
+    });
+
+    if (!updated) {
       res.status(404).json({ error: "Entry not found" });
       return;
     }
 
-    items[index] = { ...items[index], ...req.body };
-    await writeCollection(name, items);
-    res.json(items[index]);
+    res.json(updated);
   });
 
   router.delete("/:id", requireAuth, async (req, res) => {
-    const items = await readCollection(name, () => []);
-    const next = items.filter((i) => i.id !== req.params.id);
+    const deleted = await updateCollection(name, () => [], (items) => {
+      const next = items.filter((i) => i.id !== req.params.id);
+      if (next.length === items.length) return { result: false };
+      return { data: next, result: true };
+    });
 
-    if (next.length === items.length) {
+    if (!deleted) {
       res.status(404).json({ error: "Entry not found" });
       return;
     }
 
-    await writeCollection(name, next);
     res.status(204).end();
   });
 

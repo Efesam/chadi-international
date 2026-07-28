@@ -2,8 +2,11 @@ import { useState } from "react";
 import { FaShieldAlt } from "react-icons/fa";
 import { verifyPayment, getOrCreateMonthlyPlan } from "../../services/api";
 import Modal from "./Modal";
+import PaypalButton from "./PaypalButton";
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
+const PAYPAL_ENABLED = Boolean(import.meta.env.VITE_PAYPAL_CLIENT_ID);
+const USD_PRESETS = [10, 25, 50, 100];
 
 const PRESET_AMOUNTS = [
   { amount: 2000, label: "Provides a nutrition kit" },
@@ -19,6 +22,9 @@ function DonateModal({ open, onClose, project }) {
   const [email, setEmail] = useState("");
   const [paying, setPaying] = useState(false);
   const [result, setResult] = useState(null);
+  // Separate from `amount` (Naira, for Paystack) on purpose - PayPal charges
+  // in USD, and the two currencies aren't the same number.
+  const [usdAmount, setUsdAmount] = useState("25");
 
   const configured = Boolean(PAYSTACK_PUBLIC_KEY) && typeof window !== "undefined" && window.PaystackPop;
 
@@ -245,6 +251,33 @@ function DonateModal({ open, onClose, project }) {
           <p className="flex items-center justify-center gap-2 text-center text-xs text-gray-400">
             <FaShieldAlt /> Secured by Paystack &middot; join our community of CHADI supporters
           </p>
+
+          {PAYPAL_ENABLED && frequency === "once" && (
+            <div className="border-t border-gray-100 pt-4">
+              <p className="text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
+                Giving from outside Nigeria?
+              </p>
+
+              <div className="mt-3 grid grid-cols-4 gap-2">
+                {USD_PRESETS.map((preset) => (
+                  <button
+                    key={preset}
+                    type="button"
+                    onClick={() => setUsdAmount(String(preset))}
+                    className={`rounded-lg border py-2 text-sm font-bold transition ${
+                      Number(usdAmount) === preset
+                        ? "border-chadi-green bg-chadi-green/5 text-chadi-green"
+                        : "border-gray-200 text-gray-600 hover:border-chadi-green"
+                    }`}
+                  >
+                    ${preset}
+                  </button>
+                ))}
+              </div>
+
+              <PaypalButton amount={usdAmount} project={project} onResult={setResult} />
+            </div>
+          )}
 
           {result && (
             <p

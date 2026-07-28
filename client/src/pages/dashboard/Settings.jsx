@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { getSettings, updateSettings } from "../../services/api";
+import RichTextEditor from "../../components/admin/RichTextEditor";
 
 function Settings() {
   const [settings, setSettings] = useState(null);
@@ -169,6 +170,33 @@ function Settings() {
                 className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
               />
             </label>
+            <label className="block sm:col-span-2">
+              <span className="text-sm font-semibold text-gray-700">Organization Registration / Tax ID</span>
+              <input
+                type="text"
+                value={settings.orgRegistration || ""}
+                onChange={(event) => updateField("orgRegistration", event.target.value)}
+                placeholder="e.g. CAC/IT/NO 12345 - shown on donation receipts once set"
+                className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
+              />
+              <span className="mt-1 block text-xs text-gray-400">
+                Left blank, donation receipts simply omit this line.
+              </span>
+            </label>
+          </div>
+        </section>
+
+        <section className="rounded-2xl bg-white p-6 shadow-sm">
+          <h2 className="font-bold text-chadi-green">Safeguarding Policy</h2>
+          <p className="mt-1 text-sm text-gray-500">
+            Shown on the public Governance page. Left blank, that page shows a
+            "being finalized - contact us" message instead of a blank section.
+          </p>
+          <div className="mt-4">
+            <RichTextEditor
+              value={settings.safeguardingPolicy || ""}
+              onChange={(html) => updateField("safeguardingPolicy", html)}
+            />
           </div>
         </section>
 

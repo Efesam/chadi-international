@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Replace https://www.chadi-international.org with the real production domain once it's decided. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.chadi-international.org/</loc></url>
   <url><loc>https://www.chadi-international.org/about</loc></url>
@@ -18,6 +17,21 @@
   <url><loc>https://www.chadi-international.org/donate</loc></url>
   <url><loc>https://www.chadi-international.org/contact</loc></url>
   <url><loc>https://www.chadi-international.org/transparency</loc></url>
+  <url><loc>https://www.chadi-international.org/governance</loc></url>
   <url><loc>https://www.chadi-international.org/privacy</loc></url>
   <url><loc>https://www.chadi-international.org/terms</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/community-miycn</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/sovcest-tech</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/help-food</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/start-program</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/digital-skills-for-youth</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/clean-water-project</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/women-business</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/green-africa</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/school-support</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/maternal-health</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/food-security</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/community-health</loc></url>
+  <url><loc>https://www.chadi-international.org/news/miycn-community-outreach</loc></url>
+  <url><loc>https://www.chadi-international.org/news/digital-skills-training</loc></url>
 </urlset>

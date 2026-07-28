@@ -2,12 +2,14 @@ import { useState } from "react";
 import { FaHandsHelping } from "react-icons/fa";
 import { submitVolunteerApplication } from "../../services/api";
 import Modal from "./Modal";
+import Honeypot from "./Honeypot";
 
 function VolunteerModal({ open, onClose, project }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
   const [message, setMessage] = useState("");
+  const [hpField, setHpField] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState(null);
 
@@ -25,6 +27,7 @@ function VolunteerModal({ open, onClose, project }) {
         message,
         projectId: project?.id,
         projectTitle: project?.title,
+        hp_field: hpField,
       });
       setResult({
         type: "success",
@@ -34,6 +37,7 @@ function VolunteerModal({ open, onClose, project }) {
       setEmail("");
       setLocation("");
       setMessage("");
+      setHpField("");
     } catch {
       setResult({ type: "error", message: "We could not submit this right now. Please try again." });
     } finally {
@@ -60,6 +64,7 @@ function VolunteerModal({ open, onClose, project }) {
         )}
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          <Honeypot value={hpField} onChange={(event) => setHpField(event.target.value)} />
           <input
             type="text"
             required

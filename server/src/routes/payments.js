@@ -1,15 +1,30 @@
 import { Router } from "express";
-import { readCollection, writeCollection, generateId } from "../lib/store.js";
+import { readCollection, updateCollection, generateId } from "../lib/store.js";
 import { verifyHmacSignature } from "../lib/verifySignature.js";
 import { createPlan, disableSubscription } from "../lib/paystackApi.js";
+import { createOrder as createPaypalOrder, captureOrder as capturePaypalOrder } from "../lib/paypalApi.js";
 import { requireAuth } from "../lib/auth.js";
 import { formLimiter } from "../lib/rateLimit.js";
 import { sendMail } from "../lib/mailer.js";
+import { buildReceiptPdf } from "../lib/receiptPdf.js";
+import { seedSettings } from "../lib/seeds.js";
 
 const router = Router();
 
 function getSecretKey() {
   return process.env.PAYSTACK_SECRET_KEY;
+}
+
+/**
+ * PayPal is entirely optional, same as Paystack - unset by default, every
+ * PayPal route below returns a clear "not configured" error until both of
+ * these are set. Intended as a second option for international/diaspora
+ * donors who'd rather not pay by card through Paystack.
+ */
+function getPaypalCredentials() {
+  const clientId = process.env.PAYPAL_CLIENT_ID;
+  const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
+  return clientId && clientSecret ? { clientId, clientSecret } : null;
 }
 
 /**
@@ -36,20 +51,23 @@ async function getOrCreateMonthlyPlan(amount) {
     throw new Error("Payments are not configured on the server (missing PAYSTACK_SECRET_KEY)");
   }
 
-  const plans = await readCollection("plans", () => []);
-  const existing = plans.find((p) => p.amount === amount && p.interval === "monthly");
-  if (existing) return existing.planCode;
+  // The Paystack "create plan" call happens inside the lock on purpose: two
+  // donors picking the same amount at the same moment must not both miss
+  // the "existing" check and each create a duplicate plan on Paystack.
+  return updateCollection("plans", () => [], async (plans) => {
+    const existing = plans.find((p) => p.amount === amount && p.interval === "monthly");
+    if (existing) return { result: existing.planCode };
 
-  const result = await createPlan(secretKey, {
-    name: `Hope Alive Circle - ₦${amount.toLocaleString()}/month`,
-    amountKobo: Math.round(amount * 100),
-    interval: "monthly",
+    const result = await createPlan(secretKey, {
+      name: `Hope Alive Circle - ₦${amount.toLocaleString()}/month`,
+      amountKobo: Math.round(amount * 100),
+      interval: "monthly",
+    });
+
+    const planCode = result.data.plan_code;
+    const next = [...plans, { amount, interval: "monthly", planCode, createdAt: new Date().toISOString() }];
+    return { data: next, result: planCode };
   });
-
-  const planCode = result.data.plan_code;
-  plans.push({ amount, interval: "monthly", planCode, createdAt: new Date().toISOString() });
-  await writeCollection("plans", plans);
-  return planCode;
 }
 
 export function buildReceiptEmail(entry) {
@@ -93,51 +111,137 @@ export function buildReceiptEmail(entry) {
  * represent a real completed charge, just a recurring vs one-off one.
  */
 async function recordPayment(data) {
-  const donations = await readCollection("donations", () => []);
-  const alreadyRecorded = donations.some((entry) => entry.reference === data.reference);
+  // The idempotency check (has this reference already been recorded?) and
+  // the insert must happen as one atomic unit - the client-side verify call
+  // and the webhook can both fire for the same payment at nearly the same
+  // moment, and both must not pass the check and both insert an entry.
+  const { entry, isNew } = await updateCollection("donations", () => [], (donations) => {
+    const existing = donations.find((d) => d.reference === data.reference);
+    if (existing) return { result: { entry: existing, isNew: false } };
 
-  if (alreadyRecorded) return donations.find((entry) => entry.reference === data.reference);
+    const name = data.customer?.first_name
+      ? `${data.customer.first_name} ${data.customer.last_name || ""}`.trim()
+      : data.customer?.email;
 
-  const name = data.customer?.first_name
-    ? `${data.customer.first_name} ${data.customer.last_name || ""}`.trim()
-    : data.customer?.email;
+    const planCode = extractPlanCode(data);
 
-  const planCode = extractPlanCode(data);
+    const newEntry = {
+      id: generateId("payment"),
+      createdAt: new Date().toISOString(),
+      read: false,
+      type: planCode ? "subscription" : "payment",
+      name,
+      email: data.customer?.email,
+      amount: data.amount / 100,
+      currency: data.currency,
+      reference: data.reference,
+      channel: data.channel,
+      paidAt: data.paid_at,
+      // Set when someone donates from a specific project's page, via
+      // Paystack's metadata field - lets us track and show per-project totals.
+      projectId: data.metadata?.projectId || null,
+      projectTitle: data.metadata?.projectTitle || null,
+      // Subscription-only fields. subscriptionCode/emailToken arrive later via
+      // the subscription.create webhook (see below) - Paystack creates the
+      // actual subscription record slightly after the first charge succeeds.
+      ...(planCode
+        ? { interval: "monthly", planCode, subscriptionStatus: "pending", subscriptionCode: null, emailToken: null }
+        : {}),
+    };
 
-  const entry = {
-    id: generateId("payment"),
-    createdAt: new Date().toISOString(),
-    read: false,
-    type: planCode ? "subscription" : "payment",
-    name,
-    email: data.customer?.email,
-    amount: data.amount / 100,
-    currency: data.currency,
-    reference: data.reference,
-    channel: data.channel,
-    paidAt: data.paid_at,
-    // Set when someone donates from a specific project's page, via
-    // Paystack's metadata field - lets us track and show per-project totals.
-    projectId: data.metadata?.projectId || null,
-    projectTitle: data.metadata?.projectTitle || null,
-    // Subscription-only fields. subscriptionCode/emailToken arrive later via
-    // the subscription.create webhook (see below) - Paystack creates the
-    // actual subscription record slightly after the first charge succeeds.
-    ...(planCode
-      ? { interval: "monthly", planCode, subscriptionStatus: "pending", subscriptionCode: null, emailToken: null }
-      : {}),
-  };
-
-  donations.unshift(entry);
-  await writeCollection("donations", donations);
+    return { data: [newEntry, ...donations], result: { entry: newEntry, isNew: true } };
+  });
 
   // Best-effort, fire-and-forget - a slow or failing receipt email should
   // never delay the donor's on-screen confirmation or the webhook response.
-  if (entry.email) {
+  // Only send once, for the request that actually created the entry.
+  if (isNew && entry.email) {
     const { subject, html, text } = buildReceiptEmail(entry);
-    sendMail({ to: entry.email, subject, html, text }).catch((error) => {
-      console.error("[payments] receipt email error:", error);
-    });
+
+    // Best-effort here too: if the PDF fails to render for any reason, the
+    // donor should still get their plain email receipt rather than nothing.
+    readCollection("settings", seedSettings)
+      .then((settings) => buildReceiptPdf(entry, settings))
+      .then((pdf) =>
+        sendMail({
+          to: entry.email,
+          subject,
+          html,
+          text,
+          attachments: [{ filename: `CHADI-receipt-${entry.reference}.pdf`, content: pdf }],
+        })
+      )
+      .catch((error) => {
+        console.error("[payments] receipt PDF/email error, sending without attachment:", error);
+        sendMail({ to: entry.email, subject, html, text }).catch((sendError) => {
+          console.error("[payments] receipt email error:", sendError);
+        });
+      });
+  }
+
+  return entry;
+}
+
+/**
+ * Records a captured PayPal order as a donation. PayPal only supports
+ * one-time payments here (no recurring plan, unlike Hope Alive Circle's
+ * Paystack subscriptions) - donors wanting monthly giving use Paystack.
+ * Mirrors recordPayment's shape/idempotency/receipt logic above, kept
+ * separate rather than merged so each gateway's own field-normalizing stays
+ * easy to follow and the well-tested Paystack path stays untouched.
+ */
+async function recordPaypalPayment(capture, metadata = {}) {
+  const paypalCapture = capture.purchase_units?.[0]?.payments?.captures?.[0];
+  if (!paypalCapture || paypalCapture.status !== "COMPLETED") {
+    throw new Error("PayPal payment was not completed");
+  }
+
+  const payer = capture.payer || {};
+  const name = payer.name ? `${payer.name.given_name || ""} ${payer.name.surname || ""}`.trim() : payer.email_address;
+
+  const { entry, isNew } = await updateCollection("donations", () => [], (donations) => {
+    const existing = donations.find((d) => d.reference === paypalCapture.id);
+    if (existing) return { result: { entry: existing, isNew: false } };
+
+    const newEntry = {
+      id: generateId("payment"),
+      createdAt: new Date().toISOString(),
+      read: false,
+      type: "payment",
+      name,
+      email: payer.email_address,
+      amount: Number(paypalCapture.amount?.value || 0),
+      currency: paypalCapture.amount?.currency_code,
+      reference: paypalCapture.id,
+      channel: "paypal",
+      paidAt: paypalCapture.create_time,
+      projectId: metadata.projectId || null,
+      projectTitle: metadata.projectTitle || null,
+    };
+
+    return { data: [newEntry, ...donations], result: { entry: newEntry, isNew: true } };
+  });
+
+  if (isNew && entry.email) {
+    const { subject, html, text } = buildReceiptEmail(entry);
+
+    readCollection("settings", seedSettings)
+      .then((settings) => buildReceiptPdf(entry, settings))
+      .then((pdf) =>
+        sendMail({
+          to: entry.email,
+          subject,
+          html,
+          text,
+          attachments: [{ filename: `CHADI-receipt-${entry.reference}.pdf`, content: pdf }],
+        })
+      )
+      .catch((error) => {
+        console.error("[payments] PayPal receipt PDF/email error, sending without attachment:", error);
+        sendMail({ to: entry.email, subject, html, text }).catch((sendError) => {
+          console.error("[payments] PayPal receipt email error:", sendError);
+        });
+      });
   }
 
   return entry;
@@ -149,30 +253,37 @@ async function recordPayment(data) {
  * entry recordPayment already created for that same charge.
  */
 async function attachSubscriptionInfo(data) {
-  const donations = await readCollection("donations", () => []);
-  const entry = donations.find(
-    (d) =>
-      d.type === "subscription" &&
-      d.subscriptionStatus === "pending" &&
-      d.email === data.customer?.email &&
-      d.planCode === data.plan?.plan_code
-  );
-  if (!entry) return;
+  await updateCollection("donations", () => [], (donations) => {
+    const index = donations.findIndex(
+      (d) =>
+        d.type === "subscription" &&
+        d.subscriptionStatus === "pending" &&
+        d.email === data.customer?.email &&
+        d.planCode === data.plan?.plan_code
+    );
+    if (index === -1) return { result: null };
 
-  entry.subscriptionCode = data.subscription_code;
-  entry.emailToken = data.email_token;
-  entry.subscriptionStatus = "active";
-  await writeCollection("donations", donations);
+    const next = [...donations];
+    next[index] = {
+      ...next[index],
+      subscriptionCode: data.subscription_code,
+      emailToken: data.email_token,
+      subscriptionStatus: "active",
+    };
+    return { data: next, result: next[index] };
+  });
 }
 
 /** Marks a subscription inactive when Paystack reports it disabled or non-renewing (e.g. a card finally failed for good). */
 async function markSubscriptionInactive(data) {
-  const donations = await readCollection("donations", () => []);
-  const entry = donations.find((d) => d.subscriptionCode === data.subscription_code);
-  if (!entry) return;
+  await updateCollection("donations", () => [], (donations) => {
+    const index = donations.findIndex((d) => d.subscriptionCode === data.subscription_code);
+    if (index === -1) return { result: null };
 
-  entry.subscriptionStatus = "cancelled";
-  await writeCollection("donations", donations);
+    const next = [...donations];
+    next[index] = { ...next[index], subscriptionStatus: "cancelled" };
+    return { data: next, result: next[index] };
+  });
 }
 
 /**
@@ -322,8 +433,7 @@ router.post("/subscriptions/:id/cancel", requireAuth, async (req, res) => {
     return;
   }
 
-  const donations = await readCollection("donations", () => []);
-  const entry = donations.find((d) => d.id === req.params.id);
+  const entry = (await readCollection("donations", () => [])).find((d) => d.id === req.params.id);
 
   if (!entry || entry.type !== "subscription") {
     res.status(404).json({ error: "Subscription not found" });
@@ -344,12 +454,80 @@ router.post("/subscriptions/:id/cancel", requireAuth, async (req, res) => {
 
   try {
     await disableSubscription(secretKey, { code: entry.subscriptionCode, token: entry.emailToken });
-    entry.subscriptionStatus = "cancelled";
-    await writeCollection("donations", donations);
+
+    await updateCollection("donations", () => [], (donations) => {
+      const index = donations.findIndex((d) => d.id === req.params.id);
+      if (index === -1) return { result: null };
+
+      const next = [...donations];
+      next[index] = { ...next[index], subscriptionStatus: "cancelled" };
+      return { data: next, result: next[index] };
+    });
+
     res.json({ status: "cancelled" });
   } catch (error) {
     console.error("[payments] cancel subscription error:", error);
     res.status(502).json({ error: error.message || "Could not cancel the subscription. Please try again." });
+  }
+});
+
+/** Tells the client whether to even show the "Pay with PayPal" option. */
+router.get("/paypal/status", (req, res) => {
+  res.json({ configured: Boolean(getPaypalCredentials()) });
+});
+
+/**
+ * Called by the donor's browser once they've picked an amount, before
+ * PayPal's checkout is shown - creates the order PayPal's popup then asks
+ * the donor to approve.
+ */
+router.post("/paypal/create-order", formLimiter, async (req, res) => {
+  const credentials = getPaypalCredentials();
+  if (!credentials) {
+    res.status(500).json({ error: "PayPal isn't configured on this site yet." });
+    return;
+  }
+
+  const amount = Number(req.body?.amount);
+  if (!amount || amount <= 0) {
+    res.status(400).json({ error: "A valid amount is required" });
+    return;
+  }
+
+  try {
+    const order = await createPaypalOrder(credentials.clientId, credentials.clientSecret, {
+      amount,
+      currency: req.body?.currency || "USD",
+      description: req.body?.projectTitle ? `Donation - ${req.body.projectTitle}` : "Donation to CHADI International",
+    });
+    res.json({ orderId: order.id });
+  } catch (error) {
+    console.error("[payments] paypal create-order error:", error);
+    res.status(502).json({ error: error.message || "Could not start the PayPal checkout. Please try again." });
+  }
+});
+
+/** Called once the donor approves the payment in the PayPal popup - actually completes the charge. */
+router.post("/paypal/capture-order", async (req, res) => {
+  const credentials = getPaypalCredentials();
+  if (!credentials) {
+    res.status(500).json({ error: "PayPal isn't configured on this site yet." });
+    return;
+  }
+
+  const { orderId, projectId, projectTitle } = req.body || {};
+  if (!orderId) {
+    res.status(400).json({ error: "An order id is required" });
+    return;
+  }
+
+  try {
+    const capture = await capturePaypalOrder(credentials.clientId, credentials.clientSecret, orderId);
+    const entry = await recordPaypalPayment(capture, { projectId, projectTitle });
+    res.json({ status: "success", amount: entry.amount, reference: entry.reference });
+  } catch (error) {
+    console.error("[payments] paypal capture-order error:", error);
+    res.status(502).json({ error: error.message || "Could not complete the PayPal payment. Please try again." });
   }
 });
 

@@ -41,19 +41,22 @@ function getTransport(config) {
  * dev" pattern used for the Paystack secret key. Never throws - a failed or
  * unconfigured email should never break the request that triggered it.
  */
-export async function sendMail({ to, subject, html, text }) {
+export async function sendMail({ to, subject, html, text, attachments }) {
   const config = getConfig();
 
   if (!config) {
     console.log(`[mailer] SMTP not configured - would have sent to ${to}:`);
     console.log(`[mailer] Subject: ${subject}`);
     console.log(`[mailer] ${text || html}`);
+    if (attachments?.length) {
+      console.log(`[mailer] (with ${attachments.length} attachment(s): ${attachments.map((a) => a.filename).join(", ")})`);
+    }
     return { sent: false, reason: "not_configured" };
   }
 
   try {
     const transport = getTransport(config);
-    await transport.sendMail({ from: config.from, to, subject, html, text });
+    await transport.sendMail({ from: config.from, to, subject, html, text, attachments });
     return { sent: true };
   } catch (error) {
     console.error("[mailer] Failed to send email:", error.message);

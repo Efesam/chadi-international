@@ -24,6 +24,8 @@ import Careers from "../pages/public/Careers";
 import Volunteer from "../pages/public/Volunteer";
 import Privacy from "../pages/public/Privacy";
 import Transparency from "../pages/public/Transparency";
+import Governance from "../pages/public/Governance";
+import Search from "../pages/public/Search";
 import Terms from "../pages/public/Terms";
 import ProjectDetails from "../pages/public/ProjectDetails";
 import GetInvolved from "../pages/public/GetInvolved";
@@ -47,6 +49,9 @@ const ManageGallery = lazy(() => import("../pages/dashboard/ManageGallery"));
 const ManagePartners = lazy(() => import("../pages/dashboard/ManagePartners"));
 const ManageStories = lazy(() => import("../pages/dashboard/ManageStories"));
 const ManageTestimonials = lazy(() => import("../pages/dashboard/ManageTestimonials"));
+const ManageFaqs = lazy(() => import("../pages/dashboard/ManageFaqs"));
+const ManageReports = lazy(() => import("../pages/dashboard/ManageReports"));
+const ManageBoard = lazy(() => import("../pages/dashboard/ManageBoard"));
 const ManageMessages = lazy(() => import("../pages/dashboard/ManageMessages"));
 const ManageVolunteers = lazy(() => import("../pages/dashboard/ManageVolunteers"));
 const ManageDonations = lazy(() => import("../pages/dashboard/ManageDonations"));
@@ -90,6 +95,8 @@ function AppRoutes() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/transparency" element={<Transparency />} />
+        <Route path="/governance" element={<Governance />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/terms" element={<Terms />} />
 
         <Route path="/contact" element={<Contact />} />
@@ -200,6 +207,30 @@ function AppRoutes() {
             element={
               <Suspense fallback={<AdminLoading />}>
                 <ManageTestimonials />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/faqs"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageFaqs />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/reports"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageReports />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/board"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageBoard />
               </Suspense>
             }
           />

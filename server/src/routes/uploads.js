@@ -19,8 +19,9 @@ router.post("/", requireAuth, (req, res) => {
 
     if (cloudinaryConfigured) {
       try {
-        const resourceType = req.file.mimetype.startsWith("video/") ? "video" : "image";
-        const result = await uploadBufferToCloudinary(req.file.buffer, { resourceType });
+        // "auto" lets Cloudinary classify images/video/PDFs correctly on its
+        // own, rather than this needing to enumerate every mimetype itself.
+        const result = await uploadBufferToCloudinary(req.file.buffer, { resourceType: "auto" });
         res.status(201).json({ url: result.secure_url });
       } catch (error) {
         console.error("[uploads] Cloudinary upload failed:", error);

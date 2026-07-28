@@ -14,12 +14,17 @@ import {
   seedSettings,
   seedNews,
   seedTestimonials,
+  seedFaqs,
+  seedReports,
+  seedBoard,
 } from "./lib/seeds.js";
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import settingsRouter from "./routes/settings.js";
 import paymentsRouter from "./routes/payments.js";
 import broadcastRouter from "./routes/broadcast.js";
+import newsletterUnsubscribeRouter from "./routes/newsletterUnsubscribe.js";
+import feedRouter from "./routes/feed.js";
 import uploadsRouter from "./routes/uploads.js";
 import { uploadsDir } from "./lib/upload.js";
 import { apiLimiter, formLimiter } from "./lib/rateLimit.js";
@@ -59,6 +64,19 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
   .map((origin) => origin.trim())
   .filter(Boolean);
 
+// Refuse to boot in production with wildcard CORS - an unset ALLOWED_ORIGINS
+// is a reasonable default for local dev, but going live with it means any
+// website on the internet can call this API from a visitor's browser using
+// their session. Fail loudly at startup rather than silently running open.
+if (process.env.NODE_ENV === "production" && allowedOrigins.length === 0) {
+  console.error(
+    "[server] Refusing to start: NODE_ENV=production but ALLOWED_ORIGINS is unset. " +
+      "Set ALLOWED_ORIGINS to a comma-separated list of your real site origin(s) " +
+      "(e.g. https://www.chadi-international.org) before deploying."
+  );
+  process.exit(1);
+}
+
 app.use((req, res, next) => {
   const requestOrigin = req.headers.origin;
 
@@ -84,6 +102,8 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", service: "chadi-api" });
 });
 
+app.use("/feed.xml", feedRouter);
+
 // Baseline abuse protection across the whole API. The stricter per-endpoint
 // limiters below (formLimiter, authLimiter) layer on top of this for the
 // most sensitive routes.
@@ -99,6 +119,9 @@ app.use("/api/gallery", createCrudRouter({ name: "gallery", seed: seedGallery, r
 app.use("/api/partners", createCrudRouter({ name: "partners", seed: seedPartners, requiredFields: ["name"] }));
 app.use("/api/stories", createCrudRouter({ name: "stories", seed: seedStories, requiredFields: ["title"] }));
 app.use("/api/testimonials", createCrudRouter({ name: "testimonials", seed: seedTestimonials, requiredFields: ["name", "quote"] }));
+app.use("/api/faqs", createCrudRouter({ name: "faqs", seed: seedFaqs, requiredFields: ["question", "answer"] }));
+app.use("/api/reports", createCrudRouter({ name: "reports", seed: seedReports, requiredFields: ["title", "file"] }));
+app.use("/api/board", createCrudRouter({ name: "board", seed: seedBoard, requiredFields: ["name", "role"] }));
 
 // Site-wide settings (stats shown on the home page, contact info, socials).
 app.use("/api/settings", settingsRouter);
@@ -111,6 +134,7 @@ app.get("/api/stats", async (req, res) => {
 // Public form submissions. Anyone can POST; only admins can list/manage them.
 app.use("/api/contact", createSubmissionRouter({ name: "contacts", requiredFields: ["name", "email", "subject", "message"], limiter: formLimiter }));
 app.use("/api/volunteers", createSubmissionRouter({ name: "volunteers", requiredFields: ["name", "email", "area"], limiter: formLimiter }));
+app.use("/api/newsletter/unsubscribe", newsletterUnsubscribeRouter);
 app.use("/api/newsletter", createSubmissionRouter({ name: "newsletter", requiredFields: ["email"], limiter: formLimiter }));
 app.use("/api/donations", createSubmissionRouter({ name: "donations", requiredFields: ["name", "email", "interest"], limiter: formLimiter }));
 

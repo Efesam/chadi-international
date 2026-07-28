@@ -113,6 +113,42 @@ export function seedTestimonials() {
   ];
 }
 
+export function seedFaqs() {
+  return [
+    {
+      id: "faq_1",
+      question: "What does CHADI do?",
+      answer:
+        "CHADI supports underserved communities through health, education, humanitarian relief, youth development, protection and livelihood programs.",
+    },
+    {
+      id: "faq_2",
+      question: "How can I volunteer?",
+      answer:
+        "You can apply through the volunteer page. The team will review your interest areas and follow up with next steps.",
+    },
+    {
+      id: "faq_3",
+      question: "Can organizations partner with CHADI?",
+      answer: "Yes. CHADI welcomes program, funding, research and field implementation partnerships.",
+    },
+    {
+      id: "faq_4",
+      question: "Where does CHADI work?",
+      answer:
+        "CHADI focuses on Nigeria and underserved African communities, with projects designed around local needs.",
+    },
+  ];
+}
+
+export function seedReports() {
+  return [];
+}
+
+export function seedBoard() {
+  return [];
+}
+
 export function seedSettings() {
   return {
     stats: [
@@ -130,5 +166,13 @@ export function seedSettings() {
     focusRegion: "Nigeria and underserved African communities",
     officeHours: "Monday to Friday, 9:00 AM - 5:00 PM",
     socials: { facebook: "", twitter: "", instagram: "", linkedin: "" },
+    // Shown on donation receipts (PDF and email) when set - e.g. a CAC
+    // registration number. Left blank by default since this is real
+    // organizational information only CHADI can provide accurately.
+    orgRegistration: "",
+    // Shown on the public Governance page once written - left blank by
+    // default rather than seeded with placeholder policy claims, since a
+    // safeguarding policy is a real commitment only CHADI can accurately state.
+    safeguardingPolicy: "",
   };
 }

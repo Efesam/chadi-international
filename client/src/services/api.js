@@ -1,4 +1,4 @@
-const API_BASE_URL =
+export const API_BASE_URL =
   import.meta.env.VITE_API_URL || "http://127.0.0.1:4000/api";
 
 const TOKEN_KEY = "chadi_admin_token";
@@ -86,6 +86,18 @@ export function cancelSubscription(donationId) {
   return request(`/payments/subscriptions/${encodeURIComponent(donationId)}/cancel`, { method: "POST" });
 }
 
+export function getPaypalStatus() {
+  return request("/payments/paypal/status");
+}
+
+export function createPaypalOrder(payload) {
+  return request("/payments/paypal/create-order", { method: "POST", body: JSON.stringify(payload) });
+}
+
+export function capturePaypalOrder(payload) {
+  return request("/payments/paypal/capture-order", { method: "POST", body: JSON.stringify(payload) });
+}
+
 /** Sends an update email to every newsletter subscriber (new/updated project or news announcement). */
 export function sendBroadcast(payload) {
   return request("/broadcast", { method: "POST", body: JSON.stringify(payload) });
@@ -158,6 +170,9 @@ export const galleryApi = createResourceApi("gallery");
 export const partnersApi = createResourceApi("partners");
 export const storiesApi = createResourceApi("stories");
 export const testimonialsApi = createResourceApi("testimonials");
+export const faqsApi = createResourceApi("faqs");
+export const reportsApi = createResourceApi("reports");
+export const boardApi = createResourceApi("board");
 export const newsApi = createResourceApi("news");
 export const usersApi = createResourceApi("users");
 export const messagesApi = createResourceApi("contact");

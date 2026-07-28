@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { readCollection, writeCollection, generateId } from "./store.js";
+import { readCollection, updateCollection, generateId } from "./store.js";
 import { requireAuth } from "./auth.js";
 
 /**
@@ -46,48 +46,56 @@ export function createCrudRouter({
       return;
     }
 
-    const items = await readCollection(name, seed);
     const item = {
       id: generateId(name.replace(/s$/, "")),
       createdAt: new Date().toISOString(),
       ...req.body,
     };
 
-    items.unshift(item);
-    await writeCollection(name, items);
+    await updateCollection(name, seed, (items) => ({
+      data: [item, ...items],
+      result: item,
+    }));
+
     res.status(201).json(item);
   });
 
   router.put("/:id", requireAuth, async (req, res) => {
-    const items = await readCollection(name, seed);
-    const index = items.findIndex((i) => i.id === req.params.id);
+    const updated = await updateCollection(name, seed, (items) => {
+      const index = items.findIndex((i) => i.id === req.params.id);
+      if (index === -1) return { result: null };
 
-    if (index === -1) {
+      const next = [...items];
+      next[index] = {
+        ...items[index],
+        ...req.body,
+        id: items[index].id,
+        updatedAt: new Date().toISOString(),
+      };
+
+      return { data: next, result: next[index] };
+    });
+
+    if (!updated) {
       res.status(404).json({ error: `${name} item not found` });
       return;
     }
 
-    items[index] = {
-      ...items[index],
-      ...req.body,
-      id: items[index].id,
-      updatedAt: new Date().toISOString(),
-    };
-
-    await writeCollection(name, items);
-    res.json(items[index]);
+    res.json(updated);
   });
 
   router.delete("/:id", requireAuth, async (req, res) => {
-    const items = await readCollection(name, seed);
-    const next = items.filter((i) => i.id !== req.params.id);
+    const deleted = await updateCollection(name, seed, (items) => {
+      const next = items.filter((i) => i.id !== req.params.id);
+      if (next.length === items.length) return { result: false };
+      return { data: next, result: true };
+    });
 
-    if (next.length === items.length) {
+    if (!deleted) {
       res.status(404).json({ error: `${name} item not found` });
       return;
     }
 
-    await writeCollection(name, next);
     res.status(204).end();
   });
 

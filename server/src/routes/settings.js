@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { readCollection, writeCollection } from "../lib/store.js";
+import { readCollection, updateCollection } from "../lib/store.js";
 import { requireAdmin } from "../lib/auth.js";
 import { seedSettings } from "../lib/seeds.js";
 
@@ -11,9 +11,10 @@ router.get("/", async (req, res) => {
 });
 
 router.put("/", requireAdmin, async (req, res) => {
-  const current = await readCollection("settings", seedSettings);
-  const updated = { ...current, ...req.body };
-  await writeCollection("settings", updated);
+  const updated = await updateCollection("settings", seedSettings, (current) => {
+    const next = { ...current, ...req.body };
+    return { data: next, result: next };
+  });
   res.json(updated);
 });
 

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { subscribeToNewsletter } from "../../services/api";
 import Reveal from "./Reveal";
+import Honeypot from "./Honeypot";
 import newsletterImage from "../../assets/projects/sorces-classroom-1.jpg";
 
 function Newsletter() {
   const [email, setEmail] = useState("");
+  const [hpField, setHpField] = useState("");
   const [status, setStatus] = useState("");
 
   const handleSubmit = async (event) => {
@@ -12,8 +14,9 @@ function Newsletter() {
     setStatus("Sending...");
 
     try {
-      await subscribeToNewsletter({ email });
+      await subscribeToNewsletter({ email, hp_field: hpField });
       setEmail("");
+      setHpField("");
       setStatus("Thanks for subscribing.");
     } catch {
       setStatus("We could not subscribe you right now. Please try again.");
@@ -39,6 +42,7 @@ function Newsletter() {
           onSubmit={handleSubmit}
           className="mx-auto mt-10 flex max-w-xl flex-col gap-4 sm:flex-row"
         >
+          <Honeypot value={hpField} onChange={(event) => setHpField(event.target.value)} />
           <input
             type="email"
             value={email}

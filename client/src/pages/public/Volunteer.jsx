@@ -7,6 +7,7 @@ import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { submitVolunteerApplication } from "../../services/api";
 import sparkImage from "../../assets/projects/digital-skills.jpg";
 import Newsletter from "../../components/common/Newsletter";
+import Honeypot from "../../components/common/Honeypot";
 
 function Volunteer() {
   const [submitting, setSubmitting] = useState(false);
@@ -118,6 +119,7 @@ function Volunteer() {
             onSubmit={handleSubmit}
             className="rounded-3xl bg-chadi-cream p-8 shadow-lg lg:col-span-2"
           >
+            <Honeypot />
             <div className="grid gap-5 md:grid-cols-2">
               <input
                 className="rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"

@@ -15,6 +15,7 @@ const ALLOWED_TYPES = new Set([
   "video/mp4",
   "video/webm",
   "video/quicktime",
+  "application/pdf",
 ]);
 const MAX_SIZE = 100 * 1024 * 1024; // 100MB - generous for short project videos
 
@@ -41,7 +42,7 @@ const storage = cloudinaryConfigured
 
 function fileFilter(req, file, cb) {
   if (!ALLOWED_TYPES.has(file.mimetype)) {
-    cb(new Error("Only JPEG, PNG, WebP, GIF images or MP4/WebM/MOV videos are allowed"));
+    cb(new Error("Only JPEG, PNG, WebP, GIF images, MP4/WebM/MOV videos, or PDF files are allowed"));
     return;
   }
   cb(null, true);

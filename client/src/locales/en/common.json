@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "news": "News",
+    "getInvolved": "Get Involved",
+    "contact": "Contact",
+    "donate": "Donate"
+  }
+}

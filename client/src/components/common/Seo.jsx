@@ -9,6 +9,19 @@ const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
  * <head> automatically, so a plain component (no react-helmet needed) is
  * enough for per-page SEO/social tags. Renders nothing visible itself.
  */
+// Organization-level structured data, unchanged across pages - lets search
+// engines show CHADI as a known organization (Knowledge Panel eligibility,
+// nonprofit-specific search features) rather than just an indexed page.
+const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: SITE_NAME,
+  alternateName: "Caleb Hope Alive Development Initiative",
+  url: SITE_URL || undefined,
+  logo: DEFAULT_IMAGE,
+  description: DEFAULT_DESCRIPTION,
+};
+
 function Seo({ title, description = DEFAULT_DESCRIPTION, path = "", image = DEFAULT_IMAGE, noindex = false }) {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | Empowering Communities`;
   const canonical = SITE_URL ? `${SITE_URL}${path}` : undefined;
@@ -31,6 +44,8 @@ function Seo({ title, description = DEFAULT_DESCRIPTION, path = "", image = DEFA
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      <script type="application/ld+json">{JSON.stringify(ORGANIZATION_JSON_LD)}</script>
     </>
   );
 }
