@@ -9,6 +9,8 @@ function FeaturedProjects() {
   const { data, loading } = useCollection(projectsApi.list);
   const featured = (data || []).filter((project) => project.featured);
 
+  if (!loading && featured.length === 0) return null;
+
   return (
     <section className="bg-gray-50 py-24">
       <div className="mx-auto max-w-7xl px-6">

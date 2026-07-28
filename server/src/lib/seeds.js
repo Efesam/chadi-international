@@ -30,16 +30,16 @@ export function seedEvents() {
 export function seedTeam() {
   return [
     { id: "team_1", name: "Caleb Omale", role: "Chief Executive Officer", department: "Executive", bio: "Founder of CHADI International.", email: "", linkedin: "", twitter: "", image: "", featured: true },
-    { id: "team_2", name: "Doxa Ojo", role: "Programs Officer", department: "Programs", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_3", name: "Sarah Phrantline", role: "Assistant Programs Officer", department: "Programs", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_4", name: "Adonai O. Eveso", role: "Creativity, Research & Development Officer", department: "Research", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_5", name: "Rebecca Dongs", role: "Assistant Creativity, Research & Development Officer", department: "Research", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_6", name: "Williams Bissong", role: "Training & Community Mobilization Officer", department: "Community", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_7", name: "Hajara Waziri", role: "Health & Welfare Officer", department: "Health", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_8", name: "Liyatu Mala'aiki Abidan", role: "Assistant Health & Welfare Officer", department: "Health", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_9", name: "Juliet Jules", role: "Finance & Partnership Officer", department: "Finance", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_10", name: "Praise Zinariya", role: "Assistant Finance & Partnership Officer", department: "Finance", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
-    { id: "team_11", name: "Bathsheba Queen", role: "Community & Communications Manager", department: "Communications", bio: "", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_2", name: "Doxa Ojo", role: "Programs Officer", department: "Programs", bio: "Leads the design and day-to-day coordination of CHADI's community programs, ensuring initiatives are delivered where they're needed most.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_3", name: "Sarah Phrantline", role: "Assistant Programs Officer", department: "Programs", bio: "Supports program planning and field coordination, helping CHADI's initiatives run smoothly from design to delivery.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_4", name: "Adonai O. Eveso", role: "Creativity, Research & Development Officer", department: "Research", bio: "Drives research, creative direction and new program development to keep CHADI's work innovative and evidence-based.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_5", name: "Rebecca Dongs", role: "Assistant Creativity, Research & Development Officer", department: "Research", bio: "Supports research and creative development, helping shape new ideas into practical community programs.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_6", name: "Williams Bissong", role: "Training & Community Mobilization Officer", department: "Community", bio: "Leads training and mobilization efforts, building strong partnerships with the communities CHADI serves.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_7", name: "Hajara Waziri", role: "Health & Welfare Officer", department: "Health", bio: "Oversees CHADI's health and welfare initiatives, connecting communities with essential care and support.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_8", name: "Liyatu Mala'aiki Abidan", role: "Assistant Health & Welfare Officer", department: "Health", bio: "Supports the delivery of health and welfare programs, helping ensure care reaches those who need it most.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_9", name: "Juliet Jules", role: "Finance & Partnership Officer", department: "Finance", bio: "Manages financial operations and partnership relationships that keep CHADI's programs accountable and well-funded.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_10", name: "Praise Zinariya", role: "Assistant Finance & Partnership Officer", department: "Finance", bio: "Supports financial management and partner coordination across CHADI's programs.", email: "", linkedin: "", twitter: "", image: "", featured: false },
+    { id: "team_11", name: "Bathsheba Queen", role: "Community & Communications Manager", department: "Communications", bio: "Leads community engagement and communications, sharing CHADI's work and impact with the public.", email: "", linkedin: "", twitter: "", image: "", featured: false },
   ];
 }
 

@@ -23,7 +23,7 @@ function FeaturedTeamCard({ member }) {
         {member.image ? (
           <img src={member.image} alt={member.name} loading="lazy" className="h-full w-full object-cover" />
         ) : (
-          <div className="flex h-full items-center justify-center bg-chadi-green text-5xl font-bold text-white">
+          <div className="flex h-full items-center justify-center bg-gradient-to-br from-chadi-green to-[#1c3d16] text-5xl font-bold tracking-wide text-white/90">
             {initials}
           </div>
         )}

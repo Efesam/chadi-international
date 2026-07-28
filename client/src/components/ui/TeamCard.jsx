@@ -20,7 +20,7 @@ function TeamCard({ member }) {
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full items-center justify-center bg-chadi-green text-6xl font-bold text-white">
+          <div className="flex h-full items-center justify-center bg-gradient-to-br from-chadi-green to-[#1c3d16] text-6xl font-bold tracking-wide text-white/90">
             {initials}
           </div>
         )}

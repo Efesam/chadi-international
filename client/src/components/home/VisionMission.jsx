@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
 import { FaBullseye, FaEye } from "react-icons/fa";
 import Reveal from "../common/Reveal";
+import bgImage from "../../assets/projects/green-africa.jpg";
 
 function VisionMission() {
   return (
-    <section className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      className="relative overflow-hidden bg-gray-50 bg-cover bg-center py-24"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className="absolute inset-0 bg-white/90" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
 
         <Reveal>
           <div className="mb-16 text-center">

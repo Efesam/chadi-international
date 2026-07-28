@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import DonateModal from "../common/DonateModal";
 import Reveal from "../common/Reveal";
-import ctaImage from "../../assets/projects/women-business.jpg";
+import ctaImage from "../../assets/projects/miycn.jpg";
 
 function CallToAction() {
   const [donateOpen, setDonateOpen] = useState(false);

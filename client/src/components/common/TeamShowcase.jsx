@@ -24,7 +24,7 @@ function TeamPreviewCard({ member }) {
             className="h-full w-full object-cover"
           />
         ) : (
-          <div className="flex h-full items-center justify-center bg-chadi-green text-4xl font-bold text-white">
+          <div className="flex h-full items-center justify-center bg-gradient-to-br from-chadi-green to-[#1c3d16] text-4xl font-bold tracking-wide text-white/90">
             {initials}
           </div>
         )}
@@ -45,8 +45,12 @@ function TeamPreviewCard({ member }) {
 function TeamShowcase({ limit = 4 }) {
   const { data, loading } = useCollection(teamApi.list);
   const team = data || [];
+  // Featured members lead the lineup, but the grid is always backfilled with
+  // the rest of the team so a single featured leader doesn't leave a sparse,
+  // one-card row.
   const featured = team.filter((member) => member.featured);
-  const shown = (featured.length > 0 ? featured : team).slice(0, limit);
+  const others = team.filter((member) => !member.featured);
+  const shown = [...featured, ...others].slice(0, limit);
 
   if (!loading && shown.length === 0) return null;
 
