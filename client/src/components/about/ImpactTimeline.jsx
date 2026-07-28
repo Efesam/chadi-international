@@ -30,7 +30,7 @@ const timeline = [
 
 function ImpactTimeline() {
   return (
-    <section className="py-24">
+    <section id="journey" className="scroll-mt-24 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <h2 className="text-center text-4xl font-bold text-chadi-green sm:text-5xl">
