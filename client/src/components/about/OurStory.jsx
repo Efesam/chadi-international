@@ -14,7 +14,7 @@ function OurStory() {
             loading="lazy"
             className="w-full rounded-3xl shadow-xl"
           />
-          <div className="absolute -bottom-6 -right-6 flex h-28 w-28 items-center justify-center rounded-full bg-chadi-green p-4 text-center text-xs font-bold uppercase leading-tight tracking-wide text-white shadow-xl sm:h-32 sm:w-32 sm:text-sm">
+          <div className="absolute bottom-2 right-2 flex h-24 w-24 items-center justify-center rounded-full bg-chadi-green p-4 text-center text-xs font-bold uppercase leading-tight tracking-wide text-white shadow-xl sm:-bottom-6 sm:-right-6 sm:h-32 sm:w-32 sm:text-sm">
             Hope Alive
           </div>
         </Reveal>

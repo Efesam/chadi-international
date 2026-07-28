@@ -79,7 +79,7 @@ function Lightbox({ items, index, onClose, onNavigate }) {
               type="button"
               onClick={() => onNavigate(-1)}
               aria-label="Previous"
-              className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition hover:bg-black/70 sm:-left-4 sm:-translate-x-full"
+              className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition hover:bg-black/70 sm:left-4"
             >
               <FaChevronLeft size={18} />
             </button>
@@ -88,7 +88,7 @@ function Lightbox({ items, index, onClose, onNavigate }) {
               type="button"
               onClick={() => onNavigate(1)}
               aria-label="Next"
-              className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition hover:bg-black/70 sm:-right-4 sm:translate-x-full"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition hover:bg-black/70 sm:right-4"
             >
               <FaChevronRight size={18} />
             </button>
