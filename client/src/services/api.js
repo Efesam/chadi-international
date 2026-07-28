@@ -157,6 +157,7 @@ export const teamApi = createResourceApi("team");
 export const galleryApi = createResourceApi("gallery");
 export const partnersApi = createResourceApi("partners");
 export const storiesApi = createResourceApi("stories");
+export const testimonialsApi = createResourceApi("testimonials");
 export const newsApi = createResourceApi("news");
 export const usersApi = createResourceApi("users");
 export const messagesApi = createResourceApi("contact");

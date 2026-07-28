@@ -4,6 +4,7 @@ import { eventsApi } from "../../services/api";
 import CardGridSkeleton from "../common/CardGridSkeleton";
 import Reveal from "../common/Reveal";
 import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
+import EventCard from "../ui/EventCard";
 
 function UpcomingEvents() {
   const { data, loading } = useCollection(eventsApi.list);
@@ -31,13 +32,7 @@ function UpcomingEvents() {
           <StaggerGrid className="grid gap-6 lg:grid-cols-3">
             {events.map((event) => (
               <StaggerItem key={event.id}>
-                <article className="h-full rounded-xl bg-chadi-cream p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                  <p className="font-semibold text-chadi-gold-dark">{event.date}</p>
-                  <h3 className="mt-3 text-2xl font-bold text-chadi-green">
-                    {event.title}
-                  </h3>
-                  <p className="mt-2 text-gray-600">{event.location}</p>
-                </article>
+                <EventCard event={event} />
               </StaggerItem>
             ))}
           </StaggerGrid>

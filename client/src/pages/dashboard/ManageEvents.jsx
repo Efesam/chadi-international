@@ -6,6 +6,7 @@ const fields = [
   { name: "date", label: "Date", required: true, hint: "e.g. August 12, 2026" },
   { name: "location", label: "Location" },
   { name: "type", label: "Type", hint: "e.g. Health, Education, Volunteer" },
+  { name: "image", label: "Cover Image", type: "image", fullWidth: true },
   { name: "description", label: "Description", type: "textarea", fullWidth: true },
 ];
 

@@ -21,9 +21,9 @@ export function seedProjects() {
 
 export function seedEvents() {
   return [
-    { id: "event_1", title: "Community Health and Nutrition Outreach", date: "August 12, 2026", location: "Gombe State", type: "Health", description: "A practical outreach for mothers, caregivers and children with nutrition education, screening and referrals." },
-    { id: "event_2", title: "Youth Digital Skills Bootcamp", date: "September 4, 2026", location: "Bauchi State", type: "Education", description: "Hands-on training in digital literacy, design, productivity tools and entrepreneurship for young people." },
-    { id: "event_3", title: "Volunteer Orientation Day", date: "October 18, 2026", location: "Online and Field Hubs", type: "Volunteer", description: "An onboarding session for new volunteers supporting CHADI programs, campaigns and community mobilization." },
+    { id: "event_1", title: "Community Health and Nutrition Outreach", date: "August 12, 2026", location: "Gombe State", type: "Health", image: "/uploads/projects/miycn.jpg", description: "A practical outreach for mothers, caregivers and children with nutrition education, screening and referrals." },
+    { id: "event_2", title: "Youth Digital Skills Bootcamp", date: "September 4, 2026", location: "Bauchi State", type: "Education", image: "/uploads/projects/digital-skills.jpg", description: "Hands-on training in digital literacy, design, productivity tools and entrepreneurship for young people." },
+    { id: "event_3", title: "Volunteer Orientation Day", date: "October 18, 2026", location: "Online and Field Hubs", type: "Volunteer", image: "/uploads/projects/start.jpg", description: "An onboarding session for new volunteers supporting CHADI programs, campaigns and community mobilization." },
   ];
 }
 
@@ -85,6 +85,32 @@ export function seedPartners() {
 
 export function seedStories() {
   return [];
+}
+
+export function seedTestimonials() {
+  return [
+    {
+      id: "testimonial_1",
+      name: "Amina Yusuf",
+      location: "Gombe State",
+      image: "",
+      quote: "CHADI gave me the opportunity to learn digital skills that completely changed my future.",
+    },
+    {
+      id: "testimonial_2",
+      name: "John Bala",
+      location: "Bauchi State",
+      image: "",
+      quote: "Their healthcare outreach saved lives in our community. We are grateful for their dedication.",
+    },
+    {
+      id: "testimonial_3",
+      name: "Rebecca Musa",
+      location: "Yobe State",
+      image: "",
+      quote: "The women empowerment program helped me start my own business and support my family.",
+    },
+  ];
 }
 
 export function seedSettings() {

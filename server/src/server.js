@@ -13,6 +13,7 @@ import {
   seedStories,
   seedSettings,
   seedNews,
+  seedTestimonials,
 } from "./lib/seeds.js";
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
@@ -97,6 +98,7 @@ app.use("/api/team", createCrudRouter({ name: "team", seed: seedTeam, requiredFi
 app.use("/api/gallery", createCrudRouter({ name: "gallery", seed: seedGallery, requiredFields: ["title", "image"] }));
 app.use("/api/partners", createCrudRouter({ name: "partners", seed: seedPartners, requiredFields: ["name"] }));
 app.use("/api/stories", createCrudRouter({ name: "stories", seed: seedStories, requiredFields: ["title"] }));
+app.use("/api/testimonials", createCrudRouter({ name: "testimonials", seed: seedTestimonials, requiredFields: ["name", "quote"] }));
 
 // Site-wide settings (stats shown on the home page, contact info, socials).
 app.use("/api/settings", settingsRouter);

@@ -11,6 +11,7 @@ import PartnersSection from "../../components/home/PartnersSection";
 import LatestNews from "../../components/home/LatestNews";
 import CallToAction from "../../components/home/CallToAction";
 import SuccessStories from "../../components/home/SuccessStories";
+import TeamShowcase from "../../components/common/TeamShowcase";
 
 
 function Home() {
@@ -31,7 +32,9 @@ function Home() {
 
       <ImpactCounter />
 
-       <FeaturedProjects /> 
+      <FeaturedProjects />
+
+      <TeamShowcase />
 
       <SuccessStories />
 

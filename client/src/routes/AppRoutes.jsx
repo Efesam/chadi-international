@@ -46,6 +46,7 @@ const ManageTeam = lazy(() => import("../pages/dashboard/ManageTeam"));
 const ManageGallery = lazy(() => import("../pages/dashboard/ManageGallery"));
 const ManagePartners = lazy(() => import("../pages/dashboard/ManagePartners"));
 const ManageStories = lazy(() => import("../pages/dashboard/ManageStories"));
+const ManageTestimonials = lazy(() => import("../pages/dashboard/ManageTestimonials"));
 const ManageMessages = lazy(() => import("../pages/dashboard/ManageMessages"));
 const ManageVolunteers = lazy(() => import("../pages/dashboard/ManageVolunteers"));
 const ManageDonations = lazy(() => import("../pages/dashboard/ManageDonations"));
@@ -191,6 +192,14 @@ function AppRoutes() {
             element={
               <Suspense fallback={<AdminLoading />}>
                 <ManageStories />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/testimonials"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageTestimonials />
               </Suspense>
             }
           />

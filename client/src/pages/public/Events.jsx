@@ -1,16 +1,23 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import CardGridSkeleton from "../../components/common/CardGridSkeleton";
 import Reveal from "../../components/common/Reveal";
 import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
+import EventCard from "../../components/ui/EventCard";
 import { useCollection } from "../../hooks/useCollection";
 import { eventsApi } from "../../services/api";
 import Newsletter from "../../components/common/Newsletter";
 import ctaImage from "../../assets/projects/sorcest.jpg";
 
 function Events() {
-  const { data: events, loading, error } = useCollection(eventsApi.list);
+  const { data, loading, error } = useCollection(eventsApi.list);
+  const events = data || [];
+  const [type, setType] = useState("All");
+
+  const types = ["All", ...new Set(events.map((event) => event.type).filter(Boolean))];
+  const filteredEvents = type === "All" ? events : events.filter((event) => event.type === type);
 
   return (
     <>
@@ -34,27 +41,38 @@ function Events() {
           ) : events.length === 0 ? (
             <p className="text-center text-gray-500">No events scheduled right now. Check back soon.</p>
           ) : (
-            <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {events.map((event) => (
-                <StaggerItem key={event.id}>
-                  <article className="rounded-xl border border-chadi-lightgreen bg-chadi-cream p-8 shadow-sm">
-                    <span className="rounded-full bg-chadi-gold px-4 py-2 text-sm font-bold text-black">
-                      {event.type}
-                    </span>
-                    <h2 className="mt-6 text-2xl font-bold text-chadi-green">
-                      {event.title}
-                    </h2>
-                    <p className="mt-3 font-semibold text-gray-700">
-                      {event.date}
-                    </p>
-                    <p className="mt-1 text-gray-600">{event.location}</p>
-                    <p className="mt-5 leading-7 text-gray-600">
-                      {event.description}
-                    </p>
-                  </article>
-                </StaggerItem>
-              ))}
-            </StaggerGrid>
+            <>
+              {types.length > 2 && (
+                <Reveal className="mb-10 flex flex-wrap gap-3">
+                  {types.map((item) => (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => setType(item)}
+                      className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+                        type === item
+                          ? "bg-chadi-green text-white"
+                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      }`}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </Reveal>
+              )}
+
+              {filteredEvents.length === 0 ? (
+                <p className="text-center text-gray-500">No events match this filter.</p>
+              ) : (
+                <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  {filteredEvents.map((event) => (
+                    <StaggerItem key={event.id}>
+                      <EventCard event={event} />
+                    </StaggerItem>
+                  ))}
+                </StaggerGrid>
+              )}
+            </>
           )}
 
           <Reveal

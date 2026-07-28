@@ -4,7 +4,7 @@ import OurStory from "../../components/about/OurStory";
 import VisionMission from "../../components/home/VisionMission";
 import CoreValues from "../../components/about/CoreValues";
 import ImpactTimeline from "../../components/about/ImpactTimeline";
-import TeamPreview from "../../components/about/TeamPreview";
+import TeamShowcase from "../../components/common/TeamShowcase";
 import Newsletter from "../../components/common/Newsletter";
 
 function About() {
@@ -29,7 +29,7 @@ function About() {
 
       <ImpactTimeline />
 
-      <TeamPreview />
+      <TeamShowcase />
 
       <Newsletter />
     </>
