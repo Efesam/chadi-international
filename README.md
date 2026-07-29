@@ -297,14 +297,39 @@ already wired up for it.
    `https://your-domain.org/api/health`, confirm the padlock/HTTPS is
    working, log in to `/admin`, and test a donation end-to-end.
 6. **Back up the data volumes** - they're the only copy of every donation,
-   user and CMS entry. A simple periodic job:
+   user and CMS entry. `scripts/backup.sh` tars up both volumes into a
+   rotated set of local backups (keeps the last 14 days by default):
    ```bash
-   docker run --rm -v chadi-international_server_data:/data \
-     -v "$(pwd)/backups:/backup" alpine \
-     tar czf /backup/data-$(date +%F).tar.gz -C /data .
+   ./scripts/backup.sh
    ```
-   (adjust the volume name to match `docker volume ls` on your box - Compose
-   prefixes it with the project/folder name).
-7. **Redeploying after changes**: `git pull && docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build`.
+   Restore with `./scripts/restore.sh path/to/chadi-backup-<timestamp>.tar.gz`
+   (it asks for confirmation before overwriting anything).
+7. **Automate the backup** with a daily cron job, so it happens without
+   you remembering to run it:
+   ```bash
+   crontab -e
+   # add this line (adjust the path to wherever you cloned the repo):
+   0 3 * * * cd /path/to/chadi-international && ./scripts/backup.sh >> /var/log/chadi-backup.log 2>&1
+   ```
+   The backups only live on the VPS itself by default - point
+   `BACKUP_DIR` (the script's first argument) at a mounted network drive,
+   or add an `rclone`/`aws s3 sync` line at the end of the script, if you
+   also want a copy that survives losing the VPS entirely.
+8. **Redeploying after changes**: `git pull && docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build`.
    This rebuilds the images but leaves the named volumes (and therefore all
    data) untouched.
+
+### A note on the data store's real constraint
+
+The one hard rule for this architecture: **never run more than one instance
+of the `api` service** (no `--scale api=2`, no multi-node deployment). The
+per-collection write lock in `server/src/lib/store.js` only coordinates
+within a single Node process - a second instance would read and write the
+same JSON files with no idea the first one exists, silently reintroducing
+the exact lost-write race the lock exists to prevent. A single VPS running
+one instance (what everything above sets up) is exactly the deployment
+model this data store is designed for. If a future need for horizontal
+scaling or complex relational queries/reporting comes up, that's the point
+to migrate to a real database (Postgres/SQLite) - `server/src/lib/store.js`
+is a small, isolated abstraction specifically so that migration wouldn't
+require touching every route.

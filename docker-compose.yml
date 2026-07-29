@@ -1,4 +1,12 @@
 services:
+  # NEVER run more than one instance of this service (no `--scale api=2`,
+  # no replicas). The data store's per-collection write lock (server/src/lib/store.js)
+  # only coordinates within a single Node process - a second instance
+  # would happily read-modify-write the same JSON files at the same time
+  # with no idea the first instance exists, silently reintroducing the
+  # exact lost-write race condition the lock exists to prevent. A single
+  # VPS running one instance is the deployment model this data store is
+  # built for; horizontally scaling it would need a real database first.
   api:
     build: ./server
     env_file:
