@@ -1,8 +1,6 @@
 services:
   api:
     build: ./server
-    ports:
-      - "4000:4000"
     env_file:
       - ./server/.env
     volumes:
@@ -17,8 +15,6 @@ services:
         VITE_API_URL: ${VITE_API_URL:-http://localhost:4000/api}
         VITE_PAYSTACK_PUBLIC_KEY: ${VITE_PAYSTACK_PUBLIC_KEY:-}
         VITE_SITE_URL: ${VITE_SITE_URL:-}
-    ports:
-      - "8080:80"
     depends_on:
       - api
     restart: unless-stopped

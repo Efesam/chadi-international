@@ -261,3 +261,50 @@ Vercel, Cloudflare Pages, S3+CloudFront, etc.), and the server is a plain
 Node/Express app (`npm start`) deployable anywhere Node runs. A GitHub
 Actions workflow (`.github/workflows/ci.yml`) runs lint, tests and the
 client build on every push and pull request.
+
+### Deploying to a VPS (recommended)
+
+The data store is flat JSON files on disk (see "Data storage" above) - that
+needs a persistent filesystem, which rules out purely serverless hosts. A
+small VPS (Hetzner, DigitalOcean, Linode - $5-6/mo is plenty for this
+traffic level) running Docker is the simplest fit, and everything below is
+already wired up for it.
+
+1. **Provision a VPS** (Ubuntu 22.04/24.04) and install Docker + the
+   Compose plugin (`curl -fsSL https://get.docker.com | sh`).
+2. **Point DNS** at it: an A record for your domain (and `www`) to the
+   VPS's IP address.
+3. **Copy the repo** to the VPS (`git clone`, or push via CI/CD later) and
+   fill in `server/.env` for real (see `server/.env.example`) - at minimum:
+   `NODE_ENV=production`, a real `AUTH_SECRET` (generate with
+   `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`),
+   `ALLOWED_ORIGINS=https://your-domain.org`, your real `PAYSTACK_SECRET_KEY`,
+   and the SMTP settings.
+4. **Bring it up** behind Caddy (auto-provisions and renews HTTPS via
+   Let's Encrypt - no certbot/manual cert config needed):
+   ```bash
+   export VITE_API_URL=https://your-domain.org/api
+   export VITE_SITE_URL=https://your-domain.org
+   export SITE_DOMAIN=your-domain.org
+   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+   ```
+   Passing an explicit `-f` list like this is what excludes
+   `docker-compose.override.yml` (the file that exposes ports 4000/8080
+   directly for local dev) - Compose only auto-merges that file when no
+   `-f` flags are given at all, which is what `docker compose up --build`
+   (no flags) still does for local testing.
+5. **Verify**: visit `https://your-domain.org`, check
+   `https://your-domain.org/api/health`, confirm the padlock/HTTPS is
+   working, log in to `/admin`, and test a donation end-to-end.
+6. **Back up the data volumes** - they're the only copy of every donation,
+   user and CMS entry. A simple periodic job:
+   ```bash
+   docker run --rm -v chadi-international_server_data:/data \
+     -v "$(pwd)/backups:/backup" alpine \
+     tar czf /backup/data-$(date +%F).tar.gz -C /data .
+   ```
+   (adjust the volume name to match `docker volume ls` on your box - Compose
+   prefixes it with the project/folder name).
+7. **Redeploying after changes**: `git pull && docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build`.
+   This rebuilds the images but leaves the named volumes (and therefore all
+   data) untouched.
