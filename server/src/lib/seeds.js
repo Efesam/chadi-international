@@ -170,6 +170,16 @@ export function seedSettings() {
     // registration number. Left blank by default since this is real
     // organizational information only CHADI can provide accurately.
     orgRegistration: "",
+    // Also shown on donation receipts once set - a registered address and
+    // phone number are what turn a receipt into something a donor's
+    // accountant or tax authority will actually accept. Left blank by
+    // default for the same reason as orgRegistration above.
+    orgAddress: "",
+    orgPhone: "",
+    // An authorized signatory line on receipts (e.g. "Jane Doe, Executive
+    // Director") - left blank by default since only CHADI can say who that
+    // actually is; the receipt simply omits the signature line until set.
+    receiptSignatory: "",
     // Shown on the public Governance page once written - left blank by
     // default rather than seeded with placeholder policy claims, since a
     // safeguarding policy is a real commitment only CHADI can accurately state.

@@ -8,6 +8,7 @@ import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { useCollection } from "../../hooks/useCollection";
 import { projectsApi } from "../../services/api";
 import Newsletter from "../../components/common/Newsletter";
+import ImpactMap from "../../components/common/ImpactMap";
 
 function Projects() {
   const { data, loading, error } = useCollection(projectsApi.list);
@@ -44,6 +45,23 @@ function Projects() {
         title="Our Projects"
         subtitle="Empowering Marginalised Individuals & Underserved Communities"
       />
+
+      {!loading && !error && projects.length > 0 && (
+        <section className="bg-chadi-cream py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <Reveal className="mx-auto mb-10 max-w-2xl text-center">
+              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Where We Work</h2>
+              <p className="mt-4 text-gray-600">
+                Explore the communities across Nigeria where CHADI's projects are active. Tap a marker to see
+                what's happening there.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <ImpactMap projects={projects} />
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">

@@ -25,6 +25,8 @@ import paymentsRouter from "./routes/payments.js";
 import broadcastRouter from "./routes/broadcast.js";
 import newsletterUnsubscribeRouter from "./routes/newsletterUnsubscribe.js";
 import feedRouter from "./routes/feed.js";
+import { subscribeToMailchimp } from "./lib/mailchimp.js";
+import donorPortalRouter from "./routes/donorPortal.js";
 import uploadsRouter from "./routes/uploads.js";
 import { uploadsDir } from "./lib/upload.js";
 import { apiLimiter, formLimiter } from "./lib/rateLimit.js";
@@ -134,9 +136,24 @@ app.get("/api/stats", async (req, res) => {
 // Public form submissions. Anyone can POST; only admins can list/manage them.
 app.use("/api/contact", createSubmissionRouter({ name: "contacts", requiredFields: ["name", "email", "subject", "message"], limiter: formLimiter }));
 app.use("/api/volunteers", createSubmissionRouter({ name: "volunteers", requiredFields: ["name", "email", "area"], limiter: formLimiter }));
+app.use("/api/event-signups", createSubmissionRouter({ name: "eventSignups", requiredFields: ["name", "email", "eventId"], limiter: formLimiter }));
 app.use("/api/newsletter/unsubscribe", newsletterUnsubscribeRouter);
-app.use("/api/newsletter", createSubmissionRouter({ name: "newsletter", requiredFields: ["email"], limiter: formLimiter }));
+app.use(
+  "/api/newsletter",
+  createSubmissionRouter({
+    name: "newsletter",
+    requiredFields: ["email"],
+    limiter: formLimiter,
+    // Optional - only does anything once MAILCHIMP_API_KEY/AUDIENCE_ID are set.
+    afterCreate: (entry) => subscribeToMailchimp(entry.email),
+  })
+);
 app.use("/api/donations", createSubmissionRouter({ name: "donations", requiredFields: ["name", "email", "interest"], limiter: formLimiter }));
+// Logged by the Donate page whenever a payment goes through on Paystack's
+// side but the server-side verify call fails (see DonateModal.jsx) - gives
+// staff a place to see and follow up on these without waiting for the donor
+// to notice and email in with their reference.
+app.use("/api/payment-issues", createSubmissionRouter({ name: "paymentIssues", requiredFields: ["reference"], limiter: formLimiter }));
 
 // Admin-triggered update emails to newsletter subscribers (new/updated project or news announcements).
 app.use("/api/broadcast", broadcastRouter);
@@ -147,6 +164,7 @@ app.use("/api/users", usersRouter);
 
 // Paystack payment verification (donations made via the Donate page).
 app.use("/api/payments", paymentsRouter);
+app.use("/api/donor-portal", donorPortalRouter);
 
 // Image uploads for the admin dashboard - authenticated users upload here,
 // then everyone (including the public site) can load the file back by URL.
@@ -155,7 +173,7 @@ app.use("/uploads", express.static(uploadsDir));
 
 // Aggregate counts for the dashboard overview page.
 app.get("/api/admin/summary", requireAuth, async (req, res) => {
-  const [contacts, volunteers, newsletter, donations, projects, events, team, gallery, partners, stories] =
+  const [contacts, volunteers, newsletter, donations, projects, events, team, gallery, partners, stories, paymentIssues] =
     await Promise.all([
       readCollection("contacts", () => []),
       readCollection("volunteers", () => []),
@@ -167,6 +185,7 @@ app.get("/api/admin/summary", requireAuth, async (req, res) => {
       readCollection("gallery", seedGallery),
       readCollection("partners", seedPartners),
       readCollection("stories", seedStories),
+      readCollection("paymentIssues", () => []),
     ]);
 
   const completedPayments = donations.filter((d) => d.type === "payment" || d.type === "subscription");
@@ -184,6 +203,7 @@ app.get("/api/admin/summary", requireAuth, async (req, res) => {
     completedPayments: completedPayments.length,
     totalRaised,
     activeSubscriptions,
+    unresolvedPaymentIssues: paymentIssues.filter((p) => !p.read).length,
     projects: projects.length,
     events: events.length,
     team: team.length,

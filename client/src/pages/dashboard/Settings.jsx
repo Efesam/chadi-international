@@ -183,6 +183,39 @@ function Settings() {
                 Left blank, donation receipts simply omit this line.
               </span>
             </label>
+            <label className="block sm:col-span-2">
+              <span className="text-sm font-semibold text-gray-700">Registered Address</span>
+              <input
+                type="text"
+                value={settings.orgAddress || ""}
+                onChange={(event) => updateField("orgAddress", event.target.value)}
+                placeholder="Shown on donation receipts once set"
+                className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
+              />
+            </label>
+            <label className="block">
+              <span className="text-sm font-semibold text-gray-700">Phone Number</span>
+              <input
+                type="text"
+                value={settings.orgPhone || ""}
+                onChange={(event) => updateField("orgPhone", event.target.value)}
+                placeholder="Shown on donation receipts once set"
+                className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
+              />
+            </label>
+            <label className="block">
+              <span className="text-sm font-semibold text-gray-700">Receipt Signatory</span>
+              <input
+                type="text"
+                value={settings.receiptSignatory || ""}
+                onChange={(event) => updateField("receiptSignatory", event.target.value)}
+                placeholder="e.g. Jane Doe, Executive Director"
+                className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
+              />
+              <span className="mt-1 block text-xs text-gray-400">
+                Adds a signature line to donation receipts once set.
+              </span>
+            </label>
           </div>
         </section>
 

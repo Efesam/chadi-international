@@ -34,3 +34,21 @@ export function disableSubscription(secretKey, { code, token }) {
     body: JSON.stringify({ code, token }),
   });
 }
+
+/** Lists Paystack's own transaction history - used to reconcile against local records (see /payments/reconcile). */
+export function listTransactions(secretKey, { perPage = 100, page = 1, status } = {}) {
+  const params = new URLSearchParams({ perPage: String(perPage), page: String(page) });
+  if (status) params.set("status", status);
+  return paystackRequest(secretKey, `/transaction?${params.toString()}`);
+}
+
+/** Issues a refund for a completed transaction. `amountKobo` omitted means a full refund. */
+export function createRefund(secretKey, { reference, amountKobo }) {
+  const body = { transaction: reference };
+  if (amountKobo) body.amount = amountKobo;
+
+  return paystackRequest(secretKey, "/refund", {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+}

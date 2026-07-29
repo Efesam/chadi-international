@@ -31,6 +31,8 @@ import ProjectDetails from "../pages/public/ProjectDetails";
 import GetInvolved from "../pages/public/GetInvolved";
 import Contact from "../pages/public/Contact";
 import Donate from "../pages/public/Donate";
+import DonorPortal from "../pages/public/DonorPortal";
+import DonorPortalVerify from "../pages/public/DonorPortalVerify";
 import NotFound from "../pages/public/NotFound";
 
 // The admin dashboard (and its rich text editor, etc.) is a completely
@@ -52,9 +54,11 @@ const ManageTestimonials = lazy(() => import("../pages/dashboard/ManageTestimoni
 const ManageFaqs = lazy(() => import("../pages/dashboard/ManageFaqs"));
 const ManageReports = lazy(() => import("../pages/dashboard/ManageReports"));
 const ManageBoard = lazy(() => import("../pages/dashboard/ManageBoard"));
+const ManageEventSignups = lazy(() => import("../pages/dashboard/ManageEventSignups"));
 const ManageMessages = lazy(() => import("../pages/dashboard/ManageMessages"));
 const ManageVolunteers = lazy(() => import("../pages/dashboard/ManageVolunteers"));
 const ManageDonations = lazy(() => import("../pages/dashboard/ManageDonations"));
+const ManagePaymentIssues = lazy(() => import("../pages/dashboard/ManagePaymentIssues"));
 const ManageUsers = lazy(() => import("../pages/dashboard/ManageUsers"));
 const Settings = lazy(() => import("../pages/dashboard/Settings"));
 
@@ -93,6 +97,8 @@ function AppRoutes() {
 
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/donor-portal" element={<DonorPortal />} />
+        <Route path="/donor-portal/verify" element={<DonorPortalVerify />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/transparency" element={<Transparency />} />
         <Route path="/governance" element={<Governance />} />
@@ -251,10 +257,26 @@ function AppRoutes() {
             }
           />
           <Route
+            path="/admin/event-signups"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageEventSignups />
+              </Suspense>
+            }
+          />
+          <Route
             path="/admin/donations"
             element={
               <Suspense fallback={<AdminLoading />}>
                 <ManageDonations />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/payment-issues"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManagePaymentIssues />
               </Suspense>
             }
           />

@@ -1,23 +1,92 @@
 import { useState } from "react";
-import { FaShieldAlt } from "react-icons/fa";
-import { verifyPayment, getOrCreateMonthlyPlan } from "../../services/api";
+import { motion } from "framer-motion";
+import toast from "react-hot-toast";
+import { FaShieldAlt, FaCheck } from "react-icons/fa";
+import { verifyPayment, getOrCreateMonthlyPlan, reportPaymentIssue, downloadReceiptByReference } from "../../services/api";
+import { IMPACT_TIERS } from "../../data/impactTiers";
 import Modal from "./Modal";
 import PaypalButton from "./PaypalButton";
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 const PAYPAL_ENABLED = Boolean(import.meta.env.VITE_PAYPAL_CLIENT_ID);
 const USD_PRESETS = [10, 25, 50, 100];
+const PRESET_AMOUNTS = IMPACT_TIERS;
 
-const PRESET_AMOUNTS = [
-  { amount: 2000, label: "Provides a nutrition kit" },
-  { amount: 5000, label: "Supports a health outreach" },
-  { amount: 10000, label: "Trains a child in a new skill" },
-  { amount: 25000, label: "Supports a family for a month" },
-];
+/**
+ * Replaces the donation form once a payment is confirmed - a distinct
+ * "you're done" screen (checkmark animation, receipt download, done button)
+ * rather than a plain inline message, so the donor gets a clear, satisfying
+ * exit from the flow instead of being left looking at the form they just
+ * submitted.
+ */
+function DonationSuccess({ result, onClose }) {
+  const [downloading, setDownloading] = useState(false);
 
-function DonateModal({ open, onClose, project }) {
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      await downloadReceiptByReference(result.reference, `CHADI-receipt-${result.reference}.pdf`);
+    } catch (err) {
+      toast.error(err.message || "Could not download receipt");
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const currencySymbol = result.currency === "USD" ? "$" : "₦";
+  const amountLabel = `${currencySymbol}${Number(result.amount || 0).toLocaleString()}`;
+
+  return (
+    <div className="flex flex-col items-center py-4 text-center">
+      <motion.div
+        initial={{ scale: 0, rotate: -45 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ type: "spring", stiffness: 260, damping: 18 }}
+        className="flex h-20 w-20 items-center justify-center rounded-full bg-chadi-green"
+      >
+        <FaCheck className="text-3xl text-white" />
+      </motion.div>
+
+      <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.4 }}>
+        <h3 id="donate-modal-title" className="mt-6 text-2xl font-bold text-chadi-green">
+          Payment Received!
+        </h3>
+        <p className="mt-2 text-sm text-gray-600">
+          {result.isSubscription
+            ? `Welcome to Hope Alive Circle! Your card will be charged ${amountLabel} automatically every month.`
+            : `Thank you for your ${amountLabel} donation. You're giving hope, dignity and a second chance.`}
+        </p>
+        <p className="mt-3 text-xs text-gray-400">Reference: {result.reference}</p>
+
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <button
+            type="button"
+            onClick={handleDownload}
+            disabled={downloading}
+            className="flex-1 rounded-lg border border-chadi-green px-6 py-3 text-sm font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white disabled:opacity-60"
+          >
+            {downloading ? "Downloading..." : "Download Receipt"}
+          </button>
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex-1 rounded-lg bg-chadi-green px-6 py-3 text-sm font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
+          >
+            Done
+          </button>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+// If a caller wants a fresh `initialAmount` picked up after the first
+// mount (e.g. ImpactCalculator's slider changing while the modal is
+// closed), pass a `key` that changes along with it - remounting the
+// component is simpler and avoids an extra effect just to resync state.
+function DonateModal({ open, onClose, project, initialAmount }) {
   const [frequency, setFrequency] = useState("once");
-  const [amount, setAmount] = useState("5000");
+  const [amount, setAmount] = useState(initialAmount || "5000");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [paying, setPaying] = useState(false);
@@ -29,6 +98,20 @@ function DonateModal({ open, onClose, project }) {
   const configured = Boolean(PAYSTACK_PUBLIC_KEY) && typeof window !== "undefined" && window.PaystackPop;
 
   const activeLabel = PRESET_AMOUNTS.find((p) => p.amount === Number(amount))?.label;
+
+  // Resets the form back to a blank slate on the way out, so reopening the
+  // modal after a successful donation shows a fresh form instead of the
+  // success screen from last time (this component instance persists across
+  // close/reopen - only Modal's own rendering is gated on `open`).
+  const handleClose = () => {
+    setResult(null);
+    setName("");
+    setEmail("");
+    setAmount(initialAmount || "5000");
+    setUsdAmount("25");
+    setFrequency("once");
+    onClose();
+  };
 
   const handlePayOnce = (event) => {
     event.preventDefault();
@@ -53,10 +136,25 @@ function DonateModal({ open, onClose, project }) {
           .then((data) => {
             setResult({
               type: "success",
-              message: `Thank you! Your donation of ₦${data.amount.toLocaleString()} was received.`,
+              amount: data.amount,
+              reference: data.reference,
+              currency: "NGN",
+              isSubscription: false,
             });
           })
           .catch(() => {
+            // Best-effort, fire-and-forget - a donor was genuinely charged
+            // but we couldn't confirm it, so staff need to know even if this
+            // report call itself fails for some reason.
+            reportPaymentIssue({
+              reference: response.reference,
+              name,
+              email,
+              amount: nairaAmount,
+              frequency: "once",
+              projectTitle: project?.title,
+            }).catch(() => {});
+
             setResult({
               type: "error",
               message:
@@ -105,10 +203,22 @@ function DonateModal({ open, onClose, project }) {
             .then((data) => {
               setResult({
                 type: "success",
-                message: `Welcome to Hope Alive Circle! Your card will be charged ₦${data.amount.toLocaleString()} automatically every month - cancel anytime by contacting CHADI.`,
+                amount: data.amount,
+                reference: data.reference,
+                currency: "NGN",
+                isSubscription: true,
               });
             })
             .catch(() => {
+              reportPaymentIssue({
+                reference: response.reference,
+                name,
+                email,
+                amount: nairaAmount,
+                frequency: "monthly",
+                projectTitle: project?.title,
+              }).catch(() => {});
+
               setResult({
                 type: "error",
                 message:
@@ -131,164 +241,170 @@ function DonateModal({ open, onClose, project }) {
     }
   };
 
+  const handlePaypalResult = (paypalResult) => {
+    if (paypalResult.type === "success") {
+      setResult({
+        type: "success",
+        amount: paypalResult.amount,
+        reference: paypalResult.reference,
+        currency: "USD",
+        isSubscription: false,
+      });
+    } else {
+      setResult(paypalResult);
+    }
+  };
+
   return (
-    <Modal open={open} onClose={onClose} labelledBy="donate-modal-title">
-        <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold-dark">
-          CHADI International
-        </p>
-        <h3 id="donate-modal-title" className="mt-2 text-3xl font-bold text-chadi-green">
-          Give Today
-        </h3>
-        {project?.title ? (
-          <p className="mt-2 text-sm text-gray-600">
-            Supporting: <span className="font-semibold text-chadi-green">{project.title}</span>
-          </p>
-        ) : (
-          <p className="mt-2 text-sm text-gray-600">
-            You're not just giving money &mdash; you're giving hope, dignity and a second chance.
-          </p>
-        )}
-
-        <div className="mt-5 flex rounded-lg bg-gray-100 p-1 text-sm font-semibold">
-          <button
-            type="button"
-            onClick={() => setFrequency("once")}
-            className={`flex-1 rounded-md py-2 transition ${
-              frequency === "once" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500"
-            }`}
-          >
-            One-time
-          </button>
-          <button
-            type="button"
-            onClick={() => setFrequency("monthly")}
-            className={`flex-1 rounded-md py-2 transition ${
-              frequency === "monthly" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500"
-            }`}
-          >
-            Monthly &mdash; Hope Alive Circle
-          </button>
-        </div>
-
-        <form onSubmit={frequency === "once" ? handlePayOnce : handleJoinMonthly} className="mt-5 space-y-4">
-          <input
-            type="text"
-            required
-            placeholder="Full name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
-          />
-          <input
-            type="email"
-            required
-            placeholder="Email address"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
-          />
-          <input
-            type="number"
-            min="100"
-            step="100"
-            required
-            value={amount}
-            onChange={(event) => setAmount(event.target.value)}
-            className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
-          />
-
-          <div className="grid grid-cols-2 gap-2">
-            {PRESET_AMOUNTS.map((preset) => (
-              <button
-                key={preset.amount}
-                type="button"
-                onClick={() => setAmount(String(preset.amount))}
-                className={`rounded-lg border px-3 py-2 text-left transition ${
-                  Number(amount) === preset.amount
-                    ? "border-chadi-green bg-chadi-green/5"
-                    : "border-gray-200 hover:border-chadi-green"
-                }`}
-              >
-                <span className="block text-sm font-bold text-chadi-green">
-                  ₦{preset.amount.toLocaleString()}
-                </span>
-                <span className="block text-[11px] leading-tight text-gray-500">
-                  {preset.label}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          {activeLabel && (
-            <p className="text-xs font-semibold text-chadi-green">{activeLabel}</p>
-          )}
-
-          {frequency === "monthly" && (
-            <p className="text-xs text-gray-500">
-              Your card is charged ₦{Number(amount || 0).toLocaleString()} automatically every month until you
-              cancel. Cancel anytime by contacting CHADI.
-            </p>
-          )}
-
-          {!configured ? (
-            <p className="rounded-lg bg-yellow-50 p-3 text-xs text-yellow-800">
-              Online payment isn't configured on this site yet. Please use the Contact page instead.
+    <Modal open={open} onClose={handleClose} labelledBy="donate-modal-title">
+      {result?.type === "success" ? (
+        <DonationSuccess result={result} onClose={handleClose} />
+      ) : (
+        <>
+          <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold-dark">CHADI International</p>
+          <h3 id="donate-modal-title" className="mt-2 text-3xl font-bold text-chadi-green">
+            Give Today
+          </h3>
+          {project?.title ? (
+            <p className="mt-2 text-sm text-gray-600">
+              Supporting: <span className="font-semibold text-chadi-green">{project.title}</span>
             </p>
           ) : (
-            <button
-              type="submit"
-              disabled={paying}
-              className="w-full rounded-lg bg-chadi-green px-6 py-3 text-sm font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
-            >
-              {paying
-                ? "Processing..."
-                : frequency === "once"
-                ? `Give ₦${Number(amount || 0).toLocaleString()}`
-                : `Join Hope Alive Circle - ₦${Number(amount || 0).toLocaleString()}/month`}
-            </button>
-          )}
-
-          <p className="flex items-center justify-center gap-2 text-center text-xs text-gray-400">
-            <FaShieldAlt /> Secured by Paystack &middot; join our community of CHADI supporters
-          </p>
-
-          {PAYPAL_ENABLED && frequency === "once" && (
-            <div className="border-t border-gray-100 pt-4">
-              <p className="text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
-                Giving from outside Nigeria?
-              </p>
-
-              <div className="mt-3 grid grid-cols-4 gap-2">
-                {USD_PRESETS.map((preset) => (
-                  <button
-                    key={preset}
-                    type="button"
-                    onClick={() => setUsdAmount(String(preset))}
-                    className={`rounded-lg border py-2 text-sm font-bold transition ${
-                      Number(usdAmount) === preset
-                        ? "border-chadi-green bg-chadi-green/5 text-chadi-green"
-                        : "border-gray-200 text-gray-600 hover:border-chadi-green"
-                    }`}
-                  >
-                    ${preset}
-                  </button>
-                ))}
-              </div>
-
-              <PaypalButton amount={usdAmount} project={project} onResult={setResult} />
-            </div>
-          )}
-
-          {result && (
-            <p
-              className={`text-sm font-semibold ${
-                result.type === "success" ? "text-chadi-green" : "text-red-600"
-              }`}
-            >
-              {result.message}
+            <p className="mt-2 text-sm text-gray-600">
+              You're not just giving money &mdash; you're giving hope, dignity and a second chance.
             </p>
           )}
-        </form>
+
+          <div className="mt-5 flex rounded-lg bg-gray-100 p-1 text-sm font-semibold">
+            <button
+              type="button"
+              onClick={() => setFrequency("once")}
+              className={`flex-1 rounded-md py-2 transition ${
+                frequency === "once" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500"
+              }`}
+            >
+              One-time
+            </button>
+            <button
+              type="button"
+              onClick={() => setFrequency("monthly")}
+              className={`flex-1 rounded-md py-2 transition ${
+                frequency === "monthly" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500"
+              }`}
+            >
+              Monthly &mdash; Hope Alive Circle
+            </button>
+          </div>
+
+          <form onSubmit={frequency === "once" ? handlePayOnce : handleJoinMonthly} className="mt-5 space-y-4">
+            <input
+              type="text"
+              required
+              placeholder="Full name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
+            />
+            <input
+              type="email"
+              required
+              placeholder="Email address"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
+            />
+            <input
+              type="number"
+              min="100"
+              step="100"
+              required
+              value={amount}
+              onChange={(event) => setAmount(event.target.value)}
+              className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
+            />
+
+            <div className="grid grid-cols-2 gap-2">
+              {PRESET_AMOUNTS.map((preset) => (
+                <button
+                  key={preset.amount}
+                  type="button"
+                  onClick={() => setAmount(String(preset.amount))}
+                  className={`rounded-lg border px-3 py-2 text-left transition ${
+                    Number(amount) === preset.amount
+                      ? "border-chadi-green bg-chadi-green/5"
+                      : "border-gray-200 hover:border-chadi-green"
+                  }`}
+                >
+                  <span className="block text-sm font-bold text-chadi-green">
+                    ₦{preset.amount.toLocaleString()}
+                  </span>
+                  <span className="block text-[11px] leading-tight text-gray-500">{preset.label}</span>
+                </button>
+              ))}
+            </div>
+
+            {activeLabel && <p className="text-xs font-semibold text-chadi-green">{activeLabel}</p>}
+
+            {frequency === "monthly" && (
+              <p className="text-xs text-gray-500">
+                Your card is charged ₦{Number(amount || 0).toLocaleString()} automatically every month until you
+                cancel. Cancel anytime by contacting CHADI.
+              </p>
+            )}
+
+            {!configured ? (
+              <p className="rounded-lg bg-yellow-50 p-3 text-xs text-yellow-800">
+                Online payment isn't configured on this site yet. Please use the Contact page instead.
+              </p>
+            ) : (
+              <button
+                type="submit"
+                disabled={paying}
+                className="w-full rounded-lg bg-chadi-green px-6 py-3 text-sm font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
+              >
+                {paying
+                  ? "Processing..."
+                  : frequency === "once"
+                  ? `Give ₦${Number(amount || 0).toLocaleString()}`
+                  : `Join Hope Alive Circle - ₦${Number(amount || 0).toLocaleString()}/month`}
+              </button>
+            )}
+
+            <p className="flex items-center justify-center gap-2 text-center text-xs text-gray-400">
+              <FaShieldAlt /> Secured by Paystack &middot; join our community of CHADI supporters
+            </p>
+
+            {PAYPAL_ENABLED && frequency === "once" && (
+              <div className="border-t border-gray-100 pt-4">
+                <p className="text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  Giving from outside Nigeria?
+                </p>
+
+                <div className="mt-3 grid grid-cols-4 gap-2">
+                  {USD_PRESETS.map((preset) => (
+                    <button
+                      key={preset}
+                      type="button"
+                      onClick={() => setUsdAmount(String(preset))}
+                      className={`rounded-lg border py-2 text-sm font-bold transition ${
+                        Number(usdAmount) === preset
+                          ? "border-chadi-green bg-chadi-green/5 text-chadi-green"
+                          : "border-gray-200 text-gray-600 hover:border-chadi-green"
+                      }`}
+                    >
+                      ${preset}
+                    </button>
+                  ))}
+                </div>
+
+                <PaypalButton amount={usdAmount} project={project} onResult={handlePaypalResult} />
+              </div>
+            )}
+
+            {result?.type === "error" && <p className="text-sm font-semibold text-red-600">{result.message}</p>}
+          </form>
+        </>
+      )}
     </Modal>
   );
 }

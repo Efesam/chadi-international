@@ -8,6 +8,7 @@ import DonateModal from "../../components/common/DonateModal";
 import Reveal from "../../components/common/Reveal";
 import Newsletter from "../../components/common/Newsletter";
 import Honeypot from "../../components/common/Honeypot";
+import ImpactCalculator from "../../components/common/ImpactCalculator";
 
 function InterestForm() {
   const [submitting, setSubmitting] = useState(false);
@@ -135,6 +136,8 @@ function Donate() {
       </section>
 
       <DonateModal open={donateOpen} onClose={() => setDonateOpen(false)} />
+
+      <ImpactCalculator />
 
       <Newsletter />
     </>

@@ -29,7 +29,7 @@ router.post("/login", authLimiter, async (req, res) => {
     return;
   }
 
-  const token = createToken({ sub: user.id, email: user.email, role: user.role });
+  const token = createToken({ sub: user.id, email: user.email, role: user.role, scope: "staff" });
   res.json({ token, user: publicUser(user) });
 });
 

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
+import ExitIntentPopup from "../components/common/ExitIntentPopup";
 
 function MainLayout() {
   return (
@@ -20,6 +21,8 @@ function MainLayout() {
       </main>
 
       <Footer />
+
+      <ExitIntentPopup />
     </div>
   );
 }

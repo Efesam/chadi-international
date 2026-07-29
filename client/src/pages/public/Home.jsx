@@ -9,6 +9,7 @@ import FeaturedProjects from "../../components/home/FeaturedProjects";
 import UpcomingEvents from "../../components/home/UpcomingEvents";
 import PartnersSection from "../../components/home/PartnersSection";
 import LatestNews from "../../components/home/LatestNews";
+import SocialProof from "../../components/home/SocialProof";
 import CallToAction from "../../components/home/CallToAction";
 import SuccessStories from "../../components/home/SuccessStories";
 import TeamShowcase from "../../components/common/TeamShowcase";
@@ -43,6 +44,8 @@ function Home() {
       <PartnersSection />
 
       <LatestNews />
+
+      <SocialProof />
 
       <CallToAction />
 

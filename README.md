@@ -65,6 +65,18 @@ before ever touching live credentials, same as Paystack's test/live keys.
 Left unset (the default), the Donate modal looks and behaves exactly as it
 does today - nothing PayPal-related renders or loads.
 
+### Social proof feed (optional)
+
+Set `VITE_YOUTUBE_CHANNEL_ID` in `client/.env` to show a "See Us in Action"
+section on the homepage embedding the channel's latest uploads - no API key
+needed, just the channel id (found on the channel's About page -> Share ->
+Copy channel ID). Instagram and LinkedIn don't have an equivalent
+no-credentials embed option (their live-feed APIs need OAuth app review, or
+a paid third-party widget service like Elfsight/Juicer) - those platforms
+just get simple "follow us" icon links instead, using whatever URLs are set
+in Admin -> Settings -> Social Links. Nothing in this section renders at
+all until at least one of these is configured.
+
 ### Analytics and error monitoring (optional)
 
 Both are entirely opt-in and do nothing until configured - set these in

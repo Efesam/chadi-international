@@ -17,7 +17,7 @@ const HONEYPOT_FIELD = "hp_field";
  * applications, newsletter signups, donation interest). Anyone can POST;
  * only authenticated admins can list, mark read, or delete entries.
  */
-export function createSubmissionRouter({ name, requiredFields = [], limiter }) {
+export function createSubmissionRouter({ name, requiredFields = [], limiter, afterCreate }) {
   const router = Router();
   const postGuard = limiter ? [limiter] : [];
 
@@ -49,6 +49,14 @@ export function createSubmissionRouter({ name, requiredFields = [], limiter }) {
     }));
 
     res.status(201).json({ message: "Submission received", data: entry });
+
+    // Fire-and-forget: the submission is already safely saved above,
+    // regardless of whether this succeeds.
+    if (afterCreate) {
+      Promise.resolve(afterCreate(entry)).catch((error) => {
+        console.error(`[submissions:${name}] afterCreate hook failed:`, error);
+      });
+    }
   });
 
   router.get("/", requireAuth, async (req, res) => {

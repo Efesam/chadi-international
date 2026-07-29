@@ -72,7 +72,8 @@ function PaypalButton({ amount, project, onResult }) {
             });
             currentOnResult({
               type: "success",
-              message: `Thank you! Your donation of $${result.amount} was received.`,
+              amount: result.amount,
+              reference: result.reference,
             });
           },
           onError: () => {

@@ -36,3 +36,23 @@ test("buildReceiptEmail omits the project name when there is no project", () => 
   const { text } = buildReceiptEmail({ type: "payment", amount: 1000, reference: "ref_789" });
   assert.match(text, /donation of ₦1,000\./);
 });
+
+test("buildReceiptEmail always includes the no-goods-or-services statement, needed for tax deductibility", () => {
+  const { text } = buildReceiptEmail({ type: "payment", amount: 1000, reference: "ref_789" });
+  assert.match(text, /no goods or services were provided/i);
+});
+
+test("buildReceiptEmail includes the receipt number when the donation has one", () => {
+  const { text } = buildReceiptEmail({
+    type: "payment",
+    amount: 1000,
+    reference: "ref_789",
+    receiptNumber: "CHADI-000042",
+  });
+  assert.match(text, /Receipt No\.: CHADI-000042/);
+});
+
+test("buildReceiptEmail omits the receipt number line for older donations that don't have one", () => {
+  const { text } = buildReceiptEmail({ type: "payment", amount: 1000, reference: "ref_789" });
+  assert.doesNotMatch(text, /Receipt No\./);
+});

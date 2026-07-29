@@ -13,6 +13,7 @@ import {
   FaEnvelopeOpenText,
   FaMoneyBillWave,
   FaSyncAlt,
+  FaExclamationTriangle,
 } from "react-icons/fa";
 import { getAdminSummary } from "../../services/api";
 import { useAuth } from "../../hooks/useAuth";
@@ -27,6 +28,12 @@ const cards = [
   },
   { key: "completedPayments", label: "Completed Donations", icon: FaDonate, to: "/admin/donations" },
   { key: "activeSubscriptions", label: "Hope Alive Circle Members", icon: FaSyncAlt, to: "/admin/donations" },
+  {
+    key: "unresolvedPaymentIssues",
+    label: "Payment Issues",
+    icon: FaExclamationTriangle,
+    to: "/admin/payment-issues",
+  },
   { key: "unreadMessages", label: "Unread Messages", icon: FaEnvelope, to: "/admin/messages" },
   { key: "volunteers", label: "Volunteer Applications", icon: FaHandsHelping, to: "/admin/volunteers" },
   { key: "donationInterests", label: "Donation Interest", icon: FaDonate, to: "/admin/donations" },

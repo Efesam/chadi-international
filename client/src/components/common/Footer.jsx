@@ -35,6 +35,7 @@ const footerColumns = [
     title: "Get Involved",
     links: [
       { label: "Donate", path: "/donate" },
+      { label: "Donor Portal", path: "/donor-portal" },
       { label: "Volunteer", path: "/volunteer" },
       { label: "Get Involved", path: "/get-involved" },
       { label: "Partners", path: "/partners" },

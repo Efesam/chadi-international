@@ -155,13 +155,20 @@ export async function resetPasswordWithToken(token, newPassword) {
   return true;
 }
 
-/** Express middleware requiring a valid Bearer session token. */
+/**
+ * Express middleware requiring a valid Bearer session token issued to
+ * staff (an admin/editor login). Explicitly checks scope === "staff" so a
+ * donor portal token (see routes/donorPortal.js) - a real, valid, signed
+ * token, just issued for a different purpose - can never be used here to
+ * reach admin-only data. Without this check, any correctly-signed token
+ * would pass, regardless of what it was actually issued for.
+ */
 export function requireAuth(req, res, next) {
   const header = req.headers.authorization || "";
   const token = header.startsWith("Bearer ") ? header.slice(7) : null;
   const payload = verifyToken(token);
 
-  if (!payload) {
+  if (!payload || payload.scope !== "staff") {
     res.status(401).json({ error: "Not authenticated" });
     return;
   }
@@ -184,4 +191,46 @@ export function requireAdmin(req, res, next) {
     }
     next();
   });
+}
+
+// ---- Donor portal auth ----
+//
+// A completely separate, much lower-privilege token scope from staff
+// sessions above - a donor can only ever prove "I am this email address",
+// nothing more. Two-step by design: a short-lived link token emailed to the
+// donor (createDonorLinkToken), exchanged once for a longer-lived session
+// token (createDonorSessionToken) that the donor portal UI then holds onto,
+// the same two-step pattern most "magic link" logins use.
+
+const DONOR_LINK_TTL_MS = 15 * 60 * 1000; // 15 minutes - just long enough to open the email and click
+const DONOR_SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+export function createDonorLinkToken(email) {
+  return createToken({ email, scope: "donor-link" }, DONOR_LINK_TTL_MS);
+}
+
+export function createDonorSessionToken(email) {
+  return createToken({ email, scope: "donor" }, DONOR_SESSION_TTL_MS);
+}
+
+/** Verifies a donor magic-link token and returns the email it was issued for, or null. */
+export function verifyDonorLinkToken(token) {
+  const payload = verifyToken(token);
+  if (!payload || payload.scope !== "donor-link" || !payload.email) return null;
+  return payload.email;
+}
+
+/** Express middleware requiring a valid donor portal session token. */
+export function requireDonorAuth(req, res, next) {
+  const header = req.headers.authorization || "";
+  const token = header.startsWith("Bearer ") ? header.slice(7) : null;
+  const payload = verifyToken(token);
+
+  if (!payload || payload.scope !== "donor" || !payload.email) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
+  req.donorEmail = payload.email;
+  next();
 }

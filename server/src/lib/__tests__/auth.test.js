@@ -66,8 +66,8 @@ test("requireAuth rejects requests with no bearer token", () => {
   assert.deepEqual(body, { error: "Not authenticated" });
 });
 
-test("requireAuth calls next() and attaches req.user for a valid token", () => {
-  const token = createToken({ id: "user_1", role: "admin" });
+test("requireAuth calls next() and attaches req.user for a valid staff token", () => {
+  const token = createToken({ id: "user_1", role: "admin", scope: "staff" });
   const req = { headers: { authorization: `Bearer ${token}` } };
   const res = {};
   let nextCalled = false;
@@ -78,4 +78,21 @@ test("requireAuth calls next() and attaches req.user for a valid token", () => {
 
   assert.equal(nextCalled, true);
   assert.equal(req.user.id, "user_1");
+});
+
+test("requireAuth rejects a validly-signed token that isn't scoped as staff (e.g. a donor portal token)", () => {
+  const token = createToken({ email: "donor@example.com", scope: "donor" });
+  const req = { headers: { authorization: `Bearer ${token}` } };
+  let statusCode = null;
+  const res = {
+    status(code) {
+      statusCode = code;
+      return this;
+    },
+    json() {},
+  };
+
+  requireAuth(req, res, () => assert.fail("next() should not be called for a non-staff token"));
+
+  assert.equal(statusCode, 401);
 });

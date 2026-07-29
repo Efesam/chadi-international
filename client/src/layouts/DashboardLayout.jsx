@@ -14,6 +14,7 @@ import {
   FaGavel,
   FaEnvelope,
   FaHandsHelping,
+  FaCalendarCheck,
   FaDonate,
   FaUserShield,
   FaCog,
@@ -21,6 +22,7 @@ import {
   FaTimes,
   FaSignOutAlt,
   FaNewspaper,
+  FaExclamationTriangle,
 } from "react-icons/fa";
 import Logo from "../components/common/Logo";
 import { useAuth } from "../hooks/useAuth";
@@ -40,7 +42,9 @@ const navItems = [
   { to: "/admin/board", label: "Board", icon: FaGavel },
   { to: "/admin/messages", label: "Messages", icon: FaEnvelope },
   { to: "/admin/volunteers", label: "Volunteers", icon: FaHandsHelping },
+  { to: "/admin/event-signups", label: "Event Sign-Ups", icon: FaCalendarCheck },
   { to: "/admin/donations", label: "Donations", icon: FaDonate },
+  { to: "/admin/payment-issues", label: "Payment Issues", icon: FaExclamationTriangle },
   { to: "/admin/users", label: "Admin Users", icon: FaUserShield, adminOnly: true },
   { to: "/admin/settings", label: "Settings", icon: FaCog, adminOnly: true },
 ];

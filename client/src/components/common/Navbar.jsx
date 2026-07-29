@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import Logo from "./Logo";
 import DonateModal from "./DonateModal";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 function Navbar() {
   const { t } = useTranslation();
@@ -79,6 +80,8 @@ function Navbar() {
             <FaSearch />
           </button>
 
+          <LanguageSwitcher dark={!scrolled} />
+
           <button
             type="button"
             onClick={() => setDonateOpen(true)}
@@ -133,6 +136,10 @@ function Navbar() {
           >
             <FaSearch size={14} /> Search
           </button>
+
+          <div className="border-b py-4">
+            <LanguageSwitcher />
+          </div>
 
           <button
             type="button"
