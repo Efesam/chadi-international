@@ -6,7 +6,7 @@ function NewsCard({ article }) {
       <div className="h-56 bg-gray-200" />
 
       <div className="p-6">
-        <span className="text-sm font-semibold text-chadi-gold">
+        <span className="text-sm font-semibold text-chadi-gold-dark">
           {article.category}
         </span>
 
@@ -24,7 +24,7 @@ function NewsCard({ article }) {
 
         <Link
           to={`/news/${article.slug}`}
-          className="mt-6 inline-block font-semibold text-chadi-green hover:text-chadi-gold"
+          className="mt-6 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark"
         >
           Read Article →
         </Link>

@@ -1,36 +1,106 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
+import Reveal from "../../components/common/Reveal";
+import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
 import { submitVolunteerApplication } from "../../services/api";
+import sparkImage from "../../assets/projects/digital-skills.jpg";
+import Newsletter from "../../components/common/Newsletter";
+import Honeypot from "../../components/common/Honeypot";
 
 function Volunteer() {
-  const [status, setStatus] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-    setStatus("Submitting...");
+    setSubmitting(true);
 
     try {
       await submitVolunteerApplication(Object.fromEntries(formData.entries()));
-      event.currentTarget.reset();
-      setStatus("Application received. CHADI will reach out soon.");
+      form.reset();
+      toast.success("Application received. CHADI will reach out soon.");
     } catch {
-      setStatus("We could not submit this right now. Please try again.");
+      toast.error("We could not submit this right now. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
   return (
     <>
+      <Seo
+        title="Volunteer"
+        path="/volunteer"
+        description="Use your skills, time and compassion to support CHADI International's community programs. Apply to volunteer today."
+      />
+
       <PageHeader
         title="Volunteer"
         subtitle="Use your skills, time and compassion to support CHADI communities."
       />
 
+      <section
+        className="relative overflow-hidden bg-chadi-green bg-cover bg-center py-16 text-white"
+        style={{ backgroundImage: `url(${sparkImage})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-chadi-green/70 via-chadi-green/80 to-chadi-green/90" />
+        <Reveal className="relative mx-auto max-w-5xl px-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[3px] text-chadi-gold">
+            CHADI Kind Humans
+          </p>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            Become a State CHADI SPARK Ambassador
+          </h2>
+          <p className="mt-4 text-white/80">
+            <strong>SPARK</strong> &mdash; Spreading And Performing Random
+            Acts of Kindness. State ambassadors lead small, impactful
+            projects in their own community under CHADI's supervision.
+          </p>
+
+          <StaggerGrid className="mt-10 grid gap-6 text-left sm:grid-cols-3">
+            <StaggerItem>
+              <div className="rounded-2xl bg-white/10 p-6">
+                <h3 className="font-bold text-chadi-gold">Your Role</h3>
+                <p className="mt-2 text-sm text-white/80">
+                  Plan and run small acts-of-kindness projects in your state,
+                  with CHADI's guidance and support.
+                </p>
+              </div>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="rounded-2xl bg-white/10 p-6">
+                <h3 className="font-bold text-chadi-gold">Recognition</h3>
+                <p className="mt-2 text-sm text-white/80">
+                  The best SPARK project each year is voted on and celebrated
+                  across CHADI's channels.
+                </p>
+              </div>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="rounded-2xl bg-white/10 p-6">
+                <h3 className="font-bold text-chadi-gold">Visibility</h3>
+                <p className="mt-2 text-sm text-white/80">
+                  Featured on the CHADI website and social media &mdash;
+                  building grassroots ownership in your community.
+                </p>
+              </div>
+            </StaggerItem>
+          </StaggerGrid>
+
+          <p className="mt-8 text-sm text-white/70">
+            Interested? Select "State SPARK Ambassador" as your area below.
+          </p>
+        </Reveal>
+      </section>
+
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
-          <div>
-            <h2 className="text-4xl font-bold text-chadi-green">
+          <Reveal direction="left">
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
               Volunteer Areas
             </h2>
             <ul className="mt-6 space-y-4 leading-7 text-gray-600">
@@ -40,12 +110,16 @@ function Volunteer() {
               <li>Media, communications and storytelling</li>
               <li>Research, monitoring and evaluation</li>
             </ul>
-          </div>
+          </Reveal>
 
-          <form
+          <Reveal
+            direction="right"
+            delay={0.15}
+            as="form"
             onSubmit={handleSubmit}
             className="rounded-3xl bg-chadi-cream p-8 shadow-lg lg:col-span-2"
           >
+            <Honeypot />
             <div className="grid gap-5 md:grid-cols-2">
               <input
                 className="rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
@@ -86,6 +160,7 @@ function Volunteer() {
               <option>Education and mentoring</option>
               <option>Media and communications</option>
               <option>Research and data</option>
+              <option>State SPARK Ambassador</option>
             </select>
 
             <textarea
@@ -96,17 +171,16 @@ function Volunteer() {
 
             <button
               type="submit"
-              className="mt-6 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
+              disabled={submitting}
+              className="mt-6 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
             >
-              Submit Application
+              {submitting ? "Submitting..." : "Submit Application"}
             </button>
-
-            {status && (
-              <p className="mt-4 font-semibold text-chadi-green">{status}</p>
-            )}
-          </form>
+          </Reveal>
         </div>
       </section>
+
+      <Newsletter />
     </>
   );
 }

@@ -1,14 +1,24 @@
 import { Link, useParams } from "react-router-dom";
+import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
-import { news } from "../../data/news";
+import DetailSkeleton from "../../components/common/DetailSkeleton";
+import Reveal from "../../components/common/Reveal";
+import { useCollection } from "../../hooks/useCollection";
+import { newsApi } from "../../services/api";
+import Newsletter from "../../components/common/Newsletter";
 
 function NewsDetails() {
   const { slug } = useParams();
-  const article = news.find((item) => item.slug === slug);
+  const { data: article, loading, error } = useCollection(() => newsApi.get(slug), [slug]);
 
-  if (!article) {
+  if (loading) {
+    return <DetailSkeleton />;
+  }
+
+  if (error || !article) {
     return (
       <section className="bg-white py-28 text-center">
+        <Seo title="Article Not Found" noindex />
         <div className="mx-auto max-w-3xl px-6">
           <h1 className="text-4xl font-bold text-chadi-green">
             Article Not Found
@@ -29,35 +39,42 @@ function NewsDetails() {
 
   return (
     <>
+      <Seo
+        title={article.title}
+        path={`/news/${slug}`}
+        description={article.excerpt || `Read the latest from CHADI International: ${article.title}.`}
+        image={article.image}
+      />
+
       <PageHeader title={article.title} subtitle={article.excerpt} />
 
       <article className="bg-white py-20">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-gray-500">
-            <span className="rounded-full bg-chadi-gold px-4 py-2 text-black">
-              {article.category}
-            </span>
-            <span>{article.date}</span>
-            <span>{article.author}</span>
-          </div>
+          <Reveal>
+            <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-gray-500">
+              <span className="rounded-full bg-chadi-gold px-4 py-2 text-black">
+                {article.category}
+              </span>
+              <span>{article.date}</span>
+              <span>{article.author}</span>
+            </div>
 
-          <div className="mt-10 space-y-6 text-lg leading-8 text-gray-700">
-            {article.content
-              .trim()
-              .split("\n\n")
-              .map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-          </div>
+            <div
+              className="prose prose-lg mt-10 max-w-none text-gray-700"
+              dangerouslySetInnerHTML={{ __html: article.content || "" }}
+            />
+          </Reveal>
 
           <Link
             to="/news"
-            className="mt-12 inline-block font-semibold text-chadi-green hover:text-chadi-gold"
+            className="mt-12 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark"
           >
             Back to News
           </Link>
         </div>
       </article>
+
+      <Newsletter />
     </>
   );
 }

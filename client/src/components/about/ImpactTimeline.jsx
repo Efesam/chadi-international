@@ -1,3 +1,6 @@
+import Reveal from "../common/Reveal";
+import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
+
 const timeline = [
   {
     year: "2021",
@@ -27,32 +30,33 @@ const timeline = [
 
 function ImpactTimeline() {
   return (
-    <section className="py-24">
+    <section id="journey" className="scroll-mt-24 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <h2 className="text-center text-5xl font-bold text-chadi-green">
-          Our Journey
-        </h2>
+        <Reveal>
+          <h2 className="text-center text-4xl font-bold text-chadi-green sm:text-5xl">
+            Our Journey
+          </h2>
+        </Reveal>
 
-        <div className="mt-16 space-y-10">
+        <StaggerGrid className="mt-16 space-y-10">
           {timeline.map((item) => (
-            <div
-              key={item.year}
-              className="rounded-3xl border-l-4 border-chadi-gold bg-white p-8 shadow"
-            >
-              <span className="text-lg font-bold text-chadi-gold">
-                {item.year}
-              </span>
+            <StaggerItem key={item.year}>
+              <div className="rounded-3xl border-l-4 border-chadi-gold bg-white p-8 shadow">
+                <span className="text-lg font-bold text-chadi-gold-dark">
+                  {item.year}
+                </span>
 
-              <h3 className="mt-2 text-2xl font-bold text-chadi-green">
-                {item.title}
-              </h3>
+                <h3 className="mt-2 text-2xl font-bold text-chadi-green">
+                  {item.title}
+                </h3>
 
-              <p className="mt-4 text-gray-600">
-                {item.description}
-              </p>
-            </div>
+                <p className="mt-4 text-gray-600">
+                  {item.description}
+                </p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGrid>
       </div>
     </section>
   );

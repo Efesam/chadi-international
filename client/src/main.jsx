@@ -5,6 +5,10 @@ import { Toaster } from "react-hot-toast";
 
 import App from "./App";
 import "./index.css";
+import "./i18n";
+import { initMonitoring } from "./lib/monitoring";
+
+initMonitoring();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

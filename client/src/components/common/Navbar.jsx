@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import Logo from "./Logo";
+import DonateModal from "./DonateModal";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 function Navbar() {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [donateOpen, setDonateOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,13 +24,12 @@ function Navbar() {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Programs", path: "/programs" },
-    { name: "Projects", path: "/projects" },
-    { name: "News", path: "/news" },
-    { name: "Get Involved", path: "/get-involved" },
-    { name: "Contact", path: "/contact" },
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.projects"), path: "/projects" },
+    { name: t("nav.news"), path: "/news" },
+    { name: t("nav.getInvolved"), path: "/get-involved" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   return (
@@ -51,7 +56,9 @@ function Navbar() {
               className={({ isActive }) =>
                 `font-medium transition ${
                   isActive
-                    ? "text-chadi-gold"
+                    ? scrolled
+                      ? "text-chadi-gold-dark"
+                      : "text-chadi-gold"
                     : scrolled
                     ? "text-gray-700 hover:text-chadi-green"
                     : "text-white hover:text-chadi-gold"
@@ -62,12 +69,26 @@ function Navbar() {
             </NavLink>
           ))}
 
-          <Link
-            to="/donate"
+          <button
+            type="button"
+            aria-label="Search the site"
+            onClick={() => navigate("/search")}
+            className={`text-lg transition ${
+              scrolled ? "text-gray-700 hover:text-chadi-green" : "text-white hover:text-chadi-gold"
+            }`}
+          >
+            <FaSearch />
+          </button>
+
+          <LanguageSwitcher dark={!scrolled} />
+
+          <button
+            type="button"
+            onClick={() => setDonateOpen(true)}
             className="rounded-lg bg-chadi-gold px-6 py-3 font-semibold text-black transition hover:scale-105"
           >
-            Donate
-          </Link>
+            {t("nav.donate")}
+          </button>
         </nav>
 
         {/* Mobile Button */}
@@ -97,21 +118,43 @@ function Navbar() {
               key={item.path}
               to={item.path}
               onClick={() => setMobileMenu(false)}
-              className="border-b py-4 text-gray-700"
+              className={({ isActive }) =>
+                `border-b py-4 ${isActive ? "font-bold text-chadi-green" : "text-gray-700"}`
+              }
             >
               {item.name}
             </NavLink>
           ))}
 
-          <Link
-            to="/donate"
-            onClick={() => setMobileMenu(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenu(false);
+              navigate("/search");
+            }}
+            className="flex items-center gap-2 border-b py-4 text-gray-700"
+          >
+            <FaSearch size={14} /> Search
+          </button>
+
+          <div className="border-b py-4">
+            <LanguageSwitcher />
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenu(false);
+              setDonateOpen(true);
+            }}
             className="mt-6 rounded-lg bg-chadi-gold py-3 text-center font-semibold text-black"
           >
-            Donate
-          </Link>
+            {t("nav.donate")}
+          </button>
         </div>
       </div>
+
+      <DonateModal open={donateOpen} onClose={() => setDonateOpen(false)} />
     </header>
   );
 }

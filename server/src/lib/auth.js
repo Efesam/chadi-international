@@ -1,0 +1,236 @@
+import { scryptSync, randomBytes, timingSafeEqual, createHmac } from "node:crypto";
+import { readCollection, writeCollection, generateId } from "./store.js";
+
+// No JWT/bcrypt dependency is used on purpose - this keeps the backend
+// lightweight while still hashing passwords properly (scrypt) and signing
+// session tokens (HMAC-SHA256) so they cannot be forged or tampered with.
+
+const isProduction = process.env.NODE_ENV === "production";
+
+if (isProduction && !process.env.AUTH_SECRET) {
+  // AUTH_SECRET signs every admin session token - the hardcoded fallback is
+  // public (it's right here in source control), so anyone could forge a
+  // valid admin session against a production server that fell back to it.
+  // Refuse to boot rather than silently running with forgeable sessions.
+  throw new Error(
+    "[auth] Refusing to start: AUTH_SECRET is not set. Generate one with " +
+      '`node -e "console.log(require(\'crypto\').randomBytes(48).toString(\'hex\'))"` ' +
+      "and set it in your production environment."
+  );
+}
+
+const AUTH_SECRET = process.env.AUTH_SECRET || "chadi-dev-secret-change-me";
+const TOKEN_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+const RESET_TOKEN_TTL_MS = 60 * 60 * 1000; // 1 hour
+
+if (!process.env.AUTH_SECRET) {
+  console.warn(
+    "[auth] AUTH_SECRET is not set. Using an insecure default - set AUTH_SECRET in your environment before deploying this anywhere real."
+  );
+}
+
+const DEFAULT_ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@chadi-international.org";
+const DEFAULT_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "ChadiAdmin!2026";
+
+if (isProduction && !process.env.ADMIN_PASSWORD) {
+  console.warn(
+    "[auth] ADMIN_PASSWORD is not set in production - the seed admin account " +
+      "will use a password that is publicly visible in this project's source " +
+      "code. Set ADMIN_PASSWORD before the server's first boot, or log in and " +
+      "change it immediately via Admin Users in the dashboard."
+  );
+}
+
+export function hashPassword(password) {
+  const salt = randomBytes(16).toString("hex");
+  const derived = scryptSync(password, salt, 64).toString("hex");
+  return `${salt}:${derived}`;
+}
+
+export function verifyPassword(password, stored) {
+  const [salt, hash] = String(stored || "").split(":");
+  if (!salt || !hash) return false;
+
+  const derived = scryptSync(password, salt, 64);
+  const stored64 = Buffer.from(hash, "hex");
+
+  if (derived.length !== stored64.length) return false;
+  return timingSafeEqual(derived, stored64);
+}
+
+function base64url(input) {
+  return Buffer.from(input).toString("base64url");
+}
+
+function sign(payloadB64) {
+  return createHmac("sha256", AUTH_SECRET).update(payloadB64).digest("base64url");
+}
+
+export function createToken(payload, ttlMs = TOKEN_TTL_MS) {
+  const body = { ...payload, exp: Date.now() + ttlMs };
+  const payloadB64 = base64url(JSON.stringify(body));
+  const signature = sign(payloadB64);
+  return `${payloadB64}.${signature}`;
+}
+
+export function verifyToken(token) {
+  if (!token || typeof token !== "string" || !token.includes(".")) return null;
+
+  const [payloadB64, signature] = token.split(".");
+  const expected = sign(payloadB64);
+
+  const sigBuf = Buffer.from(signature || "", "base64url");
+  const expBuf = Buffer.from(expected, "base64url");
+  if (sigBuf.length !== expBuf.length || !timingSafeEqual(sigBuf, expBuf)) {
+    return null;
+  }
+
+  try {
+    const body = JSON.parse(Buffer.from(payloadB64, "base64url").toString("utf8"));
+    if (!body.exp || Date.now() > body.exp) return null;
+    return body;
+  } catch {
+    return null;
+  }
+}
+
+function seedUsers() {
+  return [
+    {
+      id: generateId("user"),
+      name: "CHADI Admin",
+      email: DEFAULT_ADMIN_EMAIL,
+      role: "admin",
+      passwordHash: hashPassword(DEFAULT_ADMIN_PASSWORD),
+      createdAt: new Date().toISOString(),
+      resetToken: null,
+      resetTokenExpires: null,
+    },
+  ];
+}
+
+export async function getUsers() {
+  return readCollection("users", seedUsers);
+}
+
+export async function saveUsers(users) {
+  return writeCollection("users", users);
+}
+
+export function publicUser(user) {
+  if (!user) return null;
+  const { passwordHash, resetToken, resetTokenExpires, ...safe } = user;
+  return safe;
+}
+
+export async function findUserByEmail(email) {
+  const users = await getUsers();
+  return users.find((u) => u.email.toLowerCase() === String(email || "").toLowerCase());
+}
+
+export async function createPasswordResetToken(email) {
+  const users = await getUsers();
+  const user = users.find((u) => u.email.toLowerCase() === String(email || "").toLowerCase());
+  if (!user) return null;
+
+  const token = randomBytes(24).toString("hex");
+  user.resetToken = token;
+  user.resetTokenExpires = Date.now() + RESET_TOKEN_TTL_MS;
+  await saveUsers(users);
+  return token;
+}
+
+export async function resetPasswordWithToken(token, newPassword) {
+  const users = await getUsers();
+  const user = users.find((u) => u.resetToken && u.resetToken === token);
+
+  if (!user || !user.resetTokenExpires || Date.now() > user.resetTokenExpires) {
+    return false;
+  }
+
+  user.passwordHash = hashPassword(newPassword);
+  user.resetToken = null;
+  user.resetTokenExpires = null;
+  await saveUsers(users);
+  return true;
+}
+
+/**
+ * Express middleware requiring a valid Bearer session token issued to
+ * staff (an admin/editor login). Explicitly checks scope === "staff" so a
+ * donor portal token (see routes/donorPortal.js) - a real, valid, signed
+ * token, just issued for a different purpose - can never be used here to
+ * reach admin-only data. Without this check, any correctly-signed token
+ * would pass, regardless of what it was actually issued for.
+ */
+export function requireAuth(req, res, next) {
+  const header = req.headers.authorization || "";
+  const token = header.startsWith("Bearer ") ? header.slice(7) : null;
+  const payload = verifyToken(token);
+
+  if (!payload || payload.scope !== "staff") {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
+  req.user = payload;
+  next();
+}
+
+/**
+ * Requires a valid session AND an "admin" role. Use this for anything an
+ * "editor" shouldn't be able to do - managing other admin accounts, or
+ * changing site-wide settings. Content management (projects, events, etc.)
+ * stays open to any authenticated user, editor or admin.
+ */
+export function requireAdmin(req, res, next) {
+  requireAuth(req, res, () => {
+    if (req.user.role !== "admin") {
+      res.status(403).json({ error: "This action requires an admin account" });
+      return;
+    }
+    next();
+  });
+}
+
+// ---- Donor portal auth ----
+//
+// A completely separate, much lower-privilege token scope from staff
+// sessions above - a donor can only ever prove "I am this email address",
+// nothing more. Two-step by design: a short-lived link token emailed to the
+// donor (createDonorLinkToken), exchanged once for a longer-lived session
+// token (createDonorSessionToken) that the donor portal UI then holds onto,
+// the same two-step pattern most "magic link" logins use.
+
+const DONOR_LINK_TTL_MS = 15 * 60 * 1000; // 15 minutes - just long enough to open the email and click
+const DONOR_SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+export function createDonorLinkToken(email) {
+  return createToken({ email, scope: "donor-link" }, DONOR_LINK_TTL_MS);
+}
+
+export function createDonorSessionToken(email) {
+  return createToken({ email, scope: "donor" }, DONOR_SESSION_TTL_MS);
+}
+
+/** Verifies a donor magic-link token and returns the email it was issued for, or null. */
+export function verifyDonorLinkToken(token) {
+  const payload = verifyToken(token);
+  if (!payload || payload.scope !== "donor-link" || !payload.email) return null;
+  return payload.email;
+}
+
+/** Express middleware requiring a valid donor portal session token. */
+export function requireDonorAuth(req, res, next) {
+  const header = req.headers.authorization || "";
+  const token = header.startsWith("Bearer ") ? header.slice(7) : null;
+  const payload = verifyToken(token);
+
+  if (!payload || payload.scope !== "donor" || !payload.email) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
+  req.donorEmail = payload.email;
+  next();
+}

@@ -11,7 +11,7 @@ function StatCard({ stat }) {
       {/* Number */}
       <h3 className="text-4xl font-bold text-chadi-green md:text-5xl">
         {stat.number}
-        <span className="text-chadi-gold">{stat.suffix}</span>
+        <span className="text-chadi-gold-dark">{stat.suffix}</span>
       </h3>
 
       {/* Label */}

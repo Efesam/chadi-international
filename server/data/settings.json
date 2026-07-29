@@ -1,0 +1,48 @@
+{
+  "stats": [
+    {
+      "label": "Projects",
+      "value": 16
+    },
+    {
+      "label": "Beneficiaries",
+      "value": 12000
+    },
+    {
+      "label": "Volunteers",
+      "value": 250
+    },
+    {
+      "label": "Communities",
+      "value": 30
+    }
+  ],
+  "fundAllocation": [
+    {
+      "category": "Programs & Field Work",
+      "percentage": 80
+    },
+    {
+      "category": "Administration",
+      "percentage": 12
+    },
+    {
+      "category": "Fundraising & Outreach",
+      "percentage": 8
+    }
+  ],
+  "contactEmail": "info@chadiinternational.org",
+  "focusRegion": "Nigeria and underserved African communities",
+  "officeHours": "Monday to Friday, 9:00 AM - 5:00 PM",
+  "socials": {
+    "facebook": "https://web.facebook.com/CHADIinternational",
+    "twitter": "https://x.com/CHADIGLOBAL",
+    "instagram": "https://www.instagram.com/chadi_international/",
+    "linkedin": "https://ng.linkedin.com/in/chadi-international-caleb-hope-alive-development-initiative-777b07287"
+  },
+  "orgRegistration": "1081625319",
+  "safeguardingPolicy": "",
+  "orgAddress": "Suit C13 and C14 Ammi Plaza Opposite Former Bauchi Park",
+  "orgPhone": "  +234708 580 9222",
+  "receiptSignatory": "Caleb Omale Executive Director"
+}

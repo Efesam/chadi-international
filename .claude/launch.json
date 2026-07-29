@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "api",
+      "url": "http://127.0.0.1:4000"
+    },
+    {
+      "name": "client",
+      "url": "http://localhost:5173"
+    }
+  ]
+}

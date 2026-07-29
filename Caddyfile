@@ -1,0 +1,13 @@
+{$SITE_DOMAIN} {
+	# Everything the API actually serves outside the /api prefix too
+	# (server.js mounts /feed.xml and /uploads directly, not under /api).
+	@api path /api/* /feed.xml /uploads/*
+	handle @api {
+		reverse_proxy api:4000
+	}
+
+	# Everything else - the static React build.
+	handle {
+		reverse_proxy client:80
+	}
+}
