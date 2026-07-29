@@ -16,6 +16,9 @@ dist-ssr
 .env
 .env.*
 !.env.example
+# Dummy values only (no real credentials) - committed so Vitest has a
+# consistent VITE_PAYSTACK_PUBLIC_KEY in CI, which has no real client/.env.
+!.env.test
 
 # Raw photo dumps kept locally as source material - only the curated,
 # renamed copies under src/assets/projects/ are actually used by the site
