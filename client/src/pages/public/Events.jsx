@@ -54,7 +54,7 @@ function Events() {
                       className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
                         type === item
                           ? "bg-chadi-green text-white"
-                          : "bg-gray-100 text-gray-600 dark:text-gray-300 hover:bg-gray-200"
+                          : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
                       }`}
                     >
                       {item === "All" ? t("events.allFilter") : item}

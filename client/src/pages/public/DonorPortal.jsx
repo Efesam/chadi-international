@@ -130,7 +130,7 @@ function DonationRow({ entry, onCancelled }) {
               entry.subscriptionStatus === "active"
                 ? "bg-green-100 text-green-700"
                 : entry.subscriptionStatus === "cancelled"
-                ? "bg-gray-100 text-gray-600 dark:text-gray-300"
+                ? "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300"
                 : "bg-yellow-100 text-yellow-700"
             }`}
           >
