@@ -134,7 +134,7 @@ function SubmissionManager({ title, description, api, columns, emptyMessage, ren
 
             <div className="hidden overflow-x-auto md:block">
               <table className="w-full text-left text-sm">
-                <thead className="bg-chadi-cream text-chadi-green">
+                <thead className="bg-gray-50 text-chadi-green">
                   <tr>
                     <th className="px-6 py-4 font-semibold"></th>
                     {columns.map((col) => (

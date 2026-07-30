@@ -177,7 +177,7 @@ function ResourceManager({ title, description, api, columns, fields, emptyMessag
 
             <div className="hidden overflow-x-auto md:block">
               <table className="w-full text-left text-sm">
-                <thead className="bg-chadi-cream text-chadi-green">
+                <thead className="bg-gray-50 text-chadi-green">
                   <tr>
                     {columns.map((col) => (
                       <th key={col.key} className="px-6 py-4 font-semibold">

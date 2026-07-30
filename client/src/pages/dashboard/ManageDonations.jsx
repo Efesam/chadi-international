@@ -223,7 +223,7 @@ function ReconcilePanel({ onImported }) {
               {missing.map((txn) => (
                 <div
                   key={txn.reference}
-                  className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-chadi-cream p-4"
+                  className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-gray-50 p-4"
                 >
                   <div className="text-sm">
                     <p className="font-semibold text-gray-900">
