@@ -30,6 +30,27 @@ import donorPortalRouter from "./routes/donorPortal.js";
 import uploadsRouter from "./routes/uploads.js";
 import { uploadsDir } from "./lib/upload.js";
 import { apiLimiter, formLimiter } from "./lib/rateLimit.js";
+import { initMonitoring, reportError, flushMonitoring } from "./lib/monitoring.js";
+
+await initMonitoring();
+
+// Without this, a truly unexpected error (a bug, not a handled 4xx/5xx)
+// leaves the process in an unknown state while still accepting requests.
+// Report it, flush, and exit - docker-compose.prod.yml's `restart: always`
+// (and any other process manager) brings it straight back up clean.
+process.on("uncaughtException", async (error) => {
+  reportError(error, { source: "uncaughtException" });
+  await flushMonitoring();
+  process.exit(1);
+});
+
+process.on("unhandledRejection", async (reason) => {
+  reportError(reason instanceof Error ? reason : new Error(String(reason)), {
+    source: "unhandledRejection",
+  });
+  await flushMonitoring();
+  process.exit(1);
+});
 
 const port = Number(process.env.PORT || 4000);
 const app = express();
@@ -113,17 +134,17 @@ app.use("/api", apiLimiter);
 
 // CMS-managed collections. GET is public (the marketing site reads from
 // these); POST/PUT/DELETE require an authenticated admin session.
-app.use("/api/news", createCrudRouter({ name: "news", seed: seedNews, requiredFields: ["title"] }));
-app.use("/api/projects", createCrudRouter({ name: "projects", seed: seedProjects, requiredFields: ["title"] }));
-app.use("/api/events", createCrudRouter({ name: "events", seed: seedEvents, requiredFields: ["title", "date"] }));
-app.use("/api/team", createCrudRouter({ name: "team", seed: seedTeam, requiredFields: ["name", "role"] }));
-app.use("/api/gallery", createCrudRouter({ name: "gallery", seed: seedGallery, requiredFields: ["title", "image"] }));
-app.use("/api/partners", createCrudRouter({ name: "partners", seed: seedPartners, requiredFields: ["name"] }));
-app.use("/api/stories", createCrudRouter({ name: "stories", seed: seedStories, requiredFields: ["title"] }));
-app.use("/api/testimonials", createCrudRouter({ name: "testimonials", seed: seedTestimonials, requiredFields: ["name", "quote"] }));
-app.use("/api/faqs", createCrudRouter({ name: "faqs", seed: seedFaqs, requiredFields: ["question", "answer"] }));
-app.use("/api/reports", createCrudRouter({ name: "reports", seed: seedReports, requiredFields: ["title", "file"] }));
-app.use("/api/board", createCrudRouter({ name: "board", seed: seedBoard, requiredFields: ["name", "role"] }));
+app.use("/api/news", createCrudRouter({ name: "news", seed: seedNews, requiredFields: ["title"], translatableFields: ["title", "excerpt", { name: "content", html: true }] }));
+app.use("/api/projects", createCrudRouter({ name: "projects", seed: seedProjects, requiredFields: ["title"], translatableFields: ["title", "summary", "beneficiaries"] }));
+app.use("/api/events", createCrudRouter({ name: "events", seed: seedEvents, requiredFields: ["title", "date"], translatableFields: ["title", "description"] }));
+app.use("/api/team", createCrudRouter({ name: "team", seed: seedTeam, requiredFields: ["name", "role"], translatableFields: ["role", "bio"] }));
+app.use("/api/gallery", createCrudRouter({ name: "gallery", seed: seedGallery, requiredFields: ["title", "image"], translatableFields: ["title"] }));
+app.use("/api/partners", createCrudRouter({ name: "partners", seed: seedPartners, requiredFields: ["name"], translatableFields: ["description"] }));
+app.use("/api/stories", createCrudRouter({ name: "stories", seed: seedStories, requiredFields: ["title"], translatableFields: ["title", { name: "content", html: true }, "excerpt"] }));
+app.use("/api/testimonials", createCrudRouter({ name: "testimonials", seed: seedTestimonials, requiredFields: ["name", "quote"], translatableFields: ["quote"] }));
+app.use("/api/faqs", createCrudRouter({ name: "faqs", seed: seedFaqs, requiredFields: ["question", "answer"], translatableFields: ["question", "answer"] }));
+app.use("/api/reports", createCrudRouter({ name: "reports", seed: seedReports, requiredFields: ["title", "file"], translatableFields: ["title"] }));
+app.use("/api/board", createCrudRouter({ name: "board", seed: seedBoard, requiredFields: ["name", "role"], translatableFields: ["role", "bio"] }));
 
 // Site-wide settings (stats shown on the home page, contact info, socials).
 app.use("/api/settings", settingsRouter);
@@ -218,7 +239,7 @@ app.use((req, res) => {
 });
 
 app.use((error, req, res, next) => {
-  console.error(error);
+  reportError(error, { url: req.originalUrl, method: req.method });
   res.status(500).json({ error: error.message || "Server error" });
 });
 

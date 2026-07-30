@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { readCollection, updateCollection, generateId } from "./store.js";
 import { requireAuth } from "./auth.js";
+import { translateItem, translateItems, isSupportedTarget } from "./translate.js";
 
 /**
  * Builds an Express router that provides list/create/update/delete for a
@@ -11,18 +12,31 @@ import { requireAuth } from "./auth.js";
  * @param {() => any[]} options.seed - seed data used the first time the collection is read
  * @param {string[]} options.requiredFields - fields required on create
  * @param {boolean} options.publicRead - if true, GET is not behind requireAuth
+ * @param {Array<string|{name: string, html?: boolean}>} options.translatableFields -
+ *   fields machine-translated on GET when the client passes ?lang=<code> for
+ *   one of the site's non-English languages (see lib/translate.js). Content
+ *   is stored in whatever language it was written in; this only affects what
+ *   a given request is served, never what's saved.
  */
 export function createCrudRouter({
   name,
   seed = () => [],
   requiredFields = [],
   publicRead = true,
+  translatableFields = [],
 }) {
   const router = Router();
   const readGuard = publicRead ? [] : [requireAuth];
 
   router.get("/", ...readGuard, async (req, res) => {
     const items = await readCollection(name, seed);
+    const lang = req.query.lang;
+
+    if (translatableFields.length && isSupportedTarget(lang)) {
+      res.json(await translateItems(items, translatableFields, lang));
+      return;
+    }
+
     res.json(items);
   });
 
@@ -32,6 +46,13 @@ export function createCrudRouter({
 
     if (!item) {
       res.status(404).json({ error: `${name} item not found` });
+      return;
+    }
+
+    const lang = req.query.lang;
+
+    if (translatableFields.length && isSupportedTarget(lang)) {
+      res.json(await translateItem(item, translatableFields, lang));
       return;
     }
 
