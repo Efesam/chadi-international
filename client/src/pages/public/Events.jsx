@@ -32,14 +32,14 @@ function Events() {
         subtitle="Upcoming outreach, training and community engagement activities."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           {loading ? (
             <CardGridSkeleton count={3} columns={3} />
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : events.length === 0 ? (
-            <p className="text-center text-gray-500">No events scheduled right now. Check back soon.</p>
+            <p className="text-center text-gray-500 dark:text-gray-400">No events scheduled right now. Check back soon.</p>
           ) : (
             <>
               {types.length > 2 && (
@@ -52,7 +52,7 @@ function Events() {
                       className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
                         type === item
                           ? "bg-chadi-green text-white"
-                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                          : "bg-gray-100 text-gray-600 dark:text-gray-300 hover:bg-gray-200"
                       }`}
                     >
                       {item}
@@ -62,7 +62,7 @@ function Events() {
               )}
 
               {filteredEvents.length === 0 ? (
-                <p className="text-center text-gray-500">No events match this filter.</p>
+                <p className="text-center text-gray-500 dark:text-gray-400">No events match this filter.</p>
               ) : (
                 <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {filteredEvents.map((event) => (

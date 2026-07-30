@@ -7,5 +7,132 @@
     "getInvolved": "Ku Shiga",
     "contact": "Tuntube Mu",
     "donate": "Bayar da Gudummawa"
+  },
+  "footer": {
+    "tagline": "Muna maido da mutunci, samar da dama, da kuma kawo bege — ta hanyar aiki.",
+    "columns": {
+      "explore": "Bincika",
+      "getInvolved": "Ku Shiga",
+      "resources": "Albarkatu"
+    },
+    "links": {
+      "events": "Abubuwan da suka faru",
+      "gallery": "Hotuna",
+      "stories": "Labarai",
+      "team": "Ƙungiyarmu",
+      "donorPortal": "Shafin Masu Bayarwa",
+      "volunteer": "Ba da Agaji",
+      "partners": "Abokan Hulɗa",
+      "careers": "Ayyukan Yi",
+      "faq": "Tambayoyi Akai-akai",
+      "resources": "Albarkatu",
+      "transparency": "Gaskiya",
+      "governance": "Shugabanci",
+      "privacy": "Sirri",
+      "terms": "Sharuɗɗa"
+    },
+    "copyright": "© {{year}} CHADI International. Duk hakkoki an kiyaye su.",
+    "rss": "RSS"
+  },
+  "home": {
+    "hero": {
+      "badge": "CHADI INTERNATIONAL",
+      "title1": "Bege kaɗai bai isa ba.",
+      "title2": "Aiki ne.",
+      "description": "Miliyoyin marasa galihu har yanzu ba su da hanyar samun lafiya, ilimi da dama. CHADI na canza wannan — rai ɗaya, al'umma ɗaya a lokaci guda.",
+      "impactBadge": "Sama da rayuka {{count}}+ da aka taɓa",
+      "donateNow": "Bayar da Gudummawa Yanzu",
+      "joinMission": "Shiga Manufa"
+    },
+    "aboutPreview": {
+      "eyebrow": "GAME DA MU",
+      "title": "Ƙirƙirar Tasiri Mai Dorewa a Cikin Al'ummomi",
+      "p1": "CHADI International ƙungiya ce mai zaman kanta da ke sadaukar da kai wajen inganta rayuwa ta hanyar ilimi, kiwon lafiya, sabuntawa, dorewar muhalli, taimakon jin ƙai da ƙarfafa matasa.",
+      "p2": "Mun yi imani da cewa canji mai dorewa yana faruwa ne lokacin da al'ummomi suka zama masu himma a cikin ci gaban kansu.",
+      "learnMore": "Ƙara Koyo"
+    },
+    "whyChooseUs": {
+      "title": "Me Ya Sa CHADI International?",
+      "subtitle": "Ƙirƙirar canji mai dorewa ta hanyar sabuntawa, haɗin gwiwa da jagorancin al'umma.",
+      "community": { "title": "Al'umma Ce Ke Jagoranta", "description": "Ana tsara kowane shiga tsakani tare da al'ummomin gida domin tabbatar da tasiri mai dorewa." },
+      "inclusive": { "title": "Ci Gaba Mai Haɗa Kai", "description": "Muna ƙarfafa waɗanda aka ware ba tare da la'akari da shekaru, jinsi ko nakasa ba." },
+      "innovation": { "title": "Sabuntawa", "description": "Fasaha, ƙirƙira da bincike suna jagorantar shirye-shiryenmu don ci gaba mai dorewa." },
+      "sustainable": { "title": "Tasiri Mai Dorewa", "description": "Ayyukanmu suna mayar da hankali kan canji na dogon lokaci maimakon taimako na wucin gadi." }
+    },
+    "focusAreas": {
+      "title": "Fannonin Da Muke Mai da Hankali A Kai",
+      "subtitle": "CHADI International tana ƙirƙirar mafita mai dorewa da ke inganta rayuwa da ƙarfafa al'ummomi ta hanyar shirye-shiryen ci gaba masu haɗaka.",
+      "education": { "title": "Ilimi", "description": "Inganta samun ilimi mai inganci, karatu da damar koyo na rayuwa." },
+      "healthcare": { "title": "Kiwon Lafiya", "description": "Ƙarfafa tsarin kiwon lafiya da inganta jin daɗin al'umma." },
+      "environment": { "title": "Muhalli", "description": "Ƙarfafa aikin yanayi, kiyaye muhalli da ayyukan muhalli masu dorewa." },
+      "innovation": { "title": "Sabuntawa", "description": "Amfani da fasaha da sabuntawa don magance ƙalubalen zamantakewa da tattalin arziki." },
+      "humanitarian": { "title": "Taimakon Jin Ƙai", "description": "Bayar da agajin gaggawa da tallafi na dogon lokaci ga waɗanda ke cikin rauni." },
+      "youth": { "title": "Ƙarfafa Matasa", "description": "Ƙirƙirar dama don jagoranci, ƙirƙirar kasuwanci da haɓaka ƙwarewa." }
+    },
+    "impactCounter": {
+      "title": "Tasirinmu A Cikin Lambobi",
+      "subtitle": "Kowane aiki yana wakiltar rayuwar da aka canza da al'ummomin da aka ƙarfafa.",
+      "loading": "Ana Lodawa..."
+    },
+    "impactAreas": {
+      "eyebrow": "Tasirinmu",
+      "title": "Ƙirƙirar Canji Mai Dorewa",
+      "description": "Kowane aiki yana ba da gudummawa ga al'ummomi masu lafiya, ingantaccen ilimi, iyalai masu ƙarfi, da ci gaba mai dorewa.",
+      "education": "Ilimi",
+      "healthcare": "Kiwon Lafiya",
+      "women": "Ƙarfafa Mata",
+      "climate": "Aikin Yanayi"
+    },
+    "visionMission": {
+      "title": "Manufarmu",
+      "subtitle": "Ƙirƙirar tasiri mai dorewa ta hanyar ƙarfafa waɗanda aka ware da al'ummomin da ba a kula da su ba.",
+      "vision": { "title": "Hangen Nesa", "description": "Ƙarfafa waɗanda aka ware da al'ummomin da ba a kula da su ba ta hanyar ci gaba mai dorewa, sabuntawa, ilimi, kiwon lafiya da shiga tsakani na jin ƙai." },
+      "mission": { "title": "Manufa", "description": "Tsarawa da aiwatar da shirye-shirye masu sabuntawa da ke inganta lafiya, ilimi, rayuwa, dorewar muhalli, zaman lafiya, samun fasaha da juriyar al'umma a fadin Afirka." }
+    },
+    "successStories": {
+      "title": "Labaran Nasara",
+      "subtitle": "Labarai masu ƙarfafa gwiwa na rayuwar da aka canza ta hanyar shirye-shiryen CHADI International da ayyukan al'umma.",
+      "empty": "Labaran daga al'umma suna kan hanya."
+    },
+    "featuredProjects": {
+      "eyebrow": "AYYUKANMU",
+      "title": "Ƙirƙirar Tasiri Mai Dorewa",
+      "subtitle": "Ta hanyar shirye-shirye masu sabuntawa da haɗin gwiwa mai dabara, CHADI International tana canza rayuwa a fadin al'ummomin da ba a kula da su ba."
+    },
+    "latestNews": {
+      "eyebrow": "Sabbin Labarai",
+      "title": "Sabuntawa Daga CHADI",
+      "subtitle": "Bi diddigin ci gaban shirye-shirye, ayyukan filin da labaran al'umma.",
+      "viewAll": "Duba Duk Labarai"
+    },
+    "partnersSection": {
+      "eyebrow": "Haɗin Gwiwa",
+      "title": "An Gina Tare Da Al'ummomi",
+      "description": "CHADI tana haɗin gwiwa da amintattun abokan hulɗa don isar da shirye-shirye masu amfani, masu ɗawainiya kuma tushen su daga ainihin yanayin gida.",
+      "cta": "Haɗa Kai Da Mu",
+      "fallbackTypes": {
+        "community": "Shugabannin Al'umma",
+        "health": "Ƙungiyoyin Lafiya",
+        "schools": "Makarantu",
+        "donors": "Masu Bayarwa",
+        "volunteers": "Masu Ba Da Agaji",
+        "local": "Ƙungiyoyin Gida"
+      }
+    },
+    "upcomingEvents": {
+      "eyebrow": "Abubuwan Da Za Su Faru",
+      "title": "Ayyukan Da Ke Tafe",
+      "seeEvents": "Duba Abubuwan Da Za Su Faru"
+    },
+    "socialProof": {
+      "eyebrow": "Ku Bi Tafiyarmu",
+      "title": "Ku Gan Mu A Aiki"
+    },
+    "callToAction": {
+      "title": "A Shirye Kuke Don Tallafa Wa Tasirin Al'umma Mai Dorewa?",
+      "description": "Ba da agaji, haɗa kai, bayar da gudummawa ko gayyaci CHADI zuwa buƙatar al'umma da ta cancanci aiki mai amfani.",
+      "volunteer": "Ba da Agaji",
+      "donate": "Bayar da Gudummawa"
+    }
   }
 }

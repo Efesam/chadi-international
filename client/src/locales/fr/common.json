@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "news": "Actualités",
+    "getInvolved": "S'impliquer",
+    "contact": "Contact",
+    "donate": "Faire un don"
+  },
+  "footer": {
+    "tagline": "Nous restaurons la dignité, créons des opportunités et redonnons espoir — par l'action.",
+    "columns": {
+      "explore": "Explorer",
+      "getInvolved": "S'impliquer",
+      "resources": "Ressources"
+    },
+    "links": {
+      "events": "Événements",
+      "gallery": "Galerie",
+      "stories": "Témoignages",
+      "team": "Équipe",
+      "donorPortal": "Portail des donateurs",
+      "volunteer": "Bénévolat",
+      "partners": "Partenaires",
+      "careers": "Carrières",
+      "faq": "FAQ",
+      "resources": "Ressources",
+      "transparency": "Transparence",
+      "governance": "Gouvernance",
+      "privacy": "Confidentialité",
+      "terms": "Conditions"
+    },
+    "copyright": "© {{year}} CHADI International. Tous droits réservés.",
+    "rss": "RSS"
+  },
+  "home": {
+    "hero": {
+      "badge": "CHADI INTERNATIONAL",
+      "title1": "L'espoir ne suffit pas.",
+      "title2": "L'action, si.",
+      "description": "Des millions de personnes défavorisées n'ont toujours pas accès à la santé, à l'éducation et aux opportunités. CHADI change cela — une vie, une communauté à la fois.",
+      "impactBadge": "Plus de {{count}}+ vies transformées à ce jour",
+      "donateNow": "Faire un don maintenant",
+      "joinMission": "Rejoindre la mission"
+    },
+    "aboutPreview": {
+      "eyebrow": "À PROPOS DE NOUS",
+      "title": "Créer un impact durable dans les communautés",
+      "p1": "CHADI International est une organisation à but non lucratif dédiée à l'amélioration des conditions de vie par l'éducation, la santé, l'innovation, la durabilité environnementale, l'aide humanitaire et l'autonomisation des jeunes.",
+      "p2": "Nous croyons que le changement durable se produit lorsque les communautés deviennent des acteurs actifs de leur propre développement.",
+      "learnMore": "En savoir plus"
+    },
+    "whyChooseUs": {
+      "title": "Pourquoi CHADI International ?",
+      "subtitle": "Créer un changement durable grâce à l'innovation, aux partenariats et au leadership communautaire.",
+      "community": { "title": "Porté par la communauté", "description": "Chaque intervention est conçue avec les communautés locales pour garantir un impact durable." },
+      "inclusive": { "title": "Développement inclusif", "description": "Nous autonomisons les personnes marginalisées, quel que soit leur âge, leur genre ou leur handicap." },
+      "innovation": { "title": "Innovation", "description": "La technologie, la créativité et la recherche guident nos programmes pour un développement durable." },
+      "sustainable": { "title": "Impact durable", "description": "Nos projets misent sur une transformation à long terme plutôt qu'une aide temporaire." }
+    },
+    "focusAreas": {
+      "title": "Nos domaines d'intervention",
+      "subtitle": "CHADI International développe des solutions durables qui améliorent les conditions de vie et renforcent les communautés grâce à des programmes de développement intégrés.",
+      "education": { "title": "Éducation", "description": "Améliorer l'accès à une éducation de qualité, à l'alphabétisation et à l'apprentissage tout au long de la vie." },
+      "healthcare": { "title": "Santé", "description": "Renforcer les systèmes de santé et améliorer le bien-être communautaire." },
+      "environment": { "title": "Environnement", "description": "Promouvoir l'action climatique, la conservation et des pratiques environnementales durables." },
+      "innovation": { "title": "Innovation", "description": "Exploiter la technologie et l'innovation pour résoudre les défis sociaux et économiques." },
+      "humanitarian": { "title": "Aide humanitaire", "description": "Fournir des secours d'urgence et un soutien à long terme aux populations vulnérables." },
+      "youth": { "title": "Autonomisation des jeunes", "description": "Créer des opportunités de leadership, d'entrepreneuriat et de développement des compétences." }
+    },
+    "impactCounter": {
+      "title": "Notre impact en chiffres",
+      "subtitle": "Chaque projet représente des vies transformées et des communautés autonomisées.",
+      "loading": "Chargement..."
+    },
+    "impactAreas": {
+      "eyebrow": "Notre impact",
+      "title": "Créer un changement durable",
+      "description": "Chaque projet contribue à des communautés en meilleure santé, à une meilleure éducation, à des familles plus fortes et à un développement durable.",
+      "education": "Éducation",
+      "healthcare": "Santé",
+      "women": "Autonomisation des femmes",
+      "climate": "Action climatique"
+    },
+    "visionMission": {
+      "title": "Notre raison d'être",
+      "subtitle": "Créer un impact durable en autonomisant les personnes marginalisées et les communautés mal desservies.",
+      "vision": { "title": "Vision", "description": "Autonomiser les personnes marginalisées et les communautés mal desservies grâce au développement durable, à l'innovation, à l'éducation, à la santé et à l'action humanitaire." },
+      "mission": { "title": "Mission", "description": "Concevoir et mettre en œuvre des programmes innovants qui améliorent la santé, l'éducation, les moyens de subsistance, la durabilité environnementale, la paix, l'accès à la technologie et la résilience communautaire à travers l'Afrique." }
+    },
+    "successStories": {
+      "title": "Témoignages de réussite",
+      "subtitle": "Des histoires inspirantes de vies transformées grâce aux programmes de CHADI International et aux initiatives communautaires.",
+      "empty": "Les témoignages de la communauté arrivent bientôt."
+    },
+    "featuredProjects": {
+      "eyebrow": "NOS PROJETS",
+      "title": "Créer un impact durable",
+      "subtitle": "Grâce à des programmes innovants et des partenariats stratégiques, CHADI International transforme des vies dans les communautés mal desservies."
+    },
+    "latestNews": {
+      "eyebrow": "Dernières actualités",
+      "title": "Les nouvelles de CHADI",
+      "subtitle": "Suivez les avancées de nos programmes, nos activités de terrain et les histoires de nos communautés.",
+      "viewAll": "Voir toutes les actualités"
+    },
+    "partnersSection": {
+      "eyebrow": "Partenariats",
+      "title": "Bâti avec les communautés",
+      "description": "CHADI collabore avec des partenaires de confiance pour offrir des programmes concrets, responsables et ancrés dans les réalités locales.",
+      "cta": "Devenir partenaire",
+      "fallbackTypes": {
+        "community": "Leaders communautaires",
+        "health": "Équipes de santé",
+        "schools": "Écoles",
+        "donors": "Donateurs",
+        "volunteers": "Bénévoles",
+        "local": "Organisations locales"
+      }
+    },
+    "upcomingEvents": {
+      "eyebrow": "Événements",
+      "title": "Activités à venir",
+      "seeEvents": "Voir les événements"
+    },
+    "socialProof": {
+      "eyebrow": "Suivez notre parcours",
+      "title": "Voyez-nous en action"
+    },
+    "callToAction": {
+      "title": "Prêt à soutenir un impact communautaire durable ?",
+      "description": "Faites du bénévolat, devenez partenaire, faites un don ou invitez CHADI à répondre à un besoin communautaire qui mérite une action concrète.",
+      "volunteer": "Bénévolat",
+      "donate": "Faire un don"
+    }
+  }
+}

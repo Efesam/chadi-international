@@ -4,7 +4,7 @@ import Reveal from "../../components/common/Reveal";
 
 function NotFound() {
   return (
-    <section className="bg-white py-32 text-center">
+    <section className="bg-white py-32 text-center dark:bg-gray-900">
       <Seo title="Page Not Found" noindex />
       <Reveal className="mx-auto max-w-3xl px-6">
         <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
@@ -13,7 +13,7 @@ function NotFound() {
         <h1 className="mt-4 text-4xl font-bold text-chadi-green sm:text-5xl">
           Page Not Found
         </h1>
-        <p className="mt-6 text-lg text-gray-600">
+        <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
           The page you are looking for does not exist or has been moved.
         </p>
         <Link

@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { FaQuoteLeft } from "react-icons/fa";
 import { useCollection } from "../../hooks/useCollection";
 import { testimonialsApi } from "../../services/api";
@@ -8,6 +9,7 @@ import CardGridSkeleton from "../common/CardGridSkeleton";
 import bgImage from "../../assets/projects/food-security.jpg";
 
 function SuccessStories() {
+  const { t } = useTranslation();
   const { data, loading } = useCollection(testimonialsApi.list);
   const testimonials = data || [];
 
@@ -20,15 +22,14 @@ function SuccessStories() {
 
       <div className="relative mx-auto max-w-7xl px-6 text-center">
         <Reveal>
-          <h2 className="text-4xl font-bold text-gray-900">
-            Success Stories
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50">
+            {t("home.successStories.title")}
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mt-4 text-lg text-gray-600">
-            Inspiring stories of lives transformed through CHADI International's
-            programs and community initiatives.
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+            {t("home.successStories.subtitle")}
           </p>
         </Reveal>
 
@@ -37,7 +38,7 @@ function SuccessStories() {
             <CardGridSkeleton count={3} columns={3} />
           </div>
         ) : testimonials.length === 0 ? (
-          <p className="mt-14 text-gray-500">Stories from the community are on their way.</p>
+          <p className="mt-14 text-gray-500 dark:text-gray-400">{t("home.successStories.empty")}</p>
         ) : (
           <StaggerGrid className="mt-14 grid gap-8 text-left md:grid-cols-3">
             {testimonials.map((testimonial) => {
@@ -52,7 +53,7 @@ function SuccessStories() {
                   <motion.blockquote
                     whileHover={{ y: -8, scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative h-full rounded-2xl bg-white p-8 shadow-sm hover:shadow-xl"
+                    className="relative h-full rounded-2xl bg-white p-8 shadow-sm hover:shadow-xl dark:bg-gray-800"
                   >
                     <motion.span
                       animate={{ scale: [1, 1.15, 1] }}
@@ -62,7 +63,7 @@ function SuccessStories() {
                       <FaQuoteLeft size={22} />
                     </motion.span>
 
-                    <p className="mt-4 leading-7 text-gray-600">"{testimonial.quote}"</p>
+                    <p className="mt-4 leading-7 text-gray-600 dark:text-gray-300">"{testimonial.quote}"</p>
 
                     <footer className="mt-6 flex items-center gap-3">
                       {testimonial.image ? (
@@ -79,7 +80,7 @@ function SuccessStories() {
                       )}
                       <div>
                         <p className="font-bold text-chadi-green">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500">{testimonial.location}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.location}</p>
                       </div>
                     </footer>
                   </motion.blockquote>

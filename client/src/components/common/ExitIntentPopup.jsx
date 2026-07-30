@@ -67,7 +67,7 @@ function ExitIntentPopup() {
         <h3 id="exit-intent-title" className="mt-4 text-2xl font-bold text-chadi-green">
           Before you go...
         </h3>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-gray-600 dark:text-gray-300">
           Stay connected &mdash; sign up for our monthly dispatch on projects, events and impact stories.
         </p>
 
@@ -91,7 +91,7 @@ function ExitIntentPopup() {
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="w-full text-sm font-semibold text-gray-400 hover:text-gray-600"
+            className="w-full text-sm font-semibold text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:text-gray-300"
           >
             No thanks
           </button>

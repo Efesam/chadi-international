@@ -30,7 +30,7 @@ function News() {
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : news.length === 0 ? (
-            <p className="text-center text-gray-500">No news articles yet.</p>
+            <p className="text-center text-gray-500 dark:text-gray-400">No news articles yet.</p>
           ) : (
             <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {news.map((article) => (

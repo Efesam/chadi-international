@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import toast from "react-hot-toast";
 import { FaShieldAlt, FaCheck } from "react-icons/fa";
 import { verifyPayment, getOrCreateMonthlyPlan, reportPaymentIssue, downloadReceiptByReference } from "../../services/api";
@@ -51,12 +51,12 @@ function DonationSuccess({ result, onClose }) {
         <h3 id="donate-modal-title" className="mt-6 text-2xl font-bold text-chadi-green">
           Payment Received!
         </h3>
-        <p className="mt-2 text-sm text-gray-600">
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
           {result.isSubscription
             ? `Welcome to Hope Alive Circle! Your card will be charged ${amountLabel} automatically every month.`
             : `Thank you for your ${amountLabel} donation. You're giving hope, dignity and a second chance.`}
         </p>
-        <p className="mt-3 text-xs text-gray-400">Reference: {result.reference}</p>
+        <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">Reference: {result.reference}</p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <button
@@ -266,21 +266,21 @@ function DonateModal({ open, onClose, project, initialAmount }) {
             Give Today
           </h3>
           {project?.title ? (
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
               Supporting: <span className="font-semibold text-chadi-green">{project.title}</span>
             </p>
           ) : (
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
               You're not just giving money &mdash; you're giving hope, dignity and a second chance.
             </p>
           )}
 
-          <div className="mt-5 flex rounded-lg bg-gray-100 p-1 text-sm font-semibold">
+          <div className="mt-5 flex rounded-lg bg-gray-100 p-1 text-sm font-semibold dark:bg-gray-700">
             <button
               type="button"
               onClick={() => setFrequency("once")}
               className={`flex-1 rounded-md py-2 transition ${
-                frequency === "once" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500"
+                frequency === "once" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500 dark:text-gray-400"
               }`}
             >
               One-time
@@ -289,7 +289,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
               type="button"
               onClick={() => setFrequency("monthly")}
               className={`flex-1 rounded-md py-2 transition ${
-                frequency === "monthly" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500"
+                frequency === "monthly" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500 dark:text-gray-400"
               }`}
             >
               Monthly &mdash; Hope Alive Circle
@@ -338,7 +338,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
                   <span className="block text-sm font-bold text-chadi-green">
                     ₦{preset.amount.toLocaleString()}
                   </span>
-                  <span className="block text-[11px] leading-tight text-gray-500">{preset.label}</span>
+                  <span className="block text-[11px] leading-tight text-gray-500 dark:text-gray-400">{preset.label}</span>
                 </button>
               ))}
             </div>
@@ -346,7 +346,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
             {activeLabel && <p className="text-xs font-semibold text-chadi-green">{activeLabel}</p>}
 
             {frequency === "monthly" && (
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
                 Your card is charged ₦{Number(amount || 0).toLocaleString()} automatically every month until you
                 cancel. Cancel anytime by contacting CHADI.
               </p>
@@ -370,13 +370,13 @@ function DonateModal({ open, onClose, project, initialAmount }) {
               </button>
             )}
 
-            <p className="flex items-center justify-center gap-2 text-center text-xs text-gray-400">
+            <p className="flex items-center justify-center gap-2 text-center text-xs text-gray-400 dark:text-gray-500">
               <FaShieldAlt /> Secured by Paystack &middot; join our community of CHADI supporters
             </p>
 
             {PAYPAL_ENABLED && frequency === "once" && (
               <div className="border-t border-gray-100 pt-4">
-                <p className="text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
+                <p className="text-center text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">
                   Giving from outside Nigeria?
                 </p>
 
@@ -389,7 +389,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
                       className={`rounded-lg border py-2 text-sm font-bold transition ${
                         Number(usdAmount) === preset
                           ? "border-chadi-green bg-chadi-green/5 text-chadi-green"
-                          : "border-gray-200 text-gray-600 hover:border-chadi-green"
+                          : "border-gray-200 text-gray-600 dark:text-gray-300 hover:border-chadi-green"
                       }`}
                     >
                       ${preset}

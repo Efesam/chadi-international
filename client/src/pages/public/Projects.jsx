@@ -51,7 +51,7 @@ function Projects() {
           <div className="mx-auto max-w-7xl px-6">
             <Reveal className="mx-auto mb-10 max-w-2xl text-center">
               <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Where We Work</h2>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 dark:text-gray-300">
                 Explore the communities across Nigeria where CHADI's projects are active. Tap a marker to see
                 what's happening there.
               </p>
@@ -63,7 +63,7 @@ function Projects() {
         </section>
       )}
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           {loading ? (
             <CardGridSkeleton count={6} columns={3} />
@@ -94,7 +94,7 @@ function Projects() {
                     ${
                       category === item
                         ? "bg-chadi-green text-white"
-                        : "bg-gray-100 hover:bg-gray-200"
+                        : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
                     }`}
                   >
                     {item}
@@ -105,7 +105,7 @@ function Projects() {
               {/* Grid */}
 
               {filteredProjects.length === 0 ? (
-                <p className="text-center text-gray-500">No projects match your search.</p>
+                <p className="text-center text-gray-500 dark:text-gray-400">No projects match your search.</p>
               ) : (
                 <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {filteredProjects.map((project) => (

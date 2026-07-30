@@ -18,7 +18,7 @@ function FeaturedTeamCard({ member }) {
     .slice(0, 2);
 
   return (
-    <div className="grid overflow-hidden rounded-3xl bg-white shadow-xl sm:grid-cols-[240px_1fr]">
+    <div className="grid overflow-hidden rounded-3xl bg-white shadow-xl sm:grid-cols-[240px_1fr] dark:bg-gray-800">
       <div className="h-64 sm:h-full">
         {member.image ? (
           <img src={member.image} alt={member.name} loading="lazy" className="h-full w-full object-cover" />
@@ -35,7 +35,7 @@ function FeaturedTeamCard({ member }) {
         </span>
         <h3 className="mt-4 text-3xl font-bold text-chadi-green">{member.name}</h3>
         <p className="mt-1 font-semibold text-chadi-gold-dark">{member.role}</p>
-        {member.bio && <p className="mt-4 leading-7 text-gray-600">{member.bio}</p>}
+        {member.bio && <p className="mt-4 leading-7 text-gray-600 dark:text-gray-300">{member.bio}</p>}
 
         {(member.email || member.linkedin || member.twitter) && (
           <div className="mt-5 flex gap-3">
@@ -120,7 +120,7 @@ function Team() {
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : members.length === 0 ? (
-            <p className="text-center text-gray-500">Team profiles are on the way. Check back soon.</p>
+            <p className="text-center text-gray-500 dark:text-gray-400">Team profiles are on the way. Check back soon.</p>
           ) : (
             <>
               {featured.length > 0 && (

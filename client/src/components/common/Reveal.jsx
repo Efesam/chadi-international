@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const DIRECTIONS = {
   up: { y: 32, x: 0 },

@@ -28,7 +28,7 @@ class ChunkErrorBoundary extends Component {
           <p className="text-xl font-bold text-chadi-green">
             Something didn't load correctly
           </p>
-          <p className="max-w-sm text-gray-600">
+          <p className="max-w-sm text-gray-600 dark:text-gray-300">
             This can happen after an update, or if the connection dropped
             briefly. Reloading the page usually fixes it.
           </p>

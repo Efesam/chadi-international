@@ -18,9 +18,9 @@ function Privacy() {
         subtitle="How CHADI handles information shared through this website."
       />
 
-      <section className="bg-white py-20">
-        <Reveal className="mx-auto max-w-4xl space-y-8 px-6 leading-8 text-gray-600">
-          <p className="rounded-xl bg-chadi-cream p-5 text-sm text-gray-600">
+      <section className="bg-white py-20 dark:bg-gray-900">
+        <Reveal className="mx-auto max-w-4xl space-y-8 px-6 leading-8 text-gray-600 dark:text-gray-300">
+          <p className="rounded-xl bg-chadi-cream p-5 text-sm text-gray-600 dark:text-gray-300">
             Last updated: this policy describes how this website actually
             handles information today. It's a solid starting point, not a
             substitute for review by a qualified lawyer before you rely on it

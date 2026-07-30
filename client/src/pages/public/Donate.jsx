@@ -37,7 +37,7 @@ function InterestForm() {
       className="rounded-3xl bg-chadi-cream p-8 shadow-lg"
     >
       <h3 className="text-2xl font-bold text-chadi-green">Other Ways to Give</h3>
-      <p className="mt-4 text-gray-600">
+      <p className="mt-4 text-gray-600 dark:text-gray-300">
         Interested in corporate sponsorship or a program
         partnership? Share your details and CHADI will follow up.
       </p>
@@ -104,14 +104,14 @@ function Donate() {
         subtitle="Support CHADI's work with underserved communities."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2">
           <Reveal direction="left">
             <div>
               <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
                 Help Sustain Community Impact
               </h2>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
+              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
                 Your donation helps CHADI provide nutrition education, learning
                 support, emergency relief, youth development and community
                 wellbeing programs.

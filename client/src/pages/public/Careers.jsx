@@ -19,7 +19,7 @@ function Careers() {
         subtitle="Join a mission-driven team serving underserved communities."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
           <Reveal direction="left">
             <img
@@ -34,7 +34,7 @@ function Careers() {
             <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
               No open roles right now
             </h2>
-            <p className="mt-6 leading-8 text-gray-600">
+            <p className="mt-6 leading-8 text-gray-600 dark:text-gray-300">
               CHADI posts opportunities for program, field, research, partnership
               and operations roles when positions become available. Volunteers and
               collaborators are always welcome to introduce themselves.

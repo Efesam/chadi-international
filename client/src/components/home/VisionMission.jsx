@@ -1,27 +1,29 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { FaBullseye, FaEye } from "react-icons/fa";
 import Reveal from "../common/Reveal";
 import bgImage from "../../assets/projects/green-africa.jpg";
 
 function VisionMission() {
+  const { t } = useTranslation();
+
   return (
     <section
       className="relative overflow-hidden bg-gray-50 bg-cover bg-center py-24"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="absolute inset-0 bg-white/90" />
+      <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/93" />
 
       <div className="relative mx-auto max-w-7xl px-6">
 
         <Reveal>
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-chadi-green sm:text-5xl">
-              Our Purpose
+            <h2 className="text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">
+              {t("home.visionMission.title")}
             </h2>
 
-            <p className="mt-5 text-lg text-gray-600">
-              Creating lasting impact by empowering marginalized individuals and
-              underserved communities.
+            <p className="mt-5 text-lg text-gray-600 dark:text-gray-300">
+              {t("home.visionMission.subtitle")}
             </p>
           </div>
         </Reveal>
@@ -41,13 +43,11 @@ function VisionMission() {
               </motion.div>
 
               <h3 className="text-3xl font-bold mb-5">
-                Vision
+                {t("home.visionMission.vision.title")}
               </h3>
 
               <p className="text-lg leading-8">
-                Empowering marginalized individuals and underserved communities
-                through sustainable development, innovation, education,
-                healthcare and humanitarian interventions.
+                {t("home.visionMission.vision.description")}
               </p>
             </motion.div>
           </Reveal>
@@ -65,13 +65,11 @@ function VisionMission() {
               </motion.div>
 
               <h3 className="text-3xl font-bold mb-5 text-chadi-green">
-                Mission
+                {t("home.visionMission.mission.title")}
               </h3>
 
               <p className="text-lg leading-8 text-gray-800">
-                To design and implement innovative programs that improve health,
-                education, livelihoods, environmental sustainability, peace,
-                technology access and community resilience across Africa.
+                {t("home.visionMission.mission.description")}
               </p>
             </motion.div>
           </Reveal>

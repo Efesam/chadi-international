@@ -11,6 +11,15 @@ const FOCUSABLE_SELECTOR =
 export function useModalA11y(open, onClose) {
   const containerRef = useRef(null);
   const triggerRef = useRef(null);
+  // Callers (DonateModal, etc.) commonly pass an inline onClose that's a new
+  // function on every render (e.g. wrapping it to also reset form state). A
+  // ref lets the effect below read the latest onClose without depending on
+  // its identity - otherwise every keystroke in the form re-triggers this
+  // effect and steals focus back to the first focusable element mid-typing.
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   useEffect(() => {
     if (!open) return;
@@ -23,7 +32,7 @@ export function useModalA11y(open, onClose) {
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        onClose();
+        onCloseRef.current();
         return;
       }
 
@@ -50,7 +59,7 @@ export function useModalA11y(open, onClose) {
       document.removeEventListener("keydown", handleKeyDown);
       triggerRef.current?.focus?.();
     };
-  }, [open, onClose]);
+  }, [open]);
 
   return containerRef;
 }

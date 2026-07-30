@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "home": "Ile",
+    "about": "Nípa Wa",
+    "projects": "Àwọn Iṣẹ́",
+    "news": "Ìròyìn",
+    "getInvolved": "Kópa",
+    "contact": "Kàn sí Wa",
+    "donate": "Ṣètọrẹ"
+  },
+  "footer": {
+    "tagline": "A ń mú ọ̀wọ̀ padà bọ̀, a ń ṣẹ̀dá àǹfààní, a sì ń mú ìrètí wá sí ayé — nípa iṣẹ́ ṣíṣe.",
+    "columns": {
+      "explore": "Ṣàwárí",
+      "getInvolved": "Kópa",
+      "resources": "Àwọn Ohun Èlò"
+    },
+    "links": {
+      "events": "Àwọn Ìṣẹ̀lẹ̀",
+      "gallery": "Àwòrán",
+      "stories": "Àwọn Ìtàn",
+      "team": "Ẹgbẹ́ Wa",
+      "donorPortal": "Ẹnu-ọ̀nà Olùtọrẹ",
+      "volunteer": "Yọ̀ǹda Ara Rẹ",
+      "partners": "Àwọn Alábàáṣepọ̀",
+      "careers": "Iṣẹ́ Àkọ́ṣẹ́",
+      "faq": "Àwọn Ìbéèrè Tí Ó Wọ́pọ̀",
+      "resources": "Àwọn Ohun Èlò",
+      "transparency": "Ìṣírò Ó Ye Kí",
+      "governance": "Ìṣàkóso",
+      "privacy": "Ìpamọ́ Ìsọfúnni",
+      "terms": "Àwọn Òfin"
+    },
+    "copyright": "© {{year}} CHADI International. Gbogbo ẹ̀tọ́ ni a dáàbò bò.",
+    "rss": "RSS"
+  },
+  "home": {
+    "hero": {
+      "badge": "CHADI INTERNATIONAL",
+      "title1": "Ìrètí nìkan kò tó.",
+      "title2": "Iṣẹ́ ni.",
+      "description": "Ọ̀pọ̀ mílíọ̀nù àwọn tí kò rí ìrànlọ́wọ́ kò tíì ní àǹfààní sí ìlera, ẹ̀kọ́ àti àǹfààní. CHADI ń yí èyí padà — ẹ̀mí kan, àwùjọ kan ní àkókò kan.",
+      "impactBadge": "Ẹ̀mí tó ju {{count}}+ tí a ti kàn",
+      "donateNow": "Ṣetọrẹ Nísisìyí",
+      "joinMission": "Darapọ̀ Mọ́ Iṣẹ́ Náà"
+    },
+    "aboutPreview": {
+      "eyebrow": "NIPA WA",
+      "title": "Ṣíṣẹ̀dá Ipa Tí Ó Dúró Ṣinṣin Kárí Àwọn Àwùjọ",
+      "p1": "CHADI International jẹ́ ètò aláìlérè-jíjẹ́ tí ó ń fi ara rẹ̀ fún ìmúgbòrò ìgbésí ayé nípasẹ̀ ẹ̀kọ́, ìlera, ìmúdàgbàsókè, ìdúróṣinṣin àyíká, ìrànlọ́wọ́ ọ̀tọ̀ọ̀tọ̀ àti ìdarí àwọn ọ̀dọ́.",
+      "p2": "A gbàgbọ́ pé ìyípadà tí ó dúró ṣinṣin máa ń ṣẹlẹ̀ nígbà tí àwọn àwùjọ bá di alábàáṣiṣẹ́ tí ó lágbára nínú ìdàgbàsókè ara wọn.",
+      "learnMore": "Kọ́ Síi"
+    },
+    "whyChooseUs": {
+      "title": "Kí Ni Ó Fà Á Tí CHADI International Ṣe Yàtọ̀?",
+      "subtitle": "Ṣíṣẹ̀dá ìyípadà tí ó dúró ṣinṣin nípasẹ̀ ìmúdàgbàsókè, ìfọwọ́sowọ́pọ̀ àti ìdarí àwùjọ.",
+      "community": { "title": "Àwùjọ Ni Ó Ń Darí", "description": "A ń ṣe ìlànà ìdásí kọ̀ọ̀kan pẹ̀lú àwọn àwùjọ ìbílẹ̀ láti rí i dájú pé ipa náà dúró ṣinṣin." },
+      "inclusive": { "title": "Ìdàgbàsókè Tí Ó Ní Gbogbo Ènìyàn Nínú", "description": "A ń fún àwọn tí a fi sílẹ̀ ní agbára láìka ọjọ́ orí, ìbálòpọ̀ tàbí àbùkù ara wọn." },
+      "innovation": { "title": "Ìmúdàgbàsókè", "description": "Ìmọ̀ ẹ̀rọ, ìṣẹ̀dá àti ìwádìí ń darí àwọn ètò wa fún ìdàgbàsókè tí ó dúró ṣinṣin." },
+      "sustainable": { "title": "Ipa Tí Ó Dúró Ṣinṣin", "description": "Àwọn iṣẹ́ wa ń pọkàn sí ìyípadà gígùn dípò ìrànlọ́wọ́ fún ìgbà díẹ̀." }
+    },
+    "focusAreas": {
+      "title": "Àwọn Ẹ̀ka Tí A Ń Fojú Sí",
+      "subtitle": "CHADI International ń ṣẹ̀dá ọ̀nà àbáyọ tí ó dúró ṣinṣin tí ó ń mú ìgbésí ayé sunwọ̀n sí i tí ó sì ń fún àwọn àwùjọ ní agbára nípasẹ̀ àwọn ètò ìdàgbàsókè tí ó jọra.",
+      "education": { "title": "Ẹ̀kọ́", "description": "Ìmúdàgbàsókè àǹfààní sí ẹ̀kọ́ dídára, mímọ̀wé àti àwọn àǹfààní ẹ̀kọ́ láyé gbogbo." },
+      "healthcare": { "title": "Ìtọ́jú Ìlera", "description": "Ìmúlágbára àwọn ètò ìtọ́jú ìlera àti ìmúdàgbàsókè ire àwùjọ." },
+      "environment": { "title": "Àyíká", "description": "Ìmúgbòrò iṣẹ́ ojú ọjọ́, ìtọ́jú àti àwọn ìṣe àyíká tí ó dúró ṣinṣin." },
+      "innovation": { "title": "Ìmúdàgbàsókè", "description": "Lílo ìmọ̀ ẹ̀rọ àti ìmúdàgbàsókè láti yanjú àwọn ìṣòro àwùjọ àti ọrọ̀-ajé." },
+      "humanitarian": { "title": "Ìrànlọ́wọ́ Ọ̀tọ̀ọ̀tọ̀", "description": "Pípèsè ìrànlọ́wọ́ pàjáwìrì àti àtìlẹ́yìn gígùn fún àwọn tí ó wà nínú ewu." },
+      "youth": { "title": "Ìdarí Àwọn Ọ̀dọ́", "description": "Ṣíṣẹ̀dá àǹfààní fún ìjọba, iṣẹ́ àṣekáríayé àti ìdàgbàsókè ọgbọ́n." }
+    },
+    "impactCounter": {
+      "title": "Ipa Wa Ní Nọ́mbà",
+      "subtitle": "Iṣẹ́ kọ̀ọ̀kan dúró fún ẹ̀mí tí a ti yí padà àti àwọn àwùjọ tí a ti fún ní agbára.",
+      "loading": "Ń Gbé Wọlé..."
+    },
+    "impactAreas": {
+      "eyebrow": "Ipa Wa",
+      "title": "Ṣíṣẹ̀dá Ìyípadà Tí Ó Dúró Ṣinṣin",
+      "description": "Iṣẹ́ kọ̀ọ̀kan ń ṣàfikún sí àwùjọ tí ó ní ìlera, ẹ̀kọ́ tí ó dára jù, ìdílé tí ó lágbára, àti ìdàgbàsókè tí ó dúró ṣinṣin.",
+      "education": "Ẹ̀kọ́",
+      "healthcare": "Ìtọ́jú Ìlera",
+      "women": "Ìdarí Àwọn Obìnrin",
+      "climate": "Iṣẹ́ Ojú Ọjọ́"
+    },
+    "visionMission": {
+      "title": "Ète Wa",
+      "subtitle": "Ṣíṣẹ̀dá ipa tí ó dúró ṣinṣin nípa fífún àwọn tí a fi sílẹ̀ àti àwọn àwùjọ tí a kò tọ́jú ní agbára.",
+      "vision": { "title": "Ìran", "description": "Fífún àwọn tí a fi sílẹ̀ àti àwọn àwùjọ tí a kò tọ́jú ní agbára nípasẹ̀ ìdàgbàsókè tí ó dúró ṣinṣin, ìmúdàgbàsókè, ẹ̀kọ́, ìtọ́jú ìlera àti ìdásí ọ̀tọ̀ọ̀tọ̀." },
+      "mission": { "title": "Iṣẹ́ Àṣesìnlú", "description": "Láti ṣe ìlànà àti ṣe àmúlò àwọn ètò tí ó ní ìmúdàgbàsókè tí ó ń mú ìlera, ẹ̀kọ́, ìgbésí ayé, ìdúróṣinṣin àyíká, àlàáfíà, àǹfààní sí ìmọ̀ ẹ̀rọ àti ìfaradà àwùjọ sunwọ̀n sí i káàkiri Áfíríkà." }
+    },
+    "successStories": {
+      "title": "Àwọn Ìtàn Àṣeyọrí",
+      "subtitle": "Àwọn ìtàn tí ó ń fún ni ní ìsúnniṣe nípa ìgbésí ayé tí a yí padà nípasẹ̀ àwọn ètò CHADI International àti àwọn ìgbésẹ̀ àwùjọ.",
+      "empty": "Àwọn ìtàn láti ọ̀dọ̀ àwùjọ ń bọ̀ wá."
+    },
+    "featuredProjects": {
+      "eyebrow": "ÀWỌN IṢẸ́ WA",
+      "title": "Ṣíṣẹ̀dá Ipa Tí Ó Dúró Ṣinṣin",
+      "subtitle": "Nípasẹ̀ àwọn ètò tí ó ní ìmúdàgbàsókè àti ìfọwọ́sowọ́pọ̀ oníṣẹ́-ọ̀gbọ́n, CHADI International ń yí ìgbésí ayé padà káàkiri àwọn àwùjọ tí a kò tọ́jú."
+    },
+    "latestNews": {
+      "eyebrow": "Ìròyìn Tuntun",
+      "title": "Ìsọdọ̀tun Láti Ọ̀dọ̀ CHADI",
+      "subtitle": "Tẹ̀lé àwọn àṣeyọrí ètò, iṣẹ́ pápá àti àwọn ìtàn àwùjọ.",
+      "viewAll": "Wo Gbogbo Ìròyìn"
+    },
+    "partnersSection": {
+      "eyebrow": "Ìfọwọ́sowọ́pọ̀",
+      "title": "A Kọ́ Ọ Pẹ̀lú Àwọn Àwùjọ",
+      "description": "CHADI ń fọwọ́sowọ́pọ̀ pẹ̀lú àwọn alábàáṣepọ̀ tí a gbẹ́kẹ̀lé láti fi àwọn ètò tí ó wúlò, tí ó ní ìṣírò àti tí ó gbìn gbòǹgbò nínú ipò ìbílẹ̀ hàn.",
+      "cta": "Ṣe Alábàáṣepọ̀ Pẹ̀lú Wa",
+      "fallbackTypes": {
+        "community": "Àwọn Aṣíwájú Àwùjọ",
+        "health": "Àwọn Ẹgbẹ́ Ìlera",
+        "schools": "Àwọn Ilé Ẹ̀kọ́",
+        "donors": "Àwọn Olùtọrẹ",
+        "volunteers": "Àwọn Yọ̀ǹdára",
+        "local": "Àwọn Àjọ Ìbílẹ̀"
+      }
+    },
+    "upcomingEvents": {
+      "eyebrow": "Àwọn Ìṣẹ̀lẹ̀",
+      "title": "Àwọn Ìgbésẹ̀ Tí Ń Bọ̀",
+      "seeEvents": "Wo Àwọn Ìṣẹ̀lẹ̀"
+    },
+    "socialProof": {
+      "eyebrow": "Tẹ̀lé Ìrìnàjò Wa",
+      "title": "Wò Wá Ní Iṣẹ́"
+    },
+    "callToAction": {
+      "title": "Ṣé O Ti Ṣetán Láti Ṣàtìlẹ́yìn Fún Ipa Àwùjọ Tí Ó Dúró Ṣinṣin?",
+      "description": "Yọ̀ǹda ara rẹ, ṣe alábàáṣepọ̀, ṣetọrẹ tàbí pe CHADI wá sí àìní àwùjọ kan tí ó yẹ fún iṣẹ́ tí ó wúlò.",
+      "volunteer": "Yọ̀ǹda Ara Rẹ",
+      "donate": "Ṣetọrẹ"
+    }
+  }
+}

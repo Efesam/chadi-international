@@ -42,9 +42,9 @@ function EventSignupModal({ open, onClose, event }) {
         Event Sign-Up
       </h3>
       {event?.title && (
-        <p className="mt-2 text-sm text-gray-600">
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
           For: <span className="font-semibold text-chadi-green">{event.title}</span>
-          {event.date && <span className="text-gray-500"> &middot; {event.date}</span>}
+          {event.date && <span className="text-gray-500 dark:text-gray-400"> &middot; {event.date}</span>}
         </p>
       )}
 

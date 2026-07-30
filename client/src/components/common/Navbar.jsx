@@ -5,6 +5,7 @@ import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import Logo from "./Logo";
 import DonateModal from "./DonateModal";
 import LanguageSwitcher from "./LanguageSwitcher";
+import DarkModeToggle from "./DarkModeToggle";
 
 function Navbar() {
   const { t } = useTranslation();
@@ -36,7 +37,7 @@ function Navbar() {
     <header
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "bg-white shadow-xl py-4"
+          ? "bg-white shadow-xl py-4 dark:bg-gray-900"
           : "bg-transparent py-6"
       }`}
     >
@@ -57,10 +58,10 @@ function Navbar() {
                 `font-medium transition ${
                   isActive
                     ? scrolled
-                      ? "text-chadi-gold-dark"
+                      ? "text-chadi-gold-dark dark:text-chadi-gold"
                       : "text-chadi-gold"
                     : scrolled
-                    ? "text-gray-700 hover:text-chadi-green"
+                    ? "text-gray-700 dark:text-gray-200 hover:text-chadi-green dark:hover:text-chadi-gold"
                     : "text-white hover:text-chadi-gold"
                 }`
               }
@@ -74,13 +75,16 @@ function Navbar() {
             aria-label="Search the site"
             onClick={() => navigate("/search")}
             className={`text-lg transition ${
-              scrolled ? "text-gray-700 hover:text-chadi-green" : "text-white hover:text-chadi-gold"
+              scrolled
+                ? "text-gray-700 dark:text-gray-200 hover:text-chadi-green dark:hover:text-chadi-gold"
+                : "text-white hover:text-chadi-gold"
             }`}
           >
             <FaSearch />
           </button>
 
           <LanguageSwitcher dark={!scrolled} />
+          <DarkModeToggle dark={!scrolled} />
 
           <button
             type="button"
@@ -98,7 +102,7 @@ function Navbar() {
           aria-label="Toggle navigation menu"
           onClick={() => setMobileMenu(!mobileMenu)}
           className={`text-2xl lg:hidden ${
-            scrolled ? "text-chadi-green" : "text-white"
+            scrolled ? "text-chadi-green dark:text-chadi-lightgreen" : "text-white"
           }`}
         >
           {mobileMenu ? <FaTimes /> : <FaBars />}
@@ -108,7 +112,7 @@ function Navbar() {
       {/* Mobile Menu */}
 
       <div
-        className={`overflow-hidden bg-white transition-all duration-500 lg:hidden ${
+        className={`overflow-hidden bg-white transition-all duration-500 dark:bg-gray-900 lg:hidden ${
           mobileMenu ? "max-h-[34rem]" : "max-h-0"
         }`}
       >
@@ -119,7 +123,9 @@ function Navbar() {
               to={item.path}
               onClick={() => setMobileMenu(false)}
               className={({ isActive }) =>
-                `border-b py-4 ${isActive ? "font-bold text-chadi-green" : "text-gray-700"}`
+                `border-b py-4 dark:border-gray-700 ${
+                  isActive ? "font-bold text-chadi-green dark:text-chadi-lightgreen" : "text-gray-700 dark:text-gray-200"
+                }`
               }
             >
               {item.name}
@@ -132,13 +138,14 @@ function Navbar() {
               setMobileMenu(false);
               navigate("/search");
             }}
-            className="flex items-center gap-2 border-b py-4 text-gray-700"
+            className="flex items-center gap-2 border-b py-4 text-gray-700 dark:text-gray-200"
           >
             <FaSearch size={14} /> Search
           </button>
 
-          <div className="border-b py-4">
+          <div className="flex items-center justify-between border-b py-4 dark:border-gray-700">
             <LanguageSwitcher />
+            <DarkModeToggle />
           </div>
 
           <button

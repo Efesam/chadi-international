@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaProjectDiagram, FaUsers, FaHandsHelping, FaGlobeAfrica } from "react-icons/fa";
 import { useCollection } from "../../hooks/useCollection";
 import { getSettings } from "../../services/api";
@@ -10,26 +11,27 @@ import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 const icons = [FaProjectDiagram, FaUsers, FaHandsHelping, FaGlobeAfrica];
 
 function ImpactCounter() {
+  const { t } = useTranslation();
   const { data: settings, loading } = useCollection(getSettings);
   const stats = settings?.stats || [];
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-24 dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-gray-900">
-              Our Impact in Numbers
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50">
+              {t("home.impactCounter.title")}
             </h2>
 
-            <p className="mx-auto mt-5 max-w-3xl text-lg text-gray-600">
-              Every project represents lives transformed and communities empowered.
+            <p className="mx-auto mt-5 max-w-3xl text-lg text-gray-600 dark:text-gray-300">
+              {t("home.impactCounter.subtitle")}
             </p>
           </div>
         </Reveal>
 
         {loading ? (
-          <p className="text-center text-gray-500">Loading...</p>
+          <p className="text-center text-gray-500 dark:text-gray-400">{t("home.impactCounter.loading")}</p>
         ) : (
           <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, index) => (

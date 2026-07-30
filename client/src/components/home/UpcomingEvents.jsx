@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useCollection } from "../../hooks/useCollection";
 import { eventsApi } from "../../services/api";
 import CardGridSkeleton from "../common/CardGridSkeleton";
@@ -7,21 +8,22 @@ import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 import EventCard from "../ui/EventCard";
 
 function UpcomingEvents() {
+  const { t } = useTranslation();
   const { data, loading } = useCollection(eventsApi.list);
   const events = (data || []).slice(0, 3);
 
   if (!loading && events.length === 0) return null;
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-24 dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-12 text-center">
             <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
-              Events
+              {t("home.upcomingEvents.eyebrow")}
             </p>
             <h2 className="mt-3 text-4xl font-bold text-chadi-green">
-              Upcoming Activities
+              {t("home.upcomingEvents.title")}
             </h2>
           </div>
         </Reveal>
@@ -44,7 +46,7 @@ function UpcomingEvents() {
               to="/events"
               className="inline-block rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white transition hover:scale-105"
             >
-              See Events
+              {t("home.upcomingEvents.seeEvents")}
             </Link>
           </div>
         </Reveal>

@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "projects": "Projekte",
+    "news": "Neuigkeiten",
+    "getInvolved": "Mitmachen",
+    "contact": "Kontakt",
+    "donate": "Spenden"
+  },
+  "footer": {
+    "tagline": "Wir stellen Würde wieder her, schaffen Chancen und bringen Hoffnung — durch Taten.",
+    "columns": {
+      "explore": "Entdecken",
+      "getInvolved": "Mitmachen",
+      "resources": "Ressourcen"
+    },
+    "links": {
+      "events": "Veranstaltungen",
+      "gallery": "Galerie",
+      "stories": "Geschichten",
+      "team": "Team",
+      "donorPortal": "Spenderportal",
+      "volunteer": "Freiwilligenarbeit",
+      "partners": "Partner",
+      "careers": "Karriere",
+      "faq": "Häufige Fragen",
+      "resources": "Ressourcen",
+      "transparency": "Transparenz",
+      "governance": "Unternehmensführung",
+      "privacy": "Datenschutz",
+      "terms": "Nutzungsbedingungen"
+    },
+    "copyright": "© {{year}} CHADI International. Alle Rechte vorbehalten.",
+    "rss": "RSS"
+  },
+  "home": {
+    "hero": {
+      "badge": "CHADI INTERNATIONAL",
+      "title1": "Hoffnung allein reicht nicht.",
+      "title2": "Handeln schon.",
+      "description": "Millionen unterversorgter Menschen haben noch immer keinen Zugang zu Gesundheit, Bildung und Chancen. CHADI ändert das — ein Leben, eine Gemeinschaft nach der anderen.",
+      "impactBadge": "Über {{count}}+ Leben bisher positiv verändert",
+      "donateNow": "Jetzt Spenden",
+      "joinMission": "Der Mission Beitreten"
+    },
+    "aboutPreview": {
+      "eyebrow": "ÜBER UNS",
+      "title": "Nachhaltige Wirkung in Gemeinschaften Schaffen",
+      "p1": "CHADI International ist eine gemeinnützige Organisation, die sich der Verbesserung von Lebensverhältnissen durch Bildung, Gesundheitsversorgung, Innovation, ökologische Nachhaltigkeit, humanitäre Hilfe und die Stärkung junger Menschen widmet.",
+      "p2": "Wir glauben, dass dauerhafter Wandel entsteht, wenn Gemeinschaften aktiv an ihrer eigenen Entwicklung mitwirken.",
+      "learnMore": "Mehr Erfahren"
+    },
+    "whyChooseUs": {
+      "title": "Warum CHADI International?",
+      "subtitle": "Nachhaltigen Wandel schaffen durch Innovation, Partnerschaften und Führung durch die Gemeinschaft.",
+      "community": { "title": "Von der Gemeinschaft Getragen", "description": "Jede Maßnahme wird gemeinsam mit den lokalen Gemeinschaften gestaltet, um nachhaltige Wirkung sicherzustellen." },
+      "inclusive": { "title": "Inklusive Entwicklung", "description": "Wir stärken marginalisierte Menschen unabhängig von Alter, Geschlecht oder Behinderung." },
+      "innovation": { "title": "Innovation", "description": "Technologie, Kreativität und Forschung leiten unsere Programme für nachhaltige Entwicklung." },
+      "sustainable": { "title": "Nachhaltige Wirkung", "description": "Unsere Projekte setzen auf langfristige Veränderung statt kurzfristige Hilfe." }
+    },
+    "focusAreas": {
+      "title": "Unsere Schwerpunktbereiche",
+      "subtitle": "CHADI International entwickelt nachhaltige Lösungen, die Leben verbessern und Gemeinschaften durch integrierte Entwicklungsprogramme stärken.",
+      "education": { "title": "Bildung", "description": "Verbesserung des Zugangs zu hochwertiger Bildung, Alphabetisierung und lebenslangem Lernen." },
+      "healthcare": { "title": "Gesundheitsversorgung", "description": "Stärkung der Gesundheitssysteme und Verbesserung des Wohlergehens der Gemeinschaft." },
+      "environment": { "title": "Umwelt", "description": "Förderung von Klimaschutz, Naturschutz und nachhaltigen Umweltpraktiken." },
+      "innovation": { "title": "Innovation", "description": "Einsatz von Technologie und Innovation zur Lösung sozialer und wirtschaftlicher Herausforderungen." },
+      "humanitarian": { "title": "Humanitäre Hilfe", "description": "Bereitstellung von Nothilfe und langfristiger Unterstützung für gefährdete Bevölkerungsgruppen." },
+      "youth": { "title": "Stärkung Junger Menschen", "description": "Schaffung von Möglichkeiten für Führung, Unternehmertum und Kompetenzentwicklung." }
+    },
+    "impactCounter": {
+      "title": "Unsere Wirkung in Zahlen",
+      "subtitle": "Jedes Projekt steht für veränderte Leben und gestärkte Gemeinschaften.",
+      "loading": "Wird geladen..."
+    },
+    "impactAreas": {
+      "eyebrow": "Unsere Wirkung",
+      "title": "Nachhaltigen Wandel Schaffen",
+      "description": "Jedes Projekt trägt zu gesünderen Gemeinschaften, besserer Bildung, stärkeren Familien und nachhaltiger Entwicklung bei.",
+      "education": "Bildung",
+      "healthcare": "Gesundheitsversorgung",
+      "women": "Stärkung von Frauen",
+      "climate": "Klimaschutz"
+    },
+    "visionMission": {
+      "title": "Unser Auftrag",
+      "subtitle": "Nachhaltige Wirkung schaffen, indem wir marginalisierte Menschen und unterversorgte Gemeinschaften stärken.",
+      "vision": { "title": "Vision", "description": "Stärkung marginalisierter Menschen und unterversorgter Gemeinschaften durch nachhaltige Entwicklung, Innovation, Bildung, Gesundheitsversorgung und humanitäre Maßnahmen." },
+      "mission": { "title": "Mission", "description": "Innovative Programme zu entwerfen und umzusetzen, die Gesundheit, Bildung, Lebensgrundlagen, ökologische Nachhaltigkeit, Frieden, Zugang zu Technologie und die Widerstandsfähigkeit von Gemeinschaften in ganz Afrika verbessern." }
+    },
+    "successStories": {
+      "title": "Erfolgsgeschichten",
+      "subtitle": "Inspirierende Geschichten veränderter Leben durch die Programme und Gemeinschaftsinitiativen von CHADI International.",
+      "empty": "Geschichten aus der Gemeinschaft sind bald verfügbar."
+    },
+    "featuredProjects": {
+      "eyebrow": "UNSERE PROJEKTE",
+      "title": "Nachhaltige Wirkung Schaffen",
+      "subtitle": "Durch innovative Programme und strategische Partnerschaften verändert CHADI International Leben in unterversorgten Gemeinschaften."
+    },
+    "latestNews": {
+      "eyebrow": "Neuigkeiten",
+      "title": "Neues von CHADI",
+      "subtitle": "Verfolgen Sie Programmfortschritte, Feldaktivitäten und Geschichten aus der Gemeinschaft.",
+      "viewAll": "Alle Neuigkeiten Ansehen"
+    },
+    "partnersSection": {
+      "eyebrow": "Partnerschaften",
+      "title": "Gemeinsam mit Gemeinschaften Aufgebaut",
+      "description": "CHADI arbeitet mit vertrauenswürdigen Partnern zusammen, um praktische, verantwortungsvolle und in lokalen Gegebenheiten verwurzelte Programme umzusetzen.",
+      "cta": "Partner Werden",
+      "fallbackTypes": {
+        "community": "Gemeindeleiter",
+        "health": "Gesundheitsteams",
+        "schools": "Schulen",
+        "donors": "Spender",
+        "volunteers": "Freiwillige",
+        "local": "Lokale Organisationen"
+      }
+    },
+    "upcomingEvents": {
+      "eyebrow": "Veranstaltungen",
+      "title": "Bevorstehende Aktivitäten",
+      "seeEvents": "Veranstaltungen Ansehen"
+    },
+    "socialProof": {
+      "eyebrow": "Folgen Sie Unserem Weg",
+      "title": "Sehen Sie Uns in Aktion"
+    },
+    "callToAction": {
+      "title": "Bereit, Nachhaltige Gemeinschaftswirkung zu Unterstützen?",
+      "description": "Engagieren Sie sich freiwillig, werden Sie Partner, spenden Sie oder laden Sie CHADI zu einem Bedürfnis der Gemeinschaft ein, das konkretes Handeln verdient.",
+      "volunteer": "Freiwilligenarbeit",
+      "donate": "Spenden"
+    }
+  }
+}

@@ -34,17 +34,17 @@ function Modal({
         role="dialog"
         aria-modal="true"
         aria-labelledby={labelledBy}
-        className={`relative max-h-[85vh] w-full ${maxWidthClassName} overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl sm:p-8`}
+        className={`relative max-h-[85vh] w-full ${maxWidthClassName} overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl sm:p-8 dark:bg-gray-800`}
       >
         {title ? (
           <div className="mb-6 flex items-center justify-between">
-            <h2 id={labelledBy} className="text-xl font-bold text-chadi-green">
+            <h2 id={labelledBy} className="text-xl font-bold text-chadi-green dark:text-chadi-lightgreen">
               {title}
             </h2>
             <button
               type="button"
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-700"
+              className="text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:text-gray-200"
               aria-label="Close"
             >
               <FaTimes size={20} />
@@ -54,7 +54,7 @@ function Modal({
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-5 top-5 text-gray-400 hover:text-gray-700"
+            className="absolute right-5 top-5 text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:text-gray-200"
             aria-label="Close"
           >
             <FaTimes size={18} />

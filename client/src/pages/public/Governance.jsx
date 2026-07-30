@@ -16,7 +16,7 @@ function BoardCard({ member }) {
     .slice(0, 2);
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow-lg">
+    <div className="overflow-hidden rounded-2xl bg-white shadow-lg dark:bg-gray-800">
       <div className="h-56 overflow-hidden">
         {member.image ? (
           <img src={member.image} alt={member.name} loading="lazy" className="h-full w-full object-cover" />
@@ -29,7 +29,7 @@ function BoardCard({ member }) {
       <div className="p-5">
         <h3 className="font-bold text-chadi-green">{member.name}</h3>
         <p className="mt-1 text-sm text-chadi-gold-dark">{member.role}</p>
-        {member.bio && <p className="mt-3 text-sm leading-6 text-gray-600">{member.bio}</p>}
+        {member.bio && <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">{member.bio}</p>}
       </div>
     </div>
   );
@@ -54,7 +54,7 @@ function Governance() {
         subtitle="The people and commitments that keep CHADI accountable."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Board of Directors</h2>
@@ -65,7 +65,7 @@ function Governance() {
               <CardGridSkeleton count={3} columns={3} />
             </div>
           ) : members.length === 0 ? (
-            <p className="mt-8 text-gray-500">Board information is being finalized. Check back soon.</p>
+            <p className="mt-8 text-gray-500 dark:text-gray-400">Board information is being finalized. Check back soon.</p>
           ) : (
             <StaggerGrid className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {members.map((member) => (
@@ -78,19 +78,19 @@ function Governance() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-20 dark:bg-gray-950">
         <div className="mx-auto max-w-4xl px-6">
           <Reveal>
             <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Safeguarding</h2>
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-8 rounded-3xl bg-white p-8 shadow-sm sm:p-10">
+          <Reveal delay={0.1} className="mt-8 rounded-3xl bg-white p-8 shadow-sm sm:p-10 dark:bg-gray-800">
             {settingsLoading ? (
-              <p className="text-gray-500">Loading...</p>
+              <p className="text-gray-500 dark:text-gray-400">Loading...</p>
             ) : policy ? (
-              <div className="prose max-w-none text-gray-600" dangerouslySetInnerHTML={{ __html: policy }} />
+              <div className="prose max-w-none text-gray-600 dark:text-gray-300" dangerouslySetInnerHTML={{ __html: policy }} />
             ) : (
-              <p className="leading-7 text-gray-600">
+              <p className="leading-7 text-gray-600 dark:text-gray-300">
                 Our safeguarding policy is being finalized for publication here. In the meantime,
                 if you have a safeguarding concern or question, please{" "}
                 <Link to="/contact" className="font-semibold text-chadi-green underline">

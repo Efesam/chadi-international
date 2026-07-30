@@ -14,7 +14,7 @@ function TeamPreviewCard({ member }) {
     .slice(0, 2);
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow-lg transition hover:-translate-y-2 hover:shadow-2xl">
+    <div className="overflow-hidden rounded-2xl bg-white shadow-lg transition hover:-translate-y-2 hover:shadow-2xl dark:bg-gray-800">
       <div className="h-56 overflow-hidden">
         {member.image ? (
           <img
@@ -59,14 +59,14 @@ function TeamShowcase({ limit = 4 }) {
       className="relative overflow-hidden bg-gray-50 bg-cover bg-center py-24"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="absolute inset-0 bg-white/92" />
+      <div className="absolute inset-0 bg-white/92 dark:bg-gray-900/93" />
 
       <div className="relative mx-auto max-w-7xl px-6 text-center">
         <Reveal>
-          <h2 className="text-4xl font-bold text-chadi-green sm:text-5xl">
+          <h2 className="text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">
             Meet Our Team
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-gray-600">
+          <p className="mx-auto mt-6 max-w-3xl text-gray-600 dark:text-gray-300">
             Behind every successful community transformation is a passionate
             team committed to creating lasting impact.
           </p>

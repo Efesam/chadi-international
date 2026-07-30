@@ -25,9 +25,9 @@ function DonorPortalVerify() {
       <Seo title="Signing In" path="/donor-portal/verify" description="Signing you in to the CHADI donor portal." />
       <PageHeader title="Donor Portal" subtitle="Signing you in..." />
 
-      <section className="bg-white py-20 text-center">
+      <section className="bg-white py-20 text-center dark:bg-gray-900">
         {status === "verifying" && (
-          <p className="text-gray-600">Verifying your sign-in link...</p>
+          <p className="text-gray-600 dark:text-gray-300">Verifying your sign-in link...</p>
         )}
         {status === "error" && (
           <div className="mx-auto max-w-md">

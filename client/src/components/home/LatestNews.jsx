@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useCollection } from "../../hooks/useCollection";
 import { newsApi } from "../../services/api";
 import NewsCard from "../ui/NewsCard";
@@ -8,6 +9,7 @@ import Reveal from "../common/Reveal";
 import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 
 function LatestNews() {
+  const { t } = useTranslation();
   const { data, loading } = useCollection(newsApi.list);
   const latest = (data || []).slice(0, 2);
 
@@ -20,13 +22,13 @@ function LatestNews() {
           <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
-                Latest News
+                {t("home.latestNews.eyebrow")}
               </p>
               <h2 className="mt-3 text-4xl font-bold text-chadi-green">
-                Updates From CHADI
+                {t("home.latestNews.title")}
               </h2>
-              <p className="mt-4 max-w-2xl text-gray-600">
-                Follow program milestones, field activities and community stories.
+              <p className="mt-4 max-w-2xl text-gray-600 dark:text-gray-300">
+                {t("home.latestNews.subtitle")}
               </p>
             </div>
 
@@ -34,7 +36,7 @@ function LatestNews() {
               to="/news"
               className="font-semibold text-chadi-green hover:text-chadi-gold-dark"
             >
-              View All News
+              {t("home.latestNews.viewAll")}
             </Link>
           </div>
         </Reveal>

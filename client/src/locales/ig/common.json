@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "home": "Ụlọ",
+    "about": "Maka Anyị",
+    "projects": "Ọrụ Anyị",
+    "news": "Akụkọ",
+    "getInvolved": "Sonyere",
+    "contact": "Kpọtụrụ Anyị",
+    "donate": "Nye Onyinye"
+  },
+  "footer": {
+    "tagline": "Anyị na-eweghachi ugwu, na-emepụta ohere, ma na-ewetakwa olileanya — site n'ọrụ.",
+    "columns": {
+      "explore": "Nyochaa",
+      "getInvolved": "Sonyere",
+      "resources": "Akụrụngwa"
+    },
+    "links": {
+      "events": "Ihe Omume",
+      "gallery": "Foto",
+      "stories": "Akụkọ",
+      "team": "Ndị Otu Anyị",
+      "donorPortal": "Ọnụ Ụzọ Ndị Na-enye Onyinye",
+      "volunteer": "Nyere Aka N'afọ Ofufu",
+      "partners": "Ndị Mmekọ",
+      "careers": "Ọrụ",
+      "faq": "Ajụjụ A Na-ajụkarị",
+      "resources": "Akụrụngwa",
+      "transparency": "Izi Ezi",
+      "governance": "Nchịkwa",
+      "privacy": "Nzuzo",
+      "terms": "Usoro Iwu"
+    },
+    "copyright": "© {{year}} CHADI International. Ikike niile echedoro.",
+    "rss": "RSS"
+  },
+  "home": {
+    "hero": {
+      "badge": "CHADI INTERNATIONAL",
+      "title1": "Olileanya naanị ezughị.",
+      "title2": "Ọ bụ ọrụ.",
+      "description": "Ọtụtụ nde ndị na-enweghị ihe ha kwesịrị enweta ka na-enweghị ohere ịnweta ahụike, agụmakwụkwọ na ohere. CHADI na-agbanwe nke a — otu ndụ, otu obodo n'otu oge.",
+      "impactBadge": "Karịa ndụ {{count}}+ emetụtara",
+      "donateNow": "Nye Onyinye Ugbu A",
+      "joinMission": "Sonyere Ọrụ a"
+    },
+    "aboutPreview": {
+      "eyebrow": "MAKA ANYỊ",
+      "title": "Ịmepụta Mmetụta Na-adịgide Adịgide N'ime Obodo",
+      "p1": "CHADI International bụ ọrụ ebumnobi na-arụghị ọrụ maka uru onwe ya nke raara onwe ya nye ịkwalite ndụ site n'agụmakwụkwọ, ahụike, mmepụta ọhụrụ, mmekọrịta gburugburu na-adịgide adịgide, enyemaka mmadụ na ikike ndị na-eto eto.",
+      "p2": "Anyị kwenyere na mgbanwe na-adịgide adịgide na-eme mgbe obodo ghọrọ ndị sonyeere n'ọrụ maka mmepe nke onwe ha.",
+      "learnMore": "Mụtakwuo"
+    },
+    "whyChooseUs": {
+      "title": "Gịnị Mere CHADI International?",
+      "subtitle": "Ịmepụta mgbanwe na-adịgide adịgide site na mmepụta ọhụrụ, mmekọrịta na nduzi obodo.",
+      "community": { "title": "Obodo Na-eduzi", "description": "A na-ahazi ntinye aka ọ bụla ya na obodo mpaghara iji hụ na mmetụta ya na-adịgide adịgide." },
+      "inclusive": { "title": "Mmepe Na-etinye Onye Ọ Bụla", "description": "Anyị na-enyekwu ndị a hapụrụ ike n'agbanyeghị afọ, okike ma ọ bụ nkwarụ ha." },
+      "innovation": { "title": "Mmepụta Ọhụrụ", "description": "Teknụzụ, ike ike na nyocha na-eduzi mmemme anyị maka mmepe na-adịgide adịgide." },
+      "sustainable": { "title": "Mmetụta Na-adịgide Adịgide", "description": "Ọrụ anyị na-elekwasị anya na mgbanwe ogologo oge kama enyemaka nwa oge." }
+    },
+    "focusAreas": {
+      "title": "Ebe Anyị Na-elekwasị Anya",
+      "subtitle": "CHADI International na-emepụta ngwọta na-adịgide adịgide nke na-eme ka ndụ ka mma ma na-ewusi obodo ike site na mmemme mmepe jikọtara aka.",
+      "education": { "title": "Agụmakwụkwọ", "description": "Ịkwalite ohere ịnweta agụmakwụkwọ dị mma, ịgụ na ide na ohere mmụta ndụ dum." },
+      "healthcare": { "title": "Ahụike", "description": "Ịmesi usoro ahụike ike na ịkwalite ọdịmma obodo." },
+      "environment": { "title": "Gburugburu Ebe Obibi", "description": "Ịkwalite omume ihu igwe, nchekwa na omume gburugburu na-adịgide adịgide." },
+      "innovation": { "title": "Mmepụta Ọhụrụ", "description": "Iji teknụzụ na mmepụta ọhụrụ dozie nsogbu mmekọrịta na akụ na ụba." },
+      "humanitarian": { "title": "Enyemaka Mmadụ", "description": "Inye enyemaka mberede na nkwado ogologo oge maka ndị nọ n'ọnọdụ ike ọgbaghara." },
+      "youth": { "title": "Ikike Ndị Na-eto Eto", "description": "Ịmepụta ohere maka nduzi, ịrụ ọrụ onwe onye na mmepe nka." }
+    },
+    "impactCounter": {
+      "title": "Mmetụta Anyị N'ọnụọgụ",
+      "subtitle": "Ọrụ ọ bụla na-anọchi anya ndụ agbanweela na obodo enyela ike.",
+      "loading": "Na-ebudata..."
+    },
+    "impactAreas": {
+      "eyebrow": "Mmetụta Anyị",
+      "title": "Ịmepụta Mgbanwe Na-adịgide Adịgide",
+      "description": "Ọrụ ọ bụla na-enye aka n'obodo nwere ahụike, agụmakwụkwọ ka mma, ezinụlọ siri ike, na mmepe na-adịgide adịgide.",
+      "education": "Agụmakwụkwọ",
+      "healthcare": "Ahụike",
+      "women": "Ikike Ụmụ Nwanyị",
+      "climate": "Omume Ihu Igwe"
+    },
+    "visionMission": {
+      "title": "Ebumnobi Anyị",
+      "subtitle": "Ịmepụta mmetụta na-adịgide adịgide site n'inye ndị a hapụrụ na obodo a na-elekwaghị anya ike.",
+      "vision": { "title": "Ọhụụ", "description": "Inye ndị a hapụrụ na obodo a na-elekwaghị anya ike site na mmepe na-adịgide adịgide, mmepụta ọhụrụ, agụmakwụkwọ, ahụike na ntinye aka mmadụ." },
+      "mission": { "title": "Ebumnobi", "description": "Ịhazi na imezinye mmemme mmepụta ọhụrụ na-emeziwanye ahụike, agụmakwụkwọ, ndụ, mmekọrịta gburugburu na-adịgide adịgide, udo, ohere ịnweta teknụzụ na ike obodo iguzosi ike n'ofe Africa." }
+    },
+    "successStories": {
+      "title": "Akụkọ Ihe Ịga Nke Ọma",
+      "subtitle": "Akụkọ na-akpali akpali maka ndụ agbanweela site na mmemme CHADI International na mmụba obodo.",
+      "empty": "Akụkọ si n'aka obodo na-abịa."
+    },
+    "featuredProjects": {
+      "eyebrow": "ỌRỤ ANYỊ",
+      "title": "Ịmepụta Mmetụta Na-adịgide Adịgide",
+      "subtitle": "Site na mmemme mmepụta ọhụrụ na mmekọrịta atụmatụ, CHADI International na-agbanwe ndụ n'ofe obodo a na-elekwaghị anya."
+    },
+    "latestNews": {
+      "eyebrow": "Akụkọ Ọhụrụ",
+      "title": "Ihe Ọhụrụ Site N'aka CHADI",
+      "subtitle": "Soro nlele ọganihu mmemme, ọrụ ubi na akụkọ obodo.",
+      "viewAll": "Lee Akụkọ Niile"
+    },
+    "partnersSection": {
+      "eyebrow": "Mmekọrịta",
+      "title": "E Ji Obodo Wuo Ya",
+      "description": "CHADI na-emekọrịta ihe na ndị mmekọ e tụkwasịrị obi iji nye mmemme bara uru, nwere ibu ọrụ, ma gbanyere mkpọrọgwụ na eziokwu mpaghara.",
+      "cta": "Soro Anyị Mekọọ",
+      "fallbackTypes": {
+        "community": "Ndị Isi Obodo",
+        "health": "Ndị Otu Ahụike",
+        "schools": "Ụlọ Akwụkwọ",
+        "donors": "Ndị Na-enye Onyinye",
+        "volunteers": "Ndị Ọrụ Afọ Ofufu",
+        "local": "Ndị Otu Mpaghara"
+      }
+    },
+    "upcomingEvents": {
+      "eyebrow": "Ihe Omume",
+      "title": "Ọrụ Na-abịa N'ihu",
+      "seeEvents": "Lee Ihe Omume"
+    },
+    "socialProof": {
+      "eyebrow": "Soro Njem Anyị",
+      "title": "Hụ Anyị Ka Anyị Na-arụ Ọrụ"
+    },
+    "callToAction": {
+      "title": "Ị Dịla Njikere Ịkwado Mmetụta Obodo Na-adịgide Adịgide?",
+      "description": "Nyere aka n'afọ ofufu, mekọọ, nye onyinye ma ọ bụ kpọọ CHADI ka ọ bịa n'ọnọdụ obodo kwesịrị ihe omume bara uru.",
+      "volunteer": "Nyere Aka N'afọ Ofufu",
+      "donate": "Nye Onyinye"
+    }
+  }
+}

@@ -17,7 +17,7 @@ function CardGridSkeleton({ count = 6, columns = 3 }) {
   return (
     <div className={`grid gap-8 ${GRID_CLASSES[columns] || GRID_CLASSES[3]}`}>
       {Array.from({ length: count }).map((_, index) => (
-        <div key={index} className="overflow-hidden rounded-2xl bg-white shadow-sm">
+        <div key={index} className="overflow-hidden rounded-2xl bg-white shadow-sm dark:bg-gray-800">
           <Skeleton className="h-48 w-full rounded-none" />
           <div className="space-y-3 p-6">
             <Skeleton className="h-4 w-1/3" />

@@ -17,10 +17,10 @@
     "@tiptap/react": "^3.27.3",
     "@tiptap/starter-kit": "^3.27.3",
     "axios": "^1.18.1",
-    "framer-motion": "^12.42.2",
     "i18next": "^26.3.6",
     "i18next-browser-languagedetector": "^8.2.1",
     "leaflet": "^1.9.4",
+    "motion": "^12.43.0",
     "react": "^19.2.7",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.7",
@@ -30,6 +30,7 @@
     "react-icons": "^5.7.0",
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^7.18.1",
+    "suncalc": "^2.0.1",
     "tailwindcss": "^4.3.2"
   },
   "devDependencies": {

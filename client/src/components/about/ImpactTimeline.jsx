@@ -41,7 +41,7 @@ function ImpactTimeline() {
         <StaggerGrid className="mt-16 space-y-10">
           {timeline.map((item) => (
             <StaggerItem key={item.year}>
-              <div className="rounded-3xl border-l-4 border-chadi-gold bg-white p-8 shadow">
+              <div className="rounded-3xl border-l-4 border-chadi-gold bg-white p-8 shadow dark:bg-gray-800">
                 <span className="text-lg font-bold text-chadi-gold-dark">
                   {item.year}
                 </span>
@@ -50,7 +50,7 @@ function ImpactTimeline() {
                   {item.title}
                 </h3>
 
-                <p className="mt-4 text-gray-600">
+                <p className="mt-4 text-gray-600 dark:text-gray-300">
                   {item.description}
                 </p>
               </div>

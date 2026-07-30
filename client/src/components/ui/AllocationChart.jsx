@@ -23,7 +23,7 @@ function AllocationChart({ data }) {
         aria-label="Fund allocation breakdown"
       >
         <div className="flex h-full w-full items-center justify-center">
-          <div className="flex h-28 w-28 items-center justify-center rounded-full bg-white text-center text-xs font-semibold text-chadi-green">
+          <div className="flex h-28 w-28 items-center justify-center rounded-full bg-white text-center text-xs font-semibold text-chadi-green dark:bg-gray-900 dark:text-chadi-lightgreen">
             Fund
             <br />
             Allocation
@@ -38,7 +38,7 @@ function AllocationChart({ data }) {
               className="h-3 w-3 shrink-0 rounded-full"
               style={{ backgroundColor: COLORS[index % COLORS.length] }}
             />
-            <span className="text-sm text-gray-700">
+            <span className="text-sm text-gray-700 dark:text-gray-200">
               <span className="font-bold text-chadi-green">{item.percentage}%</span>{" "}
               {item.category}
             </span>

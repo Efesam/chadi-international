@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa6";
 import Reveal from "../common/Reveal";
 import { useCollection } from "../../hooks/useCollection";
@@ -28,6 +29,7 @@ const socialIcons = {
  * without real credentials.
  */
 function SocialProof() {
+  const { t } = useTranslation();
   const { data: settings } = useCollection(getSettings);
   const socials = settings?.socials || {};
   const activeSocials = Object.entries(socials).filter(([, url]) => url);
@@ -35,11 +37,11 @@ function SocialProof() {
   if (!UPLOADS_PLAYLIST_ID && activeSocials.length === 0) return null;
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-24 dark:bg-gray-900">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <Reveal>
-          <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">Follow Our Journey</p>
-          <h2 className="mt-3 text-4xl font-bold text-chadi-green sm:text-5xl">See Us in Action</h2>
+          <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">{t("home.socialProof.eyebrow")}</p>
+          <h2 className="mt-3 text-4xl font-bold text-chadi-green sm:text-5xl">{t("home.socialProof.title")}</h2>
         </Reveal>
 
         {UPLOADS_PLAYLIST_ID && (

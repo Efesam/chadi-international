@@ -7,5 +7,132 @@
     "getInvolved": "Get Involved",
     "contact": "Contact",
     "donate": "Donate"
+  },
+  "footer": {
+    "tagline": "We restore dignity, create opportunity, and bring hope alive — through action.",
+    "columns": {
+      "explore": "Explore",
+      "getInvolved": "Get Involved",
+      "resources": "Resources"
+    },
+    "links": {
+      "events": "Events",
+      "gallery": "Gallery",
+      "stories": "Stories",
+      "team": "Team",
+      "donorPortal": "Donor Portal",
+      "volunteer": "Volunteer",
+      "partners": "Partners",
+      "careers": "Careers",
+      "faq": "FAQ",
+      "resources": "Resources",
+      "transparency": "Transparency",
+      "governance": "Governance",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "copyright": "© {{year}} CHADI International. All rights reserved.",
+    "rss": "RSS"
+  },
+  "home": {
+    "hero": {
+      "badge": "CHADI INTERNATIONAL",
+      "title1": "Hope is not enough.",
+      "title2": "Action is.",
+      "description": "Millions of underserved people still lack access to health, education and opportunity. CHADI is changing that — one life, one community at a time.",
+      "impactBadge": "Over {{count}}+ lives impacted so far",
+      "donateNow": "Donate Now",
+      "joinMission": "Join the Mission"
+    },
+    "aboutPreview": {
+      "eyebrow": "ABOUT US",
+      "title": "Creating Sustainable Impact Across Communities",
+      "p1": "CHADI International is a nonprofit organization dedicated to improving lives through education, healthcare, innovation, environmental sustainability, humanitarian assistance and youth empowerment.",
+      "p2": "We believe lasting change happens when communities become active participants in their own development.",
+      "learnMore": "Learn More"
+    },
+    "whyChooseUs": {
+      "title": "Why CHADI International?",
+      "subtitle": "Creating sustainable change through innovation, partnerships and community leadership.",
+      "community": { "title": "Community Driven", "description": "Every intervention is designed together with local communities to ensure lasting impact." },
+      "inclusive": { "title": "Inclusive Development", "description": "We empower marginalized individuals regardless of age, gender or disability." },
+      "innovation": { "title": "Innovation", "description": "Technology, creativity and research guide our programs for sustainable development." },
+      "sustainable": { "title": "Sustainable Impact", "description": "Our projects focus on long-term transformation instead of temporary relief." }
+    },
+    "focusAreas": {
+      "title": "Our Focus Areas",
+      "subtitle": "CHADI International develops sustainable solutions that improve lives and strengthen communities through integrated development programmes.",
+      "education": { "title": "Education", "description": "Improving access to quality education, literacy and lifelong learning opportunities." },
+      "healthcare": { "title": "Healthcare", "description": "Strengthening healthcare systems and improving community well-being." },
+      "environment": { "title": "Environment", "description": "Promoting climate action, conservation and sustainable environmental practices." },
+      "innovation": { "title": "Innovation", "description": "Leveraging technology and innovation to solve social and economic challenges." },
+      "humanitarian": { "title": "Humanitarian Support", "description": "Providing emergency relief and long-term support for vulnerable populations." },
+      "youth": { "title": "Youth Empowerment", "description": "Creating opportunities for leadership, entrepreneurship and skills development." }
+    },
+    "impactCounter": {
+      "title": "Our Impact in Numbers",
+      "subtitle": "Every project represents lives transformed and communities empowered.",
+      "loading": "Loading..."
+    },
+    "impactAreas": {
+      "eyebrow": "Our Impact",
+      "title": "Creating Sustainable Change",
+      "description": "Every project contributes to healthier communities, better education, stronger families, and sustainable development.",
+      "education": "Education",
+      "healthcare": "Healthcare",
+      "women": "Women Empowerment",
+      "climate": "Climate Action"
+    },
+    "visionMission": {
+      "title": "Our Purpose",
+      "subtitle": "Creating lasting impact by empowering marginalized individuals and underserved communities.",
+      "vision": { "title": "Vision", "description": "Empowering marginalized individuals and underserved communities through sustainable development, innovation, education, healthcare and humanitarian interventions." },
+      "mission": { "title": "Mission", "description": "To design and implement innovative programs that improve health, education, livelihoods, environmental sustainability, peace, technology access and community resilience across Africa." }
+    },
+    "successStories": {
+      "title": "Success Stories",
+      "subtitle": "Inspiring stories of lives transformed through CHADI International's programs and community initiatives.",
+      "empty": "Stories from the community are on their way."
+    },
+    "featuredProjects": {
+      "eyebrow": "OUR PROJECTS",
+      "title": "Creating Sustainable Impact",
+      "subtitle": "Through innovative programs and strategic partnerships, CHADI International is transforming lives across underserved communities."
+    },
+    "latestNews": {
+      "eyebrow": "Latest News",
+      "title": "Updates From CHADI",
+      "subtitle": "Follow program milestones, field activities and community stories.",
+      "viewAll": "View All News"
+    },
+    "partnersSection": {
+      "eyebrow": "Partnerships",
+      "title": "Built With Communities",
+      "description": "CHADI collaborates with trusted partners to deliver programs that are practical, accountable and rooted in local realities.",
+      "cta": "Partner With Us",
+      "fallbackTypes": {
+        "community": "Community leaders",
+        "health": "Health teams",
+        "schools": "Schools",
+        "donors": "Donors",
+        "volunteers": "Volunteers",
+        "local": "Local organizations"
+      }
+    },
+    "upcomingEvents": {
+      "eyebrow": "Events",
+      "title": "Upcoming Activities",
+      "seeEvents": "See Events"
+    },
+    "socialProof": {
+      "eyebrow": "Follow Our Journey",
+      "title": "See Us in Action"
+    },
+    "callToAction": {
+      "title": "Ready to support lasting community impact?",
+      "description": "Volunteer, partner, donate or invite CHADI into a community need that deserves practical action.",
+      "volunteer": "Volunteer",
+      "donate": "Donate"
+    }
   }
 }

@@ -54,11 +54,11 @@ function VolunteerModal({ open, onClose, project }) {
           Volunteer
         </h3>
         {project?.title ? (
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
             For: <span className="font-semibold text-chadi-green">{project.title}</span>
           </p>
         ) : (
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
             Tell us a bit about yourself and how you'd like to help.
           </p>
         )}

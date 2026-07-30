@@ -57,7 +57,7 @@ function Stories() {
       />
 
       {featured && (
-        <section className="bg-white py-20">
+        <section className="bg-white py-20 dark:bg-gray-900">
           <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
             <Reveal direction="left">
               <span className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
@@ -66,7 +66,7 @@ function Stories() {
               <h2 className="mt-4 text-4xl font-bold text-chadi-green sm:text-5xl">
                 The stories numbers can't tell.
               </h2>
-              <p className="mt-6 max-w-xl leading-8 text-gray-600">
+              <p className="mt-6 max-w-xl leading-8 text-gray-600 dark:text-gray-300">
                 From the children of SOVCEST to the families of HELP - real
                 stories from the communities CHADI serves, captured with
                 dignity and told in their own words.
@@ -115,14 +115,14 @@ function Stories() {
         </section>
       )}
 
-      <section id="all-stories" className="scroll-mt-24 bg-white py-20">
+      <section id="all-stories" className="scroll-mt-24 bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-5xl space-y-8 px-6">
           {loading ? (
             <StoriesSkeleton />
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : remaining.length === 0 ? (
-            <p className="text-center text-gray-500">
+            <p className="text-center text-gray-500 dark:text-gray-400">
               We're gathering stories from the field. Check back soon.
             </p>
           ) : (
@@ -143,17 +143,17 @@ function Stories() {
                       <h2 className="mt-2 text-3xl font-bold text-chadi-green">
                         {story.title}
                       </h2>
-                      <p className="mt-4 leading-7 text-gray-600">
+                      <p className="mt-4 leading-7 text-gray-600 dark:text-gray-300">
                         {story.excerpt}
                       </p>
                       {story.content && (
                         <div
-                          className="prose prose-sm mt-4 max-w-none text-gray-600"
+                          className="prose prose-sm mt-4 max-w-none text-gray-600 dark:text-gray-300"
                           dangerouslySetInnerHTML={{ __html: story.content }}
                         />
                       )}
                       {story.personName && (
-                        <p className="mt-5 font-semibold text-gray-700">
+                        <p className="mt-5 font-semibold text-gray-700 dark:text-gray-200">
                           Featuring: {story.personName}
                         </p>
                       )}

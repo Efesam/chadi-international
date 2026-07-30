@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaHeart, FaBalanceScale, FaLightbulb, FaUsers, FaMedal, FaHandshake } from "react-icons/fa";
 import Reveal from "../common/Reveal";
 import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
@@ -43,11 +43,11 @@ function CoreValues() {
       className="relative overflow-hidden bg-gray-50 bg-cover bg-center py-24"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="absolute inset-0 bg-white/90" />
+      <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/93" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal>
-          <h2 className="text-center text-4xl font-bold text-chadi-green sm:text-5xl">
+          <h2 className="text-center text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">
             Our Core Values
           </h2>
         </Reveal>
@@ -61,7 +61,7 @@ function CoreValues() {
                 <motion.div
                   whileHover={{ y: -10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="h-full rounded-3xl bg-white p-8 shadow-lg hover:shadow-xl"
+                  className="h-full rounded-3xl bg-white p-8 shadow-lg hover:shadow-xl dark:bg-gray-800"
                 >
                   <motion.div
                     whileHover={{ rotate: 12, scale: 1.1 }}
@@ -74,7 +74,7 @@ function CoreValues() {
                     {value.title}
                   </h3>
 
-                  <p className="mt-4 text-gray-600">
+                  <p className="mt-4 text-gray-600 dark:text-gray-300">
                     {value.description}
                   </p>
                 </motion.div>

@@ -31,7 +31,7 @@ function OurStory() {
             Transforming Communities.
           </h2>
 
-          <p className="mt-8 leading-8 text-gray-600">
+          <p className="mt-8 leading-8 text-gray-600 dark:text-gray-300">
             Caleb Hope Alive Development Initiative (CHADI) is a
             non-profit organization dedicated to empowering
             marginalized individuals and underserved communities
@@ -40,14 +40,14 @@ function OurStory() {
             interventions.
           </p>
 
-          <p className="mt-6 leading-8 text-gray-600">
+          <p className="mt-6 leading-8 text-gray-600 dark:text-gray-300">
             We believe every individual deserves dignity,
             opportunity, quality healthcare, education,
             and hope regardless of where they live or
             the circumstances surrounding them.
           </p>
 
-          <blockquote className="mt-8 border-l-4 border-chadi-green pl-6 text-lg italic leading-relaxed text-gray-700">
+          <blockquote className="mt-8 border-l-4 border-chadi-green pl-6 text-lg italic leading-relaxed text-gray-700 dark:text-gray-200">
             &ldquo;We restore dignity, create opportunity, and bring hope
             alive &mdash; through action.&rdquo;
           </blockquote>

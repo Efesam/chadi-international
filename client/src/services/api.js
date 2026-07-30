@@ -151,6 +151,11 @@ export function getProjectDonationSummary(projectId) {
   return request(`/payments/project-summary/${encodeURIComponent(projectId)}`);
 }
 
+/** Admin-only: every project's raised total/donor count in one call, keyed by projectId. */
+export function getProjectDonationSummaries() {
+  return request("/payments/project-summaries");
+}
+
 // ---- Auth ----
 
 export async function login(email, password) {

@@ -10,7 +10,7 @@ function TeamCard({ member }) {
   const hasSocials = member.email || member.linkedin || member.twitter;
 
   return (
-    <div className="group overflow-hidden rounded-3xl bg-white shadow-lg transition hover:-translate-y-2 hover:shadow-2xl">
+    <div className="group overflow-hidden rounded-3xl bg-white shadow-lg transition hover:-translate-y-2 hover:shadow-2xl dark:bg-gray-800">
       <div className="h-80 overflow-hidden">
         {member.image ? (
           <img
@@ -27,19 +27,19 @@ function TeamCard({ member }) {
       </div>
 
       <div className="p-6">
-        <h3 className="text-2xl font-bold text-chadi-green">
+        <h3 className="text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">
           {member.name}
         </h3>
 
-        <p className="mt-2 font-semibold text-chadi-gold-dark">
+        <p className="mt-2 font-semibold text-chadi-gold-dark dark:text-chadi-gold">
           {member.role}
         </p>
 
-        <p className="mt-1 text-gray-600">
+        <p className="mt-1 text-gray-600 dark:text-gray-300">
           {member.department}
         </p>
 
-        {member.bio && <p className="mt-4 text-sm leading-6 text-gray-500">{member.bio}</p>}
+        {member.bio && <p className="mt-4 text-sm leading-6 text-gray-500 dark:text-gray-400">{member.bio}</p>}
 
         {hasSocials && (
           <div className="mt-4 flex gap-3">

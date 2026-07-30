@@ -9,9 +9,9 @@ function ProjectCard({ project }) {
   const [volunteerOpen, setVolunteerOpen] = useState(false);
 
   return (
-    <div className="group overflow-hidden rounded-3xl bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+    <div className="group overflow-hidden rounded-3xl bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-gray-800">
       {/* Image */}
-      <div className="relative h-60 overflow-hidden bg-gray-200">
+      <div className="relative h-60 overflow-hidden bg-gray-200 dark:bg-gray-700">
         <img
           src={project.image}
           alt={project.title}
@@ -30,25 +30,25 @@ function ProjectCard({ project }) {
             {project.status}
           </span>
 
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-500 dark:text-gray-400">
             {project.location}
           </span>
         </div>
 
-        <h3 className="text-2xl font-bold text-chadi-green">
+        <h3 className="text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">
           {project.title}
         </h3>
 
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-300">
           {project.summary}
         </p>
 
         <div className="pt-2">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             Beneficiaries
           </p>
 
-          <p className="font-semibold">
+          <p className="font-semibold dark:text-gray-100">
             {project.beneficiaries}
           </p>
         </div>

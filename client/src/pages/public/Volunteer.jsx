@@ -97,13 +97,13 @@ function Volunteer() {
         </Reveal>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
           <Reveal direction="left">
             <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
               Volunteer Areas
             </h2>
-            <ul className="mt-6 space-y-4 leading-7 text-gray-600">
+            <ul className="mt-6 space-y-4 leading-7 text-gray-600 dark:text-gray-300">
               <li>Community outreach and mobilization</li>
               <li>Health and nutrition education</li>
               <li>Digital skills and mentorship</li>

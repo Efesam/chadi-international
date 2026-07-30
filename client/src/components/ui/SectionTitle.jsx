@@ -16,12 +16,12 @@ function SectionTitle({
         </p>
       )}
 
-      <h2 className="mt-3 text-4xl font-bold text-chadi-green md:text-5xl">
+      <h2 className="mt-3 text-4xl font-bold text-chadi-green md:text-5xl dark:text-chadi-lightgreen">
         {title}
       </h2>
 
       {description && (
-        <p className="mt-5 max-w-3xl text-gray-600">
+        <p className="mt-5 max-w-3xl text-gray-600 dark:text-gray-300">
           {description}
         </p>
       )}

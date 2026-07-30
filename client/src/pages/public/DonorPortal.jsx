@@ -48,7 +48,7 @@ function LoginForm() {
         <p className="font-semibold text-chadi-green">
           If that email has made a donation with us, we've sent a sign-in link to it.
         </p>
-        <p className="mt-2 text-sm text-gray-600">
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
           Check your inbox (and spam folder) for a link from CHADI International. It expires in 15 minutes.
         </p>
       </div>
@@ -58,7 +58,7 @@ function LoginForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl bg-chadi-cream p-8">
       <label className="block">
-        <span className="text-sm font-semibold text-gray-700">Email address</span>
+        <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">Email address</span>
         <input
           type="email"
           required
@@ -75,7 +75,7 @@ function LoginForm() {
       >
         {submitting ? "Sending..." : "Email Me a Sign-In Link"}
       </button>
-      <p className="text-center text-xs text-gray-500">
+      <p className="text-center text-xs text-gray-500 dark:text-gray-400">
         Use the same email address you donated with. No password needed.
       </p>
     </form>
@@ -115,10 +115,10 @@ function DonationRow({ entry, onCancelled }) {
 
   return (
     <tr className="border-b border-gray-100 last:border-0">
-      <td className="py-4 pr-4 text-sm text-gray-600">
+      <td className="py-4 pr-4 text-sm text-gray-600 dark:text-gray-300">
         {new Date(entry.createdAt).toLocaleDateString()}
       </td>
-      <td className="py-4 pr-4 text-sm font-medium text-gray-900">
+      <td className="py-4 pr-4 text-sm font-medium text-gray-900 dark:text-gray-50">
         {TYPE_LABELS[entry.type] || entry.type}
       </td>
       <td className="py-4 pr-4 text-sm font-semibold text-chadi-green">
@@ -132,7 +132,7 @@ function DonationRow({ entry, onCancelled }) {
               entry.subscriptionStatus === "active"
                 ? "bg-green-100 text-green-700"
                 : entry.subscriptionStatus === "cancelled"
-                ? "bg-gray-100 text-gray-600"
+                ? "bg-gray-100 text-gray-600 dark:text-gray-300"
                 : "bg-yellow-100 text-yellow-700"
             }`}
           >
@@ -195,7 +195,7 @@ function DonorDashboard({ onLogout }) {
         <h2 className="text-2xl font-bold text-chadi-green">Your Giving History</h2>
         <button
           onClick={handleLogout}
-          className="text-sm font-semibold text-gray-500 hover:text-chadi-green"
+          className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-chadi-green"
         >
           Sign out
         </button>
@@ -204,20 +204,20 @@ function DonorDashboard({ onLogout }) {
       {error && <p className="rounded-xl bg-red-50 p-4 text-sm text-red-600">{error}</p>}
 
       {!error && donations === null && (
-        <p className="text-sm text-gray-500">Loading your donations...</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Loading your donations...</p>
       )}
 
       {!error && donations !== null && donations.length === 0 && (
-        <div className="rounded-2xl bg-chadi-cream p-8 text-center text-sm text-gray-600">
+        <div className="rounded-2xl bg-chadi-cream p-8 text-center text-sm text-gray-600 dark:text-gray-300">
           No donations found for this email yet.
         </div>
       )}
 
       {!error && donations !== null && donations.length > 0 && (
-        <div className="overflow-x-auto rounded-2xl bg-white p-6 shadow-sm">
+        <div className="overflow-x-auto rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
           <table className="w-full min-w-[560px] border-collapse">
             <thead>
-              <tr className="border-b border-gray-200 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+              <tr className="border-b border-gray-200 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                 <th className="pb-3 pr-4">Date</th>
                 <th className="pb-3 pr-4">Type</th>
                 <th className="pb-3 pr-4">Amount</th>
@@ -253,7 +253,7 @@ function DonorPortal() {
         subtitle="View your donation history, download receipts, and manage recurring giving."
       />
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 dark:bg-gray-900">
         <Reveal className="mx-auto max-w-3xl px-6">
           {signedIn ? (
             <DonorDashboard onLogout={() => setSignedIn(false)} />

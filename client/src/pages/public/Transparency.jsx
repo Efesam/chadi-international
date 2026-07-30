@@ -29,10 +29,10 @@ function Transparency() {
         subtitle="Transparency. Accountability. Impact."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-5xl px-6">
           <Reveal>
-            <p className="text-lg leading-8 text-gray-600">
+            <p className="text-lg leading-8 text-gray-600 dark:text-gray-300">
               We are committed to using every resource responsibly and
               ensuring measurable, lasting impact in the communities we serve.
               Every donation is tracked from the moment it's given to the
@@ -46,13 +46,13 @@ function Transparency() {
             </h2>
 
             {loading ? (
-              <p className="mt-6 text-gray-500">Loading...</p>
+              <p className="mt-6 text-gray-500 dark:text-gray-400">Loading...</p>
             ) : allocation.length > 0 ? (
               <div className="mt-8">
                 <AllocationChart data={allocation} />
               </div>
             ) : (
-              <p className="mt-6 text-gray-500">
+              <p className="mt-6 text-gray-500 dark:text-gray-400">
                 We publish a full allocation breakdown here as soon as it's finalized for the
                 current reporting period. In the meantime, reach out below for our latest report.
               </p>
@@ -81,10 +81,10 @@ function Transparency() {
                           {report.title}
                         </span>
                         {report.year && (
-                          <span className="block text-sm text-gray-500">{report.year}</span>
+                          <span className="block text-sm text-gray-500 dark:text-gray-400">{report.year}</span>
                         )}
                       </span>
-                      <FaFileDownload className="shrink-0 text-gray-400" />
+                      <FaFileDownload className="shrink-0 text-gray-400 dark:text-gray-500" />
                     </a>
                   </StaggerItem>
                 ))}
@@ -96,7 +96,7 @@ function Transparency() {
             <StaggerItem>
               <div className="rounded-2xl border border-chadi-green/20 p-6">
                 <h3 className="font-bold text-chadi-green">Transparency</h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                   Clear reporting on how funds are raised and spent.
                 </p>
               </div>
@@ -104,7 +104,7 @@ function Transparency() {
             <StaggerItem>
               <div className="rounded-2xl border border-chadi-green/20 p-6">
                 <h3 className="font-bold text-chadi-green">Accountability</h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                   Governance practices that keep our team answerable to the
                   communities we serve.
                 </p>
@@ -113,7 +113,7 @@ function Transparency() {
             <StaggerItem>
               <div className="rounded-2xl border border-chadi-green/20 p-6">
                 <h3 className="font-bold text-chadi-green">Measurable Impact</h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                   Programs tracked against real outcomes, not just activity.
                 </p>
               </div>

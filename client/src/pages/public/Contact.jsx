@@ -55,7 +55,7 @@ function Contact() {
         subtitle="Reach out for partnerships, volunteering, donations and program inquiries."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-5">
           <Reveal
             direction="left"
@@ -143,7 +143,7 @@ function Contact() {
               <Honeypot />
               <div className="grid gap-6 md:grid-cols-2">
                 <label className="block">
-                  <span className="font-semibold text-gray-700">Full Name</span>
+                  <span className="font-semibold text-gray-700 dark:text-gray-200">Full Name</span>
                   <input
                     className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
                     type="text"
@@ -153,7 +153,7 @@ function Contact() {
                 </label>
 
                 <label className="block">
-                  <span className="font-semibold text-gray-700">Email</span>
+                  <span className="font-semibold text-gray-700 dark:text-gray-200">Email</span>
                   <input
                     className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
                     type="email"
@@ -164,7 +164,7 @@ function Contact() {
               </div>
 
               <label className="mt-6 block">
-                <span className="font-semibold text-gray-700">Subject</span>
+                <span className="font-semibold text-gray-700 dark:text-gray-200">Subject</span>
                 <input
                   className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
                   type="text"
@@ -174,7 +174,7 @@ function Contact() {
               </label>
 
               <label className="mt-6 block">
-                <span className="font-semibold text-gray-700">Message</span>
+                <span className="font-semibold text-gray-700 dark:text-gray-200">Message</span>
                 <textarea
                   className="mt-2 min-h-40 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
                   name="message"

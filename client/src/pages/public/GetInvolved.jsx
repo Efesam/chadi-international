@@ -48,7 +48,7 @@ function GetInvolved() {
         subtitle="Join CHADI in creating practical, sustainable community impact."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {opportunities.map((item) => (
@@ -64,7 +64,7 @@ function GetInvolved() {
                     <h2 className="text-3xl font-bold text-chadi-green">
                       {item.title}
                     </h2>
-                    <p className="mt-5 leading-7 text-gray-600">
+                    <p className="mt-5 leading-7 text-gray-600 dark:text-gray-300">
                       {item.description}
                     </p>
                     <Link

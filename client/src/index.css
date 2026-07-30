@@ -3,6 +3,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Toggle-based dark mode (Tailwind v4 defaults to prefers-color-scheme
+   only) - every `dark:` utility activates when `.dark` is on <html> or an
+   ancestor, set by useDarkMode.js. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ==========================
    CHADI International Theme
 ========================== */
@@ -22,14 +27,37 @@
   --color-chadi-gold-dark: #8a6d00;
 }
 
+/* Dark-mode value for chadi-cream only - redefining this (rather than
+   Tailwind's built-in white/gray palette) means every existing
+   `bg-chadi-cream` section across the site automatically becomes an
+   appropriate dark surface with zero per-component changes, without the
+   risk of also flipping intentional white-text-on-green-background
+   combinations (Navbar/Footer/Hero), which use Tailwind's own `white` and
+   would break if that palette were redefined instead. chadi-green and
+   chadi-gold are left as-is - both already work as accents against dark
+   surfaces (the gold contrast comment above already accounts for this).
+   chadi-lightgreen is ALSO left as-is on purpose: it's always paired with
+   text-chadi-green as a small badge/pill background (Button's "secondary"
+   variant, ProjectCard's status pill, ExitIntentPopup's icon circle) never
+   as a large surface - darkening it would leave dark-green text sitting on
+   a near-black background, failing contrast badly. */
+.dark {
+  --color-chadi-cream: #161a16;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
-  background: #FFFBE6;
+  background-color: var(--color-chadi-cream);
   color: #222;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dark body {
+  color: #e8e8e0;
 }
 
 h1,

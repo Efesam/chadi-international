@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "projects": "项目",
+    "news": "新闻",
+    "getInvolved": "参与",
+    "contact": "联系我们",
+    "donate": "捐赠"
+  },
+  "footer": {
+    "tagline": "我们通过实际行动恢复尊严、创造机会、带来希望。",
+    "columns": {
+      "explore": "探索",
+      "getInvolved": "参与",
+      "resources": "资源"
+    },
+    "links": {
+      "events": "活动",
+      "gallery": "图库",
+      "stories": "故事",
+      "team": "团队",
+      "donorPortal": "捐赠者门户",
+      "volunteer": "志愿服务",
+      "partners": "合作伙伴",
+      "careers": "招聘",
+      "faq": "常见问题",
+      "resources": "资源",
+      "transparency": "透明度",
+      "governance": "治理",
+      "privacy": "隐私政策",
+      "terms": "使用条款"
+    },
+    "copyright": "© {{year}} CHADI International。保留所有权利。",
+    "rss": "RSS"
+  },
+  "home": {
+    "hero": {
+      "badge": "CHADI INTERNATIONAL",
+      "title1": "希望还不够。",
+      "title2": "行动才是关键。",
+      "description": "数以百万计得不到充分照顾的人仍然无法获得医疗、教育和发展机会。CHADI 正在改变这一切——一次一个生命,一次一个社区。",
+      "impactBadge": "迄今已惠及超过 {{count}}+ 人",
+      "donateNow": "立即捐赠",
+      "joinMission": "加入我们的使命"
+    },
+    "aboutPreview": {
+      "eyebrow": "关于我们",
+      "title": "在社区中创造可持续的影响",
+      "p1": "CHADI International 是一家非营利组织,致力于通过教育、医疗、创新、环境可持续性、人道主义援助和青年赋能来改善人们的生活。",
+      "p2": "我们相信,当社区积极参与自身发展时,持久的改变才会发生。",
+      "learnMore": "了解更多"
+    },
+    "whyChooseUs": {
+      "title": "为什么选择 CHADI International?",
+      "subtitle": "通过创新、合作伙伴关系和社区领导力,创造可持续的变革。",
+      "community": { "title": "社区驱动", "description": "每一项干预措施都与当地社区共同设计,以确保产生持久的影响。" },
+      "inclusive": { "title": "包容性发展", "description": "无论年龄、性别或残疾状况,我们都致力于赋能被边缘化的人群。" },
+      "innovation": { "title": "创新", "description": "科技、创造力和研究引领我们的项目走向可持续发展。" },
+      "sustainable": { "title": "可持续影响", "description": "我们的项目专注于长期变革,而非临时救助。" }
+    },
+    "focusAreas": {
+      "title": "我们的重点领域",
+      "subtitle": "CHADI International 通过综合发展项目,开发可持续的解决方案,改善生活并增强社区实力。",
+      "education": { "title": "教育", "description": "改善优质教育、扫盲及终身学习机会的获取途径。" },
+      "healthcare": { "title": "医疗保健", "description": "加强医疗系统,提升社区福祉。" },
+      "environment": { "title": "环境", "description": "推动气候行动、自然保护和可持续的环保实践。" },
+      "innovation": { "title": "创新", "description": "利用科技与创新解决社会和经济难题。" },
+      "humanitarian": { "title": "人道主义支持", "description": "为弱势群体提供紧急救援和长期支持。" },
+      "youth": { "title": "青年赋能", "description": "为领导力、创业和技能发展创造机会。" }
+    },
+    "impactCounter": {
+      "title": "我们的影响力数据",
+      "subtitle": "每一个项目都代表着被改变的生命和被赋能的社区。",
+      "loading": "加载中..."
+    },
+    "impactAreas": {
+      "eyebrow": "我们的影响力",
+      "title": "创造可持续的变革",
+      "description": "每一个项目都在为更健康的社区、更好的教育、更牢固的家庭和可持续发展做出贡献。",
+      "education": "教育",
+      "healthcare": "医疗保健",
+      "women": "妇女赋能",
+      "climate": "气候行动"
+    },
+    "visionMission": {
+      "title": "我们的宗旨",
+      "subtitle": "通过赋能被边缘化的人群和服务不足的社区,创造持久的影响。",
+      "vision": { "title": "愿景", "description": "通过可持续发展、创新、教育、医疗保健和人道主义干预,赋能被边缘化的人群和服务不足的社区。" },
+      "mission": { "title": "使命", "description": "设计并实施创新项目,改善整个非洲的医疗、教育、生计、环境可持续性、和平、技术获取和社区韧性。" }
+    },
+    "successStories": {
+      "title": "成功故事",
+      "subtitle": "通过 CHADI International 的项目和社区行动,生活被改变的鼓舞人心的故事。",
+      "empty": "来自社区的故事即将呈现。"
+    },
+    "featuredProjects": {
+      "eyebrow": "我们的项目",
+      "title": "创造可持续的影响",
+      "subtitle": "通过创新项目和战略合作伙伴关系,CHADI International 正在改变服务不足社区的生活。"
+    },
+    "latestNews": {
+      "eyebrow": "最新消息",
+      "title": "CHADI 动态",
+      "subtitle": "关注项目进展、实地活动和社区故事。",
+      "viewAll": "查看全部新闻"
+    },
+    "partnersSection": {
+      "eyebrow": "合作伙伴关系",
+      "title": "与社区携手共建",
+      "description": "CHADI 与值得信赖的合作伙伴携手合作,提供切实可行、负责任并扎根于当地实际情况的项目。",
+      "cta": "成为合作伙伴",
+      "fallbackTypes": {
+        "community": "社区领袖",
+        "health": "医疗团队",
+        "schools": "学校",
+        "donors": "捐赠者",
+        "volunteers": "志愿者",
+        "local": "本地组织"
+      }
+    },
+    "upcomingEvents": {
+      "eyebrow": "活动",
+      "title": "近期活动",
+      "seeEvents": "查看活动"
+    },
+    "socialProof": {
+      "eyebrow": "关注我们的历程",
+      "title": "见证我们的行动"
+    },
+    "callToAction": {
+      "title": "准备好支持可持续的社区影响了吗?",
+      "description": "志愿服务、成为合作伙伴、捐赠,或邀请 CHADI 关注值得采取实际行动的社区需求。",
+      "volunteer": "志愿服务",
+      "donate": "捐赠"
+    }
+  }
+}

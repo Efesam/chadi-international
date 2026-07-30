@@ -33,13 +33,13 @@ function Partners() {
         subtitle="Partnerships help CHADI reach farther and serve communities better."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
           <Reveal direction="left">
             <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
               Work With CHADI
             </h2>
-            <p className="mt-6 leading-8 text-gray-600">
+            <p className="mt-6 leading-8 text-gray-600 dark:text-gray-300">
               We partner with groups that care about health, education,
               livelihoods, protection, climate action and community resilience.
               Together we can plan, fund and deliver programs with measurable
@@ -65,7 +65,7 @@ function Partners() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-20 dark:bg-gray-950">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Our Partners</h2>
@@ -76,7 +76,7 @@ function Partners() {
           ) : error ? (
             <p className="mt-8 font-semibold text-red-600">{error}</p>
           ) : partners.length === 0 ? (
-            <p className="mt-8 text-gray-500">
+            <p className="mt-8 text-gray-500 dark:text-gray-400">
               We're building this list. Reach out if your organization would like to partner with CHADI.
             </p>
           ) : (
@@ -87,15 +87,15 @@ function Partners() {
                     href={partner.website || "#"}
                     target={partner.website ? "_blank" : undefined}
                     rel={partner.website ? "noreferrer" : undefined}
-                    className="block rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                    className="block rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:bg-gray-800"
                   >
                     {partner.logo && (
                       <img src={partner.logo} alt={partner.name} loading="lazy" className="h-12 object-contain" />
                     )}
                     <p className="mt-4 font-bold text-chadi-green">{partner.name}</p>
-                    <p className="mt-1 text-sm text-gray-500">{partner.type}</p>
+                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{partner.type}</p>
                     {partner.description && (
-                      <p className="mt-3 text-sm text-gray-600">{partner.description}</p>
+                      <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">{partner.description}</p>
                     )}
                   </a>
                 </StaggerItem>

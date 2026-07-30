@@ -36,7 +36,7 @@ function Resources() {
         subtitle="Guides, checklists and helpful materials for CHADI programs."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <StaggerGrid className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
           {resources.map((resource) => (
             <StaggerItem key={resource.title}>
@@ -44,7 +44,7 @@ function Resources() {
                 <h2 className="text-2xl font-bold text-chadi-green">
                   {resource.title}
                 </h2>
-                <p className="mt-4 leading-7 text-gray-600">
+                <p className="mt-4 leading-7 text-gray-600 dark:text-gray-300">
                   {resource.description}
                 </p>
                 <Link

@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import {
   FaGraduationCap,
   FaHeartbeat,
@@ -8,58 +9,27 @@ import {
   FaUsers,
 } from "react-icons/fa";
 
-const focusAreas = [
-  {
-    icon: <FaGraduationCap />,
-    title: "Education",
-    description:
-      "Improving access to quality education, literacy and lifelong learning opportunities.",
-  },
-  {
-    icon: <FaHeartbeat />,
-    title: "Healthcare",
-    description:
-      "Strengthening healthcare systems and improving community well-being.",
-  },
-  {
-    icon: <FaLeaf />,
-    title: "Environment",
-    description:
-      "Promoting climate action, conservation and sustainable environmental practices.",
-  },
-  {
-    icon: <FaLaptopCode />,
-    title: "Innovation",
-    description:
-      "Leveraging technology and innovation to solve social and economic challenges.",
-  },
-  {
-    icon: <FaHandsHelping />,
-    title: "Humanitarian Support",
-    description:
-      "Providing emergency relief and long-term support for vulnerable populations.",
-  },
-  {
-    icon: <FaUsers />,
-    title: "Youth Empowerment",
-    description:
-      "Creating opportunities for leadership, entrepreneurship and skills development.",
-  },
-];
+const FOCUS_ICONS = [<FaGraduationCap />, <FaHeartbeat />, <FaLeaf />, <FaLaptopCode />, <FaHandsHelping />, <FaUsers />];
+const FOCUS_KEYS = ["education", "healthcare", "environment", "innovation", "humanitarian", "youth"];
 
 function FocusAreas() {
+  const { t } = useTranslation();
+  const focusAreas = FOCUS_KEYS.map((key, index) => ({
+    icon: FOCUS_ICONS[index],
+    title: t(`home.focusAreas.${key}.title`),
+    description: t(`home.focusAreas.${key}.description`),
+  }));
+
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-24 dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <h2 className="text-4xl font-black text-chadi-green">
-            Our Focus Areas
+            {t("home.focusAreas.title")}
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-gray-600">
-            CHADI International develops sustainable solutions that improve
-            lives and strengthen communities through integrated development
-            programmes.
+          <p className="mx-auto mt-5 max-w-3xl text-gray-600 dark:text-gray-300">
+            {t("home.focusAreas.subtitle")}
           </p>
         </div>
 
@@ -82,7 +52,7 @@ function FocusAreas() {
                 {item.title}
               </h3>
 
-              <p className="leading-8 text-gray-600">
+              <p className="leading-8 text-gray-600 dark:text-gray-300">
                 {item.description}
               </p>
             </motion.div>

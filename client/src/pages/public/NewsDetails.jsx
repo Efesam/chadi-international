@@ -17,13 +17,13 @@ function NewsDetails() {
 
   if (error || !article) {
     return (
-      <section className="bg-white py-28 text-center">
+      <section className="bg-white py-28 text-center dark:bg-gray-900">
         <Seo title="Article Not Found" noindex />
         <div className="mx-auto max-w-3xl px-6">
           <h1 className="text-4xl font-bold text-chadi-green">
             Article Not Found
           </h1>
-          <p className="mt-4 text-gray-600">
+          <p className="mt-4 text-gray-600 dark:text-gray-300">
             The update you are looking for may have moved.
           </p>
           <Link
@@ -48,10 +48,10 @@ function NewsDetails() {
 
       <PageHeader title={article.title} subtitle={article.excerpt} />
 
-      <article className="bg-white py-20">
+      <article className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-4xl px-6">
           <Reveal>
-            <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-gray-500">
+            <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-gray-500 dark:text-gray-400">
               <span className="rounded-full bg-chadi-gold px-4 py-2 text-black">
                 {article.category}
               </span>
@@ -60,7 +60,7 @@ function NewsDetails() {
             </div>
 
             <div
-              className="prose prose-lg mt-10 max-w-none text-gray-700"
+              className="prose prose-lg mt-10 max-w-none text-gray-700 dark:text-gray-200"
               dangerouslySetInnerHTML={{ __html: article.content || "" }}
             />
           </Reveal>

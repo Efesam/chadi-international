@@ -34,12 +34,12 @@ function ImpactCalculator() {
           <h2 className="mt-3 text-4xl font-bold text-chadi-green sm:text-5xl">
             What Your Donation Provides
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
             Slide to see what your contribution could mean for a community.
           </p>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-12 rounded-3xl bg-white p-8 shadow-lg sm:p-12">
+        <Reveal delay={0.1} className="mt-12 rounded-3xl bg-white p-8 shadow-lg sm:p-12 dark:bg-gray-800">
           <p className="text-5xl font-black text-chadi-green sm:text-6xl">
             ₦{amount.toLocaleString()}
           </p>
@@ -55,12 +55,12 @@ function ImpactCalculator() {
             className="mt-8 h-2 w-full cursor-pointer appearance-none rounded-full bg-chadi-lightgreen accent-chadi-green"
           />
 
-          <div className="mt-3 flex justify-between text-xs font-semibold text-gray-400">
+          <div className="mt-3 flex justify-between text-xs font-semibold text-gray-400 dark:text-gray-500">
             <span>₦{MIN.toLocaleString()}</span>
             <span>₦{MAX.toLocaleString()}</span>
           </div>
 
-          <p className="mt-8 text-xl leading-8 text-gray-700">
+          <p className="mt-8 text-xl leading-8 text-gray-700 dark:text-gray-200">
             That could provide{" "}
             <span className="font-bold text-chadi-green">
               {impact.count} {impact.unit}

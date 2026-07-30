@@ -78,7 +78,7 @@ function ImpactMap({ projects }) {
                       >
                         {project.title}
                       </Link>
-                      <p className="text-xs text-gray-500">{project.status}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{project.status}</p>
                     </div>
                   </div>
                 ))}

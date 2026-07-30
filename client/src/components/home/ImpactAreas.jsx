@@ -1,33 +1,28 @@
+import { useTranslation } from "react-i18next";
 import SectionTitle from "../ui/SectionTitle";
 
-const areas = [
-  {
-    title: "Education",
-    percentage: 85,
-  },
-  {
-    title: "Healthcare",
-    percentage: 72,
-  },
-  {
-    title: "Women Empowerment",
-    percentage: 65,
-  },
-  {
-    title: "Climate Action",
-    percentage: 48,
-  },
+const AREA_KEYS = [
+  { key: "education", percentage: 85 },
+  { key: "healthcare", percentage: 72 },
+  { key: "women", percentage: 65 },
+  { key: "climate", percentage: 48 },
 ];
 
 function ImpactAreas() {
+  const { t } = useTranslation();
+  const areas = AREA_KEYS.map(({ key, percentage }) => ({
+    title: t(`home.impactAreas.${key}`),
+    percentage,
+  }));
+
   return (
     <section className="bg-chadi-cream py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionTitle
           center
-          eyebrow="Our Impact"
-          title="Creating Sustainable Change"
-          description="Every project contributes to healthier communities, better education, stronger families, and sustainable development."
+          eyebrow={t("home.impactAreas.eyebrow")}
+          title={t("home.impactAreas.title")}
+          description={t("home.impactAreas.description")}
         />
 
         <div className="mt-16 space-y-8">
@@ -38,7 +33,7 @@ function ImpactAreas() {
                 <span>{area.percentage}%</span>
               </div>
 
-              <div className="h-4 overflow-hidden rounded-full bg-white">
+              <div className="h-4 overflow-hidden rounded-full bg-white dark:bg-gray-800">
                 <div
                   className="h-full rounded-full bg-chadi-green"
                   style={{ width: `${area.percentage}%` }}

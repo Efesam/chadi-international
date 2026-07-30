@@ -494,6 +494,28 @@ router.get("/project-summary/:projectId", async (req, res) => {
 });
 
 /**
+ * Bulk version of /project-summary/:projectId - one round trip for every
+ * project's totals at once, so the admin Projects list can show Raised per
+ * project without firing a separate request for each row. Admin-only since
+ * it's the only caller; the public per-project endpoint above already
+ * exposes the same totals one at a time for the public project page.
+ */
+router.get("/project-summaries", requireAdmin, async (req, res) => {
+  const donations = await readCollection("donations", () => []);
+  const summaries = {};
+
+  for (const entry of donations) {
+    if ((entry.type !== "payment" && entry.type !== "subscription") || !entry.projectId) continue;
+    const summary = summaries[entry.projectId] || { totalRaised: 0, donorCount: 0 };
+    summary.totalRaised += entry.amount || 0;
+    summary.donorCount += 1;
+    summaries[entry.projectId] = summary;
+  }
+
+  res.json(summaries);
+});
+
+/**
  * Cancels a Hope Alive Circle subscription by donation id. Shared by the
  * admin cancel route below and the donor portal's self-service cancel
  * (routes/donorPortal.js) - callers are responsible for their own

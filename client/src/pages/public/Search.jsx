@@ -31,7 +31,7 @@ function ResultRow({ to, title, description }) {
       className="block rounded-xl border border-gray-100 p-5 transition hover:border-chadi-green hover:shadow-sm"
     >
       <p className="font-bold text-chadi-green">{title}</p>
-      {description && <p className="mt-1 text-sm leading-6 text-gray-600">{description}</p>}
+      {description && <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-300">{description}</p>}
     </Link>
   );
 }
@@ -78,7 +78,7 @@ function Search() {
 
       <PageHeader title="Search" subtitle="Find projects, news and events across the site." />
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 dark:bg-gray-900">
         <div className="mx-auto max-w-3xl px-6">
           <input
             type="search"
@@ -90,11 +90,11 @@ function Search() {
           />
 
           {loading ? (
-            <p className="mt-8 text-center text-gray-500">Loading...</p>
+            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">Loading...</p>
           ) : !hasQuery ? (
-            <p className="mt-8 text-center text-gray-500">Start typing to search.</p>
+            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">Start typing to search.</p>
           ) : totalResults === 0 ? (
-            <p className="mt-8 text-center text-gray-500">No results for "{query}".</p>
+            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">No results for "{query}".</p>
           ) : (
             <div>
               <ResultGroup

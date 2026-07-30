@@ -22,14 +22,14 @@ function Gallery() {
         subtitle="A glimpse into CHADI programs, projects and community impact."
       />
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           {loading ? (
             <CardGridSkeleton count={6} columns={3} />
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : photos.length === 0 ? (
-            <p className="text-center text-gray-500">
+            <p className="text-center text-gray-500 dark:text-gray-400">
               Photos are on the way. Check back soon to see CHADI's work in pictures.
             </p>
           ) : (
