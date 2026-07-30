@@ -2,7 +2,7 @@ function StatCard({ stat }) {
   const Icon = stat.icon;
 
   return (
-    <div className="group rounded-3xl border border-gray-100 bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-chadi-lightgreen hover:shadow-xl dark:border-gray-700">
+    <div className="group rounded-3xl border border-gray-100 bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-chadi-lightgreen hover:shadow-xl dark:border-gray-700 dark:bg-gray-800">
       {/* Icon */}
       <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-chadi-green text-white transition-all duration-300 group-hover:bg-chadi-gold group-hover:text-chadi-green">
         <Icon size={30} />
