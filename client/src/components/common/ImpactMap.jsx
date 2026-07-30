@@ -61,7 +61,7 @@ function ImpactMap({ projects }) {
           <Marker key={group.coords.join(",")} position={group.coords}>
             <Popup maxWidth={260}>
               <div className="space-y-3">
-                <p className="font-semibold text-chadi-green">{group.location}</p>
+                <p className="font-semibold text-chadi-green dark:text-chadi-lightgreen">{group.location}</p>
                 {group.projects.map((project) => (
                   <div key={project.id} className="flex items-center gap-3">
                     {project.image && (
@@ -74,7 +74,7 @@ function ImpactMap({ projects }) {
                     <div>
                       <Link
                         to={`/projects/${project.slug}`}
-                        className="text-sm font-semibold text-chadi-green hover:underline"
+                        className="text-sm font-semibold text-chadi-green hover:underline dark:text-chadi-lightgreen"
                       >
                         {project.title}
                       </Link>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import { recordDonationInterest } from "../../services/api";
@@ -11,6 +12,7 @@ import Honeypot from "../../components/common/Honeypot";
 import ImpactCalculator from "../../components/common/ImpactCalculator";
 
 function InterestForm() {
+  const { t } = useTranslation();
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -23,9 +25,9 @@ function InterestForm() {
     try {
       await recordDonationInterest(Object.fromEntries(formData.entries()));
       form.reset();
-      toast.success("Thanks. CHADI will contact you with details.");
+      toast.success(t("donate.interestForm.sentToast"));
     } catch {
-      toast.error("We could not save this right now. Please use the contact page.");
+      toast.error(t("donate.interestForm.errorToast"));
     } finally {
       setSubmitting(false);
     }
@@ -36,24 +38,23 @@ function InterestForm() {
       onSubmit={handleSubmit}
       className="rounded-3xl bg-chadi-cream p-8 shadow-lg"
     >
-      <h3 className="text-2xl font-bold text-chadi-green">Other Ways to Give</h3>
+      <h3 className="text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">{t("donate.interestForm.title")}</h3>
       <p className="mt-4 text-gray-600 dark:text-gray-300">
-        Interested in corporate sponsorship or a program
-        partnership? Share your details and CHADI will follow up.
+        {t("donate.interestForm.description")}
       </p>
 
       <Honeypot />
       <input
         className="mt-6 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
         name="name"
-        placeholder="Full name"
+        placeholder={t("donate.interestForm.namePlaceholder")}
         required
       />
       <input
         className="mt-4 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
         name="email"
         type="email"
-        placeholder="Email address"
+        placeholder={t("donate.interestForm.emailPlaceholder")}
         required
       />
       <select
@@ -63,11 +64,11 @@ function InterestForm() {
         required
       >
         <option value="" disabled>
-          Donation interest
+          {t("donate.interestForm.interestPlaceholder")}
         </option>
-        <option>Corporate sponsorship</option>
-        <option>Program partnership</option>
-        <option>In-kind donation</option>
+        <option>{t("donate.interestForm.corporateSponsorship")}</option>
+        <option>{t("donate.interestForm.programPartnership")}</option>
+        <option>{t("donate.interestForm.inKindDonation")}</option>
       </select>
 
       <button
@@ -75,46 +76,45 @@ function InterestForm() {
         disabled={submitting}
         className="mt-8 rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white transition hover:scale-105 hover:bg-chadi-gold hover:text-black disabled:opacity-60"
       >
-        {submitting ? "Saving..." : "Submit Interest"}
+        {submitting ? t("donate.interestForm.saving") : t("donate.interestForm.submit")}
       </button>
 
       <Link
         to="/contact"
-        className="ml-4 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark"
+        className="ml-4 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
       >
-        Contact instead
+        {t("donate.interestForm.contactInstead")}
       </Link>
     </form>
   );
 }
 
 function Donate() {
+  const { t } = useTranslation();
   const [donateOpen, setDonateOpen] = useState(false);
 
   return (
     <>
       <Seo
-        title="Donate"
+        title={t("donate.seoTitle")}
         path="/donate"
-        description="Support CHADI International's work with underserved communities through a secure online donation."
+        description={t("donate.seoDescription")}
       />
 
       <PageHeader
-        title="Donate"
-        subtitle="Support CHADI's work with underserved communities."
+        title={t("donate.pageTitle")}
+        subtitle={t("donate.pageSubtitle")}
       />
 
       <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2">
           <Reveal direction="left">
             <div>
-              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
-                Help Sustain Community Impact
+              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">
+                {t("donate.heading")}
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                Your donation helps CHADI provide nutrition education, learning
-                support, emergency relief, youth development and community
-                wellbeing programs.
+                {t("donate.description")}
               </p>
 
               <button
@@ -122,7 +122,7 @@ function Donate() {
                 onClick={() => setDonateOpen(true)}
                 className="mt-8 rounded-full bg-chadi-green px-8 py-4 font-semibold text-white transition hover:scale-105 hover:bg-chadi-gold hover:text-black"
               >
-                Donate Now
+                {t("donate.donateNow")}
               </button>
             </div>
           </Reveal>

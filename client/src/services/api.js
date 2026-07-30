@@ -201,10 +201,19 @@ export function updateSettings(payload) {
 
 // ---- Generic CRUD resource client, used for every CMS-managed collection ----
 
+/**
+ * `list`/`get` take an optional `lang` so public pages can request
+ * machine-translated content (see server/src/lib/translate.js) by passing
+ * the current i18n language. Deliberately opt-in, not automatic from a
+ * global "current language" - the admin dashboard calls these same
+ * functions to load content for editing, and must always get the original
+ * text back, never a translated copy, or a save-without-changes would
+ * silently overwrite the source with a machine translation.
+ */
 export function createResourceApi(resource) {
   return {
-    list: () => request(`/${resource}`),
-    get: (id) => request(`/${resource}/${id}`),
+    list: (lang) => request(`/${resource}${lang ? `?lang=${encodeURIComponent(lang)}` : ""}`),
+    get: (id, lang) => request(`/${resource}/${id}${lang ? `?lang=${encodeURIComponent(lang)}` : ""}`),
     create: (payload) => request(`/${resource}`, { method: "POST", body: JSON.stringify(payload) }),
     update: (id, payload) => request(`/${resource}/${id}`, { method: "PUT", body: JSON.stringify(payload) }),
     remove: (id) => request(`/${resource}/${id}`, { method: "DELETE" }),

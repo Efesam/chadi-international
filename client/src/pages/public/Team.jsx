@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
@@ -11,6 +12,7 @@ import Newsletter from "../../components/common/Newsletter";
 
 /** A larger spotlight card for leadership (marked "featured" in the admin) - image beside bio instead of a stacked grid card. */
 function FeaturedTeamCard({ member }) {
+  const { t } = useTranslation();
   const initials = member.name
     .split(" ")
     .map((part) => part[0])
@@ -31,10 +33,10 @@ function FeaturedTeamCard({ member }) {
 
       <div className="p-8">
         <span className="rounded-full bg-chadi-gold px-4 py-1 text-xs font-bold uppercase tracking-wide text-black">
-          Leadership
+          {t("team.leadershipBadge")}
         </span>
-        <h3 className="mt-4 text-3xl font-bold text-chadi-green">{member.name}</h3>
-        <p className="mt-1 font-semibold text-chadi-gold-dark">{member.role}</p>
+        <h3 className="mt-4 text-3xl font-bold text-chadi-green dark:text-chadi-lightgreen">{member.name}</h3>
+        <p className="mt-1 font-semibold text-chadi-gold-dark dark:text-chadi-gold">{member.role}</p>
         {member.bio && <p className="mt-4 leading-7 text-gray-600 dark:text-gray-300">{member.bio}</p>}
 
         {(member.email || member.linkedin || member.twitter) && (
@@ -78,12 +80,12 @@ function FeaturedTeamCard({ member }) {
 }
 
 /** Groups the non-featured members by department, preserving first-appearance order (not alphabetical - matches how they were added). */
-function groupByDepartment(members) {
+function groupByDepartment(members, fallbackDepartment) {
   const order = [];
   const groups = {};
 
   members.forEach((member) => {
-    const department = member.department || "Team";
+    const department = member.department || fallbackDepartment;
     if (!groups[department]) {
       groups[department] = [];
       order.push(department);
@@ -95,22 +97,23 @@ function groupByDepartment(members) {
 }
 
 function Team() {
-  const { data: team, loading, error } = useCollection(teamApi.list);
+  const { t, i18n } = useTranslation();
+  const { data: team, loading, error } = useCollection(() => teamApi.list(i18n.language), [i18n.language]);
   const members = team || [];
   const featured = members.filter((member) => member.featured);
-  const departmentGroups = groupByDepartment(members.filter((member) => !member.featured));
+  const departmentGroups = groupByDepartment(members.filter((member) => !member.featured), t("team.defaultDepartment"));
 
   return (
     <>
       <Seo
-        title="Our Team"
+        title={t("team.seoTitle")}
         path="/team"
-        description="Meet the dedicated team behind CHADI International's programs and community work."
+        description={t("team.seoDescription")}
       />
 
       <PageHeader
-        title="Our Team"
-        subtitle="Meet the dedicated people behind CHADI."
+        title={t("team.title")}
+        subtitle={t("team.subtitle")}
       />
 
       <section className="py-20">
@@ -120,7 +123,7 @@ function Team() {
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : members.length === 0 ? (
-            <p className="text-center text-gray-500 dark:text-gray-400">Team profiles are on the way. Check back soon.</p>
+            <p className="text-center text-gray-500 dark:text-gray-400">{t("team.empty")}</p>
           ) : (
             <>
               {featured.length > 0 && (
@@ -136,7 +139,7 @@ function Team() {
               {departmentGroups.map(({ department, members: group }) => (
                 <div key={department} className="mb-16 last:mb-0">
                   <Reveal>
-                    <h2 className="mb-8 border-b border-chadi-lightgreen pb-3 text-2xl font-bold text-chadi-green">
+                    <h2 className="mb-8 border-b border-chadi-lightgreen pb-3 text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">
                       {department}
                     </h2>
                   </Reveal>

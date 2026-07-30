@@ -65,7 +65,7 @@ const Settings = lazy(() => import("../pages/dashboard/Settings"));
 function AdminLoading() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-chadi-cream">
-      <p className="font-semibold text-chadi-green">Loading...</p>
+      <p className="font-semibold text-chadi-green dark:text-chadi-lightgreen">Loading...</p>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaHandsHelping } from "react-icons/fa";
 import { submitVolunteerApplication } from "../../services/api";
 import Modal from "./Modal";
 import Honeypot from "./Honeypot";
 
 function VolunteerModal({ open, onClose, project }) {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
@@ -31,7 +33,7 @@ function VolunteerModal({ open, onClose, project }) {
       });
       setResult({
         type: "success",
-        message: "Thank you! CHADI will reach out about volunteering for this project.",
+        message: t("common.volunteerModal.successMessage"),
       });
       setName("");
       setEmail("");
@@ -39,7 +41,7 @@ function VolunteerModal({ open, onClose, project }) {
       setMessage("");
       setHpField("");
     } catch {
-      setResult({ type: "error", message: "We could not submit this right now. Please try again." });
+      setResult({ type: "error", message: t("common.volunteerModal.errorMessage") });
     } finally {
       setSubmitting(false);
     }
@@ -47,19 +49,19 @@ function VolunteerModal({ open, onClose, project }) {
 
   return (
     <Modal open={open} onClose={onClose} labelledBy="volunteer-modal-title">
-        <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold-dark">
+        <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold-dark dark:text-chadi-gold">
           CHADI International
         </p>
-        <h3 id="volunteer-modal-title" className="mt-2 text-3xl font-bold text-chadi-green">
-          Volunteer
+        <h3 id="volunteer-modal-title" className="mt-2 text-3xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+          {t("common.volunteerModal.title")}
         </h3>
         {project?.title ? (
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            For: <span className="font-semibold text-chadi-green">{project.title}</span>
+            {t("common.volunteerModal.forLabel")} <span className="font-semibold text-chadi-green dark:text-chadi-lightgreen">{project.title}</span>
           </p>
         ) : (
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            Tell us a bit about yourself and how you'd like to help.
+            {t("common.volunteerModal.genericSubtitle")}
           </p>
         )}
 
@@ -68,7 +70,7 @@ function VolunteerModal({ open, onClose, project }) {
           <input
             type="text"
             required
-            placeholder="Full name"
+            placeholder={t("common.volunteerModal.namePlaceholder")}
             value={name}
             onChange={(event) => setName(event.target.value)}
             className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
@@ -76,20 +78,20 @@ function VolunteerModal({ open, onClose, project }) {
           <input
             type="email"
             required
-            placeholder="Email address"
+            placeholder={t("common.volunteerModal.emailPlaceholder")}
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
           />
           <input
             type="text"
-            placeholder="State / location"
+            placeholder={t("common.volunteerModal.locationPlaceholder")}
             value={location}
             onChange={(event) => setLocation(event.target.value)}
             className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
           />
           <textarea
-            placeholder="Anything you'd like us to know? (optional)"
+            placeholder={t("common.volunteerModal.messagePlaceholder")}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
             className="min-h-20 w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
@@ -101,13 +103,13 @@ function VolunteerModal({ open, onClose, project }) {
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-chadi-green px-6 py-3 text-sm font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
           >
             <FaHandsHelping />
-            {submitting ? "Submitting..." : "Sign Up to Volunteer"}
+            {submitting ? t("common.volunteerModal.submitting") : t("common.volunteerModal.submit")}
           </button>
 
           {result && (
             <p
               className={`text-sm font-semibold ${
-                result.type === "success" ? "text-chadi-green" : "text-red-600"
+                result.type === "success" ? "text-chadi-green dark:text-chadi-lightgreen" : "text-red-600"
               }`}
             >
               {result.message}

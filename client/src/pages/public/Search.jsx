@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import Newsletter from "../../components/common/Newsletter";
@@ -16,7 +17,7 @@ function ResultGroup({ title, items, renderItem }) {
 
   return (
     <div className="mt-10 first:mt-0">
-      <h2 className="text-sm font-bold uppercase tracking-widest text-chadi-gold-dark">
+      <h2 className="text-sm font-bold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">
         {title} ({items.length})
       </h2>
       <div className="mt-4 space-y-4">{items.map(renderItem)}</div>
@@ -30,7 +31,7 @@ function ResultRow({ to, title, description }) {
       to={to}
       className="block rounded-xl border border-gray-100 p-5 transition hover:border-chadi-green hover:shadow-sm"
     >
-      <p className="font-bold text-chadi-green">{title}</p>
+      <p className="font-bold text-chadi-green dark:text-chadi-lightgreen">{title}</p>
       {description && <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-300">{description}</p>}
     </Link>
   );
@@ -43,6 +44,7 @@ function ResultRow({ to, title, description }) {
  * real search index/backend if the collections grow into the thousands.
  */
 function Search() {
+  const { t, i18n } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
   const [query, setQuery] = useState(initialQuery);
@@ -50,10 +52,10 @@ function Search() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([projectsApi.list(), newsApi.list(), eventsApi.list()])
+    Promise.all([projectsApi.list(i18n.language), newsApi.list(i18n.language), eventsApi.list(i18n.language)])
       .then(([projects, news, events]) => setData({ projects, news, events }))
       .finally(() => setLoading(false));
-  }, []);
+  }, [i18n.language]);
 
   useEffect(() => {
     setSearchParams(query ? { q: query } : {}, { replace: true });
@@ -74,9 +76,9 @@ function Search() {
 
   return (
     <>
-      <Seo title="Search" path="/search" noindex description="Search CHADI International's projects, news and events." />
+      <Seo title={t("search.seoTitle")} path="/search" noindex description={t("search.seoDescription")} />
 
-      <PageHeader title="Search" subtitle="Find projects, news and events across the site." />
+      <PageHeader title={t("search.title")} subtitle={t("search.subtitle")} />
 
       <section className="bg-white py-16 dark:bg-gray-900">
         <div className="mx-auto max-w-3xl px-6">
@@ -85,20 +87,20 @@ function Search() {
             autoFocus
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search projects, news, events..."
+            placeholder={t("search.placeholder")}
             className="w-full rounded-xl border border-gray-200 px-5 py-4 text-lg outline-none focus:border-chadi-green"
           />
 
           {loading ? (
-            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">Loading...</p>
+            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">{t("search.loading")}</p>
           ) : !hasQuery ? (
-            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">Start typing to search.</p>
+            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">{t("search.prompt")}</p>
           ) : totalResults === 0 ? (
-            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">No results for "{query}".</p>
+            <p className="mt-8 text-center text-gray-500 dark:text-gray-400">{t("search.noResults", { query })}</p>
           ) : (
             <div>
               <ResultGroup
-                title="Projects"
+                title={t("search.projects")}
                 items={results.projects}
                 renderItem={(project) => (
                   <ResultRow
@@ -110,7 +112,7 @@ function Search() {
                 )}
               />
               <ResultGroup
-                title="News"
+                title={t("search.news")}
                 items={results.news}
                 renderItem={(article) => (
                   <ResultRow
@@ -122,7 +124,7 @@ function Search() {
                 )}
               />
               <ResultGroup
-                title="Events"
+                title={t("search.events")}
                 items={results.events}
                 renderItem={(event) => (
                   <ResultRow

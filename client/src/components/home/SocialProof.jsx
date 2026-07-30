@@ -40,8 +40,8 @@ function SocialProof() {
     <section className="bg-white py-24 dark:bg-gray-900">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <Reveal>
-          <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">{t("home.socialProof.eyebrow")}</p>
-          <h2 className="mt-3 text-4xl font-bold text-chadi-green sm:text-5xl">{t("home.socialProof.title")}</h2>
+          <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">{t("home.socialProof.eyebrow")}</p>
+          <h2 className="mt-3 text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">{t("home.socialProof.title")}</h2>
         </Reveal>
 
         {UPLOADS_PLAYLIST_ID && (

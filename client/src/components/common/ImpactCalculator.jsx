@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaHeart } from "react-icons/fa";
 import { IMPACT_TIERS } from "../../data/impactTiers";
 import Reveal from "./Reveal";
@@ -15,6 +16,7 @@ const STEP = 500;
  * just the existing ones scaled to whatever amount the visitor picks.
  */
 function ImpactCalculator() {
+  const { t } = useTranslation();
   const [amount, setAmount] = useState(10000);
   const [donateOpen, setDonateOpen] = useState(false);
 
@@ -23,24 +25,25 @@ function ImpactCalculator() {
     // the cheapest tier (scaled down) if the amount is below all of them.
     const tier = [...IMPACT_TIERS].reverse().find((t) => amount >= t.amount) || IMPACT_TIERS[0];
     const count = Math.max(1, Math.round(amount / tier.amount));
-    return { count, unit: count === 1 ? tier.unit : tier.unitPlural };
-  }, [amount]);
+    const unit = t(`impactTiers.${tier.key}.${count === 1 ? "unit" : "unitPlural"}`);
+    return { count, unit };
+  }, [amount, t]);
 
   return (
     <section className="bg-chadi-cream py-24">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <Reveal>
-          <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">See Your Impact</p>
-          <h2 className="mt-3 text-4xl font-bold text-chadi-green sm:text-5xl">
-            What Your Donation Provides
+          <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">{t("donate.calculator.eyebrow")}</p>
+          <h2 className="mt-3 text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">
+            {t("donate.calculator.title")}
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Slide to see what your contribution could mean for a community.
+            {t("donate.calculator.subtitle")}
           </p>
         </Reveal>
 
         <Reveal delay={0.1} className="mt-12 rounded-3xl bg-white p-8 shadow-lg sm:p-12 dark:bg-gray-800">
-          <p className="text-5xl font-black text-chadi-green sm:text-6xl">
+          <p className="text-5xl font-black text-chadi-green sm:text-6xl dark:text-chadi-lightgreen">
             ₦{amount.toLocaleString()}
           </p>
 
@@ -61,8 +64,8 @@ function ImpactCalculator() {
           </div>
 
           <p className="mt-8 text-xl leading-8 text-gray-700 dark:text-gray-200">
-            That could provide{" "}
-            <span className="font-bold text-chadi-green">
+            {t("donate.calculator.couldProvide")}{" "}
+            <span className="font-bold text-chadi-green dark:text-chadi-lightgreen">
               {impact.count} {impact.unit}
             </span>
             .
@@ -74,7 +77,7 @@ function ImpactCalculator() {
             className="mt-8 inline-flex items-center gap-2 rounded-lg bg-chadi-green px-8 py-4 font-semibold text-white transition hover:scale-105 hover:bg-chadi-gold hover:text-black"
           >
             <FaHeart />
-            Donate ₦{amount.toLocaleString()}
+            {t("donate.calculator.donateButton", { amount: amount.toLocaleString() })}
           </button>
         </Reveal>
       </div>

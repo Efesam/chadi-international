@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaMapMarkerAlt, FaCalendarAlt, FaCalendarCheck } from "react-icons/fa";
 import EventSignupModal from "../common/EventSignupModal";
 
 function EventCard({ event }) {
+  const { t } = useTranslation();
   const [signupOpen, setSignupOpen] = useState(false);
 
   return (
@@ -49,10 +51,10 @@ function EventCard({ event }) {
         <button
           type="button"
           onClick={() => setSignupOpen(true)}
-          className="flex items-center gap-2 pt-1 font-semibold text-chadi-green transition hover:text-chadi-gold-dark"
+          className="flex items-center gap-2 pt-1 font-semibold text-chadi-green transition hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
         >
           <FaCalendarCheck size={14} />
-          Sign Up
+          {t("common.eventCard.signUp")}
         </button>
       </div>
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaExpand } from "react-icons/fa";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
@@ -32,7 +33,8 @@ function StoriesSkeleton() {
 }
 
 function Stories() {
-  const { data, loading, error } = useCollection(storiesApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading, error } = useCollection(() => storiesApi.list(i18n.language), [i18n.language]);
   const [featuredOpen, setFeaturedOpen] = useState(false);
 
   const stories = data || [];
@@ -46,36 +48,34 @@ function Stories() {
   return (
     <>
       <Seo
-        title="Impact Stories"
+        title={t("stories.seoTitle")}
         path="/stories"
-        description="Read real stories of practical change from communities supported by CHADI International."
+        description={t("stories.seoDescription")}
       />
 
       <PageHeader
-        title="Impact Stories"
-        subtitle="Stories of practical change from CHADI-supported communities."
+        title={t("stories.title")}
+        subtitle={t("stories.subtitle")}
       />
 
       {featured && (
         <section className="bg-white py-20 dark:bg-gray-900">
           <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
             <Reveal direction="left">
-              <span className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
-                In Their Words
+              <span className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">
+                {t("stories.eyebrow")}
               </span>
-              <h2 className="mt-4 text-4xl font-bold text-chadi-green sm:text-5xl">
-                The stories numbers can't tell.
+              <h2 className="mt-4 text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">
+                {t("stories.heading")}
               </h2>
               <p className="mt-6 max-w-xl leading-8 text-gray-600 dark:text-gray-300">
-                From the children of SOVCEST to the families of HELP - real
-                stories from the communities CHADI serves, captured with
-                dignity and told in their own words.
+                {t("stories.intro")}
               </p>
               <a
                 href="#all-stories"
                 className="mt-8 inline-block rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white transition hover:scale-105"
               >
-                Read Their Stories
+                {t("stories.readTheirStories")}
               </a>
             </Reveal>
 
@@ -94,7 +94,7 @@ function Stories() {
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
                 <span className="absolute left-5 top-5 rounded-full bg-black/40 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">
-                  Featured Story
+                  {t("stories.featuredBadge")}
                 </span>
                 <span className="absolute inset-0 flex items-center justify-center opacity-0 transition group-hover:opacity-100">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-chadi-green transition group-hover:scale-110">
@@ -103,7 +103,7 @@ function Stories() {
                 </span>
                 <span className="absolute bottom-5 left-5 right-5 text-left">
                   <span className="block text-xs font-semibold uppercase tracking-widest text-white/70">
-                    CHADI &middot; Stories
+                    {t("stories.brand")}
                   </span>
                   <span className="mt-1 block text-xl font-bold text-white">
                     {featured.title}
@@ -123,7 +123,7 @@ function Stories() {
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : remaining.length === 0 ? (
             <p className="text-center text-gray-500 dark:text-gray-400">
-              We're gathering stories from the field. Check back soon.
+              {t("stories.empty")}
             </p>
           ) : (
             <StaggerGrid className="space-y-8">
@@ -139,8 +139,8 @@ function Stories() {
                       />
                     )}
                     <div>
-                      <p className="font-semibold text-chadi-gold-dark">{story.program}</p>
-                      <h2 className="mt-2 text-3xl font-bold text-chadi-green">
+                      <p className="font-semibold text-chadi-gold-dark dark:text-chadi-gold">{story.program}</p>
+                      <h2 className="mt-2 text-3xl font-bold text-chadi-green dark:text-chadi-lightgreen">
                         {story.title}
                       </h2>
                       <p className="mt-4 leading-7 text-gray-600 dark:text-gray-300">
@@ -154,7 +154,7 @@ function Stories() {
                       )}
                       {story.personName && (
                         <p className="mt-5 font-semibold text-gray-700 dark:text-gray-200">
-                          Featuring: {story.personName}
+                          {t("stories.featuring", { name: story.personName })}
                         </p>
                       )}
                     </div>

@@ -8,8 +8,8 @@ import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 import EventCard from "../ui/EventCard";
 
 function UpcomingEvents() {
-  const { t } = useTranslation();
-  const { data, loading } = useCollection(eventsApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading } = useCollection(() => eventsApi.list(i18n.language), [i18n.language]);
   const events = (data || []).slice(0, 3);
 
   if (!loading && events.length === 0) return null;
@@ -19,10 +19,10 @@ function UpcomingEvents() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-12 text-center">
-            <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
+            <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">
               {t("home.upcomingEvents.eyebrow")}
             </p>
-            <h2 className="mt-3 text-4xl font-bold text-chadi-green">
+            <h2 className="mt-3 text-4xl font-bold text-chadi-green dark:text-chadi-lightgreen">
               {t("home.upcomingEvents.title")}
             </h2>
           </div>

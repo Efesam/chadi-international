@@ -39,7 +39,7 @@ function AllocationChart({ data }) {
               style={{ backgroundColor: COLORS[index % COLORS.length] }}
             />
             <span className="text-sm text-gray-700 dark:text-gray-200">
-              <span className="font-bold text-chadi-green">{item.percentage}%</span>{" "}
+              <span className="font-bold text-chadi-green dark:text-chadi-lightgreen">{item.percentage}%</span>{" "}
               {item.category}
             </span>
           </li>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useCollection } from "../../hooks/useCollection";
 import { teamApi } from "../../services/api";
 import Reveal from "./Reveal";
@@ -31,7 +32,7 @@ function TeamPreviewCard({ member }) {
       </div>
       <div className="p-5 text-center">
         <h3 className="font-bold text-chadi-green">{member.name}</h3>
-        <p className="mt-1 text-sm text-chadi-gold-dark">{member.role}</p>
+        <p className="mt-1 text-sm text-chadi-gold-dark dark:text-chadi-gold">{member.role}</p>
       </div>
     </div>
   );
@@ -43,7 +44,8 @@ function TeamPreviewCard({ member }) {
  * otherwise the first few) instead of being a plain CTA with no faces.
  */
 function TeamShowcase({ limit = 4 }) {
-  const { data, loading } = useCollection(teamApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading } = useCollection(() => teamApi.list(i18n.language), [i18n.language]);
   const team = data || [];
   // Featured members lead the lineup, but the grid is always backfilled with
   // the rest of the team so a single featured leader doesn't leave a sparse,
@@ -64,11 +66,10 @@ function TeamShowcase({ limit = 4 }) {
       <div className="relative mx-auto max-w-7xl px-6 text-center">
         <Reveal>
           <h2 className="text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">
-            Meet Our Team
+            {t("common.teamShowcase.title")}
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-gray-600 dark:text-gray-300">
-            Behind every successful community transformation is a passionate
-            team committed to creating lasting impact.
+            {t("common.teamShowcase.subtitle")}
           </p>
         </Reveal>
 
@@ -91,7 +92,7 @@ function TeamShowcase({ limit = 4 }) {
             to="/team"
             className="mt-12 inline-block rounded-xl bg-chadi-green px-8 py-4 font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
           >
-            Meet the Full Team
+            {t("common.teamShowcase.cta")}
           </Link>
         </Reveal>
       </div>

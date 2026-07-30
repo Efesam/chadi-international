@@ -134,5 +134,508 @@
       "volunteer": "Ba da Agaji",
       "donate": "Bayar da Gudummawa"
     }
+  },
+  "common": {
+    "teamShowcase": {
+      "title": "Ku Sadu da Ƙungiyarmu",
+      "subtitle": "A bayan kowane sauyi mai nasara na al'umma akwai ƙwararrun ma'aikata masu sadaukar da kai wajen ƙirƙirar tasiri mai dorewa.",
+      "cta": "Ku Sadu da Cikakkiyar Ƙungiya"
+    },
+    "newsletter": {
+      "title": "Ci Gaba da Sabuntawa",
+      "subtitle": "Yi rijista don karɓar sabuntawa kan ayyukanmu, abubuwan da suka faru da labaran tasiri.",
+      "placeholder": "Shigar da imel ɗinka",
+      "subscribe": "Yi Rijista",
+      "sending": "Ana Aikawa...",
+      "success": "Na gode da yin rijista.",
+      "error": "Ba mu iya yin rijistarka yanzu ba. Da fatan za a sake gwadawa."
+    },
+    "projectCard": {
+      "beneficiaries": "Masu Amfana",
+      "learnMore": "Ƙara Koyo →",
+      "volunteer": "Ba da Agaji",
+      "donate": "Bayar da Gudummawa"
+    },
+    "eventCard": {
+      "signUp": "Yi Rijista"
+    },
+    "newsCard": {
+      "readArticle": "Karanta Labarin →"
+    },
+    "volunteerModal": {
+      "title": "Ba da Agaji",
+      "forLabel": "Don:",
+      "genericSubtitle": "Gaya mana kaɗan game da kanku da yadda kuke son taimakawa.",
+      "namePlaceholder": "Cikakken suna",
+      "emailPlaceholder": "Adireshin imel",
+      "locationPlaceholder": "Jiha / wuri",
+      "messagePlaceholder": "Wani abu da kake so mu sani? (na zaɓi)",
+      "submitting": "Ana Miƙawa...",
+      "submit": "Yi Rijista Don Ba da Agaji",
+      "successMessage": "Na gode! CHADI za ta tuntuɓe ku game da ba da agaji ga wannan aikin.",
+      "errorMessage": "Ba mu iya miƙa wannan yanzu ba. Da fatan za a sake gwadawa."
+    },
+    "eventSignupModal": {
+      "title": "Rijistar Taro",
+      "forLabel": "Don:",
+      "namePlaceholder": "Cikakken suna",
+      "emailPlaceholder": "Adireshin imel",
+      "signingUp": "Ana Yin Rijista...",
+      "confirmSignUp": "Tabbatar da Rijista",
+      "successMessage": "An yi rijistarku! CHADI za ta aiko muku da tunatarwa kusa da ranar.",
+      "errorMessage": "Ba mu iya yin rijistarku yanzu ba. Da fatan za a sake gwadawa."
+    },
+    "cookieConsent": {
+      "message": "Muna amfani da bincike mai kula da sirri don fahimtar yadda baƙi ke amfani da wannan shafin. Ba a sayar da bayanan sirri, kuma shafin da kansa ba ya saita kukis na bibiya. Duba",
+      "privacyLink": "Manufar Sirri",
+      "messageEnd": "domin ƙarin bayani.",
+      "decline": "Ƙi",
+      "accept": "Yarda"
+    },
+    "exitIntent": {
+      "title": "Kafin ku tafi...",
+      "subtitle": "Ku ci gaba da kasancewa tare da mu — yi rijista don karɓar sakon watanmu kan ayyuka, abubuwan da suka faru da labaran tasiri.",
+      "emailPlaceholder": "Shigar da imel ɗinka",
+      "subscribing": "Ana Yin Rijista...",
+      "keepMeUpdated": "Ku Ci Gaba da Sanar da Ni",
+      "noThanks": "A'a na gode",
+      "successToast": "Na gode da yin rijista.",
+      "errorToast": "Ba mu iya yin rijistarka yanzu ba. Da fatan za a sake gwadawa."
+    }
+  },
+  "impactTiers": {
+    "nutritionKit": { "label": "Yana bayar da kayan abinci mai gina jiki", "unit": "kayan abinci mai gina jiki", "unitPlural": "kayayyakin abinci mai gina jiki" },
+    "healthOutreach": { "label": "Yana tallafa wa ziyarar lafiya", "unit": "ziyarar kiwon lafiya", "unitPlural": "ziyarorin kiwon lafiya" },
+    "skillTraining": { "label": "Yana horar da yaro sabuwar ƙwarewa", "unit": "yaro da aka horar da sabuwar ƙwarewa", "unitPlural": "yara da aka horar da sabuwar ƙwarewa" },
+    "familySupport": { "label": "Yana tallafa wa iyali na wata guda", "unit": "iyali da aka tallafa na wata guda", "unitPlural": "iyalai da aka tallafa na wata guda" }
+  },
+  "donateModal": {
+    "orgName": "CHADI International",
+    "title": "Bayar da Gudummawa Yau",
+    "supporting": "Ana Tallafawa:",
+    "genericSubtitle": "Ba kawai kuɗi kake bayarwa ba — kana bayar da bege, mutunci da sabuwar dama.",
+    "oneTime": "Sau Ɗaya",
+    "monthly": "Kowane Wata — Hope Alive Circle",
+    "namePlaceholder": "Cikakken suna",
+    "emailPlaceholder": "Adireshin imel",
+    "minAmountError": "Da fatan za a shigar da adadin ₦100 ko fiye.",
+    "monthlyNote": "Za a caje katin ku ₦{{amount}} ta atomatik kowane wata sai kun soke. Ku soke a kowane lokaci ta hanyar tuntuɓar CHADI.",
+    "notConfigured": "Biyan kuɗi ta yanar gizo ba a saita shi ba tukuna a wannan shafin. Da fatan za a yi amfani da shafin Tuntuɓi maimakon.",
+    "processing": "Ana Sarrafawa...",
+    "giveButton": "Bayar da ₦{{amount}}",
+    "joinButton": "Shiga Hope Alive Circle - ₦{{amount}}/wata",
+    "securedBy": "An kiyaye shi ta Paystack · shiga al'ummar magoya bayan CHADI",
+    "internationalPrompt": "Kana bayarwa daga wajen Najeriya?",
+    "verifyErrorOnce": "An biya kuɗin amma ba mu iya tabbatar da shi ta atomatik ba. Da fatan za a tuntuɓe mu da lambar tunani: {{reference}}",
+    "verifyErrorMonthly": "An biya kuɗin farko amma ba mu iya tabbatar da shi ta atomatik ba. Da fatan za a tuntuɓe mu da lambar tunani: {{reference}}",
+    "monthlySetupError": "Ba mu iya kafa bayarwa ta kowane wata a yanzu ba. Da fatan za a sake gwadawa.",
+    "success": {
+      "title": "An Karɓi Biyan Kuɗi!",
+      "subscriptionMessage": "Barka da zuwa Hope Alive Circle! Za a caje katin ku {{amount}} ta atomatik kowane wata.",
+      "oneTimeMessage": "Na gode da gudummawar ku ta {{amount}}. Kuna bayar da bege, mutunci da sabuwar dama.",
+      "reference": "Lambar Tunani: {{reference}}",
+      "downloadReceipt": "Zazzage Rasit",
+      "downloading": "Ana Zazzagewa...",
+      "downloadError": "Ba a iya zazzage rasit ba",
+      "done": "An Gama"
+    }
+  },
+  "donate": {
+    "seoTitle": "Bayar da Gudummawa",
+    "seoDescription": "Tallafa wa aikin CHADI International tare da al'ummomin da ba a kula da su ba ta hanyar gudummawa mai aminci ta yanar gizo.",
+    "pageTitle": "Bayar da Gudummawa",
+    "pageSubtitle": "Tallafa wa aikin CHADI tare da al'ummomin da ba a kula da su ba.",
+    "heading": "Taimaka Wajen Tallafa Wa Tasirin Al'umma",
+    "description": "Gudummawar ku na taimaka wa CHADI wajen bayar da ilimin abinci mai gina jiki, tallafin koyo, agajin gaggawa, ci gaban matasa da shirye-shiryen jin daɗin al'umma.",
+    "donateNow": "Bayar da Gudummawa Yanzu",
+    "calculator": {
+      "eyebrow": "Ku Ga Tasirin Ku",
+      "title": "Abin Da Gudummawar Ku Take Bayarwa",
+      "subtitle": "Zare don ganin abin da gudummawar ku za ta iya nufi ga al'umma.",
+      "couldProvide": "Wannan zai iya bayarwa",
+      "donateButton": "Bayar da ₦{{amount}}"
+    },
+    "interestForm": {
+      "title": "Wasu Hanyoyin Bayarwa",
+      "description": "Kana sha'awar tallafin kamfani ko haɗin gwiwar shiri? Ka raba bayananka kuma CHADI za ta bi ka.",
+      "namePlaceholder": "Cikakken suna",
+      "emailPlaceholder": "Adireshin imel",
+      "interestPlaceholder": "Sha'awar bayarwa",
+      "corporateSponsorship": "Tallafin kamfani",
+      "programPartnership": "Haɗin gwiwar shiri",
+      "inKindDonation": "Gudummawar kayan aiki",
+      "saving": "Ana Ajiyewa...",
+      "submit": "Miƙa Sha'awa",
+      "contactInstead": "Tuntuɓi maimakon",
+      "sentToast": "Na gode. CHADI za ta tuntuɓe ku da bayanai.",
+      "errorToast": "Ba mu iya adana wannan yanzu ba. Da fatan za a yi amfani da shafin tuntuɓa."
+    }
+  },
+  "gallery": {
+    "seoTitle": "Hotuna",
+    "seoDescription": "Duba hotuna daga shirye-shiryen CHADI International, ayyuka da tasirin al'umma.",
+    "title": "Hotuna",
+    "subtitle": "Ɗan kallo cikin shirye-shiryen CHADI, ayyuka da tasirin al'umma.",
+    "empty": "Hotuna suna kan hanya. Ku sake dubawa nan ba da jimawa ba don ganin aikin CHADI cikin hotuna."
+  },
+  "getInvolved": {
+    "seoTitle": "Ku Shiga",
+    "seoDescription": "Ku gano hanyoyin ba da agaji, haɗin gwiwa, ko bayar da gudummawa ga CHADI International don taimakawa wajen ƙirƙirar tasirin al'umma mai dorewa.",
+    "title": "Ku Shiga",
+    "subtitle": "Ku shiga CHADI wajen ƙirƙirar tasirin al'umma mai amfani da dorewa.",
+    "volunteer": { "title": "Ba da Agaji", "description": "Ku ba da lokacinku, ƙwarewarku da tallafin filin ga shirye-shiryen al'umma.", "action": "Fara Ba da Agaji" },
+    "partner": { "title": "Haɗa Kai Da Mu", "description": "Ku haɗa kai a kan ayyukan da ke inganta ilimi, lafiya da rayuwa.", "action": "Tattauna Haɗin Gwiwa" },
+    "donate": { "title": "Bayar da Gudummawa", "description": "Tallafa wa isar da shirye-shirye ga yara, mata, matasa da iyalai masu rauni.", "action": "Yi Gudummawa" }
+  },
+  "news": {
+    "seoTitle": "Labarai",
+    "seoDescription": "Karanta sabbin labarai, sabuntawa da sanarwar CHADI International.",
+    "title": "Labarai",
+    "subtitle": "Sabbin sabuntawa daga CHADI.",
+    "empty": "Babu labaran har yanzu.",
+    "notFound": {
+      "title": "Ba a Sami Labarin Ba",
+      "description": "Labarin da kake nema wataƙila ya canja wuri.",
+      "back": "Koma Zuwa Labarai"
+    }
+  },
+  "notFound": {
+    "seoTitle": "Ba a Sami Shafin Ba",
+    "eyebrow": "404",
+    "title": "Ba a Sami Shafin Ba",
+    "description": "Shafin da kake nema ba ya wanzuwa ko an canja wurinsa.",
+    "backHome": "Koma Gida"
+  },
+  "privacy": {
+    "seoTitle": "Manufar Sirri",
+    "seoDescription": "Karanta manufar sirri ta CHADI International game da yadda ake sarrafa bayanan da aka raba ta wannan shafin yanar gizo.",
+    "title": "Manufar Sirri",
+    "subtitle": "Yadda CHADI ke sarrafa bayanan da aka raba ta wannan shafin yanar gizo.",
+    "lastUpdated": "An sabunta na ƙarshe: wannan manufar tana bayyana yadda wannan shafin ke sarrafa bayanai a yau. Wuri ne mai kyau na farawa, ba madadin dubawar lauya mai cancanta ba kafin ku dogara da shi don dalilan bin ƙa'ida.",
+    "collect": { "title": "Bayanan da muke tarawa", "body": "Muna tara abin da kuka zaɓa ku miƙa ta hanyar fom ɗin wannan shafin: sunanku da imel a kan fom ɗin tuntuɓa, ba da agaji, wasiƙar labarai da sha'awar bayarwa, tare da duk wani abu da wani fom na musamman ke buƙata (misali sha'awar ku lokacin ba da agaji). Idan kuka yi gudummawa, Paystack (mai sarrafa biyan kuɗin mu) na raba sunanku, imel, adadin gudummawa da lambar biyan kuɗi da mu domin mu iya rikodin gudummawar ku mu aiko muku da rasit - bayanan katin ku ana shigar da su kai tsaye cikin tsarin biyan kuɗi na Paystack kuma ba sa taɓa wuce ta sabobinmu." },
+    "cookies": { "title": "Kukis", "body": "Wannan shafin da kansa ba ya saita kukis na bibiya. Idan kun karɓi bayanin kukis, muna loda bincike mai kula da sirri, marar kukis (Plausible) don fahimtar zirga-zirga gaba ɗaya - ba ya amfani da kukis ko bibiyar ku ɗaya-ɗaya a wasu shafuka. Dashboard na admin na kiyaye ma'aikata sa hannu ta amfani da ma'ajiyar gida ta burauzarku, ba kuki ba. Tsarin biyan kuɗi na Paystack na iya saita kukis nasa a kan dominsa yayin da kuke kammala biyan kuɗi, wanda manufar sirri ta Paystack ke tafiyar da shi, ba namu ba." },
+    "usage": { "title": "Yadda muke amfani da bayananku", "body": "Don amsa tambayoyi, sarrafa da rasit gudummawa, bibiyar aikace-aikacen ba da agaji, aiko sabuntawar wasiƙar labarai da kuka yi rijista da su, da tafiyar da ayyukan asali na shafin. Ba ma sayar da bayanan sirri, kuma ba ma amfani da abin da kuka raba don wani abu bayan waɗannan dalilai ba tare da tambayarku farko ba." },
+    "sharing": { "title": "Waɗanda muke raba shi da su", "body": "Kawai ɓangarori na uku da ake buƙata don bayar da sabis ɗin da kuka nema: Paystack (sarrafa biyan kuɗi), mai bayar da sabis na imel ɗin mu (aika rasit, amsoshi da wasiƙar labarai), kuma, idan an kunna, Plausible (bincike) da Sentry (kula da kuskure, don taimaka mana gyara matsaloli). Ba ma sayarwa ko hayar bayananku ga wani. Samun dama a cikin CHADI an takaita ga membobin ƙungiyar da suke buƙatarsa don yin aikinsu." },
+    "retention": { "title": "Tsawon lokacin da muke ajiyewa", "body": "Muna ajiye bayanan da aka miƙa muddin yana da amfani don dalilin da kuka raba shi (misali aikace-aikacen ba da agaji mai aiki, rikodin gudummawa don lissafinmu), ko har sai kun nemi mu goge shi - duk abin da ya dace." },
+    "rights": { "title": "Haƙƙoƙin ku", "body": "Dangane da inda kuke, kuna iya samun haƙƙin samun dama, gyarawa, gogewa, ko karɓar kwafin bayanan da muke rikewa game da ku, ko ƙin yadda ake amfani da su. Don yin amfani da ɗayan waɗannan, ko sabunta ko cire bayanan da kuka raba da mu, ku tuntuɓe mu ta", "contactLink": "Shafin Tuntuɓa" },
+    "children": { "title": "Sirrin yara", "body": "Wannan shafin ba a nufi yara ba, kuma ba ma tara bayanan sirri daga yara da sanin gaskiya." },
+    "changes": { "title": "Canje-canje ga wannan manufar", "body": "Muna iya sabunta wannan manufar yayin da shafin da sabis ɗinmu ke ci gaba. Manyan canje-canje za a nuna su a nan tare da sabuntacciyar kwanan wata." }
+  },
+  "resources": {
+    "seoTitle": "Albarkatu",
+    "seoDescription": "Jagorori, jerin abubuwa da kayan aiki masu taimako daga shirye-shiryen CHADI International.",
+    "title": "Albarkatu",
+    "subtitle": "Jagorori, jerin abubuwa da kayan aiki masu taimako don shirye-shiryen CHADI.",
+    "requestButton": "Nemi Albarkatu",
+    "nutritionGuide": { "title": "Jagorar Wayar da Kai kan Abinci Mai Gina Jiki", "description": "Sauƙaƙan tunatarwa don zaman abinci mai gina jiki na uwa, jariri da yaro." },
+    "volunteerChecklist": { "title": "Jerin Abubuwan Ba da Agaji na Filin", "description": "Jerin shirin gaggawa don tallafin waje da ayyukan filin." },
+    "projectIntake": { "title": "Karɓar Shawarar Aiki na Al'umma", "description": "Jagora ga al'ummomi da abokan hulɗa da suke ba da shawarar aikin da CHADI za ta tallafa." }
+  },
+  "search": {
+    "seoTitle": "Bincike",
+    "seoDescription": "Bincika ayyuka, labarai da abubuwan da suka faru na CHADI International.",
+    "title": "Bincike",
+    "subtitle": "Nemo ayyuka, labarai da abubuwan da suka faru a shafin.",
+    "placeholder": "Bincika ayyuka, labarai, abubuwan da suka faru...",
+    "loading": "Ana Lodawa...",
+    "prompt": "Fara rubutu don bincika.",
+    "noResults": "Babu sakamako don \"{{query}}\".",
+    "projects": "Ayyuka",
+    "news": "Labarai",
+    "events": "Abubuwan Da Suka Faru"
+  },
+  "stories": {
+    "seoTitle": "Labaran Tasiri",
+    "seoDescription": "Karanta ainihin labaran canji na gaske daga al'ummomin da CHADI International ke tallafawa.",
+    "title": "Labaran Tasiri",
+    "subtitle": "Labaran canji na gaske daga al'ummomin da CHADI ke tallafawa.",
+    "eyebrow": "Da Kalmominsu",
+    "heading": "Labaran da lambobi ba za su iya faɗa ba.",
+    "intro": "Daga yaran SOVCEST zuwa iyalan HELP - ainihin labarai daga al'ummomin da CHADI ke bautawa, an kama su cikin mutunci kuma an ba da su cikin kalmominsu.",
+    "readTheirStories": "Karanta Labaransu",
+    "featuredBadge": "Labari Mai Zaɓi",
+    "brand": "CHADI · Labarai",
+    "empty": "Muna tara labarai daga filin. Ku sake dubawa nan ba da jimawa ba.",
+    "featuring": "Yana Nuni Da: {{name}}"
+  },
+  "terms": {
+    "seoTitle": "Sharuɗɗan Amfani",
+    "seoDescription": "Jagorori da sharuɗɗa don amfani da shafin yanar gizo na CHADI International.",
+    "title": "Sharuɗɗan Amfani",
+    "subtitle": "Jagorori don amfani da shafin yanar gizo na CHADI International.",
+    "disclaimer": "Wannan wuri ne mai kyau na farawa, ba madadin dubawar lauya mai cancanta ba kafin ku dogara da shi don dalilan bin ƙa'ida.",
+    "usage": { "title": "Amfani da wannan shafin", "body": "Wannan shafin yanar gizo na raba bayanai game da shirye-shiryen CHADI, ayyuka, abubuwan da suka faru da damarmaki. Ana bayar da abun ciki don bayani na gaba ɗaya kuma ana iya sabunta shi yayin da shirye-shirye ke ci gaba. Kun yarda kada ku yi amfani da shafin ba daidai ba, ku miƙa ƙarya ta hanyar fom ɗinsa, ko ku yi ƙoƙarin tarwatsa dandalin ko sabis ɗin da yake haɗawa da su." },
+    "content": { "title": "Abun ciki da mallakar fasaha", "body": "Rubutu, hotuna da sauran abun ciki a wannan shafin na CHADI International ne ko ana amfani da su da izini, sai dai an bayyana akasin haka. Kuna maraba da raba hanyoyin haɗi zuwa abun cikinmu; sake amfani da shi a wani wuri yana buƙatar izininmu na rubutu tukuna." },
+    "donations": { "title": "Gudummawa", "body": "Gudummawar da aka yi ta wannan shafin gudummawa ne na son rai ga aikin CHADI International. Ana sarrafa biyan kuɗi ta hanyar Paystack cikin aminci; ba ma taɓa ganin ko ajiye bayanan katin ku ba. Idan kun yi gudummawa ba daidai ba ko kuna da damuwa game da wani caji, ku tuntuɓe mu ta", "contactLink": "Shafin Tuntuɓa", "bodyEnd": "kuma za mu yi aiki da ku a kai." },
+    "thirdParty": { "title": "Hanyoyin haɗi na ɓangare na uku", "body": "Wannan shafin na iya haɗawa da shafukan yanar gizo na ɓangare na uku (abokan hulɗa, kafofin sada zumunta, masu ba da biyan kuɗi). Ba mu da alhakin abun ciki ko ayyukan shafukan da ba mu sarrafa su ba." },
+    "liability": { "title": "Babu garanti; iyakance alhaki", "body": "Ana bayar da wannan shafin da abun cikinsa \"kamar yadda yake,\" ba tare da wani garanti ba. Zuwa ga iyakar da doka ta ba da izini, CHADI International ba ta da alhakin duk wata asara kai tsaye ko ta zahiri da ta taso daga amfani da wannan shafin." },
+    "governingLaw": { "title": "Dokar da ke tafiyar da shi", "body": "Waɗannan sharuɗɗa dokokin Tarayyar Najeriya ne ke tafiyar da su, ba tare da la'akari da ƙa'idodin karo na doka ba." },
+    "changes": { "title": "Canje-canje ga waɗannan sharuɗɗa", "body": "CHADI na iya sabunta waɗannan sharuɗɗa yayin da shafin da sabis ɗinsa ke girma. Cigaba da amfani da shafin bayan wani canji na nufin kun yarda da sabuntattun sharuɗɗan." }
+  },
+  "transparency": {
+    "seoTitle": "Gaskiya",
+    "seoDescription": "Duba yadda CHADI International ke rarraba da bayar da rahoto kan gudummawa, tare da sadaukarwa ga gaskiya da ɗawainiya.",
+    "pageTitle": "Sadaukarwarmu",
+    "pageSubtitle": "Gaskiya. Ɗawainiya. Tasiri.",
+    "intro": "Mun sadaukar da kai wajen amfani da kowane albarkatu cikin ɗawainiya da tabbatar da tasiri mai ma'auni, mai dorewa a al'ummomin da muke bautawa. Ana bibiyar kowace gudummawa daga lokacin da aka bayar da ita zuwa sakamakon da take taimakawa wajen ƙirƙira.",
+    "allocationTitle": "Inda Gudummawar Ku Take Zuwa",
+    "loading": "Ana Lodawa...",
+    "allocationEmpty": "Muna buga cikakken rarrabuwa a nan da zaran an gama shi don lokacin bayar da rahoto na yanzu. A halin yanzu, ku tuntuɓe mu a ƙasa don sabon rahotonmu.",
+    "reportsTitle": "Rahotanni & Bayanan Kuɗi",
+    "transparencyCard": { "title": "Gaskiya", "description": "Bayyanannen rahoto kan yadda ake tara da kashe kuɗi." },
+    "accountabilityCard": { "title": "Ɗawainiya", "description": "Ayyukan shugabanci da ke sa ƙungiyarmu ta amsa wa al'ummomin da muke bautawa." },
+    "impactCard": { "title": "Tasiri Mai Ma'auni", "description": "Ana bibiyar shirye-shirye a kan ainihin sakamako, ba kawai aiki ba." },
+    "ctaTitle": "Kuna son cikakken hoto?",
+    "ctaDescription": "Ku tuntuɓi ƙungiyarmu don cikakkun rahotannin kuɗi da shirye-shirye.",
+    "ctaButton": "Nemi Rahoto"
+  },
+  "volunteer": {
+    "seoTitle": "Ba da Agaji",
+    "seoDescription": "Yi amfani da ƙwarewarku, lokacinku da tausayinku don tallafa wa shirye-shiryen al'umma na CHADI International. Ku shiga don ba da agaji yau.",
+    "title": "Ba da Agaji",
+    "subtitle": "Yi amfani da ƙwarewarku, lokacinku da tausayinku don tallafa wa al'ummomin CHADI.",
+    "sentToast": "An karɓi aikace-aikacen. CHADI za ta tuntuɓe ku ba da jimawa ba.",
+    "errorToast": "Ba mu iya miƙa wannan yanzu ba. Da fatan za a sake gwadawa.",
+    "spark": {
+      "eyebrow": "CHADI Kind Humans",
+      "heading": "Zama Jakadan CHADI SPARK na Jiha",
+      "description": "<strong>SPARK</strong> — Yaɗawa da Yin Ayyukan Kirki Ba Zato. Jakadun jihohi na jagorantar ƙananan ayyuka masu tasiri a al'ummarsu ƙarƙashin kulawar CHADI.",
+      "role": { "title": "Aikin Ku", "description": "Ku tsara kuma ku gudanar da ƙananan ayyukan alheri a jiharku, tare da jagora da tallafin CHADI." },
+      "recognition": { "title": "Karramawa", "description": "Ana zaɓen aikin SPARK mafi kyau a kowace shekara kuma ana bikin sa a duk fadin kafofin CHADI." },
+      "visibility": { "title": "Ganuwa", "description": "An nuna a shafin yanar gizo na CHADI da kafofin sada zumunta — gina mallakar al'umma na asali a al'ummarku." },
+      "prompt": "Kuna sha'awa? Ku zaɓi \"Jakadan Jiha na SPARK\" a matsayin fannin ku a ƙasa."
+    },
+    "areasTitle": "Fannonin Ba da Agaji",
+    "areas": {
+      "outreach": "Isar da sako na al'umma da tattarawa",
+      "health": "Ilimin lafiya da abinci mai gina jiki",
+      "digital": "Ƙwarewar dijital da jagora",
+      "media": "Kafofin yaɗa labarai, sadarwa da ba da labari",
+      "research": "Bincike, sa ido da kimantawa"
+    },
+    "form": {
+      "namePlaceholder": "Cikakken suna",
+      "emailPlaceholder": "Adireshin imel",
+      "phonePlaceholder": "Lambar waya",
+      "locationPlaceholder": "Wuri",
+      "areaPlaceholder": "Fannin sha'awa",
+      "areaOutreach": "Isar da sako na al'umma",
+      "areaHealth": "Lafiya da abinci mai gina jiki",
+      "areaEducation": "Ilimi da jagora",
+      "areaMedia": "Kafofin yaɗa labarai da sadarwa",
+      "areaResearch": "Bincike da bayanai",
+      "areaSpark": "Jakadan Jiha na SPARK",
+      "messagePlaceholder": "Ku gaya mana game da gogewarku ko dalilin ku",
+      "submitting": "Ana Miƙawa...",
+      "submit": "Miƙa Aikace-aikace"
+    }
+  },
+  "donorPortal": {
+    "seoTitle": "Shafin Masu Bayarwa",
+    "seoDescription": "Ku shiga don duba tarihin gudummawar ku na CHADI International, zazzage rasit na haraji, da sarrafa bayarwa ta yau da kullum.",
+    "title": "Shafin Masu Bayarwa",
+    "subtitle": "Duba tarihin gudummawar ku, zazzage rasit, da sarrafa bayarwa ta yau da kullum.",
+    "typeLabels": { "payment": "Gudummawa Sau Ɗaya", "subscription": "Hope Alive Circle (Kowane Wata)" },
+    "login": {
+      "emailLabel": "Adireshin imel",
+      "emailPlaceholder": "kai@misali.com",
+      "sending": "Ana Aikawa...",
+      "submit": "Aiko Min Hanyar Shiga Ta Imel",
+      "hint": "Yi amfani da adireshin imel ɗin da kuka bayar da gudummawa da shi. Ba a buƙatar kalmar sirri.",
+      "sentTitle": "Idan wannan imel ɗin ya yi gudummawa da mu, mun aika masa da hanyar shiga.",
+      "sentHint": "Ku duba akwatin saƙonninku (da spam) don hanyar haɗi daga CHADI International. Yana ƙarewa cikin mintuna 15.",
+      "genericError": "Wani abu ya ɓace. Da fatan za a sake gwadawa."
+    },
+    "dashboard": {
+      "title": "Tarihin Bayarwar Ku",
+      "signOut": "Fita",
+      "loading": "Ana lodar gudummawar ku...",
+      "empty": "Ba a sami gudummawa ba don wannan imel ɗin tukuna.",
+      "loadError": "Ba a iya lodar tarihin gudummawar ku ba",
+      "columns": { "date": "Kwanan Wata", "type": "Nau'i", "amount": "Adadi", "status": "Matsayi", "actions": "Ayyuka" },
+      "status": { "active": "Mai Aiki", "cancelled": "An Soke", "activating": "Ana Kunnawa..." },
+      "downloadReceipt": "Zazzage Rasit",
+      "downloading": "Ana Zazzagewa...",
+      "downloadError": "Ba a iya zazzage rasit ba",
+      "cancel": "Soke",
+      "cancelling": "Ana Sokewa...",
+      "cancelConfirm": "Soke wannan gudummawar da ake maimaitawa? Ba za a iya sokewa ba.",
+      "cancelSuccess": "An soke bayarwa",
+      "cancelError": "Ba a iya soke bayarwa ba"
+    }
+  },
+  "donorPortalVerify": {
+    "seoTitle": "Ana Shiga",
+    "seoDescription": "Ana shigar da ku cikin shafin masu bayarwa na CHADI.",
+    "title": "Shafin Masu Bayarwa",
+    "subtitle": "Ana shigar da ku...",
+    "verifying": "Ana tabbatar da hanyar shigarku...",
+    "invalidLink": "Wannan hanyar shiga ba daidai ba ce ko ta ƙare.",
+    "requestNewLink": "Nemi Sabuwar Hanya"
+  },
+  "governance": {
+    "seoTitle": "Shugabanci",
+    "seoDescription": "Hukumar daraktocin CHADI International da sadaukarwar kariya.",
+    "title": "Shugabanci",
+    "subtitle": "Mutane da sadaukarwar da ke sa CHADI ta kasance mai ɗawainiya.",
+    "boardTitle": "Hukumar Daraktoci",
+    "boardEmpty": "Ana kammala bayanan hukuma. Ku sake dubawa nan ba da jimawa ba.",
+    "safeguardingTitle": "Kariya",
+    "loading": "Ana Lodawa...",
+    "safeguardingEmpty": "Ana kammala manufar kariyarmu don bugawa a nan. A halin yanzu, idan kuna da damuwa ko tambaya kan kariya, da fatan za a",
+    "safeguardingContact": "tuntuɓe mu kai tsaye"
+  },
+  "partners": {
+    "seoTitle": "Abokan Hulɗa",
+    "seoDescription": "Ku sadu da ƙungiyoyi da cibiyoyin da suke haɗin gwiwa da CHADI International don bautawa al'ummomi da kyau.",
+    "title": "Abokan Hulɗa",
+    "subtitle": "Haɗin gwiwa na taimaka wa CHADI kaiwa nesa da bautawa al'ummomi da kyau.",
+    "workWithUs": "Yi Aiki Da CHADI",
+    "description": "Muna haɗin gwiwa da ƙungiyoyin da ke kula da lafiya, ilimi, rayuwa, kariya, aikin yanayi da juriyar al'umma. Tare za mu iya tsarawa, bayar da kuɗi da isar da shirye-shirye masu ƙima na gida.",
+    "becomePartner": "Zama Abokin Hulɗa",
+    "ourPartners": "Abokan Hulɗarmu",
+    "empty": "Muna gina wannan jeri. Ku tuntuɓe mu idan ƙungiyarku na son yin haɗin gwiwa da CHADI.",
+    "types": {
+      "community": "Ƙungiyoyin al'umma",
+      "schools": "Makarantu da cibiyoyin koyo",
+      "health": "Cibiyoyin lafiya",
+      "corporate": "Masu tallafin kamfani",
+      "faith": "Ƙungiyoyin addini da na jama'a",
+      "research": "Abokan bincike da sabuntawa"
+    }
+  },
+  "projects": {
+    "seoTitle": "Ayyukanmu",
+    "seoDescription": "Bincika ayyukan CHADI International masu aiki a kan lafiya, ilimi, rayuwa da ci gaban al'umma.",
+    "title": "Ayyukanmu",
+    "subtitle": "Ƙarfafa Waɗanda Aka Ware & Al'ummomin Da Ba A Kula Da Su Ba",
+    "whereWeWork": "Inda Muke Aiki",
+    "mapIntro": "Bincika al'ummomin da ke fadin Najeriya inda ayyukan CHADI ke aiki. Ka danna alama don ganin abin da ke faruwa a can.",
+    "searchPlaceholder": "Bincika ayyuka...",
+    "allFilter": "Duka",
+    "noMatch": "Babu ayyukan da suka dace da bincikenku."
+  },
+  "team": {
+    "seoTitle": "Ƙungiyarmu",
+    "seoDescription": "Ku sadu da ƙwararrun ƙungiyar da ke bayan shirye-shiryen CHADI International da aikin al'umma.",
+    "title": "Ƙungiyarmu",
+    "subtitle": "Ku sadu da mutanen da suka sadaukar da kai a bayan CHADI.",
+    "empty": "Bayanan ƙungiya suna kan hanya. Ku sake dubawa nan ba da jimawa ba.",
+    "leadershipBadge": "Jagoranci",
+    "defaultDepartment": "Ƙungiya"
+  },
+  "projectDetails": {
+    "notFoundTitle": "Ba a Sami Aikin Ba",
+    "notFoundDescription": "Da fatan za a koma zuwa shafin ayyuka don bincika aikin CHADI.",
+    "seoFallbackDescription": "Koyi game da aikin {{title}} na CHADI International.",
+    "aboutTitle": "Game da Wannan Aikin",
+    "objectivesTitle": "Manufofi",
+    "objectives": {
+      "empower": "Ƙarfafa waɗanda aka ware da iyalansu.",
+      "wellbeing": "Inganta jin daɗin al'umma ta hanyar tallafi mai amfani.",
+      "sustainable": "Inganta ci gaba mai dorewa tare da halartar gida.",
+      "impact": "Ƙirƙirar tasiri mai ma'auni ga al'ummomin da ba a kula da su ba."
+    },
+    "mediaTitle": "Hotuna & Bidiyo",
+    "spendingTitle": "Yadda Aka Yi Amfani da Kuɗi",
+    "spendingIntro": "Bayyanannen rikodin kashe kuɗi a kan wannan aikin har zuwa yanzu.",
+    "totalSpent": "Jimlar Da Aka Kashe",
+    "sidebarTitle": "Bayanan Aiki",
+    "program": "Shiri",
+    "location": "Wuri",
+    "status": "Matsayi",
+    "beneficiaries": "Masu Amfana",
+    "raised": "An Tara Wa Wannan Aikin",
+    "fromSupporters_one": "daga mai tallafi {{count}}",
+    "fromSupporters_other": "daga masu tallafi {{count}}",
+    "goalProgress": "{{percent}}% na buƙatar ₦{{budget}}",
+    "spentSoFar": "An Kashe Har Zuwa Yanzu",
+    "remaining": "Ragowa",
+    "donateButton": "Bayar da Gudummawa Ga Wannan Aikin",
+    "volunteerButton": "Ba da Agaji Ga Wannan Aikin"
+  },
+  "careers": {
+    "seoTitle": "Ayyukan Yi",
+    "seoDescription": "Bincika damar shiga ƙungiyar CHADI International mai sadaukar da kai wajen bautawa al'ummomin da ba a kula da su ba.",
+    "title": "Ayyukan Yi",
+    "subtitle": "Ku shiga ƙungiya mai sadaukar da kai wajen bautawa al'ummomin da ba a kula da su ba.",
+    "noRoles": "Babu wuraren aiki a buɗe a yanzu",
+    "description": "CHADI na buga dama don shiri, filin, bincike, haɗin gwiwa da matsayin ayyuka lokacin da suka samu. Masu ba da agaji da abokan haɗin gwiwa koyaushe suna maraba don gabatar da kansu.",
+    "cta": "Ba da Agaji Tare da Mu"
+  },
+  "contact": {
+    "seoTitle": "Tuntuɓe Mu",
+    "seoDescription": "Ku tuntuɓi CHADI International don haɗin gwiwa, ba da agaji, gudummawa da tambayoyin shiri.",
+    "pageTitle": "Tuntuɓi CHADI",
+    "pageSubtitle": "Ku tuntuɓe mu don haɗin gwiwa, ba da agaji, gudummawa da tambayoyin shiri.",
+    "heading": "Bari mu ji daga gare ku",
+    "intro": "CHADI na aiki tare da al'ummomi, masu ba da agaji, masu bayarwa da abokan hulɗa don isar da shirye-shirye inda ake buƙatarsu.",
+    "email": "Imel",
+    "focusRegion": "Yankin Da Ake Mai Da Hankali",
+    "officeHours": "Lokutan Ofis",
+    "sentToast": "An aika saƙo. CHADI za ta bi ba da jimawa ba.",
+    "errorToast": "Ba a iya aika saƙon yanzu ba. Da fatan za a sake gwadawa.",
+    "form": {
+      "name": "Cikakken Suna",
+      "email": "Imel",
+      "subject": "Batu",
+      "message": "Saƙo",
+      "sending": "Ana Aikawa...",
+      "send": "Aika Saƙo"
+    }
+  },
+  "faq": {
+    "seoTitle": "Tambayoyi Akai-akai",
+    "seoDescription": "Amsoshin tambayoyi na kowa game da shirye-shiryen CHADI International, ba da agaji da haɗin gwiwa.",
+    "title": "Tambayoyi Akai-akai",
+    "subtitle": "Amsoshin tambayoyi na kowa game da CHADI International.",
+    "loading": "Ana Lodawa...",
+    "empty": "Tambayoyi suna kan hanya. Ku sake dubawa nan ba da jimawa ba."
+  },
+  "events": {
+    "seoTitle": "Abubuwan Da Suka Faru",
+    "seoDescription": "Duba abubuwan da CHADI International za ta yi na isar da sako, horo da haɗin kai na al'umma.",
+    "title": "Abubuwan Da Suka Faru",
+    "subtitle": "Ayyukan isar da sako, horo da haɗin kai na al'umma da ke tafe.",
+    "empty": "Babu wani taro da aka tsara a yanzu. Ku sake dubawa nan ba da jimawa ba.",
+    "noMatch": "Babu abubuwan da suka faru da suka dace da wannan tacewa.",
+    "allFilter": "Duka",
+    "cta": {
+      "title": "Karɓi bakuncin ko tallafa wa wani taro",
+      "description": "CHADI na haɗin gwiwa da al'ummomi, makarantu, ƙungiyoyin lafiya da masu tallafi don isar da ayyukan filin masu amfani.",
+      "button": "Tattauna Da Mu"
+    }
+  },
+  "about": {
+    "seoTitle": "Game da Mu",
+    "seoDescription": "Koyi game da manufa, hangen nesa da labarin da ke bayan aikin CHADI International na ƙarfafa waɗanda aka ware da al'ummomin da ba a kula da su ba.",
+    "pageTitle": "Game da CHADI",
+    "pageSubtitle": "Ƙarfafa Waɗanda Aka Ware & Al'ummomin Da Ba A Kula Da Su Ba",
+    "ourStory": {
+      "badge": "Hope Alive",
+      "eyebrow": "Game da CHADI",
+      "title1": "Ƙarfafa Rayuka.",
+      "title2": "Sauya Al'ummomi.",
+      "p1": "Caleb Hope Alive Development Initiative (CHADI) ƙungiya ce mai zaman kanta da ke sadaukar da kai wajen ƙarfafa waɗanda aka ware da al'ummomin da ba a kula da su ba a fadin Najeriya ta hanyar ci gaba mai dorewa, ilimi, kiwon lafiya, sabuntawa, da shiga tsakani na jin ƙai.",
+      "p2": "Mun yi imani kowane mutum ya cancanci mutunci, dama, ingantaccen kiwon lafiya, ilimi, da bege ba tare da la'akari da inda suke zama ba ko yanayin da ke kewaye da su.",
+      "quote": "Muna maido da mutunci, samar da dama, da kuma kawo bege — ta hanyar aiki.",
+      "readStory": "Karanta Labarinmu"
+    },
+    "coreValues": {
+      "title": "Ainihin Ƙimarmu",
+      "compassion": { "title": "Jin Ƙai", "description": "Bautawa ɗan adam da tausayi da ƙauna." },
+      "integrity": { "title": "Mutunci", "description": "Bayyana gaskiya da ɗawainiya a duk abin da muke yi." },
+      "innovation": { "title": "Sabuntawa", "description": "Ƙirƙirar mafita mai dorewa don ƙalubalen al'umma." },
+      "inclusion": { "title": "Haɗa Kai", "description": "Tabbatar da kowa na da dama daidai." },
+      "excellence": { "title": "Fifiko", "description": "Isar da shirye-shirye masu tasiri da inganci." },
+      "collaboration": { "title": "Haɗin Gwiwa", "description": "Yin aiki tare da abokan hulɗa da al'ummomi." }
+    },
+    "timeline": {
+      "title": "Tafiyarmu",
+      "founded": { "title": "An Kafa CHADI", "description": "An kafa CHADI don ƙarfafa al'ummomin da ba a kula da su ba ta hanyar ci gaba mai dorewa." },
+      "health": { "title": "Shirye-shiryen Lafiya & Abinci Mai Gina Jiki", "description": "An faɗaɗa shirye-shiryen lafiyar uwa da yaro a fadin al'ummomin karkara." },
+      "youth": { "title": "Ƙarfafa Matasa", "description": "An kaddamar da horon ƙwarewar dijital da kasuwanci ga matasa." },
+      "expansion": { "title": "Faɗaɗawar Yanki", "description": "An faɗaɗa ayyuka a fadin jihohi da dama a Arewacin Najeriya ta hanyar haɗin gwiwa mai dabara." }
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import Reveal from "../../components/common/Reveal";
@@ -27,8 +28,8 @@ function BoardCard({ member }) {
         )}
       </div>
       <div className="p-5">
-        <h3 className="font-bold text-chadi-green">{member.name}</h3>
-        <p className="mt-1 text-sm text-chadi-gold-dark">{member.role}</p>
+        <h3 className="font-bold text-chadi-green dark:text-chadi-lightgreen">{member.name}</h3>
+        <p className="mt-1 text-sm text-chadi-gold-dark dark:text-chadi-gold">{member.role}</p>
         {member.bio && <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">{member.bio}</p>}
       </div>
     </div>
@@ -36,7 +37,8 @@ function BoardCard({ member }) {
 }
 
 function Governance() {
-  const { data: board, loading: boardLoading } = useCollection(boardApi.list);
+  const { t, i18n } = useTranslation();
+  const { data: board, loading: boardLoading } = useCollection(() => boardApi.list(i18n.language), [i18n.language]);
   const { data: settings, loading: settingsLoading } = useCollection(getSettings);
   const members = board || [];
   const policy = settings?.safeguardingPolicy;
@@ -44,20 +46,20 @@ function Governance() {
   return (
     <>
       <Seo
-        title="Governance"
+        title={t("governance.seoTitle")}
         path="/governance"
-        description="CHADI International's board of directors and safeguarding commitments."
+        description={t("governance.seoDescription")}
       />
 
       <PageHeader
-        title="Governance"
-        subtitle="The people and commitments that keep CHADI accountable."
+        title={t("governance.title")}
+        subtitle={t("governance.subtitle")}
       />
 
       <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Board of Directors</h2>
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">{t("governance.boardTitle")}</h2>
           </Reveal>
 
           {boardLoading ? (
@@ -65,7 +67,7 @@ function Governance() {
               <CardGridSkeleton count={3} columns={3} />
             </div>
           ) : members.length === 0 ? (
-            <p className="mt-8 text-gray-500 dark:text-gray-400">Board information is being finalized. Check back soon.</p>
+            <p className="mt-8 text-gray-500 dark:text-gray-400">{t("governance.boardEmpty")}</p>
           ) : (
             <StaggerGrid className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {members.map((member) => (
@@ -81,20 +83,19 @@ function Governance() {
       <section className="bg-gray-50 py-20 dark:bg-gray-950">
         <div className="mx-auto max-w-4xl px-6">
           <Reveal>
-            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Safeguarding</h2>
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">{t("governance.safeguardingTitle")}</h2>
           </Reveal>
 
           <Reveal delay={0.1} className="mt-8 rounded-3xl bg-white p-8 shadow-sm sm:p-10 dark:bg-gray-800">
             {settingsLoading ? (
-              <p className="text-gray-500 dark:text-gray-400">Loading...</p>
+              <p className="text-gray-500 dark:text-gray-400">{t("governance.loading")}</p>
             ) : policy ? (
               <div className="prose max-w-none text-gray-600 dark:text-gray-300" dangerouslySetInnerHTML={{ __html: policy }} />
             ) : (
               <p className="leading-7 text-gray-600 dark:text-gray-300">
-                Our safeguarding policy is being finalized for publication here. In the meantime,
-                if you have a safeguarding concern or question, please{" "}
-                <Link to="/contact" className="font-semibold text-chadi-green underline">
-                  contact us directly
+                {t("governance.safeguardingEmpty")}{" "}
+                <Link to="/contact" className="font-semibold text-chadi-green underline dark:text-chadi-lightgreen">
+                  {t("governance.safeguardingContact")}
                 </Link>
                 .
               </p>

@@ -25,7 +25,7 @@ class ChunkErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-chadi-cream px-6 text-center">
-          <p className="text-xl font-bold text-chadi-green">
+          <p className="text-xl font-bold text-chadi-green dark:text-chadi-lightgreen">
             Something didn't load correctly
           </p>
           <p className="max-w-sm text-gray-600 dark:text-gray-300">

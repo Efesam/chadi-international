@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import Reveal from "../../components/common/Reveal";
@@ -6,17 +7,19 @@ import Newsletter from "../../components/common/Newsletter";
 import careersImage from "../../assets/projects/school-support.jpg";
 
 function Careers() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Seo
-        title="Careers"
+        title={t("careers.seoTitle")}
         path="/careers"
-        description="Explore opportunities to join CHADI International's mission-driven team serving underserved communities."
+        description={t("careers.seoDescription")}
       />
 
       <PageHeader
-        title="Careers"
-        subtitle="Join a mission-driven team serving underserved communities."
+        title={t("careers.title")}
+        subtitle={t("careers.subtitle")}
       />
 
       <section className="bg-white py-20 dark:bg-gray-900">
@@ -31,19 +34,17 @@ function Careers() {
           </Reveal>
 
           <Reveal direction="right" delay={0.15} className="text-center lg:text-left">
-            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
-              No open roles right now
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">
+              {t("careers.noRoles")}
             </h2>
             <p className="mt-6 leading-8 text-gray-600 dark:text-gray-300">
-              CHADI posts opportunities for program, field, research, partnership
-              and operations roles when positions become available. Volunteers and
-              collaborators are always welcome to introduce themselves.
+              {t("careers.description")}
             </p>
             <Link
               to="/volunteer"
               className="mt-8 inline-block rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white"
             >
-              Volunteer With Us
+              {t("careers.cta")}
             </Link>
           </Reveal>
         </div>

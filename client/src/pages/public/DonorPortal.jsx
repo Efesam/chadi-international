@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import Reveal from "../../components/common/Reveal";
@@ -12,11 +13,6 @@ import {
   downloadDonorReceipt,
 } from "../../services/api";
 
-const TYPE_LABELS = {
-  payment: "One-Time Donation",
-  subscription: "Hope Alive Circle (Monthly)",
-};
-
 function formatAmount(entry) {
   const amount = Number(entry.amount || 0).toLocaleString();
   if (entry.currency === "USD") return `$${amount}`;
@@ -24,6 +20,7 @@ function formatAmount(entry) {
 }
 
 function LoginForm() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
@@ -36,7 +33,7 @@ function LoginForm() {
       await requestDonorLink(email);
       setSent(true);
     } catch (error) {
-      toast.error(error.message || "Something went wrong. Please try again.");
+      toast.error(error.message || t("donorPortal.login.genericError"));
     } finally {
       setSubmitting(false);
     }
@@ -45,11 +42,11 @@ function LoginForm() {
   if (sent) {
     return (
       <div className="rounded-2xl bg-chadi-cream p-8 text-center">
-        <p className="font-semibold text-chadi-green">
-          If that email has made a donation with us, we've sent a sign-in link to it.
+        <p className="font-semibold text-chadi-green dark:text-chadi-lightgreen">
+          {t("donorPortal.login.sentTitle")}
         </p>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-          Check your inbox (and spam folder) for a link from CHADI International. It expires in 15 minutes.
+          {t("donorPortal.login.sentHint")}
         </p>
       </div>
     );
@@ -58,13 +55,13 @@ function LoginForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl bg-chadi-cream p-8">
       <label className="block">
-        <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">Email address</span>
+        <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">{t("donorPortal.login.emailLabel")}</span>
         <input
           type="email"
           required
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="you@example.com"
+          placeholder={t("donorPortal.login.emailPlaceholder")}
           className="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
         />
       </label>
@@ -73,16 +70,17 @@ function LoginForm() {
         disabled={submitting}
         className="w-full rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
       >
-        {submitting ? "Sending..." : "Email Me a Sign-In Link"}
+        {submitting ? t("donorPortal.login.sending") : t("donorPortal.login.submit")}
       </button>
       <p className="text-center text-xs text-gray-500 dark:text-gray-400">
-        Use the same email address you donated with. No password needed.
+        {t("donorPortal.login.hint")}
       </p>
     </form>
   );
 }
 
 function DonationRow({ entry, onCancelled }) {
+  const { t } = useTranslation();
   const [downloading, setDownloading] = useState(false);
   const [cancelling, setCancelling] = useState(false);
 
@@ -91,21 +89,21 @@ function DonationRow({ entry, onCancelled }) {
     try {
       await downloadDonorReceipt(entry.id, `CHADI-receipt-${entry.reference || entry.id}.pdf`);
     } catch (error) {
-      toast.error(error.message || "Could not download receipt");
+      toast.error(error.message || t("donorPortal.dashboard.downloadError"));
     } finally {
       setDownloading(false);
     }
   };
 
   const handleCancel = async () => {
-    if (!window.confirm("Cancel this recurring donation? This can't be undone.")) return;
+    if (!window.confirm(t("donorPortal.dashboard.cancelConfirm"))) return;
     setCancelling(true);
     try {
       await cancelDonorSubscription(entry.id);
-      toast.success("Subscription cancelled");
+      toast.success(t("donorPortal.dashboard.cancelSuccess"));
       onCancelled(entry.id);
     } catch (error) {
-      toast.error(error.message || "Could not cancel subscription");
+      toast.error(error.message || t("donorPortal.dashboard.cancelError"));
     } finally {
       setCancelling(false);
     }
@@ -119,9 +117,9 @@ function DonationRow({ entry, onCancelled }) {
         {new Date(entry.createdAt).toLocaleDateString()}
       </td>
       <td className="py-4 pr-4 text-sm font-medium text-gray-900 dark:text-gray-50">
-        {TYPE_LABELS[entry.type] || entry.type}
+        {t(`donorPortal.typeLabels.${entry.type}`, { defaultValue: entry.type })}
       </td>
-      <td className="py-4 pr-4 text-sm font-semibold text-chadi-green">
+      <td className="py-4 pr-4 text-sm font-semibold text-chadi-green dark:text-chadi-lightgreen">
         {formatAmount(entry)}
         {entry.type === "subscription" && "/mo"}
       </td>
@@ -137,10 +135,10 @@ function DonationRow({ entry, onCancelled }) {
             }`}
           >
             {entry.subscriptionStatus === "active"
-              ? "Active"
+              ? t("donorPortal.dashboard.status.active")
               : entry.subscriptionStatus === "cancelled"
-              ? "Cancelled"
-              : "Activating..."}
+              ? t("donorPortal.dashboard.status.cancelled")
+              : t("donorPortal.dashboard.status.activating")}
           </span>
         ) : (
           "—"
@@ -151,9 +149,9 @@ function DonationRow({ entry, onCancelled }) {
           <button
             onClick={handleDownload}
             disabled={downloading}
-            className="rounded-lg border border-chadi-green px-3 py-1.5 text-xs font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white disabled:opacity-60"
+            className="rounded-lg border border-chadi-green px-3 py-1.5 text-xs font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white disabled:opacity-60 dark:border-chadi-lightgreen dark:text-chadi-lightgreen"
           >
-            {downloading ? "Downloading..." : "Download Receipt"}
+            {downloading ? t("donorPortal.dashboard.downloading") : t("donorPortal.dashboard.downloadReceipt")}
           </button>
           {canCancel && (
             <button
@@ -161,7 +159,7 @@ function DonationRow({ entry, onCancelled }) {
               disabled={cancelling}
               className="rounded-lg border border-red-300 px-3 py-1.5 text-xs font-semibold text-red-600 transition hover:bg-red-50 disabled:opacity-60"
             >
-              {cancelling ? "Cancelling..." : "Cancel"}
+              {cancelling ? t("donorPortal.dashboard.cancelling") : t("donorPortal.dashboard.cancel")}
             </button>
           )}
         </div>
@@ -171,14 +169,15 @@ function DonationRow({ entry, onCancelled }) {
 }
 
 function DonorDashboard({ onLogout }) {
+  const { t } = useTranslation();
   const [donations, setDonations] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
     getDonorDonations()
       .then(setDonations)
-      .catch((err) => setError(err.message || "Could not load your donation history"));
-  }, []);
+      .catch((err) => setError(err.message || t("donorPortal.dashboard.loadError")));
+  }, [t]);
 
   const handleCancelled = (id) => {
     setDonations((prev) => prev.map((d) => (d.id === id ? { ...d, subscriptionStatus: "cancelled" } : d)));
@@ -192,24 +191,24 @@ function DonorDashboard({ onLogout }) {
   return (
     <div>
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-2xl font-bold text-chadi-green">Your Giving History</h2>
+        <h2 className="text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">{t("donorPortal.dashboard.title")}</h2>
         <button
           onClick={handleLogout}
           className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-chadi-green"
         >
-          Sign out
+          {t("donorPortal.dashboard.signOut")}
         </button>
       </div>
 
       {error && <p className="rounded-xl bg-red-50 p-4 text-sm text-red-600">{error}</p>}
 
       {!error && donations === null && (
-        <p className="text-sm text-gray-500 dark:text-gray-400">Loading your donations...</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{t("donorPortal.dashboard.loading")}</p>
       )}
 
       {!error && donations !== null && donations.length === 0 && (
         <div className="rounded-2xl bg-chadi-cream p-8 text-center text-sm text-gray-600 dark:text-gray-300">
-          No donations found for this email yet.
+          {t("donorPortal.dashboard.empty")}
         </div>
       )}
 
@@ -218,11 +217,11 @@ function DonorDashboard({ onLogout }) {
           <table className="w-full min-w-[560px] border-collapse">
             <thead>
               <tr className="border-b border-gray-200 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                <th className="pb-3 pr-4">Date</th>
-                <th className="pb-3 pr-4">Type</th>
-                <th className="pb-3 pr-4">Amount</th>
-                <th className="pb-3 pr-4">Status</th>
-                <th className="pb-3 text-right">Actions</th>
+                <th className="pb-3 pr-4">{t("donorPortal.dashboard.columns.date")}</th>
+                <th className="pb-3 pr-4">{t("donorPortal.dashboard.columns.type")}</th>
+                <th className="pb-3 pr-4">{t("donorPortal.dashboard.columns.amount")}</th>
+                <th className="pb-3 pr-4">{t("donorPortal.dashboard.columns.status")}</th>
+                <th className="pb-3 text-right">{t("donorPortal.dashboard.columns.actions")}</th>
               </tr>
             </thead>
             <tbody>
@@ -238,19 +237,20 @@ function DonorDashboard({ onLogout }) {
 }
 
 function DonorPortal() {
+  const { t } = useTranslation();
   const [signedIn, setSignedIn] = useState(() => Boolean(getDonorToken()));
 
   return (
     <>
       <Seo
-        title="Donor Portal"
+        title={t("donorPortal.seoTitle")}
         path="/donor-portal"
-        description="Sign in to view your CHADI International donation history, download tax receipts, and manage recurring giving."
+        description={t("donorPortal.seoDescription")}
       />
 
       <PageHeader
-        title="Donor Portal"
-        subtitle="View your donation history, download receipts, and manage recurring giving."
+        title={t("donorPortal.title")}
+        subtitle={t("donorPortal.subtitle")}
       />
 
       <section className="bg-white py-16 dark:bg-gray-900">

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FaHeart, FaHandsHelping } from "react-icons/fa";
 import DonateModal from "../common/DonateModal";
 import VolunteerModal from "../common/VolunteerModal";
 
 function ProjectCard({ project }) {
+  const { t } = useTranslation();
   const [donateOpen, setDonateOpen] = useState(false);
   const [volunteerOpen, setVolunteerOpen] = useState(false);
 
@@ -45,7 +47,7 @@ function ProjectCard({ project }) {
 
         <div className="pt-2">
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Beneficiaries
+            {t("common.projectCard.beneficiaries")}
           </p>
 
           <p className="font-semibold dark:text-gray-100">
@@ -56,19 +58,19 @@ function ProjectCard({ project }) {
         <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
           <Link
             to={`/projects/${project.slug}`}
-            className="inline-flex font-semibold text-chadi-green hover:text-chadi-gold-dark"
+            className="inline-flex font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
           >
-            Learn More →
+            {t("common.projectCard.learnMore")}
           </Link>
 
           <div className="flex gap-2">
             <button
               type="button"
               onClick={() => setVolunteerOpen(true)}
-              className="flex items-center gap-2 rounded-full border border-chadi-green px-4 py-2 text-sm font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white"
+              className="flex items-center gap-2 rounded-full border border-chadi-green px-4 py-2 text-sm font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white dark:border-chadi-lightgreen dark:text-chadi-lightgreen"
             >
               <FaHandsHelping size={12} />
-              Volunteer
+              {t("common.projectCard.volunteer")}
             </button>
 
             <button
@@ -77,7 +79,7 @@ function ProjectCard({ project }) {
               className="flex items-center gap-2 rounded-full bg-chadi-gold px-4 py-2 text-sm font-semibold text-black transition hover:scale-105"
             >
               <FaHeart size={12} />
-              Donate
+              {t("common.projectCard.donate")}
             </button>
           </div>
         </div>

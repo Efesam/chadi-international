@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
@@ -7,52 +8,41 @@ import partnerImage from "../../assets/projects/clean-water.jpg";
 import donateImage from "../../assets/projects/maternal-health.jpg";
 import Newsletter from "../../components/common/Newsletter";
 
-const opportunities = [
-  {
-    title: "Volunteer",
-    image: volunteerImage,
-    description:
-      "Contribute your time, skills and field support to community programs.",
-    action: "Start Volunteering",
-    path: "/volunteer",
-  },
-  {
-    title: "Partner With Us",
-    image: partnerImage,
-    description:
-      "Collaborate on projects that improve education, health and livelihoods.",
-    action: "Discuss Partnership",
-    path: "/contact",
-  },
-  {
-    title: "Donate",
-    image: donateImage,
-    description:
-      "Support program delivery for children, women, youth and vulnerable families.",
-    action: "Make a Donation",
-    path: "/donate",
-  },
+const OPPORTUNITY_KEYS = [
+  { key: "volunteer", image: volunteerImage, path: "/volunteer" },
+  { key: "partner", image: partnerImage, path: "/contact" },
+  { key: "donate", image: donateImage, path: "/donate" },
 ];
 
 function GetInvolved() {
+  const { t } = useTranslation();
+  const opportunities = OPPORTUNITY_KEYS.map(({ key, image, path }) => ({
+    key,
+    image,
+    path,
+    title: t(`getInvolved.${key}.title`),
+    description: t(`getInvolved.${key}.description`),
+    action: t(`getInvolved.${key}.action`),
+  }));
+
   return (
     <>
       <Seo
-        title="Get Involved"
+        title={t("getInvolved.seoTitle")}
         path="/get-involved"
-        description="Discover ways to volunteer, partner with, or donate to CHADI International and help create lasting community impact."
+        description={t("getInvolved.seoDescription")}
       />
 
       <PageHeader
-        title="Get Involved"
-        subtitle="Join CHADI in creating practical, sustainable community impact."
+        title={t("getInvolved.title")}
+        subtitle={t("getInvolved.subtitle")}
       />
 
       <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-6">
           <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {opportunities.map((item) => (
-              <StaggerItem key={item.title}>
+              <StaggerItem key={item.key}>
                 <div className="overflow-hidden rounded-3xl bg-chadi-cream shadow-lg">
                   <img
                     src={item.image}
@@ -61,7 +51,7 @@ function GetInvolved() {
                     className="h-48 w-full object-cover"
                   />
                   <div className="p-8">
-                    <h2 className="text-3xl font-bold text-chadi-green">
+                    <h2 className="text-3xl font-bold text-chadi-green dark:text-chadi-lightgreen">
                       {item.title}
                     </h2>
                     <p className="mt-5 leading-7 text-gray-600 dark:text-gray-300">

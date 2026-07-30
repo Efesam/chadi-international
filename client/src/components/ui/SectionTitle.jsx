@@ -11,7 +11,7 @@ function SectionTitle({
       }`}
     >
       {eyebrow && (
-        <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
+        <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">
           {eyebrow}
         </p>
       )}

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;900&family=Poppins:wght@400;500;600;700;900&display=swap");
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
@@ -14,7 +14,7 @@
 
 @theme {
   --font-heading: "Poppins", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-body: "Figtree", sans-serif;
 
   --color-chadi-green: #347928;
   --color-chadi-lightgreen: #C0EBA6;
@@ -25,6 +25,9 @@
      text) or as text on the dark green background; on light backgrounds it
      fails WCAG AA contrast (1.51:1). This passes at 4.92:1. */
   --color-chadi-gold-dark: #8a6d00;
+
+  /* Inner layer of the two-tone focus ring below - near-black in light mode. */
+  --color-focus-ring-inner: #161a16;
 }
 
 /* Dark-mode value for chadi-cream only - redefining this (rather than
@@ -40,9 +43,13 @@
    text-chadi-green as a small badge/pill background (Button's "secondary"
    variant, ProjectCard's status pill, ExitIntentPopup's icon circle) never
    as a large surface - darkening it would leave dark-green text sitting on
-   a near-black background, failing contrast badly. */
+   a near-black background, failing contrast badly.
+
+   --color-focus-ring-inner flips alongside it, for the two-tone focus ring
+   below - see that comment for why. */
 .dark {
   --color-chadi-cream: #161a16;
+  --color-focus-ring-inner: #FFFBE6;
 }
 
 html {
@@ -71,9 +78,17 @@ h6 {
 
 /* Consistent, visible focus ring for keyboard navigation. Only shows for
    keyboard focus (not mouse clicks), so it doesn't add visual noise for
-   mouse/touch users while still being there for anyone tabbing through. */
+   mouse/touch users while still being there for anyone tabbing through.
+
+   Two layers on purpose: a single gold ring measures only 1.45:1 against
+   the (very common) cream/white page background - well under the 3:1 WCAG
+   non-text contrast minimum for focus indicators - though it reads fine on
+   dark surfaces and on chadi-green buttons/nav. Adding an inner ring that
+   flips near-black/near-cream with the theme guarantees at least one of the
+   two rings has real contrast against any background the site uses. */
 :focus-visible {
-  outline: 3px solid var(--color-chadi-gold);
+  outline: 3px solid var(--color-focus-ring-inner);
   outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--color-chadi-gold);
   border-radius: 2px;
 }

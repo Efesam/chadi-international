@@ -10,8 +10,8 @@ import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 const FALLBACK_PARTNER_TYPE_KEYS = ["community", "health", "schools", "donors", "volunteers", "local"];
 
 function PartnersSection() {
-  const { t } = useTranslation();
-  const { data, loading } = useCollection(partnersApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading } = useCollection(() => partnersApi.list(i18n.language), [i18n.language]);
   const partners = (data || []).slice(0, 6);
 
   return (
@@ -19,10 +19,10 @@ function PartnersSection() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_1.2fr] lg:items-center">
         <Reveal direction="left">
           <div>
-            <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
+            <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">
               {t("home.partnersSection.eyebrow")}
             </p>
-            <h2 className="mt-3 text-4xl font-bold text-chadi-green">
+            <h2 className="mt-3 text-4xl font-bold text-chadi-green dark:text-chadi-lightgreen">
               {t("home.partnersSection.title")}
             </h2>
             <p className="mt-5 leading-8 text-gray-600 dark:text-gray-300">
@@ -60,7 +60,7 @@ function PartnersSection() {
                       {partner.name.slice(0, 2).toUpperCase()}
                     </div>
                   )}
-                  <span className="font-semibold text-chadi-green">{partner.name}</span>
+                  <span className="font-semibold text-chadi-green dark:text-chadi-lightgreen">{partner.name}</span>
                 </div>
               </StaggerItem>
             ))}
@@ -69,7 +69,7 @@ function PartnersSection() {
           <StaggerGrid className="grid gap-4 sm:grid-cols-2">
             {FALLBACK_PARTNER_TYPE_KEYS.map((key) => (
               <StaggerItem key={key}>
-                <div className="rounded-xl bg-chadi-cream p-6 font-semibold text-chadi-green shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <div className="rounded-xl bg-chadi-cream p-6 font-semibold text-chadi-green shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:text-chadi-lightgreen">
                   {t(`home.partnersSection.fallbackTypes.${key}`)}
                 </div>
               </StaggerItem>

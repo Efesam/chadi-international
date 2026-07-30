@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
@@ -8,8 +9,9 @@ import { newsApi } from "../../services/api";
 import Newsletter from "../../components/common/Newsletter";
 
 function NewsDetails() {
+  const { t, i18n } = useTranslation();
   const { slug } = useParams();
-  const { data: article, loading, error } = useCollection(() => newsApi.get(slug), [slug]);
+  const { data: article, loading, error } = useCollection(() => newsApi.get(slug, i18n.language), [slug, i18n.language]);
 
   if (loading) {
     return <DetailSkeleton />;
@@ -18,19 +20,19 @@ function NewsDetails() {
   if (error || !article) {
     return (
       <section className="bg-white py-28 text-center dark:bg-gray-900">
-        <Seo title="Article Not Found" noindex />
+        <Seo title={t("news.notFound.title")} noindex />
         <div className="mx-auto max-w-3xl px-6">
-          <h1 className="text-4xl font-bold text-chadi-green">
-            Article Not Found
+          <h1 className="text-4xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+            {t("news.notFound.title")}
           </h1>
           <p className="mt-4 text-gray-600 dark:text-gray-300">
-            The update you are looking for may have moved.
+            {t("news.notFound.description")}
           </p>
           <Link
             to="/news"
             className="mt-8 inline-block rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
           >
-            Back to News
+            {t("news.notFound.back")}
           </Link>
         </div>
       </section>
@@ -67,9 +69,9 @@ function NewsDetails() {
 
           <Link
             to="/news"
-            className="mt-12 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark"
+            className="mt-12 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
           >
-            Back to News
+            {t("news.notFound.back")}
           </Link>
         </div>
       </article>

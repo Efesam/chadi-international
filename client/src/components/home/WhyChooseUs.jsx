@@ -26,7 +26,7 @@ function WhyChooseUs() {
 
         <Reveal>
           <div className="mb-16 text-center">
-            <h2 className="text-5xl font-bold text-chadi-green">
+            <h2 className="text-5xl font-bold text-chadi-green dark:text-chadi-lightgreen">
               {t("home.whyChooseUs.title")}
             </h2>
 

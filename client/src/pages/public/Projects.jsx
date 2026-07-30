@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import ProjectCard from "../../components/ui/ProjectCard";
@@ -11,7 +12,8 @@ import Newsletter from "../../components/common/Newsletter";
 import ImpactMap from "../../components/common/ImpactMap";
 
 function Projects() {
-  const { data, loading, error } = useCollection(projectsApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading, error } = useCollection(() => projectsApi.list(i18n.language), [i18n.language]);
   const projects = data || [];
 
   const [search, setSearch] = useState("");
@@ -36,24 +38,23 @@ function Projects() {
   return (
     <>
       <Seo
-        title="Our Projects"
+        title={t("projects.seoTitle")}
         path="/projects"
-        description="Explore CHADI International's active projects across health, education, livelihood and community development."
+        description={t("projects.seoDescription")}
       />
 
       <PageHeader
-        title="Our Projects"
-        subtitle="Empowering Marginalised Individuals & Underserved Communities"
+        title={t("projects.title")}
+        subtitle={t("projects.subtitle")}
       />
 
       {!loading && !error && projects.length > 0 && (
         <section className="bg-chadi-cream py-20">
           <div className="mx-auto max-w-7xl px-6">
             <Reveal className="mx-auto mb-10 max-w-2xl text-center">
-              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Where We Work</h2>
+              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">{t("projects.whereWeWork")}</h2>
               <p className="mt-4 text-gray-600 dark:text-gray-300">
-                Explore the communities across Nigeria where CHADI's projects are active. Tap a marker to see
-                what's happening there.
+                {t("projects.mapIntro")}
               </p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -76,7 +77,7 @@ function Projects() {
               <Reveal className="mb-8">
                 <input
                   type="text"
-                  placeholder="Search projects..."
+                  placeholder={t("projects.searchPlaceholder")}
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="w-full rounded-xl border px-5 py-4 outline-none focus:border-chadi-green"
@@ -97,7 +98,7 @@ function Projects() {
                         : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
                     }`}
                   >
-                    {item}
+                    {item === "All" ? t("projects.allFilter") : item}
                   </button>
                 ))}
               </Reveal>
@@ -105,7 +106,7 @@ function Projects() {
               {/* Grid */}
 
               {filteredProjects.length === 0 ? (
-                <p className="text-center text-gray-500 dark:text-gray-400">No projects match your search.</p>
+                <p className="text-center text-gray-500 dark:text-gray-400">{t("projects.noMatch")}</p>
               ) : (
                 <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {filteredProjects.map((project) => (

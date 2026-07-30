@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import CardGridSkeleton from "../../components/common/CardGridSkeleton";
@@ -7,19 +8,20 @@ import { galleryApi } from "../../services/api";
 import Newsletter from "../../components/common/Newsletter";
 
 function Gallery() {
-  const { data: photos, loading, error } = useCollection(galleryApi.list);
+  const { t, i18n } = useTranslation();
+  const { data: photos, loading, error } = useCollection(() => galleryApi.list(i18n.language), [i18n.language]);
 
   return (
     <>
       <Seo
-        title="Gallery"
+        title={t("gallery.seoTitle")}
         path="/gallery"
-        description="Browse photos from CHADI International's programs, projects and community impact."
+        description={t("gallery.seoDescription")}
       />
 
       <PageHeader
-        title="Gallery"
-        subtitle="A glimpse into CHADI programs, projects and community impact."
+        title={t("gallery.title")}
+        subtitle={t("gallery.subtitle")}
       />
 
       <section className="bg-white py-20 dark:bg-gray-900">
@@ -30,7 +32,7 @@ function Gallery() {
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : photos.length === 0 ? (
             <p className="text-center text-gray-500 dark:text-gray-400">
-              Photos are on the way. Check back soon to see CHADI's work in pictures.
+              {t("gallery.empty")}
             </p>
           ) : (
             <StaggerGrid className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -43,7 +45,7 @@ function Gallery() {
                       loading="lazy"
                       className="h-72 w-full object-cover"
                     />
-                    <figcaption className="p-5 font-semibold text-chadi-green">
+                    <figcaption className="p-5 font-semibold text-chadi-green dark:text-chadi-lightgreen">
                       {photo.title}
                     </figcaption>
                   </figure>

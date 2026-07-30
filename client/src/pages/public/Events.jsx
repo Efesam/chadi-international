@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import CardGridSkeleton from "../../components/common/CardGridSkeleton";
@@ -12,7 +13,8 @@ import Newsletter from "../../components/common/Newsletter";
 import ctaImage from "../../assets/projects/sorcest.jpg";
 
 function Events() {
-  const { data, loading, error } = useCollection(eventsApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading, error } = useCollection(() => eventsApi.list(i18n.language), [i18n.language]);
   const events = data || [];
   const [type, setType] = useState("All");
 
@@ -22,14 +24,14 @@ function Events() {
   return (
     <>
       <Seo
-        title="Events"
+        title={t("events.seoTitle")}
         path="/events"
-        description="See CHADI International's upcoming outreach, training and community engagement events."
+        description={t("events.seoDescription")}
       />
 
       <PageHeader
-        title="Events"
-        subtitle="Upcoming outreach, training and community engagement activities."
+        title={t("events.title")}
+        subtitle={t("events.subtitle")}
       />
 
       <section className="bg-white py-20 dark:bg-gray-900">
@@ -39,7 +41,7 @@ function Events() {
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : events.length === 0 ? (
-            <p className="text-center text-gray-500 dark:text-gray-400">No events scheduled right now. Check back soon.</p>
+            <p className="text-center text-gray-500 dark:text-gray-400">{t("events.empty")}</p>
           ) : (
             <>
               {types.length > 2 && (
@@ -55,14 +57,14 @@ function Events() {
                           : "bg-gray-100 text-gray-600 dark:text-gray-300 hover:bg-gray-200"
                       }`}
                     >
-                      {item}
+                      {item === "All" ? t("events.allFilter") : item}
                     </button>
                   ))}
                 </Reveal>
               )}
 
               {filteredEvents.length === 0 ? (
-                <p className="text-center text-gray-500 dark:text-gray-400">No events match this filter.</p>
+                <p className="text-center text-gray-500 dark:text-gray-400">{t("events.noMatch")}</p>
               ) : (
                 <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {filteredEvents.map((event) => (
@@ -81,16 +83,15 @@ function Events() {
           >
             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-chadi-green/95 via-chadi-green/85 to-chadi-green/60" />
             <div className="relative">
-              <h2 className="text-3xl font-bold sm:text-4xl">Host or support an event</h2>
+              <h2 className="text-3xl font-bold sm:text-4xl">{t("events.cta.title")}</h2>
               <p className="mt-4 max-w-3xl text-white/85">
-                CHADI collaborates with communities, schools, health teams and
-                sponsors to deliver practical field activities.
+                {t("events.cta.description")}
               </p>
               <Link
                 to="/contact"
                 className="mt-8 inline-block rounded-lg bg-chadi-gold px-6 py-3 font-semibold text-black"
               >
-                Talk to Us
+                {t("events.cta.button")}
               </Link>
             </div>
           </Reveal>

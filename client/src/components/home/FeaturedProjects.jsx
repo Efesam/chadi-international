@@ -7,8 +7,8 @@ import Reveal from "../common/Reveal";
 import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 
 function FeaturedProjects() {
-  const { t } = useTranslation();
-  const { data, loading } = useCollection(projectsApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading } = useCollection(() => projectsApi.list(i18n.language), [i18n.language]);
   const featured = (data || []).filter((project) => project.featured);
 
   if (!loading && featured.length === 0) return null;
@@ -18,11 +18,11 @@ function FeaturedProjects() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-16 text-center">
-            <span className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
+            <span className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">
               {t("home.featuredProjects.eyebrow")}
             </span>
 
-            <h2 className="mt-4 text-5xl font-bold text-chadi-green">
+            <h2 className="mt-4 text-5xl font-bold text-chadi-green dark:text-chadi-lightgreen">
               {t("home.featuredProjects.title")}
             </h2>
 

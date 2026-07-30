@@ -9,8 +9,8 @@ import Reveal from "../common/Reveal";
 import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 
 function LatestNews() {
-  const { t } = useTranslation();
-  const { data, loading } = useCollection(newsApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading } = useCollection(() => newsApi.list(i18n.language), [i18n.language]);
   const latest = (data || []).slice(0, 2);
 
   if (!loading && latest.length === 0) return null;
@@ -21,10 +21,10 @@ function LatestNews() {
         <Reveal>
           <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark">
+              <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">
                 {t("home.latestNews.eyebrow")}
               </p>
-              <h2 className="mt-3 text-4xl font-bold text-chadi-green">
+              <h2 className="mt-3 text-4xl font-bold text-chadi-green dark:text-chadi-lightgreen">
                 {t("home.latestNews.title")}
               </h2>
               <p className="mt-4 max-w-2xl text-gray-600 dark:text-gray-300">
@@ -34,7 +34,7 @@ function LatestNews() {
 
             <Link
               to="/news"
-              className="font-semibold text-chadi-green hover:text-chadi-gold-dark"
+              className="font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
             >
               {t("home.latestNews.viewAll")}
             </Link>

@@ -134,5 +134,508 @@
       "volunteer": "Nyere Aka N'afọ Ofufu",
       "donate": "Nye Onyinye"
     }
+  },
+  "common": {
+    "teamShowcase": {
+      "title": "Zute Ndị Otu Anyị",
+      "subtitle": "N'azụ mgbanwe obodo ọ bụla nke gara nke ọma bụ ndị otu nwere ọkụ n'obi na-arụsi ọrụ ike iji mepụta mmetụta na-adịgide adịgide.",
+      "cta": "Zute Ndị Otu Zuru Ezu"
+    },
+    "newsletter": {
+      "title": "Nọgide Na-enweta Mmelite",
+      "subtitle": "Debanye aha iji nata mmelite gbasara ọrụ anyị, ihe omume na akụkọ mmetụta.",
+      "placeholder": "Tinye ozi-e gị",
+      "subscribe": "Debanye Aha",
+      "sending": "Na-eziga...",
+      "success": "Daalụ maka ịdebanye aha.",
+      "error": "Anyị enweghị ike ịdebanye aha gị ugbu a. Biko nwaa ọzọ."
+    },
+    "projectCard": {
+      "beneficiaries": "Ndị Ọ Bara Uru",
+      "learnMore": "Mụtakwuo →",
+      "volunteer": "Nyere Aka N'afọ Ofufu",
+      "donate": "Nye Onyinye"
+    },
+    "eventCard": {
+      "signUp": "Debanye Aha"
+    },
+    "newsCard": {
+      "readArticle": "Gụọ Akụkọ →"
+    },
+    "volunteerModal": {
+      "title": "Nyere Aka N'afọ Ofufu",
+      "forLabel": "Maka:",
+      "genericSubtitle": "Gwa anyị obere ihe gbasara gị na otu ị ga-esi nyere aka.",
+      "namePlaceholder": "Aha zuru ezu",
+      "emailPlaceholder": "Adreesị ozi-e",
+      "locationPlaceholder": "Steeti / ebe obibi",
+      "messagePlaceholder": "Ihe ọ bụla ị chọrọ ka anyị mara? (nhọrọ)",
+      "submitting": "Na-enyefe...",
+      "submit": "Debanye Aha Iji Nyere Aka N'afọ Ofufu",
+      "successMessage": "Daalụ! CHADI ga-akpọtụrụ gị gbasara inyere aka n'afọ ofufu maka ọrụ a.",
+      "errorMessage": "Anyị enweghị ike inyefe nke a ugbu a. Biko nwaa ọzọ."
+    },
+    "eventSignupModal": {
+      "title": "Ndebanye Aha Ihe Omume",
+      "forLabel": "Maka:",
+      "namePlaceholder": "Aha zuru ezu",
+      "emailPlaceholder": "Adreesị ozi-e",
+      "signingUp": "Na-edebanye aha...",
+      "confirmSignUp": "Kwado Ndebanye Aha",
+      "successMessage": "Edebanyela aha gị! CHADI ga-ezitere gị ihe ncheta mgbe ụbọchị ahụ na-eru nso.",
+      "errorMessage": "Anyị enweghị ike idebanye aha gị ugbu a. Biko nwaa ọzọ."
+    },
+    "cookieConsent": {
+      "message": "Anyị na-eji nyocha na-elekọta nzuzo ịghọta otu ndị ọbịa si eji saịtị a. A naghị ere ozi nkeonwe, saịtị a n'onwe ya anaghịkwa ahazi kuki nsochi. Lee",
+      "privacyLink": "Iwu Nzuzo",
+      "messageEnd": "maka nkọwa ndị ọzọ.",
+      "decline": "Jụ",
+      "accept": "Nabata"
+    },
+    "exitIntent": {
+      "title": "Tupu ị pụọ...",
+      "subtitle": "Nọgide na njikọ — debanye aha maka ozi kwa ọnwa anyị gbasara ọrụ, ihe omume na akụkọ mmetụta.",
+      "emailPlaceholder": "Tinye ozi-e gị",
+      "subscribing": "Na-edebanye aha...",
+      "keepMeUpdated": "Na-emelite M",
+      "noThanks": "Mba, daalụ",
+      "successToast": "Daalụ maka ịdebanye aha.",
+      "errorToast": "Anyị enweghị ike ịdebanye aha gị ugbu a. Biko nwaa ọzọ."
+    }
+  },
+  "impactTiers": {
+    "nutritionKit": { "label": "Na-enye ngwongwo nri na-eweta ahụike", "unit": "ngwongwo nri na-eweta ahụike", "unitPlural": "ngwongwo nri na-eweta ahụike" },
+    "healthOutreach": { "label": "Na-akwado nleta ahụike", "unit": "nleta ahụike", "unitPlural": "nleta ahụike" },
+    "skillTraining": { "label": "Na-azụ nwata nka ọhụrụ", "unit": "nwata a zụrụ nka ọhụrụ", "unitPlural": "ụmụaka a zụrụ nka ọhụrụ" },
+    "familySupport": { "label": "Na-akwado ezinụlọ ọnwa ọtụtụ", "unit": "ezinụlọ a kwadoro ọnwa ọtụtụ", "unitPlural": "ezinụlọ a kwadoro ọnwa ọtụtụ" }
+  },
+  "donateModal": {
+    "orgName": "CHADI International",
+    "title": "Nye Onyinye Taa",
+    "supporting": "Na-akwado:",
+    "genericSubtitle": "Ọ bụghị naanị ego ka ị na-enye — ị na-enye olileanya, ugwu na ohere ọzọ.",
+    "oneTime": "Otu Ugbo",
+    "monthly": "Kwa Ọnwa — Hope Alive Circle",
+    "namePlaceholder": "Aha zuru ezu",
+    "emailPlaceholder": "Adreesị ozi-e",
+    "minAmountError": "Biko tinye ego kacha nta bụ ₦100.",
+    "monthlyNote": "A ga-akwụ ego ₦{{amount}} na kaadị gị na-akpaghị aka kwa ọnwa ruo mgbe ị kagburu ya. Ị nwere ike ịkagbu ya mgbe ọ bụla site n'ịkpọtụrụ CHADI.",
+    "notConfigured": "Ịkwụ ụgwọ n'ịntanetị adịghị ka a hazibeghị na saịtị a. Biko jiri peeji Kpọtụrụ Anyị kama.",
+    "processing": "Na-arụ ọrụ...",
+    "giveButton": "Nye ₦{{amount}}",
+    "joinButton": "Sonye na Hope Alive Circle - ₦{{amount}}/ọnwa",
+    "securedBy": "Paystack chebere ya · sonye n'obodo ndị na-akwado CHADI",
+    "internationalPrompt": "Ị na-enye onyinye si mba ọzọ na Naịjirịa?",
+    "verifyErrorOnce": "Ego agafeela mana anyị enweghị ike ikwenye ya na akpaghị aka. Biko kpọtụrụ anyị na nọmba ntụaka gị: {{reference}}",
+    "verifyErrorMonthly": "Ego mbụ agafeela mana anyị enweghị ike ikwenye ya na akpaghị aka. Biko kpọtụrụ anyị na nọmba ntụaka gị: {{reference}}",
+    "monthlySetupError": "Anyị enweghị ike ịhazi onyinye ọnwa ọnwa gị ugbu a. Biko nwaa ọzọ.",
+    "success": {
+      "title": "A Natala Ego!",
+      "subscriptionMessage": "Nnọọ na Hope Alive Circle! A ga-akwụ ego {{amount}} na kaadị gị na-akpaghị aka kwa ọnwa.",
+      "oneTimeMessage": "Daalụ maka onyinye gị nke {{amount}}. Ị na-enye olileanya, ugwu na ohere ọzọ.",
+      "reference": "Ntụaka: {{reference}}",
+      "downloadReceipt": "Budata Akwụkwọ Nnata",
+      "downloading": "Na-ebudata...",
+      "downloadError": "Enweghị ike ibudata akwụkwọ nnata",
+      "done": "Emechaala"
+    }
+  },
+  "donate": {
+    "seoTitle": "Nye Onyinye",
+    "seoDescription": "Kwado ọrụ CHADI International na obodo a na-elekwaghị anya site n'onyinye e chebere nke ọma n'ịntanetị.",
+    "pageTitle": "Nye Onyinye",
+    "pageSubtitle": "Kwado ọrụ CHADI na obodo a na-elekwaghị anya.",
+    "heading": "Nyere Aka Ịkwado Mmetụta Obodo Na-adịgide Adịgide",
+    "description": "Onyinye gị na-enyere CHADI aka inye ozizi nri na-eweta ahụike, nkwado mmụta, enyemaka mberede, mmepe ndị na-eto eto na mmemme afọ ojuju obodo.",
+    "donateNow": "Nye Onyinye Ugbu A",
+    "calculator": {
+      "eyebrow": "Hụ Mmetụta Gị",
+      "title": "Ihe Onyinye Gị Na-enye",
+      "subtitle": "Nyaa ka ị hụ ihe onyinye gị nwere ike ịpụtara obodo.",
+      "couldProvide": "Nke a nwere ike inye",
+      "donateButton": "Nye ₦{{amount}}"
+    },
+    "interestForm": {
+      "title": "Ụzọ Ndị Ọzọ Isi Nye",
+      "description": "Ị na-achọ mkpado ụlọ ọrụ ma ọ bụ mmekọrịta mmemme? Kesaa nkọwa gị ka CHADI soro gị kwuo okwu.",
+      "namePlaceholder": "Aha zuru ezu",
+      "emailPlaceholder": "Adreesị ozi-e",
+      "interestPlaceholder": "Mmasị inye onyinye",
+      "corporateSponsorship": "Mkpado ụlọ ọrụ",
+      "programPartnership": "Mmekọrịta mmemme",
+      "inKindDonation": "Onyinye ngwongwo",
+      "saving": "Na-echekwa...",
+      "submit": "Nyefee Mmasị",
+      "contactInstead": "Kpọtụrụ anyị kama",
+      "sentToast": "Daalụ. CHADI ga-akpọtụrụ gị maka nkọwa.",
+      "errorToast": "Anyị enweghị ike ichekwa nke a ugbu a. Biko jiri peeji nkwukọrịta."
+    }
+  },
+  "gallery": {
+    "seoTitle": "Foto",
+    "seoDescription": "Lelee foto sitere na mmemme CHADI International, ọrụ na mmetụta obodo.",
+    "title": "Foto",
+    "subtitle": "Nlele ntakịrị n'ime mmemme CHADI, ọrụ na mmetụta obodo.",
+    "empty": "Foto na-abịa. Biko lọghachị echi ka ị hụ ọrụ CHADI n'ime foto."
+  },
+  "getInvolved": {
+    "seoTitle": "Sonyere",
+    "seoDescription": "Chọpụta ụzọ isi nye aka n'afọ ofufu, mekọọ, ma ọ bụ nye onyinye na CHADI International iji nyere aka mepụta mmetụta obodo na-adịgide adịgide.",
+    "title": "Sonyere",
+    "subtitle": "Sonye na CHADI n'imepụta mmetụta obodo bara uru na-adịgide adịgide.",
+    "volunteer": { "title": "Nyere Aka N'afọ Ofufu", "description": "Were oge gị, nka gị na nkwado ọrụ ubi nye mmemme obodo.", "action": "Malite Ịnyere Aka N'afọ Ofufu" },
+    "partner": { "title": "Soro Anyị Mekọọ", "description": "Merikọọ n'ọrụ na-emeziwanye agụmakwụkwọ, ahụike na ndụ.", "action": "Kparịta Mmekọrịta" },
+    "donate": { "title": "Nye Onyinye", "description": "Kwado inyefe mmemme nye ụmụaka, ụmụ nwanyị, ndị na-eto eto na ezinụlọ nọ n'ọnọdụ ike ọgbaghara.", "action": "Nye Onyinye" }
+  },
+  "news": {
+    "seoTitle": "Akụkọ",
+    "seoDescription": "Gụọ akụkọ ọhụrụ, mmelite na ọkwa sitere na CHADI International.",
+    "title": "Akụkọ",
+    "subtitle": "Ihe ọhụrụ sitere na CHADI.",
+    "empty": "Enweghị akụkọ agụmagụ ugbu a.",
+    "notFound": {
+      "title": "Ahụghị Akụkọ Ahụ",
+      "description": "Ihe ọhụrụ ị na-achọ nwere ike ịbụ na akwagoro.",
+      "back": "Laghachi Na Akụkọ"
+    }
+  },
+  "notFound": {
+    "seoTitle": "Ahụghị Ibe Ahụ",
+    "eyebrow": "404",
+    "title": "Ahụghị Ibe Ahụ",
+    "description": "Ibe ị na-achọ adịghị adị ma ọ bụ ka a kwagoro ya.",
+    "backHome": "Laghachi Ụlọ"
+  },
+  "privacy": {
+    "seoTitle": "Iwu Nzuzo",
+    "seoDescription": "Gụọ iwu nzuzo CHADI International na-ekpuchi otu esi ejikwa ozi e kesara site na weebụsaịtị a.",
+    "title": "Iwu Nzuzo",
+    "subtitle": "Otu CHADI si ejikwa ozi e kesara site na weebụsaịtị a.",
+    "lastUpdated": "Emelitere ikpeazụ: iwu a na-akọwa otu weebụsaịtị a si ejikwa ozi n'ezie taa. Ọ bụ ebe mmalite dị mma, ọ bụghị ihe ga-anọchi anya nyocha onye ọka iwu tozuru etozu tupu ị dabere na ya maka nrubeisi.",
+    "collect": { "title": "Ozi anyị na-anakọta", "body": "Anyị na-anakọta ihe ị họọrọ inyefe site na fọm ndị dị na saịtị a: aha na ozi-e gị na fọm nkwukọrịta, afọ ofufu, akwụkwọ akụkọ na mmasị onyinye, tinyere ihe ọ bụla ọzọ fọm dị iche iche na-achọ (dịka mmasị gị mgbe ị na-enye aka n'afọ ofufu). Ọ bụrụ na ị nye onyinye, Paystack (onye na-ahazi ịkwụ ụgwọ anyị) na-ekekọrịta aha gị, ozi-e, ọnụ ego onyinye na nọmba ntụaka ịkwụ ụgwọ ka anyị wee dekọọ onyinye ma zitere gị akwụkwọ nnata - a na-etinye nkọwa kaadị gị kpọmkwem n'ime nzụta Paystack ma ọ dịghị agafe na ndị nchekwa data anyị." },
+    "cookies": { "title": "Kuki", "body": "Saịtị a n'onwe ya adịghị ahazi kuki nsochi. Ọ bụrụ na ị nakweere mgbasa ozi kuki, anyị na-ebubata nyocha na-elekọta nzuzo, na-enweghị kuki (Plausible) iji ghọta okporo ụzọ niile - ọ naghị eji kuki ma ọ bụ soro gị site na saịtị dị iche iche. Ọdụ nchịkwa na-eme ka ndị ọrụ nọgide na mbanye site na iji nchekwa mpaghara ihuenyo gị, ọ bụghị kuki. Nzụta Paystack nwere ike ịhazi kuki nke ya n'ubi ya mgbe ị na-emecha ịkwụ ụgwọ, nke iwu nzuzo Paystack na-achịkwa, ọ bụghị nke anyị." },
+    "usage": { "title": "Otu anyị si eji ozi gị", "body": "Iji zaghachi ajụjụ, hazie ma nye akwụkwọ nnata onyinye, soro ngwa nkwukọrịta afọ ofufu, ziga mmelite akwụkwọ akụkọ ị debanyere aha maka ya, ma na-arụ ọrụ ntọala saịtị a. Anyị anaghị ere ozi nkeonwe, anyị anaghịkwa eji ihe ị kesara maka ihe ọ bụla karịrị ebumnobi ndị a na-ajụghị gị ụzọ." },
+    "sharing": { "title": "Ndị anyị na-ekekọrịta ya", "body": "Naanị ndị nke atọ e ji achọ inye ọrụ ị rịọrọ: Paystack (ịkwụ ụgwọ), onye na-enye ọrụ ozi-e anyị (izipu akwụkwọ nnata, azịza na ozi akwụkwọ akụkọ), na, ọ bụrụ na e mere ka ọ rụọ ọrụ, Plausible (nyocha) na Sentry (nlekọta njehie, iji nyere anyị aka idozi nsogbu). Anyị anaghị ere ma ọ bụ gbazinye ozi gị nye onye ọ bụla ọzọ. Ohere ịbanye n'ime CHADI e mere ka ọ bụrụ naanị ndị otu chọrọ ya ime ọrụ ha." },
+    "retention": { "title": "Ogologo oge anyị na-echekwa ya", "body": "Anyị na-echekwa ozi enyefere ogologo oge ọ bara uru maka ebumnobi ị kesaara ya (dịka ngwa nkwukọrịta afọ ofufu na-arụ ọrụ, ndekọ onyinye maka gbasara ihe ego anyị), ma ọ bụ ruo mgbe ị chọrọ ka anyị hichapụ ya - ihe ọ bụla dabara adaba." },
+    "rights": { "title": "Ikike gị", "body": "Dabere na ebe ị nọ, ị nwere ike ịnwe ikike ịnweta, dozie, hichapụ, ma ọ bụ nweta nnomi ozi anyị debere gị, ma ọ bụ jụ otu e si eji ya. Iji jiri nke ọ bụla n'ime ndị a, ma ọ bụ imelite ma ọ bụ wepụ ozi ị kesaara anyị, kpọtụrụ anyị site na", "contactLink": "Peeji Kpọtụrụ Anyị" },
+    "children": { "title": "Nzuzo ụmụaka", "body": "Ebughị saịtị a aka na ụmụaka, anyị anaghịkwa akpọrọ ozi nkeonwe n'aka ụmụaka na mma amara." },
+    "changes": { "title": "Mgbanwe na iwu a", "body": "Anyị nwere ike imelite iwu a ka saịtị na ọrụ anyị si na-eto. A ga-egosipụta mgbanwe dị mkpa ebe a tinyere ụbọchị emelitere ọzọ." }
+  },
+  "resources": {
+    "seoTitle": "Akụrụngwa",
+    "seoDescription": "Ntuziaka, ndekọ na ngwongwo bara uru sitere na mmemme CHADI International.",
+    "title": "Akụrụngwa",
+    "subtitle": "Ntuziaka, ndekọ na ngwongwo bara uru maka mmemme CHADI.",
+    "requestButton": "Rịọ Akụrụngwa",
+    "nutritionGuide": { "title": "Ntuziaka Ịmara Banyere Nri Na-eweta Ahụike", "description": "Ncheta dị mfe maka nnọkọ nri na-eweta ahụike nye nne, nwa ọhụrụ na nwata." },
+    "volunteerChecklist": { "title": "Ndepụta Nlelele Ọrụ Afọ Ofufu N'ubi", "description": "Ndepụta nhazi ngwa ngwa maka nkwado ọrụ ubi na itinye aka n'ọrụ ubi." },
+    "projectIntake": { "title": "Nnabata Atụmatụ Ọrụ Obodo", "description": "Ntuziaka maka obodo na ndị mmekọ na-atụ aro ọrụ CHADI ga-akwado." }
+  },
+  "search": {
+    "seoTitle": "Chọọ",
+    "seoDescription": "Chọọ ọrụ, akụkọ na ihe omume nke CHADI International.",
+    "title": "Chọọ",
+    "subtitle": "Chọta ọrụ, akụkọ na ihe omume gafere saịtị a.",
+    "placeholder": "Chọọ ọrụ, akụkọ, ihe omume...",
+    "loading": "Na-ebudata...",
+    "prompt": "Malite ide ihe iji chọọ.",
+    "noResults": "Enweghị nsonaazụ maka \"{{query}}\".",
+    "projects": "Ọrụ",
+    "news": "Akụkọ",
+    "events": "Ihe Omume"
+  },
+  "stories": {
+    "seoTitle": "Akụkọ Mmetụta",
+    "seoDescription": "Gụọ ezi akụkọ mgbanwe n'ezie sitere na obodo CHADI International na-akwado.",
+    "title": "Akụkọ Mmetụta",
+    "subtitle": "Akụkọ mgbanwe n'ezie sitere na obodo CHADI na-akwado.",
+    "eyebrow": "N'okwu Ha",
+    "heading": "Akụkọ nọmba na-apụghị ịkọ.",
+    "intro": "Site n'ụmụaka SOVCEST ruo ezinụlọ HELP - ezi akụkọ sitere na obodo CHADI na-eje ozi, e depụtara ya n'ụzọ ugwu ma kọọ ya n'okwu ha.",
+    "readTheirStories": "Gụọ Akụkọ Ha",
+    "featuredBadge": "Akụkọ A Họpụtara",
+    "brand": "CHADI · Akụkọ",
+    "empty": "Anyị na-anakọta akụkọ site n'ubi. Biko lọghachị echi.",
+    "featuring": "Na-egosi: {{name}}"
+  },
+  "terms": {
+    "seoTitle": "Usoro Iwu Ojiji",
+    "seoDescription": "Ntuziaka na usoro iwu maka iji weebụsaịtị CHADI International.",
+    "title": "Usoro Iwu Ojiji",
+    "subtitle": "Ntuziaka maka iji weebụsaịtị CHADI International.",
+    "disclaimer": "Nke a bụ ebe mmalite dị mma, ọ bụghị ihe ga-anọchi anya nyocha onye ọka iwu tozuru etozu tupu ị dabere na ya maka nrubeisi.",
+    "usage": { "title": "Iji saịtị a", "body": "Weebụsaịtị a na-ekesa ozi gbasara mmemme CHADI, ọrụ, ihe omume na ohere. A na-enye ọdịnaya maka ozi izugbe, enwere ike imelite ya ka mmemme si na-eto. Ị kwenyere na ị gaghị eji saịtị a eme ihe na-ezighi ezi, tinye ozi ụgha site na fọm ya, ma ọ bụ nwaa imebi ikpo okwu ma ọ bụ ọrụ ndị ọ na-ejikọta ya." },
+    "content": { "title": "Ọdịnaya na ihe onwunwe ọgụgụ isi", "body": "Ederede, foto na ọdịnaya ndị ọzọ dị na saịtị a bụ nke CHADI International ma ọ bụ eji ha na ikike, ma ọ bụrụ na ekwughị ya n'ụzọ ọzọ. Ị nwere ohere ikesa njikọ na ọdịnaya anyị; iji ya ọzọ n'ebe ọzọ chọrọ ikike anyị e dere ede tupu." },
+    "donations": { "title": "Onyinye", "body": "Onyinye e nyere site na saịtị a bụ onyinye afọ ofufu nye ọrụ CHADI International. A na-ahazi ịkwụ ụgwọ nke ọma site na Paystack; anyị anaghị ahụ ma ọ bụ echekwa nkọwa kaadị gị. Ọ bụrụ na ị nyere onyinye n'ụzọ na-ezighi ezi ma ọ bụ nwee nchegbu gbasara ụgwọ ọ bụla, kpọtụrụ anyị site na", "contactLink": "Peeji Kpọtụrụ Anyị", "bodyEnd": "anyị ga-eso gị rụọ ọrụ na ya." },
+    "thirdParty": { "title": "Njikọ ndị nke atọ", "body": "Saịtị a nwere ike ijikọ na weebụsaịtị ndị nke atọ (ndị mmekọ, mgbasa ozi mmekọrịta ọha, ndị na-enye ịkwụ ụgwọ). Anyị anaghị aza ajụjụ maka ọdịnaya ma ọ bụ omume nke saịtị anyị na-achịkwaghị." },
+    "liability": { "title": "Enweghị nkwa; oke ọrụ", "body": "A na-enye saịtị a na ọdịnaya ya \"dịka ọ dị,\" na-enweghị nkwa ọ bụla. Ruo n'ókè iwu kwadoro, CHADI International anaghị aza ajụjụ maka mfu ọ bụla na-abụghị nke ozugbo ma ọ bụ nke sitere n'iji saịtị a." },
+    "governingLaw": { "title": "Iwu na-achịkwa ya", "body": "Iwu ndị a bụ iwu nke Ọchịchị Etiti Naịjirịa na-achịkwa, na-enweghị ntụle maka ụkpụrụ mmegide iwu." },
+    "changes": { "title": "Mgbanwe na iwu ndị a", "body": "CHADI nwere ike imelite iwu ndị a ka weebụsaịtị na ọrụ na-eto. Ịga n'ihu iji saịtị a mgbe mgbanwe gasịrị pụtara na ị nakweere iwu emelitere ọhụrụ." }
+  },
+  "transparency": {
+    "seoTitle": "Izi Ezi",
+    "seoDescription": "Hụ otu CHADI International si ekesa ma na-akọ akụkọ gbasara onyinye, tinyere nkwesi ekwesi na izi ezi na gbasara ihe ego.",
+    "pageTitle": "Nkwesi Ekwesi Anyị",
+    "pageSubtitle": "Izi Ezi. Gbasara Ihe Ego. Mmetụta.",
+    "intro": "Anyị ekwesila nkwa iji akụrụngwa ọ bụla eji uche rụọ ọrụ ma na-eme ka mmetụta a pụrụ ịtụ, nke na-adịgide adịgide dị n'obodo anyị na-eje ozi. Anyị na-esochi onyinye ọ bụla site n'oge e nyere ya ruo na nsonaazụ ọ na-enyere aka mepụta.",
+    "allocationTitle": "Ebe Onyinye Gị Na-aga",
+    "loading": "Na-ebudata...",
+    "allocationEmpty": "Anyị ga-ebipụta nkọwa mkpokọta zuru ezu ebe a ozugbo emechara ya maka oge akụkọ ugbu a. N'oge a, kpọtụrụ anyị n'okpuru maka akụkọ anyị ọhụrụ.",
+    "reportsTitle": "Akụkọ & Nkwupụta Ego",
+    "transparencyCard": { "title": "Izi Ezi", "description": "Akụkọ doro anya gbasara otu esi anakọta ma mefee ego." },
+    "accountabilityCard": { "title": "Gbasara Ihe Ego", "description": "Omume nchịkwa na-eme ka ndị otu anyị zaghachi ajụjụ nye obodo anyị na-eje ozi." },
+    "impactCard": { "title": "Mmetụta A Pụrụ Ịtụ", "description": "Anyị na-esochi mmemme dabere na nsonaazụ n'ezie, ọ bụghị naanị ọrụ." },
+    "ctaTitle": "Ị chọrọ ihe niile zuru ezu?",
+    "ctaDescription": "Kpọtụrụ ndị otu anyị maka akụkọ ego na mmemme zuru ezu.",
+    "ctaButton": "Rịọ Akụkọ"
+  },
+  "volunteer": {
+    "seoTitle": "Nyere Aka N'afọ Ofufu",
+    "seoDescription": "Jiri nka gị, oge gị na obi ebere gị kwado mmemme obodo CHADI International. Debanye aha ị chọrọ inye aka n'afọ ofufu taa.",
+    "title": "Nyere Aka N'afọ Ofufu",
+    "subtitle": "Jiri nka gị, oge gị na obi ebere gị kwado obodo CHADI.",
+    "sentToast": "A natala ngwa akwụkwọ. CHADI ga-akpọtụrụ gị n'oge na-adịghị anya.",
+    "errorToast": "Anyị enweghị ike inyefe nke a ugbu a. Biko nwaa ọzọ.",
+    "spark": {
+      "eyebrow": "CHADI Kind Humans",
+      "heading": "Ghọọ Onye Nnọchite Steeti CHADI SPARK",
+      "description": "<strong>SPARK</strong> — Ịgbasa na Ime Omume Obiọma Na-atụghị Anya Ya. Ndị nnọchite steeti na-eduzi obere ọrụ nwere mmetụta n'obodo ha n'okpuru nlekọta CHADI.",
+      "role": { "title": "Ọrụ Gị", "description": "Hazie ma na-arụ obere ọrụ omume obiọma na steeti gị, site na ntuziaka na nkwado CHADI." },
+      "recognition": { "title": "Nnabata", "description": "A na-atụ vootu maka ọrụ SPARK kacha mma kwa afọ, na-emekwa mmemme aṅụrị maka ya gafee ọwa CHADI." },
+      "visibility": { "title": "Ịhụ Anya", "description": "E gosiri ya na weebụsaịtị CHADI na mgbasa ozi mmekọrịta ọha — na-ewulite nnweta obodo dị mma n'obodo gị." },
+      "prompt": "Ị nwere mmasị? Họrọ \"Onye Nnọchite Steeti SPARK\" dịka ebe gị n'okpuru."
+    },
+    "areasTitle": "Ebe Ịnyere Aka N'afọ Ofufu",
+    "areas": {
+      "outreach": "Ikwusa ozi obodo na ịkpọkọta ndị",
+      "health": "Ilekọta ahụike na nri na-eweta ahụike",
+      "digital": "Nka dijitalụ na ndudo",
+      "media": "Mgbasa ozi, nkwukọrịta na ịkọ akụkọ",
+      "research": "Nyocha, nlekọta na mmatụ"
+    },
+    "form": {
+      "namePlaceholder": "Aha zuru ezu",
+      "emailPlaceholder": "Adreesị ozi-e",
+      "phonePlaceholder": "Nọmba ekwentị",
+      "locationPlaceholder": "Ebe obibi",
+      "areaPlaceholder": "Ebe mmasị",
+      "areaOutreach": "Ikwusa ozi obodo",
+      "areaHealth": "Ahụike na nri na-eweta ahụike",
+      "areaEducation": "Agụmakwụkwọ na ndudo",
+      "areaMedia": "Mgbasa ozi na nkwukọrịta",
+      "areaResearch": "Nyocha na data",
+      "areaSpark": "Onye Nnọchite Steeti SPARK",
+      "messagePlaceholder": "Gwa anyị banyere ahụmahụ ma ọ bụ ebumnuche gị",
+      "submitting": "Na-enyefe...",
+      "submit": "Nyefee Ngwa Akwụkwọ"
+    }
+  },
+  "donorPortal": {
+    "seoTitle": "Ọnụ Ụzọ Ndị Na-enye Onyinye",
+    "seoDescription": "Banye ka ị hụ akụkọ ihe mere eme onyinye gị nke CHADI International, budata akwụkwọ nnata ụtụ isi, ma jikwaa onyinye ugboro ugboro.",
+    "title": "Ọnụ Ụzọ Ndị Na-enye Onyinye",
+    "subtitle": "Hụ akụkọ ihe mere eme onyinye gị, budata akwụkwọ nnata, ma jikwaa onyinye ugboro ugboro.",
+    "typeLabels": { "payment": "Onyinye Otu Ugbo", "subscription": "Hope Alive Circle (Kwa Ọnwa)" },
+    "login": {
+      "emailLabel": "Adreesị ozi-e",
+      "emailPlaceholder": "gi@ihe-atụ.com",
+      "sending": "Na-eziga...",
+      "submit": "Zitere M Njikọ Mbanye Site N'ozi-e",
+      "hint": "Jiri otu adreesị ozi-e ị ji nye onyinye. Ọ chọghị paswọọdụ.",
+      "sentTitle": "Ọ bụrụ na ozi-e ahụ enyela onyinye anyị, anyị ezitegoro ya njikọ mbanye.",
+      "sentHint": "Lelee igbe ozi gị (na spam) maka njikọ sitere na CHADI International. Ọ na-agwụ na nkeji 15.",
+      "genericError": "Ihe adịghị mma mere. Biko nwaa ọzọ."
+    },
+    "dashboard": {
+      "title": "Akụkọ Onyinye Gị",
+      "signOut": "Pụọ",
+      "loading": "Na-ebudata onyinye gị...",
+      "empty": "Enweghị onyinye ahụrụ maka ozi-e a ugbu a.",
+      "loadError": "Enweghị ike ibudata akụkọ onyinye gị",
+      "columns": { "date": "Ụbọchị", "type": "Ụdị", "amount": "Ọnụ Ego", "status": "Ọnọdụ", "actions": "Omume" },
+      "status": { "active": "Na-arụ Ọrụ", "cancelled": "Akagburula", "activating": "Na-agba mbọ..." },
+      "downloadReceipt": "Budata Akwụkwọ Nnata",
+      "downloading": "Na-ebudata...",
+      "downloadError": "Enweghị ike ibudata akwụkwọ nnata",
+      "cancel": "Kagbuo",
+      "cancelling": "Na-akagbu...",
+      "cancelConfirm": "Kagbuo onyinye ugboro ugboro a? Enweghị ike imegharị ya.",
+      "cancelSuccess": "Akagburula onyinye",
+      "cancelError": "Enweghị ike ịkagbu onyinye"
+    }
+  },
+  "donorPortalVerify": {
+    "seoTitle": "Na-abanye",
+    "seoDescription": "Na-eme ka ị banye n'ọnụ ụzọ ndị na-enye onyinye CHADI.",
+    "title": "Ọnụ Ụzọ Ndị Na-enye Onyinye",
+    "subtitle": "Na-eme ka ị banye...",
+    "verifying": "Na-akwado njikọ mbanye gị...",
+    "invalidLink": "Njikọ mbanye a ezighi ezi ma ọ bụ agwụla.",
+    "requestNewLink": "Rịọ Njikọ Ọhụrụ"
+  },
+  "governance": {
+    "seoTitle": "Nchịkwa",
+    "seoDescription": "Ndị isi ndeputa CHADI International na nkwesi ekwesi nchekwa.",
+    "title": "Nchịkwa",
+    "subtitle": "Ndị mmadụ na nkwesi ekwesi na-eme ka CHADI zaghachi ajụjụ.",
+    "boardTitle": "Ndị Isi Ndeputa",
+    "boardEmpty": "Anyị na-emecha ozi ndị isi ndeputa. Biko lọghachị echi.",
+    "safeguardingTitle": "Nchekwa",
+    "loading": "Na-ebudata...",
+    "safeguardingEmpty": "Anyị na-emecha iwu nchekwa anyị maka ibipụta ya ebe a. N'oge a, ọ bụrụ na ị nwere nchegbu ma ọ bụ ajụjụ gbasara nchekwa, biko",
+    "safeguardingContact": "kpọtụrụ anyị ozugbo"
+  },
+  "partners": {
+    "seoTitle": "Ndị Mmekọ",
+    "seoDescription": "Zute ụlọ ọrụ na ụlọ ọrụ ndị na-emekọrịta ihe na CHADI International iji jee ozi obodo nke ọma karị.",
+    "title": "Ndị Mmekọ",
+    "subtitle": "Mmekọrịta na-enyere CHADI aka iru ebe dị anya ma na-eje ozi obodo nke ọma karị.",
+    "workWithUs": "Rụọ Ọrụ Na CHADI",
+    "description": "Anyị na-emekọrịta ihe na ndị otu na-eche banyere ahụike, agụmakwụkwọ, ndụ, nchekwa, omume ihu igwe na ike obodo iguzosi ike. Ọnụ, anyị nwere ike ịhazi, kwado ego, na inyefe mmemme nwere uru mpaghara a pụrụ ịtụ.",
+    "becomePartner": "Ghọọ Onye Mmekọ",
+    "ourPartners": "Ndị Mmekọ Anyị",
+    "empty": "Anyị na-ewu ndepụta a. Kpọtụrụ anyị ma ọ bụrụ na ụlọ ọrụ gị chọrọ imekọrịta ihe na CHADI.",
+    "types": {
+      "community": "Ndị otu obodo",
+      "schools": "Ụlọ akwụkwọ na ụlọ mmụta",
+      "health": "Ụlọ ọrụ ahụike",
+      "corporate": "Ndị na-akwado ụlọ ọrụ",
+      "faith": "Ndị otu okpukperechi na obodo",
+      "research": "Ndị mmekọ nyocha na mmepụta ọhụrụ"
+    }
+  },
+  "projects": {
+    "seoTitle": "Ọrụ Anyị",
+    "seoDescription": "Chọpụta ọrụ CHADI International na-arụ ọrụ na ahụike, agụmakwụkwọ, ndụ na mmepe obodo.",
+    "title": "Ọrụ Anyị",
+    "subtitle": "Ikike Ndị A Hapụrụ & Obodo A Na-elekwaghị Anya",
+    "whereWeWork": "Ebe Anyị Na-arụ Ọrụ",
+    "mapIntro": "Chọpụta obodo gafere Naịjirịa ebe ọrụ CHADI na-arụ ọrụ. Pịa akara ka ị hụ ihe na-eme ebe ahụ.",
+    "searchPlaceholder": "Chọọ ọrụ...",
+    "allFilter": "Niile",
+    "noMatch": "Enweghị ọrụ dabara na ọchụchọ gị."
+  },
+  "team": {
+    "seoTitle": "Ndị Otu Anyị",
+    "seoDescription": "Zute ndị otu nwere ọkụ n'obi n'azụ mmemme CHADI International na ọrụ obodo.",
+    "title": "Ndị Otu Anyị",
+    "subtitle": "Zute ndị mmadụ nwere ọkụ n'obi n'azụ CHADI.",
+    "empty": "Profaịlụ ndị otu na-abịa. Biko lọghachị echi.",
+    "leadershipBadge": "Ndudo",
+    "defaultDepartment": "Ndị Otu"
+  },
+  "projectDetails": {
+    "notFoundTitle": "Ahụghị Ọrụ Ahụ",
+    "notFoundDescription": "Biko laghachi na peeji ọrụ ka ị chọpụta ọrụ CHADI.",
+    "seoFallbackDescription": "Mụta gbasara ọrụ {{title}} nke CHADI International.",
+    "aboutTitle": "Gbasara Ọrụ A",
+    "objectivesTitle": "Ebumnuche",
+    "objectives": {
+      "empower": "Nyere ndị a hapụrụ na ezinụlọ ha ike.",
+      "wellbeing": "Melite ọdịmma obodo site na nkwado bara uru.",
+      "sustainable": "Kwalite mmepe na-adịgide adịgide site na itinye aka mpaghara.",
+      "impact": "Mepụta mmetụta a pụrụ ịtụ maka obodo a na-elekwaghị anya."
+    },
+    "mediaTitle": "Foto & Vidiyo",
+    "spendingTitle": "Otu E Si Eji Ego",
+    "spendingIntro": "Ndekọ doro anya nke otu e si emefu ego n'ọrụ a ruo ugbu a.",
+    "totalSpent": "Mkpokọta E Mefuru",
+    "sidebarTitle": "Nkọwa Ọrụ",
+    "program": "Mmemme",
+    "location": "Ebe Obibi",
+    "status": "Ọnọdụ",
+    "beneficiaries": "Ndị Ọ Bara Uru",
+    "raised": "E Nakọtaara Ọrụ A",
+    "fromSupporters_one": "site n'aka onye nkwado {{count}}",
+    "fromSupporters_other": "site n'aka ndị nkwado {{count}}",
+    "goalProgress": "{{percent}}% nke ebumnobi ₦{{budget}}",
+    "spentSoFar": "E Mefuru Ruo Ugbu A",
+    "remaining": "Ihe Fọdụrụ",
+    "donateButton": "Nye Onyinye Nye Ọrụ A",
+    "volunteerButton": "Nyere Aka N'afọ Ofufu Nye Ọrụ A"
+  },
+  "careers": {
+    "seoTitle": "Ọrụ",
+    "seoDescription": "Chọpụta ohere isonye na ndị otu CHADI International nwere ebumnobi na-eje ozi obodo a na-elekwaghị anya.",
+    "title": "Ọrụ",
+    "subtitle": "Sonye na ndị otu nwere ebumnobi na-eje ozi obodo a na-elekwaghị anya.",
+    "noRoles": "Enweghị ọkwa oghere ugbu a",
+    "description": "CHADI na-ebipụta ohere maka mmemme, ubi, nyocha, mmekọrịta na ọkwa ọrụ mgbe ha bịara. Ndị afọ ofufu na ndị mmekọ na-anabata mgbe niile ka ha webata onwe ha.",
+    "cta": "Nyere Aka N'afọ Ofufu Na Anyị"
+  },
+  "contact": {
+    "seoTitle": "Kpọtụrụ Anyị",
+    "seoDescription": "Kpọtụrụ CHADI International maka mmekọrịta, afọ ofufu, onyinye na ajụjụ mmemme.",
+    "pageTitle": "Kpọtụrụ CHADI",
+    "pageSubtitle": "Kpọtụrụ anyị maka mmekọrịta, afọ ofufu, onyinye na ajụjụ mmemme.",
+    "heading": "Ka anyị nụ n'aka gị",
+    "intro": "CHADI na-arụkọ ọrụ na obodo, ndị afọ ofufu, ndị na-enye onyinye na ndị mmekọ iji inyefe mmemme ebe achọrọ ha karịsịa.",
+    "email": "Ozi-e",
+    "focusRegion": "Mpaghara A Na-elekwasị Anya",
+    "officeHours": "Awa Ọfịs",
+    "sentToast": "Ezigala ozi. CHADI ga-esochi n'oge na-adịghị anya.",
+    "errorToast": "Enweghị ike izipu ozi ugbu a. Biko nwaa ọzọ.",
+    "form": {
+      "name": "Aha Zuru Ezu",
+      "email": "Ozi-e",
+      "subject": "Isiokwu",
+      "message": "Ozi",
+      "sending": "Na-eziga...",
+      "send": "Ziga Ozi"
+    }
+  },
+  "faq": {
+    "seoTitle": "Ajụjụ A Na-ajụkarị",
+    "seoDescription": "Azịza ajụjụ ndị a na-ajụkarị gbasara mmemme CHADI International, afọ ofufu na mmekọrịta.",
+    "title": "Ajụjụ A Na-ajụkarị",
+    "subtitle": "Azịza ajụjụ ndị a na-ajụkarị gbasara CHADI International.",
+    "loading": "Na-ebudata...",
+    "empty": "Ajụjụ na-abịa. Biko lọghachị echi."
+  },
+  "events": {
+    "seoTitle": "Ihe Omume",
+    "seoDescription": "Hụ ihe omume CHADI International ga-eme banyere ikwusa ozi, ọzụzụ na itinye aka obodo.",
+    "title": "Ihe Omume",
+    "subtitle": "Ọrụ ikwusa ozi, ọzụzụ na itinye aka obodo na-abịa.",
+    "empty": "Enweghị ihe omume ahazila ugbu a. Biko lọghachị echi.",
+    "noMatch": "Enweghị ihe omume dabara na nzacha a.",
+    "allFilter": "Niile",
+    "cta": {
+      "title": "Nabata ma ọ bụ kwado ihe omume",
+      "description": "CHADI na-arụkọ ọrụ na obodo, ụlọ akwụkwọ, ndị otu ahụike na ndị nkwado iji inyefe ọrụ ubi bara uru.",
+      "button": "Gwa Anyị Okwu"
+    }
+  },
+  "about": {
+    "seoTitle": "Gbasara Anyị",
+    "seoDescription": "Mụta gbasara ebumnobi, ọhụụ na akụkọ dị n'azụ ọrụ CHADI International nke inye ndị a hapụrụ na obodo a na-elekwaghị anya ike.",
+    "pageTitle": "Gbasara CHADI",
+    "pageSubtitle": "Ikike Ndị A Hapụrụ & Obodo A Na-elekwaghị Anya",
+    "ourStory": {
+      "badge": "Hope Alive",
+      "eyebrow": "Gbasara CHADI",
+      "title1": "Inye Ndụ Ike.",
+      "title2": "Ịgbanwe Obodo.",
+      "p1": "Caleb Hope Alive Development Initiative (CHADI) bụ ọrụ ebumnobi na-arụghị ọrụ maka uru onwe ya nke raara onwe ya nye inye ndị a hapụrụ na obodo a na-elekwaghị anya ike gafere Naịjirịa site na mmepe na-adịgide adịgide, agụmakwụkwọ, ahụike, mmepụta ọhụrụ, na ntinye aka mmadụ.",
+      "p2": "Anyị kwenyere na onye ọ bụla kwesịrị ugwu, ohere, ahụike dị mma, agụmakwụkwọ, na olileanya n'agbanyeghị ebe ha bi ma ọ bụ ọnọdụ gbara ha gburugburu.",
+      "quote": "Anyị na-eweghachi ugwu, na-emepụta ohere, ma na-ewetakwa olileanya — site n'ọrụ.",
+      "readStory": "Gụọ Akụkọ Anyị"
+    },
+    "coreValues": {
+      "title": "Ụkpụrụ Isi Anyị",
+      "compassion": { "title": "Ọmịiko", "description": "Ije ozi ụmụ mmadụ site n'ọmịiko na ịhụnanya." },
+      "integrity": { "title": "Izi Ezi", "description": "Ịnụ ihe ọhụrụ na gbasara ihe ego n'ihe niile anyị na-eme." },
+      "innovation": { "title": "Mmepụta Ọhụrụ", "description": "Ịmepụta ngwọta na-adịgide adịgide maka nsogbu obodo." },
+      "inclusion": { "title": "Itinye Onye Ọ Bụla", "description": "Ịhụ na onye ọ bụla nwere ohere hà nhà." },
+      "excellence": { "title": "Ịkacha Mma", "description": "Inyefe mmemme nwere mmetụta site n'ịdị mma." },
+      "collaboration": { "title": "Mmekọrịta", "description": "Iso ndị mmekọ na obodo rụkọọ ọrụ." }
+    },
+    "timeline": {
+      "title": "Njem Anyị",
+      "founded": { "title": "E Guzobere CHADI", "description": "E guzobere CHADI iji nye obodo a na-elekwaghị anya ike site na mmepe na-adịgide adịgide." },
+      "health": { "title": "Mmemme Ahụike & Nri Na-eweta Ahụike", "description": "Gbasaa ngwa nlekọta ahụike nne na nwa gafere obodo ime obodo." },
+      "youth": { "title": "Inye Ndị Na-eto Eto Ike", "description": "Malitere ọzụzụ nka dijitalụ na ọzụzụ ịrụ ọrụ onwe onye maka ndị na-eto eto." },
+      "expansion": { "title": "Mgbasa Mpaghara", "description": "Gbasaa ọrụ gafere steeti ọtụtụ na Ugwu Naịjirịa site na mmekọrịta enwere atụmatụ." }
+    }
   }
 }

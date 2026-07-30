@@ -24,7 +24,7 @@ function FocusAreas() {
     <section className="bg-white py-24 dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-black text-chadi-green">
+          <h2 className="text-4xl font-black text-chadi-green dark:text-chadi-lightgreen">
             {t("home.focusAreas.title")}
           </h2>
 
@@ -48,7 +48,7 @@ function FocusAreas() {
                 {item.icon}
               </div>
 
-              <h3 className="mb-4 text-2xl font-bold text-chadi-green">
+              <h3 className="mb-4 text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">
                 {item.title}
               </h3>
 

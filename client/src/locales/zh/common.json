@@ -134,5 +134,508 @@
       "volunteer": "志愿服务",
       "donate": "捐赠"
     }
+  },
+  "common": {
+    "teamShowcase": {
+      "title": "认识我们的团队",
+      "subtitle": "每一次成功的社区转变背后,都有一支致力于创造持久影响的热情团队。",
+      "cta": "认识全体团队"
+    },
+    "newsletter": {
+      "title": "保持更新",
+      "subtitle": "订阅以接收我们项目、活动和影响力故事的最新消息。",
+      "placeholder": "输入您的电子邮箱",
+      "subscribe": "订阅",
+      "sending": "发送中...",
+      "success": "感谢您的订阅。",
+      "error": "目前无法为您订阅。请再试一次。"
+    },
+    "projectCard": {
+      "beneficiaries": "受益人",
+      "learnMore": "了解更多 →",
+      "volunteer": "志愿服务",
+      "donate": "捐赠"
+    },
+    "eventCard": {
+      "signUp": "报名"
+    },
+    "newsCard": {
+      "readArticle": "阅读文章 →"
+    },
+    "volunteerModal": {
+      "title": "志愿服务",
+      "forLabel": "对象:",
+      "genericSubtitle": "告诉我们一些关于您自己以及您希望如何提供帮助的信息。",
+      "namePlaceholder": "全名",
+      "emailPlaceholder": "电子邮箱",
+      "locationPlaceholder": "州/地区",
+      "messagePlaceholder": "有什么想让我们知道的吗?(可选)",
+      "submitting": "提交中...",
+      "submit": "报名志愿服务",
+      "successMessage": "谢谢!CHADI 将就此项目的志愿服务与您联系。",
+      "errorMessage": "目前无法提交。请再试一次。"
+    },
+    "eventSignupModal": {
+      "title": "活动报名",
+      "forLabel": "对象:",
+      "namePlaceholder": "全名",
+      "emailPlaceholder": "电子邮箱",
+      "signingUp": "报名中...",
+      "confirmSignUp": "确认报名",
+      "successMessage": "您已报名成功!CHADI 将在活动临近时向您发送提醒。",
+      "errorMessage": "目前无法为您报名。请再试一次。"
+    },
+    "cookieConsent": {
+      "message": "我们使用注重隐私的分析工具来了解访客如何使用本网站。不会出售任何个人数据,网站本身也不设置跟踪 Cookie。详情请参阅我们的",
+      "privacyLink": "隐私政策",
+      "messageEnd": "。",
+      "decline": "拒绝",
+      "accept": "接受"
+    },
+    "exitIntent": {
+      "title": "在您离开之前...",
+      "subtitle": "保持联系——订阅我们的月度快讯,了解项目、活动和影响力故事。",
+      "emailPlaceholder": "输入您的电子邮箱",
+      "subscribing": "订阅中...",
+      "keepMeUpdated": "保持更新",
+      "noThanks": "不,谢谢",
+      "successToast": "感谢您的订阅。",
+      "errorToast": "目前无法为您订阅。请再试一次。"
+    }
+  },
+  "impactTiers": {
+    "nutritionKit": { "label": "提供一份营养包", "unit": "份营养包", "unitPlural": "份营养包" },
+    "healthOutreach": { "label": "支持一次健康外展", "unit": "次健康探访", "unitPlural": "次健康探访" },
+    "skillTraining": { "label": "培训一名儿童新技能", "unit": "名接受新技能培训的儿童", "unitPlural": "名接受新技能培训的儿童" },
+    "familySupport": { "label": "支持一个家庭一个月", "unit": "个获得一个月支持的家庭", "unitPlural": "个获得一个月支持的家庭" }
+  },
+  "donateModal": {
+    "orgName": "CHADI International",
+    "title": "立即捐赠",
+    "supporting": "支持对象:",
+    "genericSubtitle": "你给予的不仅仅是金钱——你给予的是希望、尊严和第二次机会。",
+    "oneTime": "单次",
+    "monthly": "每月 — Hope Alive Circle",
+    "namePlaceholder": "全名",
+    "emailPlaceholder": "电子邮箱",
+    "minAmountError": "请输入至少 ₦100 的金额。",
+    "monthlyNote": "您的卡将每月自动扣款 ₦{{amount}},直到您取消为止。您可以随时联系 CHADI 取消。",
+    "notConfigured": "本网站尚未配置在线支付。请改用联系页面。",
+    "processing": "处理中...",
+    "giveButton": "捐赠 ₦{{amount}}",
+    "joinButton": "加入 Hope Alive Circle - ₦{{amount}}/月",
+    "securedBy": "由 Paystack 提供安全保障 · 加入 CHADI 支持者社区",
+    "internationalPrompt": "您是从尼日利亚境外捐赠吗?",
+    "verifyErrorOnce": "付款已完成,但我们无法自动确认。请携带您的参考号联系我们:{{reference}}",
+    "verifyErrorMonthly": "首次付款已完成,但我们无法自动确认。请携带您的参考号联系我们:{{reference}}",
+    "monthlySetupError": "我们目前无法设置您的每月捐赠。请再试一次。",
+    "success": {
+      "title": "已收到付款!",
+      "subscriptionMessage": "欢迎加入 Hope Alive Circle!您的卡将每月自动扣款 {{amount}}。",
+      "oneTimeMessage": "感谢您 {{amount}} 的捐赠。您正在给予希望、尊严和第二次机会。",
+      "reference": "参考号:{{reference}}",
+      "downloadReceipt": "下载收据",
+      "downloading": "下载中...",
+      "downloadError": "无法下载收据",
+      "done": "完成"
+    }
+  },
+  "donate": {
+    "seoTitle": "捐赠",
+    "seoDescription": "通过安全的在线捐赠支持 CHADI International 为服务不足社区开展的工作。",
+    "pageTitle": "捐赠",
+    "pageSubtitle": "支持 CHADI 为服务不足社区开展的工作。",
+    "heading": "帮助维持社区影响力",
+    "description": "您的捐赠帮助 CHADI 提供营养教育、学习支持、紧急救援、青年发展和社区福祉项目。",
+    "donateNow": "立即捐赠",
+    "calculator": {
+      "eyebrow": "查看您的影响力",
+      "title": "您的捐赠能提供什么",
+      "subtitle": "滑动查看您的贡献对一个社区意味着什么。",
+      "couldProvide": "这可以提供",
+      "donateButton": "捐赠 ₦{{amount}}"
+    },
+    "interestForm": {
+      "title": "其他捐助方式",
+      "description": "对企业赞助或项目合作感兴趣吗?分享您的详细信息,CHADI 将与您联系。",
+      "namePlaceholder": "全名",
+      "emailPlaceholder": "电子邮箱",
+      "interestPlaceholder": "捐赠意向",
+      "corporateSponsorship": "企业赞助",
+      "programPartnership": "项目合作",
+      "inKindDonation": "实物捐赠",
+      "saving": "保存中...",
+      "submit": "提交意向",
+      "contactInstead": "改为联系我们",
+      "sentToast": "谢谢。CHADI 将与您联系详情。",
+      "errorToast": "目前无法保存。请改用联系页面。"
+    }
+  },
+  "gallery": {
+    "seoTitle": "图库",
+    "seoDescription": "浏览来自 CHADI International 项目、活动和社区影响的照片。",
+    "title": "图库",
+    "subtitle": "一窥 CHADI 的项目、活动和社区影响。",
+    "empty": "照片即将上线。请稍后回来查看 CHADI 的图片记录。"
+  },
+  "getInvolved": {
+    "seoTitle": "参与",
+    "seoDescription": "了解如何志愿服务、合作或捐赠给 CHADI International,帮助创造持久的社区影响。",
+    "title": "参与",
+    "subtitle": "加入 CHADI,创造切实可行、持久的社区影响。",
+    "volunteer": { "title": "志愿服务", "description": "为社区项目贡献您的时间、技能和现场支持。", "action": "开始志愿服务" },
+    "partner": { "title": "成为合作伙伴", "description": "共同参与改善教育、健康和生计的项目。", "action": "商讨合作" },
+    "donate": { "title": "捐赠", "description": "支持为儿童、妇女、青年和弱势家庭提供的项目。", "action": "进行捐赠" }
+  },
+  "news": {
+    "seoTitle": "新闻",
+    "seoDescription": "阅读 CHADI International 的最新新闻、更新和公告。",
+    "title": "新闻",
+    "subtitle": "CHADI 的最新动态。",
+    "empty": "暂无新闻文章。",
+    "notFound": {
+      "title": "未找到文章",
+      "description": "您要查找的更新可能已被移动。",
+      "back": "返回新闻"
+    }
+  },
+  "notFound": {
+    "seoTitle": "页面未找到",
+    "eyebrow": "404",
+    "title": "页面未找到",
+    "description": "您要查找的页面不存在或已被移动。",
+    "backHome": "返回首页"
+  },
+  "privacy": {
+    "seoTitle": "隐私政策",
+    "seoDescription": "阅读 CHADI International 关于本网站如何处理所共享信息的隐私政策。",
+    "title": "隐私政策",
+    "subtitle": "CHADI 如何处理通过本网站共享的信息。",
+    "lastUpdated": "最近更新:本政策描述了本网站今天实际如何处理信息。这是一个良好的起点,但在您依赖它进行合规目的之前,不能替代合格律师的审查。",
+    "collect": { "title": "我们收集的信息", "body": "我们收集您通过本网站表单选择提交的内容:您在联系、志愿、通讯及捐赠意向表单中填写的姓名和电子邮箱,以及特定表单要求的其他信息(例如志愿服务时的兴趣领域)。如果您进行捐赠,Paystack(我们的支付处理方)会与我们共享您的姓名、电子邮箱、捐赠金额和支付参考号,以便我们记录捐赠并向您发送收据——您的卡片详情直接输入到 Paystack 自己的结账系统中,绝不会经过我们的服务器。" },
+    "cookies": { "title": "Cookie", "body": "本网站本身不设置跟踪 Cookie。如果您接受 Cookie 提示,我们会加载注重隐私、无 Cookie 的分析工具(Plausible)以了解整体流量——它不使用 Cookie,也不会跨站点单独跟踪您。管理后台使用您浏览器的本地存储让员工保持登录状态,而非 Cookie。Paystack 的结账系统可能会在您完成付款时在其自己的域名上设置其自己的 Cookie,受 Paystack 的隐私政策管辖,而非我们的政策。" },
+    "usage": { "title": "我们如何使用您的信息", "body": "用于回复咨询、处理并开具捐赠收据、跟进志愿申请、发送您订阅的通讯更新,以及运营网站的基本功能。我们不出售个人信息,未经您事先同意,也不会将您分享的信息用于超出这些目的的任何用途。" },
+    "sharing": { "title": "我们与谁共享信息", "body": "仅限提供您所请求服务所必需的第三方:Paystack(支付处理)、我们的电子邮件服务提供商(发送收据、回复和通讯邮件),以及(如启用)Plausible(分析)和 Sentry(错误监控,帮助我们修复漏洞)。我们不会向任何其他人出售或出租您的信息。CHADI 内部的访问权限仅限于需要它来完成工作的团队成员。" },
+    "retention": { "title": "我们保留信息的时长", "body": "我们会在信息对您分享的目的仍然有用时保留它(例如有效的志愿申请、用于我们自身核算的捐赠记录),或直到您要求我们删除它为止——以相关情况为准。" },
+    "rights": { "title": "您的权利", "body": "根据您所在的位置,您可能有权访问、更正、删除或获取我们持有的关于您的信息副本,或反对其使用方式。要行使这些权利中的任何一项,或更新或删除您与我们分享的信息,请通过", "contactLink": "联系页面" },
+    "children": { "title": "儿童隐私", "body": "本网站不针对儿童,我们也不会故意收集儿童的个人信息。" },
+    "changes": { "title": "本政策的变更", "body": "随着网站和服务的发展,我们可能会更新本政策。重大变更将在此处反映,并附有更新日期。" }
+  },
+  "resources": {
+    "seoTitle": "资源",
+    "seoDescription": "来自 CHADI International 项目的指南、清单和有用材料。",
+    "title": "资源",
+    "subtitle": "CHADI 项目的指南、清单和有用材料。",
+    "requestButton": "申请资源",
+    "nutritionGuide": { "title": "营养意识指南", "description": "针对孕产妇、婴儿和幼儿营养讲座的简单提醒。" },
+    "volunteerChecklist": { "title": "志愿者实地检查清单", "description": "外展支持和实地参与的快速规划清单。" },
+    "projectIntake": { "title": "社区项目申报", "description": "为提议 CHADI 支持项目的社区和合作伙伴提供的指导。" }
+  },
+  "search": {
+    "seoTitle": "搜索",
+    "seoDescription": "搜索 CHADI International 的项目、新闻和活动。",
+    "title": "搜索",
+    "subtitle": "在整个网站中查找项目、新闻和活动。",
+    "placeholder": "搜索项目、新闻、活动...",
+    "loading": "加载中...",
+    "prompt": "开始输入以搜索。",
+    "noResults": "未找到“{{query}}”的结果。",
+    "projects": "项目",
+    "news": "新闻",
+    "events": "活动"
+  },
+  "stories": {
+    "seoTitle": "影响力故事",
+    "seoDescription": "阅读 CHADI International 所支持社区的真实变革故事。",
+    "title": "影响力故事",
+    "subtitle": "CHADI 所支持社区的真实变革故事。",
+    "eyebrow": "他们的心声",
+    "heading": "数字无法讲述的故事。",
+    "intro": "从 SOVCEST 的孩子们到 HELP 的家庭——来自 CHADI 服务社区的真实故事,以尊严记录,用他们自己的话语讲述。",
+    "readTheirStories": "阅读他们的故事",
+    "featuredBadge": "精选故事",
+    "brand": "CHADI · 故事",
+    "empty": "我们正在从现场收集故事。请稍后回来查看。",
+    "featuring": "特别介绍:{{name}}"
+  },
+  "terms": {
+    "seoTitle": "使用条款",
+    "seoDescription": "使用 CHADI International 网站的指南和条款。",
+    "title": "使用条款",
+    "subtitle": "使用 CHADI International 网站的指南。",
+    "disclaimer": "这是一个良好的起点,但在您依赖它进行合规目的之前,不能替代合格律师的审查。",
+    "usage": { "title": "使用本网站", "body": "本网站分享有关 CHADI 项目、活动和机会的信息。内容仅供一般信息用途,可能随项目发展而更新。您同意不滥用本网站、不通过其表单提交虚假信息,也不尝试破坏该平台或其连接的服务。" },
+    "content": { "title": "内容与知识产权", "body": "本网站上的文字、照片和其他内容归 CHADI International 所有或经许可使用,除非另有说明。欢迎您分享我们内容的链接;在其他地方重复使用需事先获得我们的书面许可。" },
+    "donations": { "title": "捐赠", "body": "通过本网站进行的捐赠是对 CHADI International 工作的自愿贡献。付款通过 Paystack 安全处理;我们绝不会查看或存储您的卡片详情。如果您错误捐赠或对某笔扣款有疑虑,请通过", "contactLink": "联系页面", "bodyEnd": "与我们联系,我们将与您一起处理。" },
+    "thirdParty": { "title": "第三方链接", "body": "本网站可能链接到第三方网站(合作组织、社交媒体、支付提供商)。我们不对我们不控制的网站的内容或做法负责。" },
+    "liability": { "title": "无担保;责任限制", "body": "本网站及其内容按“现状”提供,不附带任何形式的担保。在法律允许的最大范围内,CHADI International 对因使用本网站而产生的任何间接或后果性损失不承担责任。" },
+    "governingLaw": { "title": "适用法律", "body": "这些条款受尼日利亚联邦共和国法律管辖,不考虑法律冲突原则。" },
+    "changes": { "title": "本条款的变更", "body": "随着网站和服务的发展,CHADI 可能会更新这些条款。变更后继续使用本网站即表示您接受更新后的条款。" }
+  },
+  "transparency": {
+    "seoTitle": "透明度",
+    "seoDescription": "了解 CHADI International 如何分配和报告捐赠情况,以及对透明度和问责制的承诺。",
+    "pageTitle": "我们的承诺",
+    "pageSubtitle": "透明度。问责制。影响力。",
+    "intro": "我们致力于负责任地使用每一份资源,并确保在我们所服务的社区中产生可衡量的持久影响。我们追踪每一笔捐赠,从捐出的那一刻到它所帮助实现的成果。",
+    "allocationTitle": "您的捐赠去向",
+    "loading": "加载中...",
+    "allocationEmpty": "一旦本报告期的完整分配明细最终确定,我们将在此发布。同时,请通过下方联系我们获取最新报告。",
+    "reportsTitle": "报告与财务报表",
+    "transparencyCard": { "title": "透明度", "description": "关于资金如何筹集和使用的清晰报告。" },
+    "accountabilityCard": { "title": "问责制", "description": "使我们的团队对所服务社区负责的治理实践。" },
+    "impactCard": { "title": "可衡量的影响力", "description": "根据真实成果而非仅仅活动来追踪项目。" },
+    "ctaTitle": "想了解全貌吗?",
+    "ctaDescription": "联系我们的团队获取详细的财务和项目报告。",
+    "ctaButton": "申请报告"
+  },
+  "volunteer": {
+    "seoTitle": "志愿服务",
+    "seoDescription": "运用您的技能、时间和同理心支持 CHADI International 的社区项目。立即申请成为志愿者。",
+    "title": "志愿服务",
+    "subtitle": "运用您的技能、时间和同理心支持 CHADI 的社区。",
+    "sentToast": "已收到申请。CHADI 将很快与您联系。",
+    "errorToast": "目前无法提交。请再试一次。",
+    "spark": {
+      "eyebrow": "CHADI Kind Humans",
+      "heading": "成为 CHADI SPARK 州大使",
+      "description": "<strong>SPARK</strong> — 传播并践行随机善举。州大使在 CHADI 的监督下,在自己的社区中领导有影响力的小型项目。",
+      "role": { "title": "您的角色", "description": "在 CHADI 的指导和支持下,在您所在的州规划并开展小型善举项目。" },
+      "recognition": { "title": "表彰", "description": "每年评选出最佳 SPARK 项目,并在 CHADI 的各个渠道中予以庆祝。" },
+      "visibility": { "title": "曝光度", "description": "在 CHADI 网站和社交媒体上展示——在您的社区中建立本地归属感。" },
+      "prompt": "有兴趣吗?在下方将“州 SPARK 大使”选为您的领域。"
+    },
+    "areasTitle": "志愿服务领域",
+    "areas": {
+      "outreach": "社区外展与动员",
+      "health": "健康与营养教育",
+      "digital": "数字技能与指导",
+      "media": "媒体、传播与讲故事",
+      "research": "研究、监测与评估"
+    },
+    "form": {
+      "namePlaceholder": "全名",
+      "emailPlaceholder": "电子邮箱",
+      "phonePlaceholder": "电话号码",
+      "locationPlaceholder": "所在地",
+      "areaPlaceholder": "兴趣领域",
+      "areaOutreach": "社区外展",
+      "areaHealth": "健康与营养",
+      "areaEducation": "教育与指导",
+      "areaMedia": "媒体与传播",
+      "areaResearch": "研究与数据",
+      "areaSpark": "州 SPARK 大使",
+      "messagePlaceholder": "告诉我们您的经验或动机",
+      "submitting": "提交中...",
+      "submit": "提交申请"
+    }
+  },
+  "donorPortal": {
+    "seoTitle": "捐赠者门户",
+    "seoDescription": "登录查看您在 CHADI International 的捐赠历史、下载税务收据,并管理定期捐赠。",
+    "title": "捐赠者门户",
+    "subtitle": "查看您的捐赠历史、下载收据,并管理定期捐赠。",
+    "typeLabels": { "payment": "单次捐赠", "subscription": "Hope Alive Circle(每月)" },
+    "login": {
+      "emailLabel": "电子邮箱",
+      "emailPlaceholder": "you@example.com",
+      "sending": "发送中...",
+      "submit": "通过电子邮件发送登录链接给我",
+      "hint": "使用您捐赠时使用的同一电子邮箱。无需密码。",
+      "sentTitle": "如果该邮箱曾向我们捐赠过,我们已向其发送了登录链接。",
+      "sentHint": "请查看您的收件箱(和垃圾邮件文件夹)以获取来自 CHADI International 的链接。它将在 15 分钟内失效。",
+      "genericError": "出现了问题。请再试一次。"
+    },
+    "dashboard": {
+      "title": "您的捐赠历史",
+      "signOut": "退出登录",
+      "loading": "正在加载您的捐赠...",
+      "empty": "该邮箱尚未找到任何捐赠记录。",
+      "loadError": "无法加载您的捐赠历史",
+      "columns": { "date": "日期", "type": "类型", "amount": "金额", "status": "状态", "actions": "操作" },
+      "status": { "active": "活跃", "cancelled": "已取消", "activating": "激活中..." },
+      "downloadReceipt": "下载收据",
+      "downloading": "下载中...",
+      "downloadError": "无法下载收据",
+      "cancel": "取消",
+      "cancelling": "取消中...",
+      "cancelConfirm": "取消此定期捐赠吗?此操作无法撤销。",
+      "cancelSuccess": "订阅已取消",
+      "cancelError": "无法取消订阅"
+    }
+  },
+  "donorPortalVerify": {
+    "seoTitle": "登录中",
+    "seoDescription": "正在为您登录 CHADI 捐赠者门户。",
+    "title": "捐赠者门户",
+    "subtitle": "正在为您登录...",
+    "verifying": "正在验证您的登录链接...",
+    "invalidLink": "此登录链接无效或已过期。",
+    "requestNewLink": "申请新链接"
+  },
+  "governance": {
+    "seoTitle": "治理",
+    "seoDescription": "CHADI International 董事会及其保护承诺。",
+    "title": "治理",
+    "subtitle": "使 CHADI 负责任的人员与承诺。",
+    "boardTitle": "董事会",
+    "boardEmpty": "董事会信息正在完善中。请稍后回来查看。",
+    "safeguardingTitle": "保护措施",
+    "loading": "加载中...",
+    "safeguardingEmpty": "我们的保护政策正在完善,即将在此发布。同时,如果您有关于保护方面的疑虑或问题,请",
+    "safeguardingContact": "直接联系我们"
+  },
+  "partners": {
+    "seoTitle": "合作伙伴",
+    "seoDescription": "了解与 CHADI International 合作以更好地服务社区的组织和机构。",
+    "title": "合作伙伴",
+    "subtitle": "合作伙伴关系帮助 CHADI 覆盖更远、更好地服务社区。",
+    "workWithUs": "与 CHADI 合作",
+    "description": "我们与关心健康、教育、生计、保护、气候行动和社区韧性的团体合作。携手并进,我们可以规划、资助并交付具有可衡量本地价值的项目。",
+    "becomePartner": "成为合作伙伴",
+    "ourPartners": "我们的合作伙伴",
+    "empty": "我们正在建立这份名单。如果您的组织希望与 CHADI 合作,请联系我们。",
+    "types": {
+      "community": "社区组织",
+      "schools": "学校及学习中心",
+      "health": "医疗机构",
+      "corporate": "企业赞助商",
+      "faith": "宗教及公民团体",
+      "research": "研究与创新合作伙伴"
+    }
+  },
+  "projects": {
+    "seoTitle": "我们的项目",
+    "seoDescription": "探索 CHADI International 在健康、教育、生计和社区发展方面的活跃项目。",
+    "title": "我们的项目",
+    "subtitle": "赋能被边缘化的人群和服务不足的社区",
+    "whereWeWork": "我们的工作地点",
+    "mapIntro": "探索 CHADI 项目活跃的尼日利亚各地社区。点击标记查看当地正在发生的事情。",
+    "searchPlaceholder": "搜索项目...",
+    "allFilter": "全部",
+    "noMatch": "没有与您的搜索匹配的项目。"
+  },
+  "team": {
+    "seoTitle": "我们的团队",
+    "seoDescription": "了解 CHADI International 项目和社区工作背后的敬业团队。",
+    "title": "我们的团队",
+    "subtitle": "了解 CHADI 背后敬业的人们。",
+    "empty": "团队简介即将上线。请稍后回来查看。",
+    "leadershipBadge": "领导层",
+    "defaultDepartment": "团队"
+  },
+  "projectDetails": {
+    "notFoundTitle": "未找到项目",
+    "notFoundDescription": "请返回项目页面,探索 CHADI 的工作。",
+    "seoFallbackDescription": "了解 CHADI International 的 {{title}} 项目。",
+    "aboutTitle": "关于此项目",
+    "objectivesTitle": "目标",
+    "objectives": {
+      "empower": "赋能被边缘化的人群及其家庭。",
+      "wellbeing": "通过切实的支持改善社区福祉。",
+      "sustainable": "通过本地参与促进可持续发展。",
+      "impact": "为服务不足的社区创造可衡量的影响。"
+    },
+    "mediaTitle": "照片与视频",
+    "spendingTitle": "资金使用情况",
+    "spendingIntro": "此项目迄今为止支出情况的透明记录。",
+    "totalSpent": "总支出",
+    "sidebarTitle": "项目详情",
+    "program": "项目",
+    "location": "地点",
+    "status": "状态",
+    "beneficiaries": "受益人",
+    "raised": "为此项目筹集的资金",
+    "fromSupporters_one": "来自 {{count}} 位支持者",
+    "fromSupporters_other": "来自 {{count}} 位支持者",
+    "goalProgress": "已达成 ₦{{budget}} 目标的 {{percent}}%",
+    "spentSoFar": "迄今支出",
+    "remaining": "剩余",
+    "donateButton": "为此项目捐赠",
+    "volunteerButton": "为此项目志愿服务"
+  },
+  "careers": {
+    "seoTitle": "招聘",
+    "seoDescription": "探索加入 CHADI International 团队的机会,致力于服务服务不足的社区。",
+    "title": "招聘",
+    "subtitle": "加入致力于服务服务不足社区的团队。",
+    "noRoles": "目前没有空缺职位",
+    "description": "当职位空缺时,CHADI 会发布项目、实地、研究、合作伙伴关系和运营等角色的机会。我们始终欢迎志愿者和合作者自荐。",
+    "cta": "与我们一起做志愿者"
+  },
+  "contact": {
+    "seoTitle": "联系我们",
+    "seoDescription": "就合作、志愿服务、捐赠和项目咨询联系 CHADI International。",
+    "pageTitle": "联系 CHADI",
+    "pageSubtitle": "就合作、志愿服务、捐赠和项目咨询与我们联系。",
+    "heading": "期待您的来信",
+    "intro": "CHADI 与社区、志愿者、捐赠者和合作伙伴合作,在最需要的地方开展项目。",
+    "email": "电子邮箱",
+    "focusRegion": "重点地区",
+    "officeHours": "办公时间",
+    "sentToast": "消息已发送。CHADI 将很快跟进。",
+    "errorToast": "目前无法发送消息。请再试一次。",
+    "form": {
+      "name": "全名",
+      "email": "电子邮箱",
+      "subject": "主题",
+      "message": "留言",
+      "sending": "发送中...",
+      "send": "发送消息"
+    }
+  },
+  "faq": {
+    "seoTitle": "常见问题",
+    "seoDescription": "关于 CHADI International 项目、志愿服务和合作的常见问题解答。",
+    "title": "常见问题",
+    "subtitle": "关于 CHADI International 的常见问题解答。",
+    "loading": "加载中...",
+    "empty": "问题即将上线。请稍后回来查看。"
+  },
+  "events": {
+    "seoTitle": "活动",
+    "seoDescription": "查看 CHADI International 即将举行的外展、培训和社区参与活动。",
+    "title": "活动",
+    "subtitle": "即将举行的外展、培训和社区参与活动。",
+    "empty": "目前没有安排活动。请稍后回来查看。",
+    "noMatch": "没有与此筛选条件匹配的活动。",
+    "allFilter": "全部",
+    "cta": {
+      "title": "主办或支持一场活动",
+      "description": "CHADI 与社区、学校、医疗团队和赞助商合作,开展切实可行的实地活动。",
+      "button": "与我们联系"
+    }
+  },
+  "about": {
+    "seoTitle": "关于我们",
+    "seoDescription": "了解 CHADI International 的使命、愿景,以及赋能被边缘化人群和服务不足社区工作背后的故事。",
+    "pageTitle": "关于 CHADI",
+    "pageSubtitle": "赋能被边缘化的人群和服务不足的社区",
+    "ourStory": {
+      "badge": "Hope Alive",
+      "eyebrow": "关于 CHADI",
+      "title1": "赋予生命力量。",
+      "title2": "改变社区。",
+      "p1": "Caleb Hope Alive Development Initiative(CHADI)是一家非营利组织,致力于通过可持续发展、教育、医疗保健、创新和人道主义干预,赋能整个尼日利亚被边缘化的人群和服务不足的社区。",
+      "p2": "我们相信,无论人们居住在哪里或身处何种境况,每个人都应享有尊严、机会、优质医疗、教育和希望。",
+      "quote": "我们通过实际行动恢复尊严、创造机会、带来希望。",
+      "readStory": "阅读我们的故事"
+    },
+    "coreValues": {
+      "title": "我们的核心价值观",
+      "compassion": { "title": "同情心", "description": "以同理心和爱心服务人类。" },
+      "integrity": { "title": "诚信", "description": "在我们所做的一切事情中保持透明和问责。" },
+      "innovation": { "title": "创新", "description": "为社区挑战创造可持续的解决方案。" },
+      "inclusion": { "title": "包容", "description": "确保人人享有平等机会。" },
+      "excellence": { "title": "卓越", "description": "以高质量交付有影响力的项目。" },
+      "collaboration": { "title": "协作", "description": "与合作伙伴和社区携手合作。" }
+    },
+    "timeline": {
+      "title": "我们的历程",
+      "founded": { "title": "CHADI 成立", "description": "CHADI 成立的宗旨是通过可持续发展赋能服务不足的社区。" },
+      "health": { "title": "健康与营养项目", "description": "在农村社区扩大孕产妇和儿童健康倡议。" },
+      "youth": { "title": "青年赋能", "description": "为年轻人推出数字技能和创业培训。" },
+      "expansion": { "title": "区域扩展", "description": "通过战略合作伙伴关系将项目扩展到尼日利亚北部多个州。" }
+    }
   }
 }

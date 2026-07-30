@@ -9,8 +9,8 @@ import CardGridSkeleton from "../common/CardGridSkeleton";
 import bgImage from "../../assets/projects/food-security.jpg";
 
 function SuccessStories() {
-  const { t } = useTranslation();
-  const { data, loading } = useCollection(testimonialsApi.list);
+  const { t, i18n } = useTranslation();
+  const { data, loading } = useCollection(() => testimonialsApi.list(i18n.language), [i18n.language]);
   const testimonials = data || [];
 
   return (
@@ -58,7 +58,7 @@ function SuccessStories() {
                     <motion.span
                       animate={{ scale: [1, 1.15, 1] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                      className="inline-block text-chadi-gold-dark"
+                      className="inline-block text-chadi-gold-dark dark:text-chadi-gold"
                     >
                       <FaQuoteLeft size={22} />
                     </motion.span>
@@ -79,7 +79,7 @@ function SuccessStories() {
                         </div>
                       )}
                       <div>
-                        <p className="font-bold text-chadi-green">{testimonial.name}</p>
+                        <p className="font-bold text-chadi-green dark:text-chadi-lightgreen">{testimonial.name}</p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.location}</p>
                       </div>
                     </footer>

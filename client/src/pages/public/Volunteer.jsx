@@ -1,5 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { Trans, useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import Reveal from "../../components/common/Reveal";
@@ -9,7 +10,10 @@ import sparkImage from "../../assets/projects/digital-skills.jpg";
 import Newsletter from "../../components/common/Newsletter";
 import Honeypot from "../../components/common/Honeypot";
 
+const AREA_KEYS = ["outreach", "health", "digital", "media", "research"];
+
 function Volunteer() {
+  const { t } = useTranslation();
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -22,9 +26,9 @@ function Volunteer() {
     try {
       await submitVolunteerApplication(Object.fromEntries(formData.entries()));
       form.reset();
-      toast.success("Application received. CHADI will reach out soon.");
+      toast.success(t("volunteer.sentToast"));
     } catch {
-      toast.error("We could not submit this right now. Please try again.");
+      toast.error(t("volunteer.errorToast"));
     } finally {
       setSubmitting(false);
     }
@@ -33,14 +37,14 @@ function Volunteer() {
   return (
     <>
       <Seo
-        title="Volunteer"
+        title={t("volunteer.seoTitle")}
         path="/volunteer"
-        description="Use your skills, time and compassion to support CHADI International's community programs. Apply to volunteer today."
+        description={t("volunteer.seoDescription")}
       />
 
       <PageHeader
-        title="Volunteer"
-        subtitle="Use your skills, time and compassion to support CHADI communities."
+        title={t("volunteer.title")}
+        subtitle={t("volunteer.subtitle")}
       />
 
       <section
@@ -50,49 +54,44 @@ function Volunteer() {
         <div className="absolute inset-0 bg-gradient-to-b from-chadi-green/70 via-chadi-green/80 to-chadi-green/90" />
         <Reveal className="relative mx-auto max-w-5xl px-6 text-center">
           <p className="text-xs font-semibold uppercase tracking-[3px] text-chadi-gold">
-            CHADI Kind Humans
+            {t("volunteer.spark.eyebrow")}
           </p>
           <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-            Become a State CHADI SPARK Ambassador
+            {t("volunteer.spark.heading")}
           </h2>
           <p className="mt-4 text-white/80">
-            <strong>SPARK</strong> &mdash; Spreading And Performing Random
-            Acts of Kindness. State ambassadors lead small, impactful
-            projects in their own community under CHADI's supervision.
+            <Trans i18nKey="volunteer.spark.description" components={{ strong: <strong /> }} />
           </p>
 
           <StaggerGrid className="mt-10 grid gap-6 text-left sm:grid-cols-3">
             <StaggerItem>
               <div className="rounded-2xl bg-white/10 p-6">
-                <h3 className="font-bold text-chadi-gold">Your Role</h3>
+                <h3 className="font-bold text-chadi-gold">{t("volunteer.spark.role.title")}</h3>
                 <p className="mt-2 text-sm text-white/80">
-                  Plan and run small acts-of-kindness projects in your state,
-                  with CHADI's guidance and support.
+                  {t("volunteer.spark.role.description")}
                 </p>
               </div>
             </StaggerItem>
             <StaggerItem>
               <div className="rounded-2xl bg-white/10 p-6">
-                <h3 className="font-bold text-chadi-gold">Recognition</h3>
+                <h3 className="font-bold text-chadi-gold">{t("volunteer.spark.recognition.title")}</h3>
                 <p className="mt-2 text-sm text-white/80">
-                  The best SPARK project each year is voted on and celebrated
-                  across CHADI's channels.
+                  {t("volunteer.spark.recognition.description")}
                 </p>
               </div>
             </StaggerItem>
             <StaggerItem>
               <div className="rounded-2xl bg-white/10 p-6">
-                <h3 className="font-bold text-chadi-gold">Visibility</h3>
+                <h3 className="font-bold text-chadi-gold">{t("volunteer.spark.visibility.title")}</h3>
                 <p className="mt-2 text-sm text-white/80">
-                  Featured on the CHADI website and social media &mdash;
-                  building grassroots ownership in your community.
+                  {t("volunteer.spark.visibility.description")}
                 </p>
               </div>
             </StaggerItem>
           </StaggerGrid>
 
           <p className="mt-8 text-sm text-white/70">
-            Interested? Select "State SPARK Ambassador" as your area below.
+            {t("volunteer.spark.prompt")}
           </p>
         </Reveal>
       </section>
@@ -101,14 +100,12 @@ function Volunteer() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
           <Reveal direction="left">
             <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
-              Volunteer Areas
+              {t("volunteer.areasTitle")}
             </h2>
             <ul className="mt-6 space-y-4 leading-7 text-gray-600 dark:text-gray-300">
-              <li>Community outreach and mobilization</li>
-              <li>Health and nutrition education</li>
-              <li>Digital skills and mentorship</li>
-              <li>Media, communications and storytelling</li>
-              <li>Research, monitoring and evaluation</li>
+              {AREA_KEYS.map((key) => (
+                <li key={key}>{t(`volunteer.areas.${key}`)}</li>
+              ))}
             </ul>
           </Reveal>
 
@@ -124,25 +121,25 @@ function Volunteer() {
               <input
                 className="rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
                 name="name"
-                placeholder="Full name"
+                placeholder={t("volunteer.form.namePlaceholder")}
                 required
               />
               <input
                 className="rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
                 name="email"
                 type="email"
-                placeholder="Email address"
+                placeholder={t("volunteer.form.emailPlaceholder")}
                 required
               />
               <input
                 className="rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
                 name="phone"
-                placeholder="Phone number"
+                placeholder={t("volunteer.form.phonePlaceholder")}
               />
               <input
                 className="rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
                 name="location"
-                placeholder="Location"
+                placeholder={t("volunteer.form.locationPlaceholder")}
               />
             </div>
 
@@ -153,20 +150,20 @@ function Volunteer() {
               required
             >
               <option value="" disabled>
-                Area of interest
+                {t("volunteer.form.areaPlaceholder")}
               </option>
-              <option>Community outreach</option>
-              <option>Health and nutrition</option>
-              <option>Education and mentoring</option>
-              <option>Media and communications</option>
-              <option>Research and data</option>
-              <option>State SPARK Ambassador</option>
+              <option>{t("volunteer.form.areaOutreach")}</option>
+              <option>{t("volunteer.form.areaHealth")}</option>
+              <option>{t("volunteer.form.areaEducation")}</option>
+              <option>{t("volunteer.form.areaMedia")}</option>
+              <option>{t("volunteer.form.areaResearch")}</option>
+              <option>{t("volunteer.form.areaSpark")}</option>
             </select>
 
             <textarea
               className="mt-5 min-h-36 w-full rounded-xl border border-gray-200 px-4 py-3 outline-none focus:border-chadi-green"
               name="message"
-              placeholder="Tell us about your experience or motivation"
+              placeholder={t("volunteer.form.messagePlaceholder")}
             />
 
             <button
@@ -174,7 +171,7 @@ function Volunteer() {
               disabled={submitting}
               className="mt-6 rounded-lg bg-chadi-green px-8 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
             >
-              {submitting ? "Submitting..." : "Submit Application"}
+              {submitting ? t("volunteer.form.submitting") : t("volunteer.form.submit")}
             </button>
           </Reveal>
         </div>

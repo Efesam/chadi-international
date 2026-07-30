@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import CardGridSkeleton from "../../components/common/CardGridSkeleton";
@@ -8,56 +9,47 @@ import { useCollection } from "../../hooks/useCollection";
 import { partnersApi } from "../../services/api";
 import Newsletter from "../../components/common/Newsletter";
 
-const partnerTypes = [
-  "Community organizations",
-  "Schools and learning centers",
-  "Health institutions",
-  "Corporate sponsors",
-  "Faith and civic groups",
-  "Research and innovation partners",
-];
+const PARTNER_TYPE_KEYS = ["community", "schools", "health", "corporate", "faith", "research"];
 
 function Partners() {
-  const { data: partners, loading, error } = useCollection(partnersApi.list);
+  const { t, i18n } = useTranslation();
+  const { data: partners, loading, error } = useCollection(() => partnersApi.list(i18n.language), [i18n.language]);
 
   return (
     <>
       <Seo
-        title="Partners"
+        title={t("partners.seoTitle")}
         path="/partners"
-        description="Meet the organizations and institutions partnering with CHADI International to serve communities better."
+        description={t("partners.seoDescription")}
       />
 
       <PageHeader
-        title="Partners"
-        subtitle="Partnerships help CHADI reach farther and serve communities better."
+        title={t("partners.title")}
+        subtitle={t("partners.subtitle")}
       />
 
       <section className="bg-white py-20 dark:bg-gray-900">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
           <Reveal direction="left">
-            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
-              Work With CHADI
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">
+              {t("partners.workWithUs")}
             </h2>
             <p className="mt-6 leading-8 text-gray-600 dark:text-gray-300">
-              We partner with groups that care about health, education,
-              livelihoods, protection, climate action and community resilience.
-              Together we can plan, fund and deliver programs with measurable
-              local value.
+              {t("partners.description")}
             </p>
             <Link
               to="/contact"
               className="mt-8 inline-block rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white"
             >
-              Become a Partner
+              {t("partners.becomePartner")}
             </Link>
           </Reveal>
 
           <StaggerGrid className="grid gap-4 sm:grid-cols-2">
-            {partnerTypes.map((type) => (
-              <StaggerItem key={type}>
-                <div className="rounded-xl bg-chadi-cream p-6 font-semibold text-chadi-green shadow-sm">
-                  {type}
+            {PARTNER_TYPE_KEYS.map((key) => (
+              <StaggerItem key={key}>
+                <div className="rounded-xl bg-chadi-cream p-6 font-semibold text-chadi-green shadow-sm dark:text-chadi-lightgreen">
+                  {t(`partners.types.${key}`)}
                 </div>
               </StaggerItem>
             ))}
@@ -68,7 +60,7 @@ function Partners() {
       <section className="bg-gray-50 py-20 dark:bg-gray-950">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
-            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">Our Partners</h2>
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">{t("partners.ourPartners")}</h2>
           </Reveal>
 
           {loading ? (
@@ -77,7 +69,7 @@ function Partners() {
             <p className="mt-8 font-semibold text-red-600">{error}</p>
           ) : partners.length === 0 ? (
             <p className="mt-8 text-gray-500 dark:text-gray-400">
-              We're building this list. Reach out if your organization would like to partner with CHADI.
+              {t("partners.empty")}
             </p>
           ) : (
             <StaggerGrid className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -92,7 +84,7 @@ function Partners() {
                     {partner.logo && (
                       <img src={partner.logo} alt={partner.name} loading="lazy" className="h-12 object-contain" />
                     )}
-                    <p className="mt-4 font-bold text-chadi-green">{partner.name}</p>
+                    <p className="mt-4 font-bold text-chadi-green dark:text-chadi-lightgreen">{partner.name}</p>
                     <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{partner.type}</p>
                     {partner.description && (
                       <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">{partner.description}</p>

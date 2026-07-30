@@ -1,7 +1,7 @@
-// i18n infrastructure. Only the Navbar's labels are translated so far (see
-// Navbar.jsx for the working example) - this is a working starting point
-// for expanding language support, not a claim that the whole site is
-// translated yet.
+// i18n infrastructure. Navbar, Footer, Home and most other public pages are
+// translated (see locales/en/common.json for the full key tree) - CMS
+// content (project/news/event text typed by admins) is machine-translated
+// server-side instead, see server/src/lib/translate.js.
 //
 // Nigeria's 4 main languages (English, Hausa, Yoruba, Igbo) plus 7 global
 // core languages (French, Spanish, Arabic, Chinese, Russian, Portuguese,

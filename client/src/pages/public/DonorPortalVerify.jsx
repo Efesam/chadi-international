@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import { verifyDonorLink } from "../../services/api";
 
 function DonorPortalVerify() {
+  const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const token = searchParams.get("token");
@@ -22,23 +24,23 @@ function DonorPortalVerify() {
 
   return (
     <>
-      <Seo title="Signing In" path="/donor-portal/verify" description="Signing you in to the CHADI donor portal." />
-      <PageHeader title="Donor Portal" subtitle="Signing you in..." />
+      <Seo title={t("donorPortalVerify.seoTitle")} path="/donor-portal/verify" description={t("donorPortalVerify.seoDescription")} />
+      <PageHeader title={t("donorPortalVerify.title")} subtitle={t("donorPortalVerify.subtitle")} />
 
       <section className="bg-white py-20 text-center dark:bg-gray-900">
         {status === "verifying" && (
-          <p className="text-gray-600 dark:text-gray-300">Verifying your sign-in link...</p>
+          <p className="text-gray-600 dark:text-gray-300">{t("donorPortalVerify.verifying")}</p>
         )}
         {status === "error" && (
           <div className="mx-auto max-w-md">
             <p className="font-semibold text-red-600">
-              This sign-in link is invalid or has expired.
+              {t("donorPortalVerify.invalidLink")}
             </p>
             <Link
               to="/donor-portal"
               className="mt-4 inline-block rounded-lg bg-chadi-green px-6 py-3 font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
             >
-              Request a New Link
+              {t("donorPortalVerify.requestNewLink")}
             </Link>
           </div>
         )}

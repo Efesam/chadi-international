@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import { FaShieldAlt, FaCheck } from "react-icons/fa";
 import { verifyPayment, getOrCreateMonthlyPlan, reportPaymentIssue, downloadReceiptByReference } from "../../services/api";
 import { IMPACT_TIERS } from "../../data/impactTiers";
@@ -20,6 +21,7 @@ const PRESET_AMOUNTS = IMPACT_TIERS;
  * submitted.
  */
 function DonationSuccess({ result, onClose }) {
+  const { t } = useTranslation();
   const [downloading, setDownloading] = useState(false);
 
   const handleDownload = async () => {
@@ -27,7 +29,7 @@ function DonationSuccess({ result, onClose }) {
     try {
       await downloadReceiptByReference(result.reference, `CHADI-receipt-${result.reference}.pdf`);
     } catch (err) {
-      toast.error(err.message || "Could not download receipt");
+      toast.error(err.message || t("donateModal.success.downloadError"));
     } finally {
       setDownloading(false);
     }
@@ -48,31 +50,33 @@ function DonationSuccess({ result, onClose }) {
       </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.4 }}>
-        <h3 id="donate-modal-title" className="mt-6 text-2xl font-bold text-chadi-green">
-          Payment Received!
+        <h3 id="donate-modal-title" className="mt-6 text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+          {t("donateModal.success.title")}
         </h3>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
           {result.isSubscription
-            ? `Welcome to Hope Alive Circle! Your card will be charged ${amountLabel} automatically every month.`
-            : `Thank you for your ${amountLabel} donation. You're giving hope, dignity and a second chance.`}
+            ? t("donateModal.success.subscriptionMessage", { amount: amountLabel })
+            : t("donateModal.success.oneTimeMessage", { amount: amountLabel })}
         </p>
-        <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">Reference: {result.reference}</p>
+        <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">
+          {t("donateModal.success.reference", { reference: result.reference })}
+        </p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <button
             type="button"
             onClick={handleDownload}
             disabled={downloading}
-            className="flex-1 rounded-lg border border-chadi-green px-6 py-3 text-sm font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white disabled:opacity-60"
+            className="flex-1 rounded-lg border border-chadi-green px-6 py-3 text-sm font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white disabled:opacity-60 dark:border-chadi-lightgreen dark:text-chadi-lightgreen"
           >
-            {downloading ? "Downloading..." : "Download Receipt"}
+            {downloading ? t("donateModal.success.downloading") : t("donateModal.success.downloadReceipt")}
           </button>
           <button
             type="button"
             onClick={onClose}
             className="flex-1 rounded-lg bg-chadi-green px-6 py-3 text-sm font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
           >
-            Done
+            {t("donateModal.success.done")}
           </button>
         </div>
       </motion.div>
@@ -85,6 +89,7 @@ function DonationSuccess({ result, onClose }) {
 // closed), pass a `key` that changes along with it - remounting the
 // component is simpler and avoids an extra effect just to resync state.
 function DonateModal({ open, onClose, project, initialAmount }) {
+  const { t } = useTranslation();
   const [frequency, setFrequency] = useState("once");
   const [amount, setAmount] = useState(initialAmount || "5000");
   const [name, setName] = useState("");
@@ -97,7 +102,8 @@ function DonateModal({ open, onClose, project, initialAmount }) {
 
   const configured = Boolean(PAYSTACK_PUBLIC_KEY) && typeof window !== "undefined" && window.PaystackPop;
 
-  const activeLabel = PRESET_AMOUNTS.find((p) => p.amount === Number(amount))?.label;
+  const activeTier = PRESET_AMOUNTS.find((p) => p.amount === Number(amount));
+  const activeLabel = activeTier && t(`impactTiers.${activeTier.key}.label`);
 
   // Resets the form back to a blank slate on the way out, so reopening the
   // modal after a successful donation shows a fresh form instead of the
@@ -118,7 +124,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
 
     const nairaAmount = Number(amount);
     if (!nairaAmount || nairaAmount < 100) {
-      setResult({ type: "error", message: "Please enter an amount of at least ₦100." });
+      setResult({ type: "error", message: t("donateModal.minAmountError") });
       return;
     }
 
@@ -157,9 +163,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
 
             setResult({
               type: "error",
-              message:
-                "Payment went through but we could not confirm it automatically. Please contact us with your reference: " +
-                response.reference,
+              message: t("donateModal.verifyErrorOnce", { reference: response.reference }),
             });
           })
           .finally(() => setPaying(false));
@@ -182,7 +186,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
 
     const nairaAmount = Number(amount);
     if (!nairaAmount || nairaAmount < 100) {
-      setResult({ type: "error", message: "Please enter an amount of at least ₦100." });
+      setResult({ type: "error", message: t("donateModal.minAmountError") });
       return;
     }
 
@@ -221,9 +225,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
 
               setResult({
                 type: "error",
-                message:
-                  "Your first payment went through but we could not confirm it automatically. Please contact us with your reference: " +
-                  response.reference,
+                message: t("donateModal.verifyErrorMonthly", { reference: response.reference }),
               });
             })
             .finally(() => setPaying(false));
@@ -236,7 +238,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
       setPaying(false);
       setResult({
         type: "error",
-        message: err.message || "We could not set up your monthly giving right now. Please try again.",
+        message: err.message || t("donateModal.monthlySetupError"),
       });
     }
   };
@@ -261,17 +263,17 @@ function DonateModal({ open, onClose, project, initialAmount }) {
         <DonationSuccess result={result} onClose={handleClose} />
       ) : (
         <>
-          <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold-dark">CHADI International</p>
-          <h3 id="donate-modal-title" className="mt-2 text-3xl font-bold text-chadi-green">
-            Give Today
+          <p className="text-xs font-bold uppercase tracking-[3px] text-chadi-gold-dark dark:text-chadi-gold">{t("donateModal.orgName")}</p>
+          <h3 id="donate-modal-title" className="mt-2 text-3xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+            {t("donateModal.title")}
           </h3>
           {project?.title ? (
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-              Supporting: <span className="font-semibold text-chadi-green">{project.title}</span>
+              {t("donateModal.supporting")} <span className="font-semibold text-chadi-green dark:text-chadi-lightgreen">{project.title}</span>
             </p>
           ) : (
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-              You're not just giving money &mdash; you're giving hope, dignity and a second chance.
+              {t("donateModal.genericSubtitle")}
             </p>
           )}
 
@@ -283,7 +285,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
                 frequency === "once" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500 dark:text-gray-400"
               }`}
             >
-              One-time
+              {t("donateModal.oneTime")}
             </button>
             <button
               type="button"
@@ -292,7 +294,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
                 frequency === "monthly" ? "bg-white text-chadi-green shadow-sm" : "text-gray-500 dark:text-gray-400"
               }`}
             >
-              Monthly &mdash; Hope Alive Circle
+              {t("donateModal.monthly")}
             </button>
           </div>
 
@@ -300,7 +302,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
             <input
               type="text"
               required
-              placeholder="Full name"
+              placeholder={t("donateModal.namePlaceholder")}
               value={name}
               onChange={(event) => setName(event.target.value)}
               className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
@@ -308,7 +310,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
             <input
               type="email"
               required
-              placeholder="Email address"
+              placeholder={t("donateModal.emailPlaceholder")}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               className="w-full rounded-lg border border-gray-200 px-4 py-3 text-sm outline-none focus:border-chadi-green"
@@ -335,26 +337,25 @@ function DonateModal({ open, onClose, project, initialAmount }) {
                       : "border-gray-200 hover:border-chadi-green"
                   }`}
                 >
-                  <span className="block text-sm font-bold text-chadi-green">
+                  <span className="block text-sm font-bold text-chadi-green dark:text-chadi-lightgreen">
                     ₦{preset.amount.toLocaleString()}
                   </span>
-                  <span className="block text-[11px] leading-tight text-gray-500 dark:text-gray-400">{preset.label}</span>
+                  <span className="block text-[11px] leading-tight text-gray-500 dark:text-gray-400">{t(`impactTiers.${preset.key}.label`)}</span>
                 </button>
               ))}
             </div>
 
-            {activeLabel && <p className="text-xs font-semibold text-chadi-green">{activeLabel}</p>}
+            {activeLabel && <p className="text-xs font-semibold text-chadi-green dark:text-chadi-lightgreen">{activeLabel}</p>}
 
             {frequency === "monthly" && (
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                Your card is charged ₦{Number(amount || 0).toLocaleString()} automatically every month until you
-                cancel. Cancel anytime by contacting CHADI.
+                {t("donateModal.monthlyNote", { amount: Number(amount || 0).toLocaleString() })}
               </p>
             )}
 
             {!configured ? (
               <p className="rounded-lg bg-yellow-50 p-3 text-xs text-yellow-800">
-                Online payment isn't configured on this site yet. Please use the Contact page instead.
+                {t("donateModal.notConfigured")}
               </p>
             ) : (
               <button
@@ -363,21 +364,21 @@ function DonateModal({ open, onClose, project, initialAmount }) {
                 className="w-full rounded-lg bg-chadi-green px-6 py-3 text-sm font-semibold text-white transition hover:bg-chadi-gold hover:text-black disabled:opacity-60"
               >
                 {paying
-                  ? "Processing..."
+                  ? t("donateModal.processing")
                   : frequency === "once"
-                  ? `Give ₦${Number(amount || 0).toLocaleString()}`
-                  : `Join Hope Alive Circle - ₦${Number(amount || 0).toLocaleString()}/month`}
+                  ? t("donateModal.giveButton", { amount: Number(amount || 0).toLocaleString() })
+                  : t("donateModal.joinButton", { amount: Number(amount || 0).toLocaleString() })}
               </button>
             )}
 
             <p className="flex items-center justify-center gap-2 text-center text-xs text-gray-400 dark:text-gray-500">
-              <FaShieldAlt /> Secured by Paystack &middot; join our community of CHADI supporters
+              <FaShieldAlt /> {t("donateModal.securedBy")}
             </p>
 
             {PAYPAL_ENABLED && frequency === "once" && (
               <div className="border-t border-gray-100 pt-4">
                 <p className="text-center text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">
-                  Giving from outside Nigeria?
+                  {t("donateModal.internationalPrompt")}
                 </p>
 
                 <div className="mt-3 grid grid-cols-4 gap-2">
@@ -388,7 +389,7 @@ function DonateModal({ open, onClose, project, initialAmount }) {
                       onClick={() => setUsdAmount(String(preset))}
                       className={`rounded-lg border py-2 text-sm font-bold transition ${
                         Number(usdAmount) === preset
-                          ? "border-chadi-green bg-chadi-green/5 text-chadi-green"
+                          ? "border-chadi-green bg-chadi-green/5 text-chadi-green dark:border-chadi-lightgreen dark:text-chadi-lightgreen"
                           : "border-gray-200 text-gray-600 dark:text-gray-300 hover:border-chadi-green"
                       }`}
                     >

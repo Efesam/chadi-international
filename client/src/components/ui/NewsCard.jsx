@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function NewsCard({ article }) {
+  const { t } = useTranslation();
+
   return (
     <div className="overflow-hidden rounded-3xl bg-white shadow-lg transition hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800">
       <div className="h-56 bg-gray-200 dark:bg-gray-700" />
@@ -26,7 +29,7 @@ function NewsCard({ article }) {
           to={`/news/${article.slug}`}
           className="mt-6 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
         >
-          Read Article →
+          {t("common.newsCard.readArticle")}
         </Link>
       </div>
     </div>

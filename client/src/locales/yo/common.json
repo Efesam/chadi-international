@@ -134,5 +134,508 @@
       "volunteer": "Yọ̀ǹda Ara Rẹ",
       "donate": "Ṣetọrẹ"
     }
+  },
+  "common": {
+    "teamShowcase": {
+      "title": "Ẹ Pàdé Ẹgbẹ́ Wa",
+      "subtitle": "Lẹ́yìn gbogbo ìyípadà àwùjọ tí ó ṣàṣeyọrí ni ẹgbẹ́ onífẹ̀ẹ́ tí ó ṣe ìfaramọ́ láti ṣẹ̀dá ipa tí ó dúró ṣinṣin.",
+      "cta": "Ẹ Pàdé Gbogbo Ẹgbẹ́"
+    },
+    "newsletter": {
+      "title": "Máa Gba Ìsọdọ̀tun",
+      "subtitle": "Forúkọsílẹ̀ láti gba ìsọdọ̀tun lórí àwọn iṣẹ́, ìṣẹ̀lẹ̀ àti àwọn ìtàn ipa wa.",
+      "placeholder": "Tẹ ìmẹ́lì rẹ sí i",
+      "subscribe": "Forúkọsílẹ̀",
+      "sending": "Ń Fi Ránṣẹ́...",
+      "success": "A dúpẹ́ fún fífi orúkọ sílẹ̀.",
+      "error": "A kò lè forúkọ rẹ sílẹ̀ ní báyìí. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i."
+    },
+    "projectCard": {
+      "beneficiaries": "Àwọn Olùjàre",
+      "learnMore": "Kọ́ Síi →",
+      "volunteer": "Yọ̀ǹda Ara Rẹ",
+      "donate": "Ṣetọrẹ"
+    },
+    "eventCard": {
+      "signUp": "Forúkọsílẹ̀"
+    },
+    "newsCard": {
+      "readArticle": "Ka Àpilẹ̀kọ →"
+    },
+    "volunteerModal": {
+      "title": "Yọ̀ǹda Ara Rẹ",
+      "forLabel": "Fún:",
+      "genericSubtitle": "Sọ fún wa díẹ̀ nípa ara rẹ àti bí o ṣe fẹ́ ràn wá lọ́wọ́.",
+      "namePlaceholder": "Orúkọ kíkún",
+      "emailPlaceholder": "Àdírẹ́sì ìmẹ́lì",
+      "locationPlaceholder": "Ìpínlẹ̀ / ibùgbé",
+      "messagePlaceholder": "Ohunkóhun tí o fẹ́ kí a mọ̀? (àṣàyàn)",
+      "submitting": "Ń Fi Sílẹ̀...",
+      "submit": "Forúkọsílẹ̀ Láti Yọ̀ǹda Ara Rẹ",
+      "successMessage": "A dúpẹ́! CHADI yóò bá ọ sọ̀rọ̀ nípa ìyọ̀ǹda fún iṣẹ́ yìí.",
+      "errorMessage": "A kò lè fi èyí sílẹ̀ ní báyìí. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i."
+    },
+    "eventSignupModal": {
+      "title": "Ìforúkọsílẹ̀ Ìṣẹ̀lẹ̀",
+      "forLabel": "Fún:",
+      "namePlaceholder": "Orúkọ kíkún",
+      "emailPlaceholder": "Àdírẹ́sì ìmẹ́lì",
+      "signingUp": "Ń Forúkọsílẹ̀...",
+      "confirmSignUp": "Jẹ́rìí Ìforúkọsílẹ̀",
+      "successMessage": "O ti forúkọsílẹ̀! CHADI yóò rán ọ létí nígbà tí ọjọ́ bá ń sún mọ́.",
+      "errorMessage": "A kò lè forúkọ rẹ sílẹ̀ ní báyìí. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i."
+    },
+    "cookieConsent": {
+      "message": "A ń lo ìbójútò tí ó bójú mọ́ ìpamọ́ láti lóye bí àwọn àlejò ṣe ń lo ojú-ìwé yìí. A kò tà ìsọfúnni ara ẹni, ojú-ìwé fúnra rẹ̀ kò sì ṣètò kúkì àbójútò. Wo",
+      "privacyLink": "Ìlànà Ìpamọ́ Ìsọfúnni",
+      "messageEnd": "fún àlàyé síwájú síi.",
+      "decline": "Kọ̀",
+      "accept": "Gbà"
+    },
+    "exitIntent": {
+      "title": "Kí o tó lọ...",
+      "subtitle": "Dúró ní ìsopọ̀ — forúkọsílẹ̀ fún ìwé ìròyìn oṣooṣù wa lórí àwọn iṣẹ́, ìṣẹ̀lẹ̀ àti àwọn ìtàn ipa.",
+      "emailPlaceholder": "Tẹ ìmẹ́lì rẹ sí i",
+      "subscribing": "Ń Forúkọsílẹ̀...",
+      "keepMeUpdated": "Máa Sọ Fún Mi",
+      "noThanks": "Rárá o ṣeun",
+      "successToast": "A dúpẹ́ fún fífi orúkọ sílẹ̀.",
+      "errorToast": "A kò lè forúkọ rẹ sílẹ̀ ní báyìí. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i."
+    }
+  },
+  "impactTiers": {
+    "nutritionKit": { "label": "Ó pèsè ohun èlò oúnjẹ oníjẹ̀unnini", "unit": "ohun èlò oúnjẹ oníjẹ̀unnini", "unitPlural": "àwọn ohun èlò oúnjẹ oníjẹ̀unnini" },
+    "healthOutreach": { "label": "Ó ṣàtìlẹ́yìn fún ìrìnàjò ìlera", "unit": "ìrìnàjò ìtọ́jú ìlera", "unitPlural": "àwọn ìrìnàjò ìtọ́jú ìlera" },
+    "skillTraining": { "label": "Ó kọ́ ọmọ ní ọgbọ́n tuntun", "unit": "ọmọ tí a kọ́ ní ọgbọ́n tuntun", "unitPlural": "àwọn ọmọ tí a kọ́ ní ọgbọ́n tuntun" },
+    "familySupport": { "label": "Ó ṣàtìlẹ́yìn fún ìdílé fún oṣù kan", "unit": "ìdílé tí a ṣàtìlẹ́yìn fún fún oṣù kan", "unitPlural": "àwọn ìdílé tí a ṣàtìlẹ́yìn fún fún oṣù kan" }
+  },
+  "donateModal": {
+    "orgName": "CHADI International",
+    "title": "Ṣetọrẹ Lónìí",
+    "supporting": "Ń Ṣàtìlẹ́yìn Fún:",
+    "genericSubtitle": "Kì í ṣe owó nìkan ni o ń fi fúnni — ìrètí, ọ̀wọ̀ àti àǹfààní kejì ni o ń fi fúnni.",
+    "oneTime": "Ẹ̀ẹ̀kan",
+    "monthly": "Oṣooṣù — Hope Alive Circle",
+    "namePlaceholder": "Orúkọ kíkún",
+    "emailPlaceholder": "Àdírẹ́sì ìmẹ́lì",
+    "minAmountError": "Jọ̀wọ́ tẹ iye tí ó kéré tán ₦100.",
+    "monthlyNote": "A ó gba owó ₦{{amount}} lórí káàdì rẹ ní àdáyébá ní oṣooṣù títí o ó fi fagilé. O lè fagilé ní àsìkò èyíkéyìí nípa kíkàn sí CHADI.",
+    "notConfigured": "A kò tíì ṣètò ìsanwó lórí ayélujára lórí ojú-ìwé yìí. Jọ̀wọ́ lo ojú-ìwé Kàn sí Wa dípò.",
+    "processing": "Ń Ṣiṣẹ́...",
+    "giveButton": "Ṣetọrẹ ₦{{amount}}",
+    "joinButton": "Darapọ̀ Mọ́ Hope Alive Circle - ₦{{amount}}/oṣù",
+    "securedBy": "Paystack ni ó dáàbò bò · dara pọ̀ mọ́ àwùjọ àwọn olùtìlẹ́yìn CHADI",
+    "internationalPrompt": "Ṣé o ń ṣètọrẹ láti òde Nàìjíríà?",
+    "verifyErrorOnce": "Owó náà ti san ṣùgbọ́n a kò lè fi ìdí rẹ̀ múlẹ̀ láìfọwọ́kàn. Jọ̀wọ́ kàn sí wa pẹ̀lú nọ́mbà ìtọ́kasí rẹ: {{reference}}",
+    "verifyErrorMonthly": "Owó àkọ́kọ́ ti san ṣùgbọ́n a kò lè fi ìdí rẹ̀ múlẹ̀ láìfọwọ́kàn. Jọ̀wọ́ kàn sí wa pẹ̀lú nọ́mbà ìtọ́kasí rẹ: {{reference}}",
+    "monthlySetupError": "A kò lè ṣètò ìtọrẹ oṣooṣù rẹ ní báyìí. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i.",
+    "success": {
+      "title": "A Ti Gba Owó!",
+      "subscriptionMessage": "Kaàbọ̀ sí Hope Alive Circle! A ó gba owó {{amount}} lórí káàdì rẹ ní àdáyébá ní oṣooṣù.",
+      "oneTimeMessage": "A dúpẹ́ fún ẹ̀bùn rẹ ti {{amount}}. O ń fi ìrètí, ọ̀wọ̀ àti àǹfààní kejì fúnni.",
+      "reference": "Ìtọ́kasí: {{reference}}",
+      "downloadReceipt": "Gba Ìwé Ẹ̀rí",
+      "downloading": "Ń Gbà...",
+      "downloadError": "A kò lè gba ìwé ẹ̀rí",
+      "done": "Ó Parí"
+    }
+  },
+  "donate": {
+    "seoTitle": "Ṣetọrẹ",
+    "seoDescription": "Ṣàtìlẹ́yìn fún iṣẹ́ CHADI International pẹ̀lú àwọn àwùjọ tí a kò tọ́jú nípasẹ̀ ìtọrẹ tí ó ní ààbò lórí ayélujára.",
+    "pageTitle": "Ṣetọrẹ",
+    "pageSubtitle": "Ṣàtìlẹ́yìn fún iṣẹ́ CHADI pẹ̀lú àwọn àwùjọ tí a kò tọ́jú.",
+    "heading": "Ṣèrànwọ́ Láti Ṣètìlẹ́yìn Fún Ipa Àwùjọ Tí Ó Dúró Ṣinṣin",
+    "description": "Ìtọrẹ rẹ ń ràn CHADI lọ́wọ́ láti pèsè ẹ̀kọ́ oúnjẹ oníjẹ̀unnini, ìrànlọ́wọ́ ẹ̀kọ́, ìrànlọ́wọ́ pàjáwìrì, ìdàgbàsókè àwọn ọ̀dọ́ àti àwọn ètò ìlera àwùjọ.",
+    "donateNow": "Ṣetọrẹ Nísisìyí",
+    "calculator": {
+      "eyebrow": "Wo Ipa Rẹ",
+      "title": "Ohun Tí Ìtọrẹ Rẹ Ń Pèsè",
+      "subtitle": "Yọ̀ láti wo ohun tí ìtọrẹ rẹ lè túmọ̀ sí fún àwùjọ kan.",
+      "couldProvide": "Èyí lè pèsè",
+      "donateButton": "Ṣetọrẹ ₦{{amount}}"
+    },
+    "interestForm": {
+      "title": "Àwọn Ọ̀nà Mìíràn Láti Fúnni",
+      "description": "Ṣé o nífẹ̀ẹ́ sí ìdásí ilé-iṣẹ́ tàbí ìfọwọ́sowọ́pọ̀ ètò? Pín àwọn ìsọfúnni rẹ kí CHADI lè bá ọ sọ̀rọ̀.",
+      "namePlaceholder": "Orúkọ kíkún",
+      "emailPlaceholder": "Àdírẹ́sì ìmẹ́lì",
+      "interestPlaceholder": "Ìfẹ́ ìtọrẹ",
+      "corporateSponsorship": "Ìdásí ilé-iṣẹ́",
+      "programPartnership": "Ìfọwọ́sowọ́pọ̀ ètò",
+      "inKindDonation": "Ìtọrẹ ohun èlò",
+      "saving": "Ń Fi Pamọ́...",
+      "submit": "Fi Ìfẹ́ Ránṣẹ́",
+      "contactInstead": "Kàn sí wa dípò",
+      "sentToast": "A dúpẹ́. CHADI yóò bá ọ sọ̀rọ̀ pẹ̀lú àlàyé.",
+      "errorToast": "A kò lè fi èyí pamọ́ ní báyìí. Jọ̀wọ́ lo ojú-ìwé kíkàn sí."
+    }
+  },
+  "gallery": {
+    "seoTitle": "Àwòrán",
+    "seoDescription": "Wo àwọn àwòrán láti inú àwọn ètò, iṣẹ́ àti ipa àwùjọ CHADI International.",
+    "title": "Àwòrán",
+    "subtitle": "Ìwòye sínú àwọn ètò, iṣẹ́ àti ipa àwùjọ CHADI.",
+    "empty": "Àwọn àwòrán ń bọ̀ wá. Ẹ padà wá láìpẹ́ láti rí iṣẹ́ CHADI nínú àwòrán."
+  },
+  "getInvolved": {
+    "seoTitle": "Kópa",
+    "seoDescription": "Ṣàwárí àwọn ọ̀nà láti yọ̀ǹda ara rẹ, ṣe alábàáṣepọ̀ pẹ̀lú, tàbí ṣetọrẹ sí CHADI International kí o sì ràn wá lọ́wọ́ láti ṣẹ̀dá ipa àwùjọ tí ó dúró ṣinṣin.",
+    "title": "Kópa",
+    "subtitle": "Darapọ̀ mọ́ CHADI ní ṣíṣẹ̀dá ipa àwùjọ tí ó wúlò tí ó sì dúró ṣinṣin.",
+    "volunteer": { "title": "Yọ̀ǹda Ara Rẹ", "description": "Fi àsìkò rẹ, ọgbọ́n rẹ àti ìrànlọ́wọ́ pápá fúnni sí àwọn ètò àwùjọ.", "action": "Bẹ̀rẹ̀ Ìyọ̀ǹda" },
+    "partner": { "title": "Ṣe Alábàáṣepọ̀ Pẹ̀lú Wa", "description": "Fọwọ́sowọ́pọ̀ lórí àwọn iṣẹ́ tí ó ń mú ẹ̀kọ́, ìlera àti ìgbésí ayé sunwọ̀n sí i.", "action": "Sọ̀rọ̀ Nípa Ìfọwọ́sowọ́pọ̀" },
+    "donate": { "title": "Ṣetọrẹ", "description": "Ṣàtìlẹ́yìn fún ìfitọ́ ètò fún àwọn ọmọdé, obìnrin, ọ̀dọ́ àti ìdílé tí ó wà nínú ewu.", "action": "Ṣe Ìtọrẹ" }
+  },
+  "news": {
+    "seoTitle": "Ìròyìn",
+    "seoDescription": "Ka àwọn ìròyìn tuntun, ìsọdọ̀tun àti ìkéde láti ọ̀dọ̀ CHADI International.",
+    "title": "Ìròyìn",
+    "subtitle": "Ìsọdọ̀tun tuntun láti ọ̀dọ̀ CHADI.",
+    "empty": "Kò sí àpilẹ̀kọ ìròyìn kankan síbẹ̀.",
+    "notFound": {
+      "title": "A Kò Rí Àpilẹ̀kọ Náà",
+      "description": "Ìsọdọ̀tun tí o ń wá lè ti yí ipò padà.",
+      "back": "Padà Sí Ìròyìn"
+    }
+  },
+  "notFound": {
+    "seoTitle": "A Kò Rí Ojú-Ìwé Náà",
+    "eyebrow": "404",
+    "title": "A Kò Rí Ojú-Ìwé Náà",
+    "description": "Ojú-ìwé tí o ń wá kò sí tàbí a ti yí i padà.",
+    "backHome": "Padà Sí Ilé"
+  },
+  "privacy": {
+    "seoTitle": "Ìlànà Ìpamọ́ Ìsọfúnni",
+    "seoDescription": "Ka ìlànà ìpamọ́ ìsọfúnni CHADI International tí ó bo bí a ṣe ń mú ìsọfúnni tí a pín nípasẹ̀ ojú-ìwé yìí.",
+    "title": "Ìlànà Ìpamọ́ Ìsọfúnni",
+    "subtitle": "Bí CHADI ṣe ń mú ìsọfúnni tí a pín nípasẹ̀ ojú-ìwé yìí.",
+    "lastUpdated": "Ìsọdọ̀tun tí ó kẹ́yìn: ìlànà yìí ṣàpèjúwe bí ojú-ìwé yìí ṣe ń mú ìsọfúnni ní ti gidi lónìí. Ó jẹ́ ìbẹ̀rẹ̀pẹ̀pẹ̀ tí ó dára, kì í ṣe àropò fún àyẹ̀wò láti ọ̀dọ̀ agbẹjọ́rò tí ó pé kí o tó gbára lé e fún ète ìbámu.",
+    "collect": { "title": "Ìsọfúnni tí a ń gbà", "body": "A ń gba ohun tí o yàn láti fi sílẹ̀ nípasẹ̀ àwọn fọ́mù ojú-ìwé yìí: orúkọ àti ìmẹ́lì rẹ lórí àwọn fọ́mù kíkàn sí, ìyọ̀ǹda, ìwé ìròyìn àti ìfẹ́ ìtọrẹ, pẹ̀lú ohunkóhun mìíràn tí fọ́mù kan pàtó bèèrè fún (fún àpẹẹrẹ ẹ̀ka ìfẹ́ rẹ nígbà ìyọ̀ǹda). Tí o bá ṣe ìtọrẹ, Paystack (aṣàkóso ìsanwó wa) ń pín orúkọ rẹ, ìmẹ́lì, iye ìtọrẹ àti nọ́mbà ìtọ́kasí ìsanwó pẹ̀lú wa kí a bàa lè ṣàkọsílẹ̀ ìtọrẹ náà kí a sì fi ìwé ẹ̀rí ránṣẹ́ sí ọ - àwọn ìsọfúnni káàdì rẹ ni a ń fi sí inú ètò ìṣàyẹ̀wò Paystack fúnra rẹ̀ kò sì kọjá nípasẹ̀ àwọn sẹ́fà wa rí." },
+    "cookies": { "title": "Kúkì", "body": "Ojú-ìwé yìí fúnra rẹ̀ kì í ṣètò kúkì àbójútò. Tí o bá gba ìkéde kúkì, a ń gbé ìbójútò tí kò ní kúkì tí ó bójú mọ́ ìpamọ́ (Plausible) láti lóye gbogbo àwọn ìbẹ̀wò - kò lo kúkì tàbí bójútò rẹ ní ọ̀tọ̀ọ̀tọ̀ kọjá àwọn ojú-ìwé mìíràn. Dasibodu alábojútó ń mú àwọn òṣìṣẹ́ wà ní ìwọlé nípa lílo ìpamọ́ agbègbè aṣàwákiri rẹ, kì í ṣe kúkì. Ètò ìṣàyẹ̀wò Paystack lè ṣètò àwọn kúkì tirẹ̀ lórí ẹkùn orúkọ tirẹ̀ nígbà tí o bá ń parí ìsanwó, tí ìlànà ìpamọ́ Paystack ń darí, kì í ṣe tiwa." },
+    "usage": { "title": "Bí a ṣe ń lo ìsọfúnni rẹ", "body": "Láti dáhùn àwọn ìbéèrè, ṣàkóso àti fi ìwé ẹ̀rí fún ìtọrẹ, tẹ̀lé àwọn ìwádìí ìyọ̀ǹda, fi ìsọdọ̀tun ìwé ìròyìn tí o forúkọsílẹ̀ sí ránṣẹ́, àti ṣàkóso àwọn iṣẹ́ ìpìlẹ̀ ojú-ìwé náà. A kò tà ìsọfúnni ara ẹni, a kò sì lo ohun tí o pín fún ohunkóhun ju àwọn ète wọ̀nyí láìbéèrè lọ́wọ́ rẹ ní àkọ́kọ́." },
+    "sharing": { "title": "Àwọn tí a ń pín in pẹ̀lú", "body": "Àwọn ẹgbẹ́ kẹta tí a nílò láti pèsè iṣẹ́ tí o béèrè fún nìkan: Paystack (ṣíṣàkóso ìsanwó), olùpèsè iṣẹ́ ìmẹ́lì wa (fífi ìwé ẹ̀rí ránṣẹ́, ìdáhùn àti ìmẹ́lì ìwé ìròyìn), àti, tí ó bá ti ṣiṣẹ́, Plausible (ìbójútò) àti Sentry (ìbójútò àṣìṣe, láti ràn wá lọ́wọ́ láti tún àwọn ìṣòro ṣe). A kò tà tàbí gba owó fún ìsọfúnni rẹ fún ẹnikẹ́ni mìíràn. Wíwọlé nínú CHADI ni a dá dúró fún àwọn ọmọ ẹgbẹ́ tí wọ́n nílò rẹ̀ láti ṣe iṣẹ́ wọn." },
+    "retention": { "title": "Bí a ṣe pẹ́ tó tí a ń tọ́jú rẹ̀", "body": "A ń tọ́jú ìsọfúnni tí a fi sílẹ̀ níwọ̀n bí ó ti wúlò fún ète tí o pín in fún (fún àpẹẹrẹ ìwádìí ìyọ̀ǹda tí ó ṣiṣẹ́, àkọsílẹ̀ ìtọrẹ fún ìṣirò tiwa fúnra wa), tàbí títí o fi béèrè kí a paá - èyí tí ó bá yẹ." },
+    "rights": { "title": "Àwọn ẹ̀tọ́ rẹ", "body": "Bí ó ti wù kí ibi tí o wà rí, o lè ní ẹ̀tọ́ láti wọlé, ṣàtúnṣe, paá, tàbí gba ẹ̀dà ìsọfúnni tí a ń tọ́jú nípa rẹ, tàbí láti ṣàtakò bí a ṣe ń lò ó. Láti lo èyíkéyìí nínú wọ̀nyí, tàbí láti sọdọ̀tun tàbí yọ ìsọfúnni tí o ti pín pẹ̀lú wa kúrò, kàn sí wa nípasẹ̀", "contactLink": "Ojú-ìwé Kíkàn sí" },
+    "children": { "title": "Ìpamọ́ ìsọfúnni àwọn ọmọdé", "body": "Ojú-ìwé yìí kì í ṣe fún àwọn ọmọdé, a kò sì mọ̀ọ́mọ̀ gba ìsọfúnni ara ẹni láti ọ̀dọ̀ àwọn ọmọdé." },
+    "changes": { "title": "Àwọn ìyípadà sí ìlànà yìí", "body": "A lè sọdọ̀tun ìlànà yìí bí ojú-ìwé àti àwọn iṣẹ́ wa ṣe ń dàgbà. Àwọn ìyípadà pàtàkì yóò farahàn níbí pẹ̀lú ọjọ́ tí a sọdọ̀tun rẹ̀." }
+  },
+  "resources": {
+    "seoTitle": "Àwọn Ohun Èlò",
+    "seoDescription": "Àwọn ìtọ́sọ́nà, àtòjọ àti àwọn ohun èlò tí ó ṣèrànwọ́ láti inú àwọn ètò CHADI International.",
+    "title": "Àwọn Ohun Èlò",
+    "subtitle": "Àwọn ìtọ́sọ́nà, àtòjọ àti àwọn ohun èlò tí ó ṣèrànwọ́ fún àwọn ètò CHADI.",
+    "requestButton": "Béèrè Ohun Èlò",
+    "nutritionGuide": { "title": "Ìtọ́sọ́nà Ìmọ̀ Nípa Oúnjẹ Oníjẹ̀unnini", "description": "Àwọn ìránnilétí tí ó rọrùn fún ìpàdé oúnjẹ oníjẹ̀unnini ìyá, ọmọ ọwọ́ àti ọmọdé." },
+    "volunteerChecklist": { "title": "Àtòjọ Ìyọ̀ǹda Pápá", "description": "Àtòjọ ìṣètò kánjú fún ìrànlọ́wọ́ ìrìnàjò àti ìlọ́wọ́sí pápá." },
+    "projectIntake": { "title": "Gbígba Àbá Iṣẹ́ Àwùjọ", "description": "Ìtọ́sọ́nà fún àwọn àwùjọ àti alábàáṣepọ̀ tí wọ́n ń dábàá iṣẹ́ tí CHADI yóò ṣàtìlẹ́yìn fún." }
+  },
+  "search": {
+    "seoTitle": "Ṣàwárí",
+    "seoDescription": "Ṣàwárí àwọn iṣẹ́, ìròyìn àti àwọn ìṣẹ̀lẹ̀ CHADI International.",
+    "title": "Ṣàwárí",
+    "subtitle": "Wá àwọn iṣẹ́, ìròyìn àti àwọn ìṣẹ̀lẹ̀ jákèjádò ojú-ìwé náà.",
+    "placeholder": "Ṣàwárí àwọn iṣẹ́, ìròyìn, àwọn ìṣẹ̀lẹ̀...",
+    "loading": "Ń Gbé Wọlé...",
+    "prompt": "Bẹ̀rẹ̀ sí kọ láti ṣàwárí.",
+    "noResults": "Kò sí èsì fún \"{{query}}\".",
+    "projects": "Àwọn Iṣẹ́",
+    "news": "Ìròyìn",
+    "events": "Àwọn Ìṣẹ̀lẹ̀"
+  },
+  "stories": {
+    "seoTitle": "Àwọn Ìtàn Ipa",
+    "seoDescription": "Ka àwọn ìtàn ìyípadà tòótọ́ láti inú àwọn àwùjọ tí CHADI International ń ṣàtìlẹ́yìn fún.",
+    "title": "Àwọn Ìtàn Ipa",
+    "subtitle": "Àwọn ìtàn ìyípadà tòótọ́ láti inú àwọn àwùjọ tí CHADI ń ṣàtìlẹ́yìn fún.",
+    "eyebrow": "Ní Àwọn Ọ̀rọ̀ Wọn",
+    "heading": "Àwọn ìtàn tí àwọn nọ́mbà kò lè sọ.",
+    "intro": "Láti àwọn ọmọ SOVCEST dé àwọn ìdílé HELP - àwọn ìtàn tòótọ́ láti inú àwọn àwùjọ tí CHADI ń sìn, tí a kó pẹ̀lú ọ̀wọ̀ tí a sì sọ nínú ọ̀rọ̀ wọn fúnra wọn.",
+    "readTheirStories": "Ka Àwọn Ìtàn Wọn",
+    "featuredBadge": "Ìtàn Àkànṣe",
+    "brand": "CHADI · Àwọn Ìtàn",
+    "empty": "A ń kó àwọn ìtàn láti pápá jọ. Ẹ padà wá láìpẹ́.",
+    "featuring": "Ń Fi Hàn: {{name}}"
+  },
+  "terms": {
+    "seoTitle": "Àwọn Òfin Lílò",
+    "seoDescription": "Àwọn ìtọ́sọ́nà àti òfin fún lílo ojú-ìwé CHADI International.",
+    "title": "Àwọn Òfin Lílò",
+    "subtitle": "Àwọn ìtọ́sọ́nà fún lílo ojú-ìwé CHADI International.",
+    "disclaimer": "Èyí jẹ́ ìbẹ̀rẹ̀pẹ̀pẹ̀ tí ó dára, kì í ṣe àropò fún àyẹ̀wò láti ọ̀dọ̀ agbẹjọ́rò tí ó pé kí o tó gbára lé e fún ète ìbámu.",
+    "usage": { "title": "Lílo ojú-ìwé yìí", "body": "Ojú-ìwé yìí ń pín ìsọfúnni nípa àwọn ètò CHADI, iṣẹ́, ìṣẹ̀lẹ̀ àti àǹfààní. A ń pèsè àkóónú fún ìsọfúnni gbogbogbò a sì lè sọdọ̀tun rẹ̀ bí àwọn ètò ṣe ń tẹ̀síwájú. O gbà pé o kì yóò ṣàṣejù ojú-ìwé náà, fi ìsọfúnni èké sílẹ̀ nípasẹ̀ àwọn fọ́mù rẹ̀, tàbí gbìyànjú láti da pátákò náà tàbí àwọn iṣẹ́ tí ó so pọ̀ mọ́ rú." },
+    "content": { "title": "Àkóónú àti ohun ìní ọgbọ́n", "body": "Ọ̀rọ̀, àwòrán àti àkóónú mìíràn lórí ojú-ìwé yìí jẹ́ ti CHADI International tàbí a lò ó pẹ̀lú ìyọ̀ǹda, àyàfi bí a bá sọ bákan náà. O ṣe ìtẹ́wọ́gbà láti pín àwọn ìjápọ̀ sí àkóónú wa; àtúnlò rẹ̀ ní ibòmíràn nílò ìyọ̀ǹda wa ní kíkọ ní àkọ́kọ́." },
+    "donations": { "title": "Ìtọrẹ", "body": "Àwọn ìtọrẹ tí a ṣe nípasẹ̀ ojú-ìwé yìí jẹ́ ìdásí àtinúwá sí iṣẹ́ CHADI International. A ń ṣàkóso ìsanwó ní ààbò nípasẹ̀ Paystack; a kò rí tàbí tọ́jú àwọn ìsọfúnni káàdì rẹ rí. Tí o bá ṣe ìtọrẹ ní àṣìṣe tàbí bá ní àníyàn nípa owó kan, kàn sí wa nípasẹ̀", "contactLink": "Ojú-ìwé Kíkàn sí", "bodyEnd": "a ó sì bá ọ ṣiṣẹ́ lórí rẹ̀." },
+    "thirdParty": { "title": "Àwọn ìjápọ̀ ẹgbẹ́ kẹta", "body": "Ojú-ìwé yìí lè so mọ́ àwọn ojú-ìwé ẹgbẹ́ kẹta (àwọn àjọ alábàáṣepọ̀, ìtàkùn àjọlò, àwọn olùpèsè ìsanwó). A kò ní ojúṣe fún àkóónú tàbí ìṣe àwọn ojú-ìwé tí a kò ṣàkóso." },
+    "liability": { "title": "Kò sí ìdánilójú; ìdíwọ́n ojúṣe", "body": "A ń pèsè ojú-ìwé yìí àti àkóónú rẹ̀ \"gẹ́gẹ́ bí ó ti rí,\" láìsí ìdánilójú kankan. Sí ìwọ̀n tí òfin bá yọ̀ọ̀da, CHADI International kò ní ojúṣe fún ìpàdánù aláìtọ̀nà tàbí ti àbájáde tí ó dìde láti lílo ojú-ìwé yìí." },
+    "governingLaw": { "title": "Òfin tí ó darí rẹ̀", "body": "Àwọn òfin wọ̀nyí ni òfin Àpapọ̀ Olómìnira Nàìjíríà darí, láìsí ìtọ́kasí sí àwọn ìlànà ìjà òfin." },
+    "changes": { "title": "Àwọn ìyípadà sí àwọn òfin wọ̀nyí", "body": "CHADI lè sọdọ̀tun àwọn òfin wọ̀nyí bí ojú-ìwé àti àwọn iṣẹ́ ṣe ń dàgbà. Ìtẹ̀síwájú lílo ojú-ìwé náà lẹ́yìn ìyípadà kan túmọ̀ sí pé o gba àwọn òfin tuntun." }
+  },
+  "transparency": {
+    "seoTitle": "Ìṣírò Ó Ye Kí",
+    "seoDescription": "Wo bí CHADI International ṣe ń pín àti ṣe ìròyìn lórí ìtọrẹ, pẹ̀lú ìfaramọ́ sí ìṣírò ó ye kí àti ìṣirò.",
+    "pageTitle": "Ìfaramọ́ Wa",
+    "pageSubtitle": "Ìṣírò Ó Ye Kí. Ìṣirò. Ipa.",
+    "intro": "A ti ṣe ìfaramọ́ láti lo gbogbo ohun àmúlò ní ìṣirò a sì ń rí i dájú pé ipa tí ó ní ìwọ̀n tí ó sì dúró ṣinṣin wà nínú àwọn àwùjọ tí a ń sìn. A ń tọpasẹ̀ ìtọrẹ kọ̀ọ̀kan láti ìgbà tí a bá fi fúnni títí dé àbájáde tí ó ràn án lọ́wọ́ láti ṣẹ̀dá.",
+    "allocationTitle": "Ibi Tí Ìtọrẹ Rẹ Ń Lọ",
+    "loading": "Ń Gbé Wọlé...",
+    "allocationEmpty": "A yóò tẹ̀ àpèjúwe pípín kíkún jáde níbí ní kété tí a bá parí i fún àkókò ìròyìn tí ó wà lọ́wọ́lọ́wọ́. Nígbà náà, kàn sí wa ní ìsàlẹ̀ fún ìròyìn tuntun wa.",
+    "reportsTitle": "Àwọn Ìròyìn & Ìwé Ìṣirò Owó",
+    "transparencyCard": { "title": "Ìṣírò Ó Ye Kí", "description": "Ìròyìn tí ó ṣe kedere lórí bí a ṣe ń kó àti ná owó." },
+    "accountabilityCard": { "title": "Ìṣirò", "description": "Àwọn ìṣe ìṣàkóso tí ó ń mú ẹgbẹ́ wa jẹ́ olùdáhùn sí àwọn àwùjọ tí a ń sìn." },
+    "impactCard": { "title": "Ipa Tí Ó Ní Ìwọ̀n", "description": "A ń tọpasẹ̀ àwọn ètò lòdì sí àbájáde tòótọ́, kì í ṣe iṣẹ́ nìkan." },
+    "ctaTitle": "Ṣé o fẹ́ àwòrán kíkún?",
+    "ctaDescription": "Kàn sí ẹgbẹ́ wa fún àwọn ìròyìn owó àti ètò kíkún.",
+    "ctaButton": "Béèrè Ìròyìn"
+  },
+  "volunteer": {
+    "seoTitle": "Yọ̀ǹda Ara Rẹ",
+    "seoDescription": "Lo ọgbọ́n rẹ, àsìkò rẹ àti ìyọ́nú rẹ láti ṣàtìlẹ́yìn fún àwọn ètò àwùjọ CHADI International. Fi ìwé ẹ̀bẹ̀ ìyọ̀ǹda sílẹ̀ lónìí.",
+    "title": "Yọ̀ǹda Ara Rẹ",
+    "subtitle": "Lo ọgbọ́n rẹ, àsìkò rẹ àti ìyọ́nú rẹ láti ṣàtìlẹ́yìn fún àwọn àwùjọ CHADI.",
+    "sentToast": "A ti gba ìwé ẹ̀bẹ̀. CHADI yóò bá ọ sọ̀rọ̀ láìpẹ́.",
+    "errorToast": "A kò lè fi èyí sílẹ̀ ní báyìí. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i.",
+    "spark": {
+      "eyebrow": "CHADI Kind Humans",
+      "heading": "Di Aṣojú Ìpínlẹ̀ CHADI SPARK",
+      "description": "<strong>SPARK</strong> — Títan àti Ṣíṣe Àwọn Iṣẹ́ Inú Rere Láìròtẹ́lẹ̀. Àwọn aṣojú ìpínlẹ̀ ń darí àwọn iṣẹ́ kékeré tí ó ní ipa nínú àwùjọ tiwọn lábẹ́ àbójútó CHADI.",
+      "role": { "title": "Ipa Rẹ", "description": "Ṣètò kí o sì darí àwọn iṣẹ́ inú rere kékeré ní ìpínlẹ̀ rẹ, pẹ̀lú ìtọ́sọ́nà àti àtìlẹ́yìn CHADI." },
+      "recognition": { "title": "Ìdámọ̀", "description": "A ń dìbò fún iṣẹ́ SPARK tí ó dára jùlọ ní ọdún kọ̀ọ̀kan a sì ń ṣe àjọyọ̀ rẹ̀ jákèjádò àwọn ìtàkùn CHADI." },
+      "visibility": { "title": "Ìfihàn", "description": "A ó fi hàn lórí ojú-ìwé CHADI àti ìtàkùn àjọlò — ní kíkọ́ ìní àwùjọ ní ìpìlẹ̀ nínú àwùjọ rẹ." },
+      "prompt": "Ṣé o nífẹ̀ẹ́? Yan \"Aṣojú Ìpínlẹ̀ SPARK\" gẹ́gẹ́ bí ẹ̀ka rẹ ní ìsàlẹ̀."
+    },
+    "areasTitle": "Àwọn Ẹ̀ka Ìyọ̀ǹda",
+    "areas": {
+      "outreach": "Ìrìnàjò àwùjọ àti ìkójọpọ̀",
+      "health": "Ẹ̀kọ́ ìlera àti oúnjẹ oníjẹ̀unnini",
+      "digital": "Ọgbọ́n dìjítàlì àti ìtọ́sọ́nà",
+      "media": "Ìtàkùn àjọlò, ìbánisọ̀rọ̀ àti ìtàn sísọ",
+      "research": "Ìwádìí, àbójútò àti ìṣàyẹ̀wò"
+    },
+    "form": {
+      "namePlaceholder": "Orúkọ kíkún",
+      "emailPlaceholder": "Àdírẹ́sì ìmẹ́lì",
+      "phonePlaceholder": "Nọ́mbà fóònù",
+      "locationPlaceholder": "Ibùgbé",
+      "areaPlaceholder": "Ẹ̀ka ìfẹ́",
+      "areaOutreach": "Ìrìnàjò àwùjọ",
+      "areaHealth": "Ìlera àti oúnjẹ oníjẹ̀unnini",
+      "areaEducation": "Ẹ̀kọ́ àti ìtọ́sọ́nà",
+      "areaMedia": "Ìtàkùn àjọlò àti ìbánisọ̀rọ̀",
+      "areaResearch": "Ìwádìí àti dátà",
+      "areaSpark": "Aṣojú Ìpínlẹ̀ SPARK",
+      "messagePlaceholder": "Sọ fún wa nípa ìrírí tàbí ìdí rẹ",
+      "submitting": "Ń Fi Sílẹ̀...",
+      "submit": "Fi Ìwé Ẹ̀bẹ̀ Sílẹ̀"
+    }
+  },
+  "donorPortal": {
+    "seoTitle": "Ẹnu-ọ̀nà Olùtọrẹ",
+    "seoDescription": "Wọlé láti wo ìtàn ìtọrẹ rẹ ti CHADI International, gba ìwé ẹ̀rí owó orí, kí o sì ṣàkóso ìtọrẹ àyípadà.",
+    "title": "Ẹnu-ọ̀nà Olùtọrẹ",
+    "subtitle": "Wo ìtàn ìtọrẹ rẹ, gba ìwé ẹ̀rí, kí o sì ṣàkóso ìtọrẹ àyípadà.",
+    "typeLabels": { "payment": "Ìtọrẹ Ẹ̀ẹ̀kan", "subscription": "Hope Alive Circle (Oṣooṣù)" },
+    "login": {
+      "emailLabel": "Àdírẹ́sì ìmẹ́lì",
+      "emailPlaceholder": "iwo@àpẹẹrẹ.com",
+      "sending": "Ń Fi Ránṣẹ́...",
+      "submit": "Fi Ìjápọ̀ Wíwọlé Ránṣẹ́ Sí Mi Nípa Ìmẹ́lì",
+      "hint": "Lo àdírẹ́sì ìmẹ́lì kan náà tí o fi ṣetọrẹ pẹ̀lú. A kò nílò ọ̀rọ̀ ìpamọ́.",
+      "sentTitle": "Tí ìmẹ́lì náà bá ti ṣe ìtọrẹ pẹ̀lú wa, a ti fi ìjápọ̀ wíwọlé ránṣẹ́ sí i.",
+      "sentHint": "Ṣàyẹ̀wò àpótí ìwọlé rẹ (àti spam) fún ìjápọ̀ láti ọ̀dọ̀ CHADI International. Ó parí ní ìṣẹ́jú 15.",
+      "genericError": "Nǹkan kan ti ṣàṣìṣe. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i."
+    },
+    "dashboard": {
+      "title": "Ìtàn Ìtọrẹ Rẹ",
+      "signOut": "Jáde",
+      "loading": "Ń gbé àwọn ìtọrẹ rẹ wọlé...",
+      "empty": "Kò sí ìtọrẹ kankan fún ìmẹ́lì yìí síbẹ̀.",
+      "loadError": "A kò lè gbé ìtàn ìtọrẹ rẹ wọlé",
+      "columns": { "date": "Ọjọ́", "type": "Onírúurú", "amount": "Iye", "status": "Ipò", "actions": "Àwọn Ìṣe" },
+      "status": { "active": "Ń Ṣiṣẹ́", "cancelled": "A Ti Fagilé", "activating": "Ń Mú Ṣiṣẹ́..." },
+      "downloadReceipt": "Gba Ìwé Ẹ̀rí",
+      "downloading": "Ń Gbà...",
+      "downloadError": "A kò lè gba ìwé ẹ̀rí",
+      "cancel": "Fagilé",
+      "cancelling": "Ń Fagilé...",
+      "cancelConfirm": "Fagilé ìtọrẹ àyípadà yìí? A kò lè yí padà.",
+      "cancelSuccess": "A ti fagilé ìtọrẹ",
+      "cancelError": "A kò lè fagilé ìtọrẹ"
+    }
+  },
+  "donorPortalVerify": {
+    "seoTitle": "Ń Wọlé",
+    "seoDescription": "Ń fi ọ́ wọlé sí ẹnu-ọ̀nà olùtọrẹ CHADI.",
+    "title": "Ẹnu-ọ̀nà Olùtọrẹ",
+    "subtitle": "Ń fi ọ́ wọlé...",
+    "verifying": "Ń fi ìdí ìjápọ̀ wíwọlé rẹ múlẹ̀...",
+    "invalidLink": "Ìjápọ̀ wíwọlé yìí kò tọ̀nà tàbí ó ti parí.",
+    "requestNewLink": "Béèrè Ìjápọ̀ Tuntun"
+  },
+  "governance": {
+    "seoTitle": "Ìṣàkóso",
+    "seoDescription": "Ìgbìmọ̀ olùdarí CHADI International àti ìfaramọ́ ààbò.",
+    "title": "Ìṣàkóso",
+    "subtitle": "Àwọn ènìyàn àti ìfaramọ́ tí ó ń mú CHADI jẹ́ olùdáhùn.",
+    "boardTitle": "Ìgbìmọ̀ Olùdarí",
+    "boardEmpty": "A ń parí ìsọfúnni ìgbìmọ̀. Ẹ padà wá láìpẹ́.",
+    "safeguardingTitle": "Ààbò",
+    "loading": "Ń Gbé Wọlé...",
+    "safeguardingEmpty": "A ń parí ìlànà ààbò wa fún títẹ̀jáde níbí. Nígbà náà, tí o bá ní àníyàn tàbí ìbéèrè nípa ààbò, jọ̀wọ́",
+    "safeguardingContact": "kàn sí wa tààrà"
+  },
+  "partners": {
+    "seoTitle": "Àwọn Alábàáṣepọ̀",
+    "seoDescription": "Ẹ pàdé àwọn àjọ àti ilé-iṣẹ́ tí wọ́n ń fọwọ́sowọ́pọ̀ pẹ̀lú CHADI International láti sìn àwọn àwùjọ dáadáa.",
+    "title": "Àwọn Alábàáṣepọ̀",
+    "subtitle": "Ìfọwọ́sowọ́pọ̀ ń ràn CHADI lọ́wọ́ láti dé ọ̀nà jíjìn àti láti sìn àwọn àwùjọ dáadáa.",
+    "workWithUs": "Ṣiṣẹ́ Pẹ̀lú CHADI",
+    "description": "A ń fọwọ́sowọ́pọ̀ pẹ̀lú àwọn ẹgbẹ́ tí ó bìkítà nípa ìlera, ẹ̀kọ́, ìgbésí ayé, ààbò, ìgbésẹ̀ ojú-ọjọ́ àti ìfaradà àwùjọ. Papọ̀, a lè ṣètò, ṣe ìdásí owó, kí a sì fi àwọn ètò tí ó ní ìye tí ó wúlò ní ìbílẹ̀ hàn.",
+    "becomePartner": "Di Alábàáṣepọ̀",
+    "ourPartners": "Àwọn Alábàáṣepọ̀ Wa",
+    "empty": "A ń kọ́ àtòjọ yìí. Kàn sí wa tí àjọ rẹ bá fẹ́ láti fọwọ́sowọ́pọ̀ pẹ̀lú CHADI.",
+    "types": {
+      "community": "Àwọn àjọ àwùjọ",
+      "schools": "Àwọn ilé-ìwé àti ibùdó ẹ̀kọ́",
+      "health": "Àwọn ilé-iṣẹ́ ìlera",
+      "corporate": "Àwọn olùtìlẹ́yìn ilé-iṣẹ́",
+      "faith": "Àwọn ẹgbẹ́ ìsìn àti ìjọba ìlú",
+      "research": "Àwọn alábàáṣepọ̀ ìwádìí àti ìmúdàgbàsókè"
+    }
+  },
+  "projects": {
+    "seoTitle": "Àwọn Iṣẹ́ Wa",
+    "seoDescription": "Ṣàwárí àwọn iṣẹ́ CHADI International tí ó ń ṣiṣẹ́ lórí ìlera, ẹ̀kọ́, ìgbésí ayé àti ìdàgbàsókè àwùjọ.",
+    "title": "Àwọn Iṣẹ́ Wa",
+    "subtitle": "Ìkápá Àwọn Tí A Fi Sílẹ̀ & Àwọn Àwùjọ Tí A Kò Tọ́jú",
+    "whereWeWork": "Ibi Tí A Ń Ṣiṣẹ́",
+    "mapIntro": "Ṣàwárí àwọn àwùjọ jákèjádò Nàìjíríà níbi tí àwọn iṣẹ́ CHADI ti ń ṣiṣẹ́. Tẹ àmì kan láti wo ohun tí ń ṣẹlẹ̀ níbẹ̀.",
+    "searchPlaceholder": "Ṣàwárí àwọn iṣẹ́...",
+    "allFilter": "Gbogbo",
+    "noMatch": "Kò sí iṣẹ́ tí ó bá ìwádìí rẹ mu."
+  },
+  "team": {
+    "seoTitle": "Ẹgbẹ́ Wa",
+    "seoDescription": "Ẹ pàdé ẹgbẹ́ onífẹ̀ẹ́ tí ó wà lẹ́yìn àwọn ètò CHADI International àti iṣẹ́ àwùjọ.",
+    "title": "Ẹgbẹ́ Wa",
+    "subtitle": "Ẹ pàdé àwọn ènìyàn onífẹ̀ẹ́ tí ó wà lẹ́yìn CHADI.",
+    "empty": "Àwọn àkọsílẹ̀ ẹgbẹ́ ń bọ̀ wá. Ẹ padà wá láìpẹ́.",
+    "leadershipBadge": "Ìdarí",
+    "defaultDepartment": "Ẹgbẹ́"
+  },
+  "projectDetails": {
+    "notFoundTitle": "A Kò Rí Iṣẹ́ Náà",
+    "notFoundDescription": "Jọ̀wọ́ padà sí ojú-ìwé iṣẹ́ láti ṣàwárí iṣẹ́ CHADI.",
+    "seoFallbackDescription": "Kọ́ nípa iṣẹ́ {{title}} ti CHADI International.",
+    "aboutTitle": "Nípa Iṣẹ́ Yìí",
+    "objectivesTitle": "Àwọn Èròngbà",
+    "objectives": {
+      "empower": "Kápá àwọn tí a fi sílẹ̀ àti ìdílé wọn.",
+      "wellbeing": "Mú ìlera àwùjọ dára sí i nípasẹ̀ àtìlẹ́yìn tí ó wúlò.",
+      "sustainable": "Mú ìdàgbàsókè tí ó dúró ṣinṣin dàgbà pẹ̀lú ìkópa ìbílẹ̀.",
+      "impact": "Ṣẹ̀dá ipa tí ó ní ìwọ̀n fún àwọn àwùjọ tí a kò tọ́jú."
+    },
+    "mediaTitle": "Àwòrán & Fídíò",
+    "spendingTitle": "Bí A Ṣe Lo Owó",
+    "spendingIntro": "Àkọsílẹ̀ tí ó ṣe kedere ti bí a ṣe ná owó lórí iṣẹ́ yìí títí di ìsinsìnyí.",
+    "totalSpent": "Àpapọ̀ Tí A Ná",
+    "sidebarTitle": "Àlàyé Iṣẹ́",
+    "program": "Ètò",
+    "location": "Ibùgbé",
+    "status": "Ipò",
+    "beneficiaries": "Àwọn Olùjàre",
+    "raised": "A Kó Fún Iṣẹ́ Yìí",
+    "fromSupporters_one": "láti ọ̀dọ̀ olùtìlẹ́yìn {{count}}",
+    "fromSupporters_other": "láti ọ̀dọ̀ àwọn olùtìlẹ́yìn {{count}}",
+    "goalProgress": "{{percent}}% nínú góòlù ₦{{budget}}",
+    "spentSoFar": "Tí A Ná Títí Di Ìsinsìnyí",
+    "remaining": "Ìyókù",
+    "donateButton": "Ṣetọrẹ Sí Iṣẹ́ Yìí",
+    "volunteerButton": "Yọ̀ǹda Ara Rẹ Fún Iṣẹ́ Yìí"
+  },
+  "careers": {
+    "seoTitle": "Iṣẹ́ Àkọ́ṣẹ́",
+    "seoDescription": "Ṣàwárí àwọn àǹfààní láti dara pọ̀ mọ́ ẹgbẹ́ CHADI International tí ó ń sìn àwọn àwùjọ tí a kò tọ́jú.",
+    "title": "Iṣẹ́ Àkọ́ṣẹ́",
+    "subtitle": "Darapọ̀ mọ́ ẹgbẹ́ kan tí ó ń sìn àwọn àwùjọ tí a kò tọ́jú.",
+    "noRoles": "Kò sí ipò iṣẹ́ tí ó ṣí sílẹ̀ ní báyìí",
+    "description": "CHADI ń tẹ àwọn àǹfààní jáde fún ètò, pápá, ìwádìí, ìfọwọ́sowọ́pọ̀ àti ipò iṣẹ́ nígbà tí wọ́n bá wà. Àwọn olùyọ̀ǹda àti alábàáṣiṣẹ́ máa ń ṣe ìtẹ́wọ́gbà nígbà gbogbo láti fi ara wọn hàn.",
+    "cta": "Yọ̀ǹda Ara Rẹ Pẹ̀lú Wa"
+  },
+  "contact": {
+    "seoTitle": "Kàn sí Wa",
+    "seoDescription": "Kàn sí CHADI International fún ìfọwọ́sowọ́pọ̀, ìyọ̀ǹda, ìtọrẹ àti ìbéèrè ètò.",
+    "pageTitle": "Kàn sí CHADI",
+    "pageSubtitle": "Kàn sí wa fún ìfọwọ́sowọ́pọ̀, ìyọ̀ǹda, ìtọrẹ àti ìbéèrè ètò.",
+    "heading": "Jẹ́ kí a gbọ́ láti ọ̀dọ̀ rẹ",
+    "intro": "CHADI ń ṣiṣẹ́ pẹ̀lú àwọn àwùjọ, olùyọ̀ǹda, olùtọrẹ àti alábàáṣepọ̀ láti fi àwọn ètò hàn níbi tí a nílò wọn jùlọ.",
+    "email": "Ìmẹ́lì",
+    "focusRegion": "Àgbègbè Àfojúsùn",
+    "officeHours": "Wákàtí Ọ́fíìsì",
+    "sentToast": "A ti fi ìránṣẹ́ ránṣẹ́. CHADI yóò tẹ̀lé láìpẹ́.",
+    "errorToast": "A kò lè fi ìránṣẹ́ ránṣẹ́ ní báyìí. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i.",
+    "form": {
+      "name": "Orúkọ Kíkún",
+      "email": "Ìmẹ́lì",
+      "subject": "Kókó",
+      "message": "Ìránṣẹ́",
+      "sending": "Ń Fi Ránṣẹ́...",
+      "send": "Fi Ìránṣẹ́ Ránṣẹ́"
+    }
+  },
+  "faq": {
+    "seoTitle": "Àwọn Ìbéèrè Tí Ó Wọ́pọ̀",
+    "seoDescription": "Àwọn ìdáhùn sí àwọn ìbéèrè tí ó wọ́pọ̀ nípa àwọn ètò CHADI International, ìyọ̀ǹda àti ìfọwọ́sowọ́pọ̀.",
+    "title": "Àwọn Ìbéèrè Tí Ó Wọ́pọ̀",
+    "subtitle": "Àwọn ìdáhùn sí àwọn ìbéèrè tí ó wọ́pọ̀ nípa CHADI International.",
+    "loading": "Ń Gbé Wọlé...",
+    "empty": "Àwọn ìbéèrè ń bọ̀ wá. Ẹ padà wá láìpẹ́."
+  },
+  "events": {
+    "seoTitle": "Àwọn Ìṣẹ̀lẹ̀",
+    "seoDescription": "Wo àwọn ìṣẹ̀lẹ̀ tí ń bọ̀ ti CHADI International ti ìrìnàjò, ìdánilẹ́kọ̀ọ́ àti ìlọ́wọ́sí àwùjọ.",
+    "title": "Àwọn Ìṣẹ̀lẹ̀",
+    "subtitle": "Àwọn iṣẹ́ ìrìnàjò, ìdánilẹ́kọ̀ọ́ àti ìlọ́wọ́sí àwùjọ tí ń bọ̀.",
+    "empty": "Kò sí ìṣẹ̀lẹ̀ tí a ṣètò ní báyìí. Ẹ padà wá láìpẹ́.",
+    "noMatch": "Kò sí ìṣẹ̀lẹ̀ tí ó bá àyẹ̀wò yìí mu.",
+    "allFilter": "Gbogbo",
+    "cta": {
+      "title": "Gba àlejò tàbí ṣàtìlẹ́yìn fún ìṣẹ̀lẹ̀ kan",
+      "description": "CHADI ń fọwọ́sowọ́pọ̀ pẹ̀lú àwọn àwùjọ, ilé-ìwé, ẹgbẹ́ ìlera àti olùtìlẹ́yìn láti fi àwọn iṣẹ́ pápá tí ó wúlò hàn.",
+      "button": "Bá Wa Sọ̀rọ̀"
+    }
+  },
+  "about": {
+    "seoTitle": "Nípa Wa",
+    "seoDescription": "Kọ́ nípa àfojúsùn, ìran àti ìtàn tí ó wà lẹ́yìn iṣẹ́ CHADI International ti kíkápá àwọn tí a fi sílẹ̀ àti àwọn àwùjọ tí a kò tọ́jú.",
+    "pageTitle": "Nípa CHADI",
+    "pageSubtitle": "Ìkápá Àwọn Tí A Fi Sílẹ̀ & Àwọn Àwùjọ Tí A Kò Tọ́jú",
+    "ourStory": {
+      "badge": "Hope Alive",
+      "eyebrow": "Nípa CHADI",
+      "title1": "Ìkápá Ẹ̀mí.",
+      "title2": "Ìyípadà Àwọn Àwùjọ.",
+      "p1": "Caleb Hope Alive Development Initiative (CHADI) jẹ́ àjọ aláìlérè-jíjẹ́ tí ó ń fi ara rẹ̀ fún kíkápá àwọn tí a fi sílẹ̀ àti àwọn àwùjọ tí a kò tọ́jú jákèjádò Nàìjíríà nípasẹ̀ ìdàgbàsókè tí ó dúró ṣinṣin, ẹ̀kọ́, ìtọ́jú ìlera, ìmúdàgbàsókè, àti ìdásí ọ̀tọ̀ọ̀tọ̀.",
+      "p2": "A gbàgbọ́ pé olúkúlùkù ẹnìkọ̀ọ̀kan yẹ kí ó ní ọ̀wọ̀, àǹfààní, ìtọ́jú ìlera dídára, ẹ̀kọ́, àti ìrètí láìka ibi tí wọ́n ń gbé tàbí àwọn ipò tí ó yí wọn ká sí.",
+      "quote": "A ń mú ọ̀wọ̀ padà bọ̀, a ń ṣẹ̀dá àǹfààní, a sì ń mú ìrètí wá sí ayé — nípa iṣẹ́ ṣíṣe.",
+      "readStory": "Ka Ìtàn Wa"
+    },
+    "coreValues": {
+      "title": "Àwọn Ìlànà Ìpìlẹ̀ Wa",
+      "compassion": { "title": "Ìyọ́nú", "description": "Bíbá aráyé ṣiṣẹ́ pẹ̀lú ìmọ̀lára àti ìfẹ́." },
+      "integrity": { "title": "Ìdúróṣinṣin", "description": "Ìṣírò ó ye kí àti ìṣirò nínú ohun gbogbo tí a ń ṣe." },
+      "innovation": { "title": "Ìmúdàgbàsókè", "description": "Ṣíṣẹ̀dá ọ̀nà àbáyọ tí ó dúró ṣinṣin fún àwọn ìpèníjà àwùjọ." },
+      "inclusion": { "title": "Ìsopọ̀mọ́ra", "description": "Rí i dájú pé gbogbo ènìyàn ní àǹfààní dọ́gba." },
+      "excellence": { "title": "Ìtayọlọ́lá", "description": "Fífi àwọn ètò tí ó ní ipa hàn pẹ̀lú ìdára." },
+      "collaboration": { "title": "Ìfọwọ́sowọ́pọ̀", "description": "Ṣíṣiṣẹ́ pọ̀ pẹ̀lú alábàáṣepọ̀ àti àwùjọ." }
+    },
+    "timeline": {
+      "title": "Ìrìnàjò Wa",
+      "founded": { "title": "A Dá CHADI Sílẹ̀", "description": "A dá CHADI sílẹ̀ láti kápá àwọn àwùjọ tí a kò tọ́jú nípasẹ̀ ìdàgbàsókè tí ó dúró ṣinṣin." },
+      "health": { "title": "Àwọn Ètò Ìlera & Oúnjẹ Oníjẹ̀unnini", "description": "A gbòòrò àwọn ìlọ́wọ́sí ìlera ìyá àti ọmọdé jákèjádò àwọn àwùjọ ìgbèríko." },
+      "youth": { "title": "Ìkápá Àwọn Ọ̀dọ́", "description": "A ṣe ìfilọ́lẹ̀ ìdánilẹ́kọ̀ọ́ ọgbọ́n dìjítàlì àti ìṣòwò fún àwọn ọ̀dọ́." },
+      "expansion": { "title": "Ìgbòòrò Agbègbè", "description": "A gbòòrò àwọn iṣẹ́ jákèjádò àwọn ìpínlẹ̀ mélòó kan ní Àríwá Nàìjíríà nípasẹ̀ ìfọwọ́sowọ́pọ̀ tí ó ní ète." }
+    }
   }
 }

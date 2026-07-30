@@ -134,5 +134,508 @@
       "volunteer": "Voluntariado",
       "donate": "Doar"
     }
+  },
+  "common": {
+    "teamShowcase": {
+      "title": "Conheça Nossa Equipe",
+      "subtitle": "Por trás de cada transformação comunitária bem-sucedida está uma equipe apaixonada comprometida em criar um impacto duradouro.",
+      "cta": "Conhecer Toda a Equipe"
+    },
+    "newsletter": {
+      "title": "Fique Atualizado",
+      "subtitle": "Inscreva-se para receber atualizações sobre nossos projetos, eventos e histórias de impacto.",
+      "placeholder": "Digite seu e-mail",
+      "subscribe": "Inscrever-se",
+      "sending": "Enviando...",
+      "success": "Obrigado por se inscrever.",
+      "error": "Não conseguimos inscrever você no momento. Por favor, tente novamente."
+    },
+    "projectCard": {
+      "beneficiaries": "Beneficiários",
+      "learnMore": "Saiba Mais →",
+      "volunteer": "Voluntariado",
+      "donate": "Doar"
+    },
+    "eventCard": {
+      "signUp": "Inscrever-se"
+    },
+    "newsCard": {
+      "readArticle": "Ler Artigo →"
+    },
+    "volunteerModal": {
+      "title": "Voluntariado",
+      "forLabel": "Para:",
+      "genericSubtitle": "Conte-nos um pouco sobre você e como gostaria de ajudar.",
+      "namePlaceholder": "Nome completo",
+      "emailPlaceholder": "Endereço de e-mail",
+      "locationPlaceholder": "Estado / localização",
+      "messagePlaceholder": "Algo que gostaria que soubéssemos? (opcional)",
+      "submitting": "Enviando...",
+      "submit": "Inscrever-se para Ser Voluntário",
+      "successMessage": "Obrigado! A CHADI entrará em contato sobre o voluntariado para este projeto.",
+      "errorMessage": "Não conseguimos enviar isso no momento. Por favor, tente novamente."
+    },
+    "eventSignupModal": {
+      "title": "Inscrição no Evento",
+      "forLabel": "Para:",
+      "namePlaceholder": "Nome completo",
+      "emailPlaceholder": "Endereço de e-mail",
+      "signingUp": "Inscrevendo...",
+      "confirmSignUp": "Confirmar Inscrição",
+      "successMessage": "Você está inscrito! A CHADI enviará um lembrete próximo à data.",
+      "errorMessage": "Não conseguimos inscrever você no momento. Por favor, tente novamente."
+    },
+    "cookieConsent": {
+      "message": "Usamos análises focadas na privacidade para entender como os visitantes usam este site. Nenhuma informação pessoal é vendida, e o site em si não define cookies de rastreamento. Veja nossa",
+      "privacyLink": "Política de Privacidade",
+      "messageEnd": "para mais detalhes.",
+      "decline": "Recusar",
+      "accept": "Aceitar"
+    },
+    "exitIntent": {
+      "title": "Antes de você ir...",
+      "subtitle": "Fique conectado — inscreva-se em nosso boletim mensal sobre projetos, eventos e histórias de impacto.",
+      "emailPlaceholder": "Digite seu e-mail",
+      "subscribing": "Inscrevendo...",
+      "keepMeUpdated": "Manter-me Atualizado",
+      "noThanks": "Não, obrigado",
+      "successToast": "Obrigado por se inscrever.",
+      "errorToast": "Não conseguimos inscrever você no momento. Por favor, tente novamente."
+    }
+  },
+  "impactTiers": {
+    "nutritionKit": { "label": "Fornece um kit nutricional", "unit": "kit nutricional", "unitPlural": "kits nutricionais" },
+    "healthOutreach": { "label": "Apoia uma ação de saúde", "unit": "visita de saúde", "unitPlural": "visitas de saúde" },
+    "skillTraining": { "label": "Treina uma criança em uma nova habilidade", "unit": "criança treinada em uma nova habilidade", "unitPlural": "crianças treinadas em uma nova habilidade" },
+    "familySupport": { "label": "Apoia uma família por um mês", "unit": "família apoiada por um mês", "unitPlural": "famílias apoiadas por um mês" }
+  },
+  "donateModal": {
+    "orgName": "CHADI International",
+    "title": "Doe Hoje",
+    "supporting": "Apoiando:",
+    "genericSubtitle": "Você não está apenas doando dinheiro — está oferecendo esperança, dignidade e uma segunda chance.",
+    "oneTime": "Única",
+    "monthly": "Mensal — Hope Alive Circle",
+    "namePlaceholder": "Nome completo",
+    "emailPlaceholder": "Endereço de e-mail",
+    "minAmountError": "Por favor, insira um valor de pelo menos ₦100.",
+    "monthlyNote": "Seu cartão será cobrado em ₦{{amount}} automaticamente todo mês até você cancelar. Cancele a qualquer momento entrando em contato com a CHADI.",
+    "notConfigured": "O pagamento online ainda não está configurado neste site. Por favor, use a página de Contato.",
+    "processing": "Processando...",
+    "giveButton": "Doar ₦{{amount}}",
+    "joinButton": "Juntar-se ao Hope Alive Circle - ₦{{amount}}/mês",
+    "securedBy": "Protegido pela Paystack · junte-se à comunidade de apoiadores da CHADI",
+    "internationalPrompt": "Está doando de fora da Nigéria?",
+    "verifyErrorOnce": "O pagamento foi realizado, mas não conseguimos confirmá-lo automaticamente. Entre em contato conosco com sua referência: {{reference}}",
+    "verifyErrorMonthly": "O primeiro pagamento foi realizado, mas não conseguimos confirmá-lo automaticamente. Entre em contato conosco com sua referência: {{reference}}",
+    "monthlySetupError": "Não conseguimos configurar sua doação mensal no momento. Por favor, tente novamente.",
+    "success": {
+      "title": "Pagamento Recebido!",
+      "subscriptionMessage": "Bem-vindo ao Hope Alive Circle! Seu cartão será cobrado em {{amount}} automaticamente todo mês.",
+      "oneTimeMessage": "Obrigado pela sua doação de {{amount}}. Você está oferecendo esperança, dignidade e uma segunda chance.",
+      "reference": "Referência: {{reference}}",
+      "downloadReceipt": "Baixar Recibo",
+      "downloading": "Baixando...",
+      "downloadError": "Não foi possível baixar o recibo",
+      "done": "Concluído"
+    }
+  },
+  "donate": {
+    "seoTitle": "Doar",
+    "seoDescription": "Apoie o trabalho da CHADI International com comunidades carentes por meio de uma doação online segura.",
+    "pageTitle": "Doar",
+    "pageSubtitle": "Apoie o trabalho da CHADI com comunidades carentes.",
+    "heading": "Ajude a Sustentar o Impacto Comunitário",
+    "description": "Sua doação ajuda a CHADI a fornecer educação nutricional, apoio à aprendizagem, ajuda emergencial, desenvolvimento juvenil e programas de bem-estar comunitário.",
+    "donateNow": "Doe Agora",
+    "calculator": {
+      "eyebrow": "Veja Seu Impacto",
+      "title": "O Que Sua Doação Fornece",
+      "subtitle": "Deslize para ver o que sua contribuição pode significar para uma comunidade.",
+      "couldProvide": "Isso poderia fornecer",
+      "donateButton": "Doar ₦{{amount}}"
+    },
+    "interestForm": {
+      "title": "Outras Formas de Ajudar",
+      "description": "Interessado em patrocínio corporativo ou parceria de programa? Compartilhe seus dados e a CHADI entrará em contato.",
+      "namePlaceholder": "Nome completo",
+      "emailPlaceholder": "Endereço de e-mail",
+      "interestPlaceholder": "Interesse em doação",
+      "corporateSponsorship": "Patrocínio corporativo",
+      "programPartnership": "Parceria de programa",
+      "inKindDonation": "Doação em espécie",
+      "saving": "Salvando...",
+      "submit": "Enviar Interesse",
+      "contactInstead": "Entrar em contato",
+      "sentToast": "Obrigado. A CHADI entrará em contato com detalhes.",
+      "errorToast": "Não conseguimos salvar isso no momento. Por favor, use a página de contato."
+    }
+  },
+  "gallery": {
+    "seoTitle": "Galeria",
+    "seoDescription": "Navegue por fotos dos programas, projetos e impacto comunitário da CHADI International.",
+    "title": "Galeria",
+    "subtitle": "Um vislumbre dos programas, projetos e impacto comunitário da CHADI.",
+    "empty": "As fotos estão a caminho. Volte em breve para ver o trabalho da CHADI em imagens."
+  },
+  "getInvolved": {
+    "seoTitle": "Participe",
+    "seoDescription": "Descubra formas de ser voluntário, ser parceiro ou doar para a CHADI International e ajudar a criar um impacto comunitário duradouro.",
+    "title": "Participe",
+    "subtitle": "Junte-se à CHADI para criar um impacto comunitário prático e duradouro.",
+    "volunteer": { "title": "Voluntariado", "description": "Contribua com seu tempo, habilidades e apoio de campo para programas comunitários.", "action": "Começar a Ser Voluntário" },
+    "partner": { "title": "Seja Nosso Parceiro", "description": "Colabore em projetos que melhoram a educação, a saúde e os meios de subsistência.", "action": "Discutir Parceria" },
+    "donate": { "title": "Doar", "description": "Apoie a entrega de programas para crianças, mulheres, jovens e famílias vulneráveis.", "action": "Fazer uma Doação" }
+  },
+  "news": {
+    "seoTitle": "Notícias",
+    "seoDescription": "Leia as últimas notícias, atualizações e anúncios da CHADI International.",
+    "title": "Notícias",
+    "subtitle": "Últimas novidades da CHADI.",
+    "empty": "Ainda não há artigos de notícias.",
+    "notFound": {
+      "title": "Artigo Não Encontrado",
+      "description": "A atualização que você procura pode ter sido movida.",
+      "back": "Voltar para Notícias"
+    }
+  },
+  "notFound": {
+    "seoTitle": "Página Não Encontrada",
+    "eyebrow": "404",
+    "title": "Página Não Encontrada",
+    "description": "A página que você procura não existe ou foi movida.",
+    "backHome": "Voltar ao Início"
+  },
+  "privacy": {
+    "seoTitle": "Política de Privacidade",
+    "seoDescription": "Leia a política de privacidade da CHADI International sobre como as informações compartilhadas por meio deste site são tratadas.",
+    "title": "Política de Privacidade",
+    "subtitle": "Como a CHADI trata as informações compartilhadas por meio deste site.",
+    "lastUpdated": "Última atualização: esta política descreve como este site realmente trata as informações hoje. É um bom ponto de partida, não um substituto para a revisão de um advogado qualificado antes de você confiar nela para fins de conformidade.",
+    "collect": { "title": "Informações que coletamos", "body": "Coletamos o que você escolhe enviar pelos formulários deste site: seu nome e e-mail nos formulários de contato, voluntariado, boletim informativo e interesse em doação, além de qualquer outra coisa que um formulário específico solicite (por exemplo, sua área de interesse ao ser voluntário). Se você fizer uma doação, a Paystack (nosso processador de pagamentos) compartilha seu nome, e-mail, valor da doação e uma referência de pagamento conosco para que possamos registrar a doação e enviar um recibo - os detalhes do seu cartão são inseridos diretamente no processo de pagamento da Paystack e nunca passam por nossos servidores." },
+    "cookies": { "title": "Cookies", "body": "Este site em si não define cookies de rastreamento. Se você aceitar o aviso de cookies, carregamos análises focadas em privacidade e sem cookies (Plausible) para entender o tráfego geral - ela não usa cookies nem rastreia você individualmente em outros sites. O painel de administração mantém a equipe conectada usando o armazenamento local do seu navegador, não um cookie. O processo de pagamento da Paystack pode definir seus próprios cookies em seu próprio domínio enquanto você conclui um pagamento, regido pela política de privacidade da Paystack, não pela nossa." },
+    "usage": { "title": "Como usamos suas informações", "body": "Para responder a consultas, processar e emitir recibos de doações, acompanhar candidaturas de voluntariado, enviar atualizações do boletim informativo que você assinou e operar as funções básicas do site. Não vendemos informações pessoais e não usamos o que você compartilha para nada além desses propósitos sem antes perguntar a você." },
+    "sharing": { "title": "Com quem compartilhamos", "body": "Apenas os terceiros necessários para fornecer o serviço que você solicitou: Paystack (processamento de pagamentos), nosso provedor de serviços de e-mail (envio de recibos, respostas e e-mails do boletim informativo), e, se ativado, Plausible (análises) e Sentry (monitoramento de erros, para nos ajudar a corrigir bugs). Não vendemos nem alugamos suas informações para mais ninguém. O acesso dentro da CHADI é limitado aos membros da equipe que precisam dele para fazer seu trabalho." },
+    "retention": { "title": "Por quanto tempo mantemos", "body": "Mantemos as informações enviadas enquanto forem úteis para o propósito pelo qual você as compartilhou (por exemplo, uma candidatura de voluntariado ativa, registros de doações para nossa própria contabilidade), ou até que você nos peça para excluí-las - o que for pertinente." },
+    "rights": { "title": "Seus direitos", "body": "Dependendo de onde você está localizado, você pode ter o direito de acessar, corrigir, excluir ou receber uma cópia das informações que temos sobre você, ou de se opor a como elas são usadas. Para exercer qualquer um desses direitos, ou para atualizar ou remover informações que você compartilhou conosco, entre em contato conosco através da", "contactLink": "página de Contato" },
+    "children": { "title": "Privacidade de crianças", "body": "Este site não é direcionado a crianças, e não coletamos conscientemente informações pessoais de crianças." },
+    "changes": { "title": "Alterações nesta política", "body": "Podemos atualizar esta política conforme o site e nossos serviços evoluem. Alterações significativas serão refletidas aqui com uma data atualizada." }
+  },
+  "resources": {
+    "seoTitle": "Recursos",
+    "seoDescription": "Guias, listas de verificação e materiais úteis dos programas da CHADI International.",
+    "title": "Recursos",
+    "subtitle": "Guias, listas de verificação e materiais úteis para os programas da CHADI.",
+    "requestButton": "Solicitar Recurso",
+    "nutritionGuide": { "title": "Guia de Conscientização Nutricional", "description": "Lembretes simples para sessões de nutrição materna, infantil e de crianças pequenas." },
+    "volunteerChecklist": { "title": "Lista de Verificação de Voluntariado de Campo", "description": "Uma lista de planejamento rápida para apoio de divulgação e engajamento de campo." },
+    "projectIntake": { "title": "Recepção de Projetos Comunitários", "description": "Orientação para comunidades e parceiros que propõem um projeto apoiado pela CHADI." }
+  },
+  "search": {
+    "seoTitle": "Buscar",
+    "seoDescription": "Pesquise projetos, notícias e eventos da CHADI International.",
+    "title": "Buscar",
+    "subtitle": "Encontre projetos, notícias e eventos em todo o site.",
+    "placeholder": "Buscar projetos, notícias, eventos...",
+    "loading": "Carregando...",
+    "prompt": "Comece a digitar para pesquisar.",
+    "noResults": "Nenhum resultado para \"{{query}}\".",
+    "projects": "Projetos",
+    "news": "Notícias",
+    "events": "Eventos"
+  },
+  "stories": {
+    "seoTitle": "Histórias de Impacto",
+    "seoDescription": "Leia histórias reais de mudança prática de comunidades apoiadas pela CHADI International.",
+    "title": "Histórias de Impacto",
+    "subtitle": "Histórias de mudança prática de comunidades apoiadas pela CHADI.",
+    "eyebrow": "Em Suas Próprias Palavras",
+    "heading": "As histórias que os números não podem contar.",
+    "intro": "Das crianças da SOVCEST às famílias da HELP - histórias reais das comunidades atendidas pela CHADI, capturadas com dignidade e contadas em suas próprias palavras.",
+    "readTheirStories": "Ler Suas Histórias",
+    "featuredBadge": "História em Destaque",
+    "brand": "CHADI · Histórias",
+    "empty": "Estamos reunindo histórias do campo. Volte em breve.",
+    "featuring": "Com: {{name}}"
+  },
+  "terms": {
+    "seoTitle": "Termos de Uso",
+    "seoDescription": "Diretrizes e termos para usar o site da CHADI International.",
+    "title": "Termos de Uso",
+    "subtitle": "Diretrizes para usar o site da CHADI International.",
+    "disclaimer": "Este é um bom ponto de partida, não um substituto para a revisão de um advogado qualificado antes de você confiar nele para fins de conformidade.",
+    "usage": { "title": "Uso deste site", "body": "Este site compartilha informações sobre os programas, projetos, eventos e oportunidades da CHADI. O conteúdo é fornecido para fins informativos gerais e pode ser atualizado conforme os programas evoluem. Você concorda em não fazer uso indevido do site, não enviar informações falsas por meio de seus formulários, nem tentar interromper a plataforma ou os serviços aos quais ela se conecta." },
+    "content": { "title": "Conteúdo e propriedade intelectual", "body": "Textos, fotos e outros conteúdos neste site pertencem à CHADI International ou são usados com permissão, salvo indicação em contrário. Você é bem-vindo a compartilhar links para nosso conteúdo; reutilizá-lo em outro lugar requer nossa permissão prévia por escrito." },
+    "donations": { "title": "Doações", "body": "As doações feitas por meio deste site são contribuições voluntárias para o trabalho da CHADI International. Os pagamentos são processados com segurança pela Paystack; nunca vemos ou armazenamos os detalhes do seu cartão. Se você fez uma doação por engano ou tem uma preocupação sobre uma cobrança, entre em contato conosco através da", "contactLink": "página de Contato", "bodyEnd": "e trabalharemos com você nisso." },
+    "thirdParty": { "title": "Links de terceiros", "body": "Este site pode se conectar a sites de terceiros (organizações parceiras, redes sociais, provedores de pagamento). Não somos responsáveis pelo conteúdo ou práticas de sites que não controlamos." },
+    "liability": { "title": "Sem garantia; limitação de responsabilidade", "body": "Este site e seu conteúdo são fornecidos \"como estão\", sem garantias de qualquer tipo. Na medida máxima permitida por lei, a CHADI International não é responsável por qualquer perda indireta ou consequencial decorrente do uso deste site." },
+    "governingLaw": { "title": "Lei aplicável", "body": "Estes termos são regidos pelas leis da República Federal da Nigéria, sem consideração aos princípios de conflito de leis." },
+    "changes": { "title": "Alterações nestes termos", "body": "A CHADI pode atualizar estes termos conforme o site e os serviços crescem. O uso continuado do site após uma alteração significa que você aceita os termos atualizados." }
+  },
+  "transparency": {
+    "seoTitle": "Transparência",
+    "seoDescription": "Veja como a CHADI International aloca e relata doações, com um compromisso com a transparência e a responsabilidade.",
+    "pageTitle": "Nosso Compromisso",
+    "pageSubtitle": "Transparência. Responsabilidade. Impacto.",
+    "intro": "Estamos comprometidos em usar cada recurso de forma responsável e garantir um impacto mensurável e duradouro nas comunidades que atendemos. Cada doação é rastreada desde o momento em que é feita até o resultado que ajuda a criar.",
+    "allocationTitle": "Para Onde Vai Sua Doação",
+    "loading": "Carregando...",
+    "allocationEmpty": "Publicaremos aqui uma repartição completa da alocação assim que for finalizada para o período do relatório atual. Enquanto isso, entre em contato conosco abaixo para o nosso relatório mais recente.",
+    "reportsTitle": "Relatórios e Demonstrações Financeiras",
+    "transparencyCard": { "title": "Transparência", "description": "Relatórios claros sobre como os fundos são arrecadados e gastos." },
+    "accountabilityCard": { "title": "Responsabilidade", "description": "Práticas de governança que tornam nossa equipe responsável perante as comunidades que atendemos." },
+    "impactCard": { "title": "Impacto Mensurável", "description": "Programas rastreados com base em resultados reais, não apenas atividade." },
+    "ctaTitle": "Quer o panorama completo?",
+    "ctaDescription": "Entre em contato com nossa equipe para relatórios financeiros e de programas detalhados.",
+    "ctaButton": "Solicitar um Relatório"
+  },
+  "volunteer": {
+    "seoTitle": "Voluntariado",
+    "seoDescription": "Use suas habilidades, tempo e compaixão para apoiar os programas comunitários da CHADI International. Candidate-se para ser voluntário hoje.",
+    "title": "Voluntariado",
+    "subtitle": "Use suas habilidades, tempo e compaixão para apoiar as comunidades da CHADI.",
+    "sentToast": "Candidatura recebida. A CHADI entrará em contato em breve.",
+    "errorToast": "Não conseguimos enviar isso no momento. Por favor, tente novamente.",
+    "spark": {
+      "eyebrow": "CHADI Kind Humans",
+      "heading": "Torne-se Embaixador Estadual da CHADI SPARK",
+      "description": "<strong>SPARK</strong> — Espalhando e Realizando Atos Aleatórios de Bondade. Os embaixadores estaduais lideram pequenos projetos de alto impacto em sua própria comunidade sob a supervisão da CHADI.",
+      "role": { "title": "Seu Papel", "description": "Planeje e conduza pequenos projetos de atos de bondade em seu estado, com orientação e apoio da CHADI." },
+      "recognition": { "title": "Reconhecimento", "description": "O melhor projeto SPARK de cada ano é votado e celebrado em todos os canais da CHADI." },
+      "visibility": { "title": "Visibilidade", "description": "Destacado no site da CHADI e nas redes sociais — construindo pertencimento comunitário local." },
+      "prompt": "Interessado? Selecione \"Embaixador Estadual SPARK\" como sua área abaixo."
+    },
+    "areasTitle": "Áreas de Voluntariado",
+    "areas": {
+      "outreach": "Divulgação e mobilização comunitária",
+      "health": "Educação em saúde e nutrição",
+      "digital": "Habilidades digitais e mentoria",
+      "media": "Mídia, comunicações e narrativa",
+      "research": "Pesquisa, monitoramento e avaliação"
+    },
+    "form": {
+      "namePlaceholder": "Nome completo",
+      "emailPlaceholder": "Endereço de e-mail",
+      "phonePlaceholder": "Número de telefone",
+      "locationPlaceholder": "Localização",
+      "areaPlaceholder": "Área de interesse",
+      "areaOutreach": "Divulgação comunitária",
+      "areaHealth": "Saúde e nutrição",
+      "areaEducation": "Educação e mentoria",
+      "areaMedia": "Mídia e comunicações",
+      "areaResearch": "Pesquisa e dados",
+      "areaSpark": "Embaixador Estadual SPARK",
+      "messagePlaceholder": "Conte-nos sobre sua experiência ou motivação",
+      "submitting": "Enviando...",
+      "submit": "Enviar Candidatura"
+    }
+  },
+  "donorPortal": {
+    "seoTitle": "Portal do Doador",
+    "seoDescription": "Faça login para ver seu histórico de doações à CHADI International, baixar recibos fiscais e gerenciar doações recorrentes.",
+    "title": "Portal do Doador",
+    "subtitle": "Veja seu histórico de doações, baixe recibos e gerencie doações recorrentes.",
+    "typeLabels": { "payment": "Doação Única", "subscription": "Hope Alive Circle (Mensal)" },
+    "login": {
+      "emailLabel": "Endereço de e-mail",
+      "emailPlaceholder": "voce@exemplo.com",
+      "sending": "Enviando...",
+      "submit": "Enviar Link de Login por E-mail",
+      "hint": "Use o mesmo endereço de e-mail com o qual você doou. Nenhuma senha necessária.",
+      "sentTitle": "Se esse e-mail já fez uma doação conosco, enviamos um link de login para ele.",
+      "sentHint": "Verifique sua caixa de entrada (e spam) para um link da CHADI International. Ele expira em 15 minutos.",
+      "genericError": "Algo deu errado. Por favor, tente novamente."
+    },
+    "dashboard": {
+      "title": "Seu Histórico de Doações",
+      "signOut": "Sair",
+      "loading": "Carregando suas doações...",
+      "empty": "Nenhuma doação encontrada para este e-mail ainda.",
+      "loadError": "Não foi possível carregar seu histórico de doações",
+      "columns": { "date": "Data", "type": "Tipo", "amount": "Valor", "status": "Status", "actions": "Ações" },
+      "status": { "active": "Ativo", "cancelled": "Cancelado", "activating": "Ativando..." },
+      "downloadReceipt": "Baixar Recibo",
+      "downloading": "Baixando...",
+      "downloadError": "Não foi possível baixar o recibo",
+      "cancel": "Cancelar",
+      "cancelling": "Cancelando...",
+      "cancelConfirm": "Cancelar esta doação recorrente? Isso não pode ser desfeito.",
+      "cancelSuccess": "Assinatura cancelada",
+      "cancelError": "Não foi possível cancelar a assinatura"
+    }
+  },
+  "donorPortalVerify": {
+    "seoTitle": "Entrando",
+    "seoDescription": "Fazendo seu login no portal do doador da CHADI.",
+    "title": "Portal do Doador",
+    "subtitle": "Fazendo seu login...",
+    "verifying": "Verificando seu link de login...",
+    "invalidLink": "Este link de login é inválido ou expirou.",
+    "requestNewLink": "Solicitar um Novo Link"
+  },
+  "governance": {
+    "seoTitle": "Governança",
+    "seoDescription": "Conselho de administração da CHADI International e compromissos de proteção.",
+    "title": "Governança",
+    "subtitle": "As pessoas e compromissos que tornam a CHADI responsável.",
+    "boardTitle": "Conselho de Administração",
+    "boardEmpty": "As informações do conselho estão sendo finalizadas. Volte em breve.",
+    "safeguardingTitle": "Proteção",
+    "loading": "Carregando...",
+    "safeguardingEmpty": "Nossa política de proteção está sendo finalizada para publicação aqui. Enquanto isso, se você tiver uma preocupação ou pergunta sobre proteção, por favor",
+    "safeguardingContact": "entre em contato conosco diretamente"
+  },
+  "partners": {
+    "seoTitle": "Parceiros",
+    "seoDescription": "Conheça as organizações e instituições parceiras da CHADI International para servir melhor as comunidades.",
+    "title": "Parceiros",
+    "subtitle": "As parcerias ajudam a CHADI a alcançar mais longe e servir melhor as comunidades.",
+    "workWithUs": "Trabalhe com a CHADI",
+    "description": "Fazemos parcerias com grupos que se preocupam com saúde, educação, meios de subsistência, proteção, ação climática e resiliência comunitária. Juntos, podemos planejar, financiar e entregar programas com valor local mensurável.",
+    "becomePartner": "Torne-se Parceiro",
+    "ourPartners": "Nossos Parceiros",
+    "empty": "Estamos construindo esta lista. Entre em contato conosco se sua organização quiser fazer parceria com a CHADI.",
+    "types": {
+      "community": "Organizações comunitárias",
+      "schools": "Escolas e centros de aprendizagem",
+      "health": "Instituições de saúde",
+      "corporate": "Patrocinadores corporativos",
+      "faith": "Grupos religiosos e cívicos",
+      "research": "Parceiros de pesquisa e inovação"
+    }
+  },
+  "projects": {
+    "seoTitle": "Nossos Projetos",
+    "seoDescription": "Explore os projetos ativos da CHADI International em saúde, educação, meios de subsistência e desenvolvimento comunitário.",
+    "title": "Nossos Projetos",
+    "subtitle": "Empoderando Pessoas Marginalizadas e Comunidades Carentes",
+    "whereWeWork": "Onde Trabalhamos",
+    "mapIntro": "Explore as comunidades pela Nigéria onde os projetos da CHADI estão ativos. Toque em um marcador para ver o que está acontecendo lá.",
+    "searchPlaceholder": "Buscar projetos...",
+    "allFilter": "Todos",
+    "noMatch": "Nenhum projeto corresponde à sua busca."
+  },
+  "team": {
+    "seoTitle": "Nossa Equipe",
+    "seoDescription": "Conheça a equipe dedicada por trás dos programas e do trabalho comunitário da CHADI International.",
+    "title": "Nossa Equipe",
+    "subtitle": "Conheça as pessoas dedicadas por trás da CHADI.",
+    "empty": "Os perfis da equipe estão a caminho. Volte em breve.",
+    "leadershipBadge": "Liderança",
+    "defaultDepartment": "Equipe"
+  },
+  "projectDetails": {
+    "notFoundTitle": "Projeto Não Encontrado",
+    "notFoundDescription": "Por favor, retorne à página de projetos para explorar o trabalho da CHADI.",
+    "seoFallbackDescription": "Conheça o projeto {{title}} da CHADI International.",
+    "aboutTitle": "Sobre Este Projeto",
+    "objectivesTitle": "Objetivos",
+    "objectives": {
+      "empower": "Empoderar pessoas marginalizadas e suas famílias.",
+      "wellbeing": "Melhorar o bem-estar comunitário por meio de apoio prático.",
+      "sustainable": "Promover o desenvolvimento sustentável com participação local.",
+      "impact": "Criar um impacto mensurável para as comunidades carentes."
+    },
+    "mediaTitle": "Fotos e Vídeos",
+    "spendingTitle": "Como os Fundos Foram Usados",
+    "spendingIntro": "Um registro transparente dos gastos neste projeto até agora.",
+    "totalSpent": "Total Gasto",
+    "sidebarTitle": "Detalhes do Projeto",
+    "program": "Programa",
+    "location": "Localização",
+    "status": "Status",
+    "beneficiaries": "Beneficiários",
+    "raised": "Arrecadado para Este Projeto",
+    "fromSupporters_one": "de {{count}} apoiador",
+    "fromSupporters_other": "de {{count}} apoiadores",
+    "goalProgress": "{{percent}}% da meta de ₦{{budget}}",
+    "spentSoFar": "Gasto até Agora",
+    "remaining": "Restante",
+    "donateButton": "Doar para Este Projeto",
+    "volunteerButton": "Ser Voluntário para Este Projeto"
+  },
+  "careers": {
+    "seoTitle": "Carreiras",
+    "seoDescription": "Explore oportunidades de se juntar à equipe da CHADI International dedicada a servir comunidades carentes.",
+    "title": "Carreiras",
+    "subtitle": "Junte-se a uma equipe dedicada a servir comunidades carentes.",
+    "noRoles": "Nenhuma vaga aberta no momento",
+    "description": "A CHADI publica oportunidades para funções de programa, campo, pesquisa, parceria e operações quando surgem vagas. Voluntários e colaboradores são sempre bem-vindos para se apresentar.",
+    "cta": "Seja Voluntário Conosco"
+  },
+  "contact": {
+    "seoTitle": "Entre em Contato",
+    "seoDescription": "Entre em contato com a CHADI International para parcerias, voluntariado, doações e consultas de programas.",
+    "pageTitle": "Contatar a CHADI",
+    "pageSubtitle": "Entre em contato para parcerias, voluntariado, doações e consultas de programas.",
+    "heading": "Vamos ouvir você",
+    "intro": "A CHADI trabalha com comunidades, voluntários, doadores e parceiros para entregar programas onde são mais necessários.",
+    "email": "E-mail",
+    "focusRegion": "Região de Atuação",
+    "officeHours": "Horário de Expediente",
+    "sentToast": "Mensagem enviada. A CHADI dará retorno em breve.",
+    "errorToast": "A mensagem não pôde ser enviada no momento. Por favor, tente novamente.",
+    "form": {
+      "name": "Nome Completo",
+      "email": "E-mail",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "sending": "Enviando...",
+      "send": "Enviar Mensagem"
+    }
+  },
+  "faq": {
+    "seoTitle": "Perguntas Frequentes",
+    "seoDescription": "Respostas para perguntas comuns sobre os programas, o voluntariado e as parcerias da CHADI International.",
+    "title": "Perguntas Frequentes",
+    "subtitle": "Respostas para perguntas comuns sobre a CHADI International.",
+    "loading": "Carregando...",
+    "empty": "As perguntas estão a caminho. Volte em breve."
+  },
+  "events": {
+    "seoTitle": "Eventos",
+    "seoDescription": "Veja os próximos eventos de divulgação, treinamento e engajamento comunitário da CHADI International.",
+    "title": "Eventos",
+    "subtitle": "Próximas atividades de divulgação, treinamento e engajamento comunitário.",
+    "empty": "Nenhum evento agendado no momento. Volte em breve.",
+    "noMatch": "Nenhum evento corresponde a este filtro.",
+    "allFilter": "Todos",
+    "cta": {
+      "title": "Sedie ou apoie um evento",
+      "description": "A CHADI colabora com comunidades, escolas, equipes de saúde e patrocinadores para realizar atividades de campo práticas.",
+      "button": "Fale Conosco"
+    }
+  },
+  "about": {
+    "seoTitle": "Sobre Nós",
+    "seoDescription": "Conheça a missão, a visão e a história por trás do trabalho da CHADI International para empoderar pessoas marginalizadas e comunidades carentes.",
+    "pageTitle": "Sobre a CHADI",
+    "pageSubtitle": "Empoderando Pessoas Marginalizadas e Comunidades Carentes",
+    "ourStory": {
+      "badge": "Hope Alive",
+      "eyebrow": "Sobre a CHADI",
+      "title1": "Empoderando Vidas.",
+      "title2": "Transformando Comunidades.",
+      "p1": "A Caleb Hope Alive Development Initiative (CHADI) é uma organização sem fins lucrativos dedicada a empoderar pessoas marginalizadas e comunidades carentes em toda a Nigéria por meio do desenvolvimento sustentável, educação, saúde, inovação e intervenções humanitárias.",
+      "p2": "Acreditamos que cada pessoa merece dignidade, oportunidade, saúde de qualidade, educação e esperança, independentemente de onde vivam ou das circunstâncias que as cercam.",
+      "quote": "Restauramos a dignidade, criamos oportunidades e trazemos esperança — por meio da ação.",
+      "readStory": "Leia Nossa História"
+    },
+    "coreValues": {
+      "title": "Nossos Valores Fundamentais",
+      "compassion": { "title": "Compaixão", "description": "Servir a humanidade com empatia e amor." },
+      "integrity": { "title": "Integridade", "description": "Transparência e responsabilidade em tudo o que fazemos." },
+      "innovation": { "title": "Inovação", "description": "Criar soluções sustentáveis para os desafios comunitários." },
+      "inclusion": { "title": "Inclusão", "description": "Garantir que todos tenham oportunidades iguais." },
+      "excellence": { "title": "Excelência", "description": "Entregar programas impactantes com qualidade." },
+      "collaboration": { "title": "Colaboração", "description": "Trabalhar junto com parceiros e comunidades." }
+    },
+    "timeline": {
+      "title": "Nossa Jornada",
+      "founded": { "title": "Fundação da CHADI", "description": "A CHADI foi criada para empoderar comunidades carentes por meio do desenvolvimento sustentável." },
+      "health": { "title": "Programas de Saúde e Nutrição", "description": "Expansão das iniciativas de saúde materna e infantil em comunidades rurais." },
+      "youth": { "title": "Empoderamento Juvenil", "description": "Lançamento de treinamento em habilidades digitais e empreendedorismo para jovens." },
+      "expansion": { "title": "Expansão Regional", "description": "Extensão de projetos para vários estados do norte da Nigéria por meio de parcerias estratégicas." }
+    }
   }
 }

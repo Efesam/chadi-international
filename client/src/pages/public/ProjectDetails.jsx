@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FaHeart, FaHandsHelping, FaExpand, FaPlay } from "react-icons/fa";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
@@ -14,11 +15,12 @@ import { projectsApi, getProjectDonationSummary } from "../../services/api";
 import Newsletter from "../../components/common/Newsletter";
 
 function ProjectDetails() {
+  const { t, i18n } = useTranslation();
   const { slug } = useParams();
   const [donateOpen, setDonateOpen] = useState(false);
   const [volunteerOpen, setVolunteerOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(null);
-  const { data: project, loading, error } = useCollection(() => projectsApi.get(slug), [slug]);
+  const { data: project, loading, error } = useCollection(() => projectsApi.get(slug, i18n.language), [slug, i18n.language]);
   const { data: summary } = useCollection(
     () => (project ? getProjectDonationSummary(project.id) : Promise.resolve(null)),
     [project?.id]
@@ -31,13 +33,13 @@ function ProjectDetails() {
   if (error || !project) {
     return (
       <section className="bg-white py-28 text-center dark:bg-gray-900">
-        <Seo title="Project Not Found" noindex />
+        <Seo title={t("projectDetails.notFoundTitle")} noindex />
         <div className="mx-auto max-w-3xl px-6">
-          <h1 className="text-4xl font-bold text-chadi-green">
-            Project Not Found
+          <h1 className="text-4xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+            {t("projectDetails.notFoundTitle")}
           </h1>
           <p className="mt-4 text-gray-600 dark:text-gray-300">
-            Please return to the projects page to explore CHADI's work.
+            {t("projectDetails.notFoundDescription")}
           </p>
         </div>
       </section>
@@ -67,7 +69,7 @@ function ProjectDetails() {
       <Seo
         title={project.title}
         path={`/projects/${slug}`}
-        description={project.summary || `Learn about CHADI International's ${project.title} project.`}
+        description={project.summary || t("projectDetails.seoFallbackDescription", { title: project.title })}
         image={project.image}
       />
 
@@ -100,8 +102,8 @@ function ProjectDetails() {
           <div className="mt-12 grid gap-12 lg:grid-cols-3">
             <Reveal direction="left" className="lg:col-span-2">
               <div>
-              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl">
-                About this Project
+              <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">
+                {t("projectDetails.aboutTitle")}
               </h2>
 
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -109,21 +111,21 @@ function ProjectDetails() {
               </p>
 
               <div className="mt-10 rounded-3xl bg-chadi-cream p-8">
-                <h3 className="text-2xl font-bold text-chadi-green">
-                  Objectives
+                <h3 className="text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+                  {t("projectDetails.objectivesTitle")}
                 </h3>
                 <ul className="mt-4 list-disc space-y-3 pl-6 text-gray-600 dark:text-gray-300">
-                  <li>Empower marginalized individuals and families.</li>
-                  <li>Improve community wellbeing through practical support.</li>
-                  <li>Promote sustainable development with local participation.</li>
-                  <li>Create measurable impact for underserved communities.</li>
+                  <li>{t("projectDetails.objectives.empower")}</li>
+                  <li>{t("projectDetails.objectives.wellbeing")}</li>
+                  <li>{t("projectDetails.objectives.sustainable")}</li>
+                  <li>{t("projectDetails.objectives.impact")}</li>
                 </ul>
               </div>
 
               {media.length > 0 && (
                 <div className="mt-10">
-                  <h3 className="text-2xl font-bold text-chadi-green">
-                    Photos &amp; Videos
+                  <h3 className="text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+                    {t("projectDetails.mediaTitle")}
                   </h3>
                   <StaggerGrid className="mt-5 grid gap-4 sm:grid-cols-2">
                     {media.map((item, index) => (
@@ -185,11 +187,11 @@ function ProjectDetails() {
 
               {spending.length > 0 && (
                 <div className="mt-10 rounded-3xl border border-chadi-green/20 p-8">
-                  <h3 className="text-2xl font-bold text-chadi-green">
-                    How Funds Were Used
+                  <h3 className="text-2xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+                    {t("projectDetails.spendingTitle")}
                   </h3>
                   <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                    A transparent record of spending on this project so far.
+                    {t("projectDetails.spendingIntro")}
                   </p>
 
                   <ul className="mt-6 divide-y divide-gray-100">
@@ -203,7 +205,7 @@ function ProjectDetails() {
                             </p>
                           )}
                         </div>
-                        <p className="font-bold text-chadi-green">
+                        <p className="font-bold text-chadi-green dark:text-chadi-lightgreen">
                           ₦{Number(item.amount || 0).toLocaleString()}
                         </p>
                       </li>
@@ -211,8 +213,8 @@ function ProjectDetails() {
                   </ul>
 
                   <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-4">
-                    <p className="font-bold text-gray-800 dark:text-gray-200">Total Spent</p>
-                    <p className="text-xl font-bold text-chadi-green">
+                    <p className="font-bold text-gray-800 dark:text-gray-200">{t("projectDetails.totalSpent")}</p>
+                    <p className="text-xl font-bold text-chadi-green dark:text-chadi-lightgreen">
                       ₦{totalSpent.toLocaleString()}
                     </p>
                   </div>
@@ -223,38 +225,38 @@ function ProjectDetails() {
 
             <Reveal direction="right" delay={0.15}>
               <aside className="rounded-3xl bg-gray-50 p-8 shadow-lg dark:bg-gray-800">
-              <h3 className="text-2xl font-bold">Project Details</h3>
+              <h3 className="text-2xl font-bold">{t("projectDetails.sidebarTitle")}</h3>
 
               <div className="mt-8 space-y-6">
                 <div>
-                  <p className="text-gray-500 dark:text-gray-400">Program</p>
+                  <p className="text-gray-500 dark:text-gray-400">{t("projectDetails.program")}</p>
                   <p className="font-semibold">{project.program}</p>
                 </div>
 
                 <div>
-                  <p className="text-gray-500 dark:text-gray-400">Location</p>
+                  <p className="text-gray-500 dark:text-gray-400">{t("projectDetails.location")}</p>
                   <p className="font-semibold">{project.location}</p>
                 </div>
 
                 <div>
-                  <p className="text-gray-500 dark:text-gray-400">Status</p>
+                  <p className="text-gray-500 dark:text-gray-400">{t("projectDetails.status")}</p>
                   <p className="font-semibold">{project.status}</p>
                 </div>
 
                 <div>
-                  <p className="text-gray-500 dark:text-gray-400">Beneficiaries</p>
+                  <p className="text-gray-500 dark:text-gray-400">{t("projectDetails.beneficiaries")}</p>
                   <p className="font-semibold">{project.beneficiaries}</p>
                 </div>
               </div>
 
               <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm dark:bg-gray-800">
-                <p className="text-sm text-gray-500 dark:text-gray-400">Raised for this project</p>
-                <p className="mt-1 text-3xl font-bold text-chadi-green">
+                <p className="text-sm text-gray-500 dark:text-gray-400">{t("projectDetails.raised")}</p>
+                <p className="mt-1 text-3xl font-bold text-chadi-green dark:text-chadi-lightgreen">
                   ₦{totalRaised.toLocaleString()}
                 </p>
                 {summary?.donorCount > 0 && (
                   <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">
-                    from {summary.donorCount} supporter{summary.donorCount === 1 ? "" : "s"}
+                    {t("projectDetails.fromSupporters", { count: summary.donorCount })}
                   </p>
                 )}
 
@@ -267,7 +269,7 @@ function ProjectDetails() {
                       />
                     </div>
                     <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                      {Math.round(goalProgress)}% of ₦{budget.toLocaleString()} goal
+                      {t("projectDetails.goalProgress", { percent: Math.round(goalProgress), budget: budget.toLocaleString() })}
                     </p>
                   </div>
                 )}
@@ -275,14 +277,14 @@ function ProjectDetails() {
                 {spending.length > 0 && (
                   <div className="mt-4 space-y-1 border-t border-gray-100 pt-4 text-sm">
                     <div className="flex justify-between text-gray-500 dark:text-gray-400">
-                      <span>Spent so far</span>
+                      <span>{t("projectDetails.spentSoFar")}</span>
                       <span className="font-semibold text-gray-700 dark:text-gray-200">
                         ₦{totalSpent.toLocaleString()}
                       </span>
                     </div>
                     <div className="flex justify-between text-gray-500 dark:text-gray-400">
-                      <span>Remaining</span>
-                      <span className="font-semibold text-chadi-green">
+                      <span>{t("projectDetails.remaining")}</span>
+                      <span className="font-semibold text-chadi-green dark:text-chadi-lightgreen">
                         ₦{Math.max(totalRaised - totalSpent, 0).toLocaleString()}
                       </span>
                     </div>
@@ -295,16 +297,16 @@ function ProjectDetails() {
                   className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-chadi-gold px-6 py-3 font-semibold text-black transition hover:scale-105"
                 >
                   <FaHeart size={14} />
-                  Donate to this Project
+                  {t("projectDetails.donateButton")}
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setVolunteerOpen(true)}
-                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-chadi-green px-6 py-3 font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white"
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-chadi-green px-6 py-3 font-semibold text-chadi-green transition hover:bg-chadi-green hover:text-white dark:border-chadi-lightgreen dark:text-chadi-lightgreen"
                 >
                   <FaHandsHelping size={14} />
-                  Volunteer for this Project
+                  {t("projectDetails.volunteerButton")}
                 </button>
               </div>
               </aside>

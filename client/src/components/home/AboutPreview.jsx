@@ -26,11 +26,11 @@ function AboutPreview() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="font-semibold uppercase tracking-[4px] text-chadi-gold-dark">
+          <span className="font-semibold uppercase tracking-[4px] text-chadi-gold-dark dark:text-chadi-gold">
             {t("home.aboutPreview.eyebrow")}
           </span>
 
-          <h2 className="mt-5 text-5xl font-black text-chadi-green">
+          <h2 className="mt-5 text-5xl font-black text-chadi-green dark:text-chadi-lightgreen">
             {t("home.aboutPreview.title")}
           </h2>
 

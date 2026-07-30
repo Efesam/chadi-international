@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { enableAnalytics } from "../../lib/monitoring";
 
 const STORAGE_KEY = "chadi_cookie_consent";
@@ -13,6 +14,7 @@ const STORAGE_KEY = "chadi_cookie_consent";
  * which is covered in the Privacy Policy rather than this banner.
  */
 function CookieConsent() {
+  const { t } = useTranslation();
   const [choice, setChoice] = useState(() => localStorage.getItem(STORAGE_KEY));
 
   useEffect(() => {
@@ -30,12 +32,11 @@ function CookieConsent() {
     <div className="fixed inset-x-0 bottom-0 z-[900] border-t border-chadi-green/10 bg-white p-5 dark:bg-gray-900 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] sm:p-6">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
         <p className="text-sm leading-6 text-gray-600 dark:text-gray-300">
-          We use privacy-friendly analytics to understand how visitors use this site. No
-          personal data is sold, and the site itself sets no tracking cookies. See our{" "}
-          <Link to="/privacy" className="font-semibold text-chadi-green underline">
-            Privacy Policy
+          {t("common.cookieConsent.message")}{" "}
+          <Link to="/privacy" className="font-semibold text-chadi-green underline dark:text-chadi-lightgreen">
+            {t("common.cookieConsent.privacyLink")}
           </Link>{" "}
-          for details.
+          {t("common.cookieConsent.messageEnd")}
         </p>
 
         <div className="flex shrink-0 gap-3">
@@ -44,14 +45,14 @@ function CookieConsent() {
             onClick={() => respond("declined")}
             className="rounded-lg border border-gray-300 px-5 py-2 text-sm font-semibold text-gray-600 dark:text-gray-300 transition hover:border-gray-400"
           >
-            Decline
+            {t("common.cookieConsent.decline")}
           </button>
           <button
             type="button"
             onClick={() => respond("accepted")}
             className="rounded-lg bg-chadi-green px-5 py-2 text-sm font-semibold text-white transition hover:bg-chadi-gold hover:text-black"
           >
-            Accept
+            {t("common.cookieConsent.accept")}
           </button>
         </div>
       </div>

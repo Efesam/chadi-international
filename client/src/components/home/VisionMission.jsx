@@ -61,10 +61,10 @@ function VisionMission() {
                 animate={{ rotate: [0, 8, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <FaBullseye className="mb-6 text-5xl text-chadi-green" />
+                <FaBullseye className="mb-6 text-5xl text-chadi-green dark:text-chadi-lightgreen" />
               </motion.div>
 
-              <h3 className="text-3xl font-bold mb-5 text-chadi-green">
+              <h3 className="text-3xl font-bold mb-5 text-chadi-green dark:text-chadi-lightgreen">
                 {t("home.visionMission.mission.title")}
               </h3>
 

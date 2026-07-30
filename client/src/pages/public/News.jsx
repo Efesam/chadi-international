@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import NewsCard from "../../components/ui/NewsCard";
@@ -8,19 +9,20 @@ import { newsApi } from "../../services/api";
 import Newsletter from "../../components/common/Newsletter";
 
 function News() {
-  const { data: news, loading, error } = useCollection(newsApi.list);
+  const { t, i18n } = useTranslation();
+  const { data: news, loading, error } = useCollection(() => newsApi.list(i18n.language), [i18n.language]);
 
   return (
     <>
       <Seo
-        title="News"
+        title={t("news.seoTitle")}
         path="/news"
-        description="Read the latest news, updates and announcements from CHADI International."
+        description={t("news.seoDescription")}
       />
 
       <PageHeader
-        title="News"
-        subtitle="Latest updates from CHADI."
+        title={t("news.title")}
+        subtitle={t("news.subtitle")}
       />
 
       <section className="py-20">
@@ -30,7 +32,7 @@ function News() {
           ) : error ? (
             <p className="text-center font-semibold text-red-600">{error}</p>
           ) : news.length === 0 ? (
-            <p className="text-center text-gray-500 dark:text-gray-400">No news articles yet.</p>
+            <p className="text-center text-gray-500 dark:text-gray-400">{t("news.empty")}</p>
           ) : (
             <StaggerGrid className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {news.map((article) => (
