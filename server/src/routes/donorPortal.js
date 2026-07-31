@@ -5,7 +5,7 @@ import { sendMail, isMailConfigured } from "../lib/mailer.js";
 import { buildReceiptPdf } from "../lib/receiptPdf.js";
 import { seedSettings } from "../lib/seeds.js";
 import { formLimiter } from "../lib/rateLimit.js";
-import { cancelSubscription } from "./payments.js";
+import { cancelSubscription, getProjectForEntry } from "./payments.js";
 
 const router = Router();
 
@@ -99,8 +99,8 @@ router.get("/receipt/:id", requireDonorAuth, async (req, res) => {
     return;
   }
 
-  const settings = await readCollection("settings", seedSettings);
-  const pdf = await buildReceiptPdf(entry, settings);
+  const [settings, project] = await Promise.all([readCollection("settings", seedSettings), getProjectForEntry(entry)]);
+  const pdf = await buildReceiptPdf(entry, settings, { project });
 
   res.type("application/pdf");
   res.setHeader("Content-Disposition", `attachment; filename="CHADI-receipt-${entry.reference}.pdf"`);

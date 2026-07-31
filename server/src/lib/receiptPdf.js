@@ -1,5 +1,6 @@
 import PDFDocument from "pdfkit";
 import { fileURLToPath } from "node:url";
+import { buildImpactMessage } from "./receiptImpact.js";
 
 const GREEN = "#347928";
 const GOLD = "#FCCD2A";
@@ -27,8 +28,14 @@ const CHANNEL_LABELS = {
  * are each only printed when set - most orgs will want all of them on a real
  * receipt, but they're real organizational facts only CHADI can provide
  * accurately, not something this code should invent.
+ *
+ * `project` is the full CMS project record for `entry.projectId` (fetched by
+ * the caller, since this module doesn't read collections itself) - used to
+ * print a project-specific "here's what your gift does" message when
+ * present, or a general fund-allocation breakdown otherwise. See
+ * lib/receiptImpact.js.
  */
-export function buildReceiptPdf(entry, settings = {}) {
+export function buildReceiptPdf(entry, settings = {}, { project } = {}) {
   return new Promise((resolve, reject) => {
     const doc = new PDFDocument({ size: "A4", margin: 50 });
     const chunks = [];
@@ -75,6 +82,14 @@ export function buildReceiptPdf(entry, settings = {}) {
     row("Date", date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }));
     row("Reference", entry.reference);
     row("Project", entry.projectTitle);
+
+    const impactMessage = buildImpactMessage(entry, { project, settings });
+    if (impactMessage) {
+      doc.font("Helvetica-Bold").fontSize(10).fillColor(GREEN).text("With Gratitude");
+      doc.moveDown(0.3);
+      doc.font("Helvetica").fontSize(10).fillColor("#374151").text(impactMessage);
+      doc.moveDown(0.8);
+    }
 
     if (isSubscription) {
       doc

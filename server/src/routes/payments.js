@@ -7,7 +7,8 @@ import { requireAuth, requireAdmin } from "../lib/auth.js";
 import { formLimiter } from "../lib/rateLimit.js";
 import { sendMail } from "../lib/mailer.js";
 import { buildReceiptPdf } from "../lib/receiptPdf.js";
-import { seedSettings } from "../lib/seeds.js";
+import { buildImpactMessage } from "../lib/receiptImpact.js";
+import { seedSettings, seedProjects } from "../lib/seeds.js";
 
 const router = Router();
 
@@ -96,7 +97,19 @@ async function getOrCreateMonthlyPlan(amount) {
   });
 }
 
-export function buildReceiptEmail(entry) {
+/**
+ * Fetches the full CMS project record a donation was made for, so the
+ * receipt can quote its actual summary/beneficiaries rather than just the
+ * title snapshot already stored on the donation entry. Returns null for a
+ * general (non-project) donation, or if the project has since been deleted.
+ */
+export async function getProjectForEntry(entry) {
+  if (!entry.projectId) return null;
+  const projects = await readCollection("projects", seedProjects);
+  return projects.find((p) => p.id === entry.projectId) || null;
+}
+
+export function buildReceiptEmail(entry, context = {}) {
   const isSubscription = entry.type === "subscription";
   const amount = `₦${Number(entry.amount || 0).toLocaleString()}`;
   const projectLine = entry.projectTitle ? ` for ${entry.projectTitle}` : "";
@@ -110,6 +123,7 @@ export function buildReceiptEmail(entry) {
   const siteUrl = process.env.SITE_URL || "https://www.chadi-international.org";
   const portalLine = `View your donation history or download a receipt anytime at ${siteUrl}/donor-portal.`;
   const receiptNumberLine = entry.receiptNumber ? `Receipt No.: ${entry.receiptNumber}` : null;
+  const impactMessage = buildImpactMessage(entry, context);
   const noGoodsLine =
     "No goods or services were provided in exchange for this contribution. Please retain this receipt for your tax records.";
 
@@ -122,6 +136,7 @@ export function buildReceiptEmail(entry) {
           `Your card will be charged ${amount} automatically every month. You can cancel anytime from your donor portal. This receipt covers this month's installment only.`,
         ]
       : []),
+    impactMessage,
     `Reference: ${entry.reference}`,
     receiptNumberLine,
     noGoodsLine,
@@ -228,23 +243,38 @@ async function recordPayment(data) {
   // never delay the donor's on-screen confirmation or the webhook response.
   // Only send once, for the request that actually created the entry.
   if (isNew && entry.email) {
-    const { subject, html, text } = buildReceiptEmail(entry);
+    Promise.all([
+      getProjectForEntry(entry).catch((error) => {
+        console.error("[payments] could not load project for receipt, continuing without it:", error);
+        return null;
+      }),
+      readCollection("settings", seedSettings),
+    ])
+      .then(([project, settings]) => {
+        const { subject, html, text } = buildReceiptEmail(entry, { project, settings });
 
-    // Best-effort here too: if the PDF fails to render for any reason, the
-    // donor should still get their plain email receipt rather than nothing.
-    readCollection("settings", seedSettings)
-      .then((settings) => buildReceiptPdf(entry, settings))
-      .then((pdf) =>
-        sendMail({
-          to: entry.email,
-          subject,
-          html,
-          text,
-          attachments: [{ filename: `CHADI-receipt-${entry.reference}.pdf`, content: pdf }],
-        })
-      )
+        // Best-effort here too: if the PDF fails to render for any reason, the
+        // donor should still get their plain email receipt rather than nothing.
+        return buildReceiptPdf(entry, settings, { project })
+          .then((pdf) =>
+            sendMail({
+              to: entry.email,
+              subject,
+              html,
+              text,
+              attachments: [{ filename: `CHADI-receipt-${entry.reference}.pdf`, content: pdf }],
+            })
+          )
+          .catch((error) => {
+            console.error("[payments] receipt PDF/email error, sending without attachment:", error);
+            sendMail({ to: entry.email, subject, html, text }).catch((sendError) => {
+              console.error("[payments] receipt email error:", sendError);
+            });
+          });
+      })
       .catch((error) => {
-        console.error("[payments] receipt PDF/email error, sending without attachment:", error);
+        console.error("[payments] receipt error, sending a minimal fallback email:", error);
+        const { subject, html, text } = buildReceiptEmail(entry);
         sendMail({ to: entry.email, subject, html, text }).catch((sendError) => {
           console.error("[payments] receipt email error:", sendError);
         });
@@ -296,21 +326,36 @@ async function recordPaypalPayment(capture, metadata = {}) {
   });
 
   if (isNew && entry.email) {
-    const { subject, html, text } = buildReceiptEmail(entry);
+    Promise.all([
+      getProjectForEntry(entry).catch((error) => {
+        console.error("[payments] could not load project for receipt, continuing without it:", error);
+        return null;
+      }),
+      readCollection("settings", seedSettings),
+    ])
+      .then(([project, settings]) => {
+        const { subject, html, text } = buildReceiptEmail(entry, { project, settings });
 
-    readCollection("settings", seedSettings)
-      .then((settings) => buildReceiptPdf(entry, settings))
-      .then((pdf) =>
-        sendMail({
-          to: entry.email,
-          subject,
-          html,
-          text,
-          attachments: [{ filename: `CHADI-receipt-${entry.reference}.pdf`, content: pdf }],
-        })
-      )
+        return buildReceiptPdf(entry, settings, { project })
+          .then((pdf) =>
+            sendMail({
+              to: entry.email,
+              subject,
+              html,
+              text,
+              attachments: [{ filename: `CHADI-receipt-${entry.reference}.pdf`, content: pdf }],
+            })
+          )
+          .catch((error) => {
+            console.error("[payments] PayPal receipt PDF/email error, sending without attachment:", error);
+            sendMail({ to: entry.email, subject, html, text }).catch((sendError) => {
+              console.error("[payments] PayPal receipt email error:", sendError);
+            });
+          });
+      })
       .catch((error) => {
-        console.error("[payments] PayPal receipt PDF/email error, sending without attachment:", error);
+        console.error("[payments] PayPal receipt error, sending a minimal fallback email:", error);
+        const { subject, html, text } = buildReceiptEmail(entry);
         sendMail({ to: entry.email, subject, html, text }).catch((sendError) => {
           console.error("[payments] PayPal receipt email error:", sendError);
         });
@@ -718,8 +763,8 @@ router.get("/receipt/:reference", async (req, res) => {
     return;
   }
 
-  const settings = await readCollection("settings", seedSettings);
-  const pdf = await buildReceiptPdf(entry, settings);
+  const [settings, project] = await Promise.all([readCollection("settings", seedSettings), getProjectForEntry(entry)]);
+  const pdf = await buildReceiptPdf(entry, settings, { project });
 
   res.type("application/pdf");
   res.setHeader("Content-Disposition", `attachment; filename="CHADI-receipt-${entry.reference}.pdf"`);

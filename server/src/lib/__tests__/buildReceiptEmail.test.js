@@ -56,3 +56,28 @@ test("buildReceiptEmail omits the receipt number line for older donations that d
   const { text } = buildReceiptEmail({ type: "payment", amount: 1000, reference: "ref_789" });
   assert.doesNotMatch(text, /Receipt No\./);
 });
+
+test("buildReceiptEmail includes a project-specific gratitude message when a project is passed", () => {
+  const { text, html } = buildReceiptEmail(
+    { type: "payment", amount: 5000, reference: "ref_123", projectId: "project_miycn", projectTitle: "Community MIYCN Campaign" },
+    { project: { title: "Community MIYCN Campaign", summary: "Improving maternal and child nutrition." } }
+  );
+
+  assert.match(text, /Improving maternal and child nutrition/);
+  assert.match(html, /Improving maternal and child nutrition/);
+});
+
+test("buildReceiptEmail includes a fund-allocation gratitude message for a general donation when settings are passed", () => {
+  const { text } = buildReceiptEmail(
+    { type: "payment", amount: 1000, reference: "ref_789" },
+    { settings: { fundAllocation: [{ category: "Programs & Field Work", percentage: 80 }] } }
+  );
+
+  assert.match(text, /Because of your generosity/i);
+  assert.match(text, /80% to Programs & Field Work/);
+});
+
+test("buildReceiptEmail omits the gratitude message entirely when no project/settings context is passed", () => {
+  const { text } = buildReceiptEmail({ type: "payment", amount: 1000, reference: "ref_789" });
+  assert.doesNotMatch(text, /Because of your generosity/i);
+});
