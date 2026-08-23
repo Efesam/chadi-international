@@ -17,6 +17,7 @@ import {
   seedFaqs,
   seedReports,
   seedBoard,
+  seedBlog,
 } from "./lib/seeds.js";
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
@@ -135,6 +136,7 @@ app.use("/api", apiLimiter);
 // CMS-managed collections. GET is public (the marketing site reads from
 // these); POST/PUT/DELETE require an authenticated admin session.
 app.use("/api/news", createCrudRouter({ name: "news", seed: seedNews, requiredFields: ["title"], translatableFields: ["title", "excerpt", { name: "content", html: true }] }));
+app.use("/api/blog", createCrudRouter({ name: "blog", seed: seedBlog, requiredFields: ["title"], translatableFields: ["title", "excerpt", { name: "content", html: true }] }));
 app.use("/api/projects", createCrudRouter({ name: "projects", seed: seedProjects, requiredFields: ["title"], translatableFields: ["title", "summary", "beneficiaries"] }));
 app.use("/api/events", createCrudRouter({ name: "events", seed: seedEvents, requiredFields: ["title", "date"], translatableFields: ["title", "description"] }));
 app.use("/api/team", createCrudRouter({ name: "team", seed: seedTeam, requiredFields: ["name", "role"], translatableFields: ["role", "bio"] }));

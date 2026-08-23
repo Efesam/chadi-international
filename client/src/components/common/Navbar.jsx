@@ -29,6 +29,7 @@ function Navbar() {
     { name: t("nav.about"), path: "/about" },
     { name: t("nav.projects"), path: "/projects" },
     { name: t("nav.news"), path: "/news" },
+    { name: t("nav.blog"), path: "/blog" },
     { name: t("nav.getInvolved"), path: "/get-involved" },
     { name: t("nav.contact"), path: "/contact" },
   ];

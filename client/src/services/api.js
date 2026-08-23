@@ -232,6 +232,7 @@ export const faqsApi = createResourceApi("faqs");
 export const reportsApi = createResourceApi("reports");
 export const boardApi = createResourceApi("board");
 export const newsApi = createResourceApi("news");
+export const blogApi = createResourceApi("blog");
 export const usersApi = createResourceApi("users");
 export const messagesApi = createResourceApi("contact");
 export const volunteersApi = createResourceApi("volunteers");

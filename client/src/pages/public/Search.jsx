@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import Newsletter from "../../components/common/Newsletter";
-import { projectsApi, newsApi, eventsApi } from "../../services/api";
+import { projectsApi, newsApi, eventsApi, blogApi } from "../../services/api";
 
 function matches(query, ...fields) {
   const q = query.trim().toLowerCase();
@@ -48,12 +48,17 @@ function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
   const [query, setQuery] = useState(initialQuery);
-  const [data, setData] = useState({ projects: [], news: [], events: [] });
+  const [data, setData] = useState({ projects: [], news: [], events: [], blog: [] });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([projectsApi.list(i18n.language), newsApi.list(i18n.language), eventsApi.list(i18n.language)])
-      .then(([projects, news, events]) => setData({ projects, news, events }))
+    Promise.all([
+      projectsApi.list(i18n.language),
+      newsApi.list(i18n.language),
+      eventsApi.list(i18n.language),
+      blogApi.list(i18n.language),
+    ])
+      .then(([projects, news, events, blog]) => setData({ projects, news, events, blog }))
       .finally(() => setLoading(false));
   }, [i18n.language]);
 
@@ -67,12 +72,13 @@ function Search() {
       projects: data.projects.filter((p) => matches(query, p.title, p.summary, p.program, p.location)),
       news: data.news.filter((n) => matches(query, n.title, n.excerpt, n.category)),
       events: data.events.filter((e) => matches(query, e.title, e.description, e.type, e.location)),
+      blog: data.blog.filter((post) => matches(query, post.title, post.excerpt, post.category, post.campaign)),
     }),
     [data, query]
   );
 
   const hasQuery = query.trim().length > 0;
-  const totalResults = results.projects.length + results.news.length + results.events.length;
+  const totalResults = results.projects.length + results.news.length + results.events.length + results.blog.length;
 
   return (
     <>
@@ -132,6 +138,18 @@ function Search() {
                     to="/events"
                     title={event.title}
                     description={event.description}
+                  />
+                )}
+              />
+              <ResultGroup
+                title={t("search.blog")}
+                items={results.blog}
+                renderItem={(post) => (
+                  <ResultRow
+                    key={post.id}
+                    to={`/blog/${post.slug}`}
+                    title={post.title}
+                    description={post.excerpt}
                   />
                 )}
               />

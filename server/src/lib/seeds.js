@@ -87,6 +87,10 @@ export function seedStories() {
   return [];
 }
 
+export function seedBlog() {
+  return [];
+}
+
 export function seedTestimonials() {
   return [
     {

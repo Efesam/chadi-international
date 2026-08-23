@@ -23,6 +23,7 @@ import {
   FaSignOutAlt,
   FaNewspaper,
   FaExclamationTriangle,
+  FaBlog,
 } from "react-icons/fa";
 import Logo from "../components/common/Logo";
 import { useAuth } from "../hooks/useAuth";
@@ -31,6 +32,7 @@ const navItems = [
   { to: "/admin/dashboard", label: "Dashboard", icon: FaTachometerAlt },
   { to: "/admin/projects", label: "Projects", icon: FaProjectDiagram },
   { to: "/admin/news", label: "News", icon: FaNewspaper },
+  { to: "/admin/blog", label: "Blog", icon: FaBlog },
   { to: "/admin/events", label: "Events", icon: FaCalendarAlt },
   { to: "/admin/team", label: "Team", icon: FaUsers },
   { to: "/admin/gallery", label: "Gallery", icon: FaImages },

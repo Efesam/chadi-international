@@ -13,6 +13,8 @@ import About from "../pages/public/About";
 import Projects from "../pages/public/Projects";
 import News from "../pages/public/News";
 import NewsDetails from "../pages/public/NewsDetails";
+import Blog from "../pages/public/Blog";
+import BlogDetails from "../pages/public/BlogDetails";
 import Team from "../pages/public/Team";
 import Events from "../pages/public/Events";
 import Gallery from "../pages/public/Gallery";
@@ -45,6 +47,7 @@ const ResetPassword = lazy(() => import("../pages/auth/ResetPassword"));
 const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
 const ManageProjects = lazy(() => import("../pages/dashboard/ManageProjects"));
 const ManageNews = lazy(() => import("../pages/dashboard/ManageNews"));
+const ManageBlog = lazy(() => import("../pages/dashboard/ManageBlog"));
 const ManageEvents = lazy(() => import("../pages/dashboard/ManageEvents"));
 const ManageTeam = lazy(() => import("../pages/dashboard/ManageTeam"));
 const ManageGallery = lazy(() => import("../pages/dashboard/ManageGallery"));
@@ -83,6 +86,9 @@ function AppRoutes() {
 
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsDetails />} />
+
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogDetails />} />
 
         <Route path="/team" element={<Team />} />
         <Route path="/events" element={<Events />} />
@@ -165,6 +171,14 @@ function AppRoutes() {
             element={
               <Suspense fallback={<AdminLoading />}>
                 <ManageNews />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/blog"
+            element={
+              <Suspense fallback={<AdminLoading />}>
+                <ManageBlog />
               </Suspense>
             }
           />

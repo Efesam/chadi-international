@@ -1,11 +1,13 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import Image from "@tiptap/extension-image";
 import {
   FaBold,
   FaItalic,
   FaListUl,
   FaListOl,
   FaHeading,
+  FaImage,
   FaUndo,
   FaRedo,
 } from "react-icons/fa";
@@ -32,7 +34,7 @@ function ToolbarButton({ onClick, active, disabled, label, children }) {
  */
 function RichTextEditor({ value, onChange }) {
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [StarterKit, Image],
     content: value || "",
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
     editorProps: {
@@ -81,6 +83,15 @@ function RichTextEditor({ value, onChange }) {
           label="Numbered list"
         >
           <FaListOl size={13} />
+        </ToolbarButton>
+        <ToolbarButton
+          onClick={() => {
+            const url = window.prompt("Image URL (paste a link, or an uploaded image's URL)");
+            if (url) editor.chain().focus().setImage({ src: url }).run();
+          }}
+          label="Insert image"
+        >
+          <FaImage size={13} />
         </ToolbarButton>
         <div className="mx-1 w-px bg-gray-200" />
         <ToolbarButton
