@@ -57,9 +57,10 @@ export async function sendMail({ to, subject, html, text, attachments }) {
   try {
     const transport = getTransport(config);
     await transport.sendMail({ from: config.from, to, subject, html, text, attachments });
+    console.log(`[mailer] Sent "${subject}" to ${to}`);
     return { sent: true };
   } catch (error) {
-    console.error("[mailer] Failed to send email:", error.message);
+    console.error(`[mailer] Failed to send "${subject}" to ${to}:`, error.message);
     return { sent: false, reason: "send_failed" };
   }
 }

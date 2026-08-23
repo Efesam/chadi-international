@@ -14,6 +14,7 @@ import {
   FaMoneyBillWave,
   FaSyncAlt,
   FaExclamationTriangle,
+  FaRoute,
 } from "react-icons/fa";
 import { getAdminSummary } from "../../services/api";
 import { useAuth } from "../../hooks/useAuth";
@@ -38,6 +39,7 @@ const cards = [
   { key: "volunteers", label: "Volunteer Applications", icon: FaHandsHelping, to: "/admin/volunteers" },
   { key: "donationInterests", label: "Donation Interest", icon: FaDonate, to: "/admin/donations" },
   { key: "newsletterSubscribers", label: "Newsletter Subscribers", icon: FaEnvelopeOpenText, to: "/admin/messages" },
+  { key: "sequenceSubscribers", label: "In Welcome Series", icon: FaRoute, to: "/admin/settings" },
   { key: "projects", label: "Projects", icon: FaProjectDiagram, to: "/admin/projects" },
   { key: "events", label: "Events", icon: FaCalendarAlt, to: "/admin/events" },
   { key: "team", label: "Team Members", icon: FaUsers, to: "/admin/team" },

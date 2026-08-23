@@ -9,6 +9,7 @@ import { sendMail } from "../lib/mailer.js";
 import { buildReceiptPdf } from "../lib/receiptPdf.js";
 import { buildImpactMessage } from "../lib/receiptImpact.js";
 import { seedSettings, seedProjects } from "../lib/seeds.js";
+import { enrollInSequence } from "../lib/emailSequence.js";
 
 const router = Router();
 
@@ -116,34 +117,38 @@ export function buildReceiptEmail(entry, context = {}) {
 
   const subject = isSubscription
     ? "Welcome to Hope Alive Circle - payment received"
-    : "Your CHADI International donation receipt";
+    : "Thank you - you just changed someone's life";
 
   const heading = isSubscription ? "Thank you for joining Hope Alive Circle!" : "Thank you for your donation!";
 
   const siteUrl = process.env.SITE_URL || "https://www.chadi-international.org";
   const portalLine = `View your donation history or download a receipt anytime at ${siteUrl}/donor-portal.`;
   const receiptNumberLine = entry.receiptNumber ? `Receipt No.: ${entry.receiptNumber}` : null;
-  const impactMessage = buildImpactMessage(entry, context);
   const noGoodsLine =
     "No goods or services were provided in exchange for this contribution. Please retain this receipt for your tax records.";
 
-  const bodyLines = [
+  // The personal letter leads - falls back to a plain confirmation when
+  // there's no project match and no fund allocation configured to write
+  // the fuller letter from (see buildImpactMessage).
+  const letterParagraphs = buildImpactMessage(entry, context) || [
     isSubscription
-      ? `We've received your first monthly payment of ${amount}${projectLine}.`
-      : `We've received your donation of ${amount}${projectLine}.`,
-    ...(isSubscription
-      ? [
-          `Your card will be charged ${amount} automatically every month. You can cancel anytime from your donor portal. This receipt covers this month's installment only.`,
-        ]
-      : []),
-    impactMessage,
+      ? `We've received your first monthly payment of ${amount}${projectLine}. Thank you for joining Hope Alive Circle.`
+      : `We've received your donation of ${amount}${projectLine}. Thank you for your generosity.`,
+  ];
+
+  const detailLines = [
+    isSubscription
+      ? `Your card will be charged ${amount} automatically every month. You can cancel anytime from your donor portal. This receipt covers this month's installment only.`
+      : `This receipt confirms your donation of ${amount}${projectLine}.`,
     `Reference: ${entry.reference}`,
     receiptNumberLine,
     noGoodsLine,
     portalLine,
   ].filter(Boolean);
 
-  const text = `${heading}\n\n${bodyLines.join("\n")}\n\nCHADI International`;
+  const bodyLines = [...letterParagraphs, ...detailLines];
+
+  const text = `${heading}\n\n${bodyLines.join("\n\n")}\n\nCHADI International`;
   const html = `
     <div style="font-family: sans-serif; max-width: 560px; margin: 0 auto;">
       <h2 style="color: #347928;">${heading}</h2>
@@ -279,6 +284,12 @@ async function recordPayment(data) {
           console.error("[payments] receipt email error:", sendError);
         });
       });
+
+    // Starts the 5-part welcome series (see lib/emailSequence.js) - a no-op if
+    // this email is already enrolled via an earlier donation or newsletter signup.
+    enrollInSequence({ email: entry.email, name: entry.name, source: "donor" }).catch((error) => {
+      console.error("[payments] could not enroll donor in welcome series:", error);
+    });
   }
 
   return entry;
@@ -360,6 +371,10 @@ async function recordPaypalPayment(capture, metadata = {}) {
           console.error("[payments] PayPal receipt email error:", sendError);
         });
       });
+
+    enrollInSequence({ email: entry.email, name: entry.name, source: "donor" }).catch((error) => {
+      console.error("[payments] could not enroll donor in welcome series:", error);
+    });
   }
 
   return entry;
@@ -700,6 +715,44 @@ router.post("/reconcile/import", requireAdmin, async (req, res) => {
     res.status(502).json({ error: error.message || "Could not import this transaction. Please try again." });
   }
 });
+
+/**
+ * The automatic backstop behind /reconcile above - called on a timer from
+ * server.js (and once at startup) rather than waiting for an admin to
+ * notice something's missing and click "Check Paystack". Finds every
+ * successful Paystack transaction not yet recorded locally and records it
+ * directly via recordPayment (same idempotent, receipt-sending path as a
+ * normal verify/webhook call) - covers a donor's browser losing the
+ * connection right after paying, the server being briefly down when the
+ * verify call and webhook both would have fired, or local dev where
+ * Paystack's webhook can't reach localhost at all. No-ops silently when
+ * Paystack isn't configured.
+ */
+export async function autoReconcilePayments() {
+  const secretKey = getSecretKey();
+  if (!secretKey) return;
+
+  try {
+    const donations = await readCollection("donations", () => []);
+    const knownReferences = new Set(donations.map((d) => d.reference));
+
+    const result = await listTransactions(secretKey, { perPage: 100, status: "success" });
+    const missing = (result.data || []).filter(
+      (txn) => txn.status === "success" && !knownReferences.has(txn.reference)
+    );
+
+    for (const txn of missing) {
+      try {
+        await recordPayment(txn);
+        console.log(`[payments] auto-reconcile: recorded missing transaction ${txn.reference}`);
+      } catch (error) {
+        console.error(`[payments] auto-reconcile: failed to record ${txn.reference}:`, error.message);
+      }
+    }
+  } catch (error) {
+    console.error("[payments] auto-reconcile sweep failed:", error.message);
+  }
+}
 
 /**
  * Issues a full refund for a completed donation via Paystack. Admin-only -

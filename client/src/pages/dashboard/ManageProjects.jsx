@@ -24,6 +24,13 @@ const fields = [
   },
   { name: "summary", label: "Summary", type: "textarea", fullWidth: true },
   {
+    name: "donationLetter",
+    label: "Donation Letter",
+    type: "textarea",
+    fullWidth: true,
+    hint: 'The personal thank-you message on a receipt when someone donates to this specific project - separate paragraphs with a blank line, and use {name}, {title}, {location} and {beneficiaries} as placeholders. Left blank, a letter built from this project\'s Summary/Beneficiaries/Location above is used instead.',
+  },
+  {
     name: "media",
     label: "Media Gallery",
     type: "repeater",

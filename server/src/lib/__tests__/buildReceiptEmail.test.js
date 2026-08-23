@@ -13,7 +13,7 @@ test("buildReceiptEmail for a one-time payment mentions the amount and reference
     projectTitle: "Clean Water Initiative",
   });
 
-  assert.match(subject, /receipt/i);
+  assert.match(subject, /changed someone's life/i);
   assert.match(text, /₦5,000/);
   assert.match(text, /Clean Water Initiative/);
   assert.match(text, /ref_123/);
@@ -73,11 +73,12 @@ test("buildReceiptEmail includes a fund-allocation gratitude message for a gener
     { settings: { fundAllocation: [{ category: "Programs & Field Work", percentage: 80 }] } }
   );
 
-  assert.match(text, /Because of your generosity/i);
-  assert.match(text, /80% to Programs & Field Work/);
+  assert.match(text, /Dear there,/);
+  assert.match(text, /80% of every donation goes straight to the children/);
 });
 
-test("buildReceiptEmail omits the gratitude message entirely when no project/settings context is passed", () => {
+test("buildReceiptEmail omits the gratitude letter entirely when no project/settings context is passed", () => {
   const { text } = buildReceiptEmail({ type: "payment", amount: 1000, reference: "ref_789" });
-  assert.doesNotMatch(text, /Because of your generosity/i);
+  assert.doesNotMatch(text, /Dear there,/);
+  assert.doesNotMatch(text, /Caleb Omale/);
 });

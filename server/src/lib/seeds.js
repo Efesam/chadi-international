@@ -188,5 +188,21 @@ export function seedSettings() {
     // default rather than seeded with placeholder policy claims, since a
     // safeguarding policy is a real commitment only CHADI can accurately state.
     safeguardingPolicy: "",
+    // The personal thank-you letter on a general (non-project) donation
+    // receipt - left blank so lib/receiptImpact.js's own default letter is
+    // used until CHADI writes their own. See that file for the {name}/
+    // {percentage} placeholders it supports.
+    donationLetter: "",
+    // The 5-part automated "welcome series" sent to new newsletter
+    // subscribers and new donors (see lib/emailSequence.js). Each step left
+    // blank uses that file's own DEFAULT_TEMPLATES until CHADI writes their
+    // own subject/body.
+    emailSequence: {
+      welcome: { subject: "", body: "" },
+      story: { subject: "", body: "" },
+      impact: { subject: "", body: "" },
+      donationAsk: { subject: "", body: "" },
+      updates: { subject: "", body: "" },
+    },
   };
 }

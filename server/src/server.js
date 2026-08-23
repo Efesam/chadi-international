@@ -22,9 +22,11 @@ import {
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import settingsRouter from "./routes/settings.js";
-import paymentsRouter from "./routes/payments.js";
+import paymentsRouter, { getProjectForEntry, autoReconcilePayments } from "./routes/payments.js";
 import broadcastRouter from "./routes/broadcast.js";
 import newsletterUnsubscribeRouter from "./routes/newsletterUnsubscribe.js";
+import emailSequenceUnsubscribeRouter from "./routes/emailSequenceUnsubscribe.js";
+import { enrollInSequence, runSequenceSweep } from "./lib/emailSequence.js";
 import feedRouter from "./routes/feed.js";
 import { subscribeToMailchimp } from "./lib/mailchimp.js";
 import donorPortalRouter from "./routes/donorPortal.js";
@@ -32,6 +34,12 @@ import uploadsRouter from "./routes/uploads.js";
 import { uploadsDir } from "./lib/upload.js";
 import { apiLimiter, formLimiter } from "./lib/rateLimit.js";
 import { initMonitoring, reportError, flushMonitoring } from "./lib/monitoring.js";
+import { sendMail } from "./lib/mailer.js";
+import {
+  buildContactConfirmationEmail,
+  buildVolunteerConfirmationEmail,
+  buildEventSignupConfirmationEmail,
+} from "./lib/confirmationEmails.js";
 
 await initMonitoring();
 
@@ -156,19 +164,67 @@ app.get("/api/stats", async (req, res) => {
   res.json(settings.stats);
 });
 
+/** Fetches the full CMS event record a sign-up was made for, so its confirmation email can quote the current date/location. */
+async function getEventForEntry(entry) {
+  if (!entry.eventId) return null;
+  const events = await readCollection("events", seedEvents);
+  return events.find((e) => e.id === entry.eventId) || null;
+}
+
 // Public form submissions. Anyone can POST; only admins can list/manage them.
-app.use("/api/contact", createSubmissionRouter({ name: "contacts", requiredFields: ["name", "email", "subject", "message"], limiter: formLimiter }));
-app.use("/api/volunteers", createSubmissionRouter({ name: "volunteers", requiredFields: ["name", "email", "area"], limiter: formLimiter }));
-app.use("/api/event-signups", createSubmissionRouter({ name: "eventSignups", requiredFields: ["name", "email", "eventId"], limiter: formLimiter }));
+// Each afterCreate sends the submitter a warm confirmation - best-effort,
+// same as everywhere else email is sent here: the submission itself is
+// already saved by the time this runs, so a failed/unconfigured send never
+// costs the visitor their submission.
+app.use(
+  "/api/contact",
+  createSubmissionRouter({
+    name: "contacts",
+    requiredFields: ["name", "email", "subject", "message"],
+    limiter: formLimiter,
+    afterCreate: (entry) => sendMail({ to: entry.email, ...buildContactConfirmationEmail(entry) }),
+  })
+);
+app.use(
+  "/api/volunteers",
+  createSubmissionRouter({
+    name: "volunteers",
+    requiredFields: ["name", "email", "area"],
+    limiter: formLimiter,
+    afterCreate: async (entry) => {
+      const project = await getProjectForEntry(entry);
+      return sendMail({ to: entry.email, ...buildVolunteerConfirmationEmail(entry, { project }) });
+    },
+  })
+);
+app.use(
+  "/api/event-signups",
+  createSubmissionRouter({
+    name: "eventSignups",
+    requiredFields: ["name", "email", "eventId"],
+    limiter: formLimiter,
+    afterCreate: async (entry) => {
+      const event = await getEventForEntry(entry);
+      return sendMail({ to: entry.email, ...buildEventSignupConfirmationEmail(entry, { event }) });
+    },
+  })
+);
 app.use("/api/newsletter/unsubscribe", newsletterUnsubscribeRouter);
+app.use("/api/email-sequence/unsubscribe", emailSequenceUnsubscribeRouter);
 app.use(
   "/api/newsletter",
   createSubmissionRouter({
     name: "newsletter",
     requiredFields: ["email"],
     limiter: formLimiter,
-    // Optional - only does anything once MAILCHIMP_API_KEY/AUDIENCE_ID are set.
-    afterCreate: (entry) => subscribeToMailchimp(entry.email),
+    afterCreate: (entry) =>
+      Promise.all([
+        // Optional - only does anything once MAILCHIMP_API_KEY/AUDIENCE_ID are set.
+        subscribeToMailchimp(entry.email),
+        // Starts the 5-part welcome series (see lib/emailSequence.js) - a no-op
+        // if this email is already enrolled via a newsletter signup or donation.
+        enrollInSequence({ email: entry.email, source: "newsletter" }),
+      ]),
   })
 );
 app.use("/api/donations", createSubmissionRouter({ name: "donations", requiredFields: ["name", "email", "interest"], limiter: formLimiter }));
@@ -196,7 +252,7 @@ app.use("/uploads", express.static(uploadsDir));
 
 // Aggregate counts for the dashboard overview page.
 app.get("/api/admin/summary", requireAuth, async (req, res) => {
-  const [contacts, volunteers, newsletter, donations, projects, events, team, gallery, partners, stories, paymentIssues] =
+  const [contacts, volunteers, newsletter, donations, projects, events, team, gallery, partners, stories, paymentIssues, sequenceSubscribers] =
     await Promise.all([
       readCollection("contacts", () => []),
       readCollection("volunteers", () => []),
@@ -209,6 +265,7 @@ app.get("/api/admin/summary", requireAuth, async (req, res) => {
       readCollection("partners", seedPartners),
       readCollection("stories", seedStories),
       readCollection("paymentIssues", () => []),
+      readCollection("sequenceSubscribers", () => []),
     ]);
 
   const completedPayments = donations.filter((d) => d.type === "payment" || d.type === "subscription");
@@ -222,6 +279,7 @@ app.get("/api/admin/summary", requireAuth, async (req, res) => {
     unreadMessages: contacts.filter((c) => !c.read).length,
     volunteers: volunteers.length,
     newsletterSubscribers: newsletter.length,
+    sequenceSubscribers: sequenceSubscribers.filter((s) => !s.unsubscribed).length,
     donationInterests: donations.filter((d) => d.type !== "payment" && d.type !== "subscription").length,
     completedPayments: completedPayments.length,
     totalRaised,
@@ -248,3 +306,26 @@ app.use((error, req, res, next) => {
 app.listen(port, () => {
   console.log(`CHADI API running on http://127.0.0.1:${port}`);
 });
+
+// Catches any donation that succeeded on Paystack but was never recorded
+// locally - see autoReconcilePayments in routes/payments.js for exactly
+// what this catches and why (the donor's own browser losing the connection
+// right after paying, the server being briefly down, or local dev where
+// Paystack's webhook can't reach localhost at all). Runs once immediately
+// (catching anything missed while the server was down) and then on a
+// timer; a no-op when Paystack isn't configured.
+const RECONCILE_INTERVAL_MS = 10 * 60 * 1000;
+autoReconcilePayments().catch((error) => reportError(error, { source: "autoReconcilePayments" }));
+setInterval(() => {
+  autoReconcilePayments().catch((error) => reportError(error, { source: "autoReconcilePayments" }));
+}, RECONCILE_INTERVAL_MS);
+
+// Sends whichever step of the 5-part welcome series (see lib/emailSequence.js)
+// is next due for each enrolled subscriber. Runs once immediately (catching
+// any step that fell due while the server was down) and then hourly - a
+// day-granularity schedule doesn't need anything finer than that.
+const SEQUENCE_SWEEP_INTERVAL_MS = 60 * 60 * 1000;
+runSequenceSweep().catch((error) => reportError(error, { source: "runSequenceSweep" }));
+setInterval(() => {
+  runSequenceSweep().catch((error) => reportError(error, { source: "runSequenceSweep" }));
+}, SEQUENCE_SWEEP_INTERVAL_MS);
