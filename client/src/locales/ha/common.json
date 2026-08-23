@@ -4,6 +4,7 @@
     "about": "Game da Mu",
     "projects": "Ayyuka",
     "news": "Labarai",
+    "blog": "Blog",
     "getInvolved": "Ku Shiga",
     "contact": "Tuntube Mu",
     "donate": "Bayar da Gudummawa"
@@ -96,13 +97,19 @@
     },
     "featuredProjects": {
       "eyebrow": "AYYUKANMU",
-      "title": "Ƙirƙirar Tasiri Mai Dorewa",
+      "title": "Ayyuka a Fagen Aiki",
       "subtitle": "Ta hanyar shirye-shirye masu sabuntawa da haɗin gwiwa mai dabara, CHADI International tana canza rayuwa a fadin al'ummomin da ba a kula da su ba."
     },
     "latestNews": {
       "eyebrow": "Sabbin Labarai",
       "title": "Sabuntawa Daga CHADI",
       "subtitle": "Bi diddigin ci gaban shirye-shirye, ayyukan filin da labaran al'umma.",
+      "viewAll": "Duba Duk Labarai"
+    },
+    "latestBlog": {
+      "eyebrow": "Daga Blog",
+      "title": "Basira & Labarai daga Filin Aiki",
+      "subtitle": "Ainihin labaran tasiri daga al'ummomin da muke bautawa.",
       "viewAll": "Duba Duk Labarai"
     },
     "partnersSection": {
@@ -161,6 +168,10 @@
     },
     "newsCard": {
       "readArticle": "Karanta Labarin →"
+    },
+    "blogCard": {
+      "story": "Labari",
+      "readStory": "Karanta Labari →"
     },
     "volunteerModal": {
       "title": "Ba da Agaji",
@@ -238,7 +249,8 @@
       "downloading": "Ana Zazzagewa...",
       "downloadError": "Ba a iya zazzage rasit ba",
       "done": "An Gama"
-    }
+    },
+    "recommended": "An Ba da Shawara"
   },
   "donate": {
     "seoTitle": "Bayar da Gudummawa",
@@ -248,6 +260,11 @@
     "heading": "Taimaka Wajen Tallafa Wa Tasirin Al'umma",
     "description": "Gudummawar ku na taimaka wa CHADI wajen bayar da ilimin abinci mai gina jiki, tallafin koyo, agajin gaggawa, ci gaban matasa da shirye-shiryen jin daɗin al'umma.",
     "donateNow": "Bayar da Gudummawa Yanzu",
+    "projectDonate": {
+      "seoTitle": "Ba da gudummawa ga {{title}}",
+      "backToProject": "Koma zuwa aikin",
+      "giveHeading": "Ba da gudummawarka"
+    },
     "calculator": {
       "eyebrow": "Ku Ga Tasirin Ku",
       "title": "Abin Da Gudummawar Ku Take Bayarwa",
@@ -299,6 +316,21 @@
       "back": "Koma Zuwa Labarai"
     }
   },
+  "blog": {
+    "seoTitle": "Blog",
+    "seoDescription": "Ra'ayoyi, labarai da sabuntawa daga aikin CHADI International a cikin al'ummomi a fadin Najeriya.",
+    "seoFallbackDescription": "Karanta {{title}} akan shafin blog na CHADI International.",
+    "title": "Basira & Labarai daga Filin Aiki",
+    "subtitle": "Ainihin labaran tasiri daga al'ummomin da muke bautawa.",
+    "allFilter": "Duka",
+    "empty": "Babu labaran blog tukuna.",
+    "noMatch": "Babu labaran da suka dace da wannan rukuni.",
+    "notFound": {
+      "title": "Ba a Samu Labarin Ba",
+      "description": "Labarin da kake nema wataƙila an motsa shi.",
+      "back": "Koma zuwa Blog"
+    }
+  },
   "notFound": {
     "seoTitle": "Ba a Sami Shafin Ba",
     "eyebrow": "404",
@@ -342,7 +374,8 @@
     "noResults": "Babu sakamako don \"{{query}}\".",
     "projects": "Ayyuka",
     "news": "Labarai",
-    "events": "Abubuwan Da Suka Faru"
+    "events": "Abubuwan Da Suka Faru",
+    "blog": "Blog"
   },
   "stories": {
     "seoTitle": "Labaran Tasiri",

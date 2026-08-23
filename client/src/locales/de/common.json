@@ -4,6 +4,7 @@
     "about": "Über Uns",
     "projects": "Projekte",
     "news": "Neuigkeiten",
+    "blog": "Blog",
     "getInvolved": "Mitmachen",
     "contact": "Kontakt",
     "donate": "Spenden"
@@ -96,7 +97,7 @@
     },
     "featuredProjects": {
       "eyebrow": "UNSERE PROJEKTE",
-      "title": "Nachhaltige Wirkung Schaffen",
+      "title": "Projekte vor Ort",
       "subtitle": "Durch innovative Programme und strategische Partnerschaften verändert CHADI International Leben in unterversorgten Gemeinschaften."
     },
     "latestNews": {
@@ -104,6 +105,12 @@
       "title": "Neues von CHADI",
       "subtitle": "Verfolgen Sie Programmfortschritte, Feldaktivitäten und Geschichten aus der Gemeinschaft.",
       "viewAll": "Alle Neuigkeiten Ansehen"
+    },
+    "latestBlog": {
+      "eyebrow": "Aus dem Blog",
+      "title": "Einblicke & Geschichten aus dem Einsatzgebiet",
+      "subtitle": "Echte Wirkungsgeschichten aus den Gemeinden, denen wir dienen.",
+      "viewAll": "Alle Beiträge Ansehen"
     },
     "partnersSection": {
       "eyebrow": "Partnerschaften",
@@ -161,6 +168,10 @@
     },
     "newsCard": {
       "readArticle": "Artikel Lesen →"
+    },
+    "blogCard": {
+      "story": "Geschichte",
+      "readStory": "Geschichte Lesen →"
     },
     "volunteerModal": {
       "title": "Freiwilligenarbeit",
@@ -238,7 +249,8 @@
       "downloading": "Wird heruntergeladen...",
       "downloadError": "Beleg konnte nicht heruntergeladen werden",
       "done": "Fertig"
-    }
+    },
+    "recommended": "Empfohlen"
   },
   "donate": {
     "seoTitle": "Spenden",
@@ -248,6 +260,11 @@
     "heading": "Helfen Sie, Nachhaltige Gemeinschaftswirkung zu Erhalten",
     "description": "Ihre Spende hilft CHADI, Ernährungsbildung, Lernunterstützung, Nothilfe, Jugendentwicklung und Programme für das Wohlergehen der Gemeinschaft bereitzustellen.",
     "donateNow": "Jetzt Spenden",
+    "projectDonate": {
+      "seoTitle": "Spenden für {{title}}",
+      "backToProject": "Zurück zum Projekt",
+      "giveHeading": "Jetzt Spenden"
+    },
     "calculator": {
       "eyebrow": "Sehen Sie Ihre Wirkung",
       "title": "Was Ihre Spende Bewirkt",
@@ -299,6 +316,21 @@
       "back": "Zurück zu den Neuigkeiten"
     }
   },
+  "blog": {
+    "seoTitle": "Blog",
+    "seoDescription": "Einblicke, Geschichten und Neuigkeiten aus der Arbeit von CHADI International in Gemeinden in ganz Nigeria.",
+    "seoFallbackDescription": "Lesen Sie {{title}} im Blog von CHADI International.",
+    "title": "Einblicke & Geschichten aus dem Einsatzgebiet",
+    "subtitle": "Echte Wirkungsgeschichten aus den Gemeinden, denen wir dienen.",
+    "allFilter": "Alle",
+    "empty": "Noch keine Blogbeiträge.",
+    "noMatch": "Keine Beiträge entsprechen dieser Kategorie.",
+    "notFound": {
+      "title": "Beitrag Nicht Gefunden",
+      "description": "Die gesuchte Geschichte wurde möglicherweise verschoben.",
+      "back": "Zurück zum Blog"
+    }
+  },
   "notFound": {
     "seoTitle": "Seite Nicht Gefunden",
     "eyebrow": "404",
@@ -342,7 +374,8 @@
     "noResults": "Keine Ergebnisse für „{{query}}“.",
     "projects": "Projekte",
     "news": "Neuigkeiten",
-    "events": "Veranstaltungen"
+    "events": "Veranstaltungen",
+    "blog": "Blog"
   },
   "stories": {
     "seoTitle": "Wirkungsgeschichten",

@@ -4,6 +4,7 @@
     "about": "Nípa Wa",
     "projects": "Àwọn Iṣẹ́",
     "news": "Ìròyìn",
+    "blog": "Bulọ́ọ̀gì",
     "getInvolved": "Kópa",
     "contact": "Kàn sí Wa",
     "donate": "Ṣètọrẹ"
@@ -96,7 +97,7 @@
     },
     "featuredProjects": {
       "eyebrow": "ÀWỌN IṢẸ́ WA",
-      "title": "Ṣíṣẹ̀dá Ipa Tí Ó Dúró Ṣinṣin",
+      "title": "Àwọn Iṣẹ́ Ní Pápá Ìṣẹ́lẹ̀",
       "subtitle": "Nípasẹ̀ àwọn ètò tí ó ní ìmúdàgbàsókè àti ìfọwọ́sowọ́pọ̀ oníṣẹ́-ọ̀gbọ́n, CHADI International ń yí ìgbésí ayé padà káàkiri àwọn àwùjọ tí a kò tọ́jú."
     },
     "latestNews": {
@@ -104,6 +105,12 @@
       "title": "Ìsọdọ̀tun Láti Ọ̀dọ̀ CHADI",
       "subtitle": "Tẹ̀lé àwọn àṣeyọrí ètò, iṣẹ́ pápá àti àwọn ìtàn àwùjọ.",
       "viewAll": "Wo Gbogbo Ìròyìn"
+    },
+    "latestBlog": {
+      "eyebrow": "Láti Bulọ́ọ̀gì",
+      "title": "Ìjìnlẹ̀ Òye & Àwọn Ìtàn Láti Ojú Ìṣẹ́lẹ̀",
+      "subtitle": "Àwọn ìtàn ìpalára gidi láti àwọn àwùjọ tí a ń ṣe ìránṣẹ́ fún.",
+      "viewAll": "Wo Gbogbo Àwọn Ìtàn"
     },
     "partnersSection": {
       "eyebrow": "Ìfọwọ́sowọ́pọ̀",
@@ -161,6 +168,10 @@
     },
     "newsCard": {
       "readArticle": "Ka Àpilẹ̀kọ →"
+    },
+    "blogCard": {
+      "story": "Ìtàn",
+      "readStory": "Ka Ìtàn →"
     },
     "volunteerModal": {
       "title": "Yọ̀ǹda Ara Rẹ",
@@ -238,7 +249,8 @@
       "downloading": "Ń Gbà...",
       "downloadError": "A kò lè gba ìwé ẹ̀rí",
       "done": "Ó Parí"
-    }
+    },
+    "recommended": "Èyí Tí A Gbà Nímọ̀ràn"
   },
   "donate": {
     "seoTitle": "Ṣetọrẹ",
@@ -248,6 +260,11 @@
     "heading": "Ṣèrànwọ́ Láti Ṣètìlẹ́yìn Fún Ipa Àwùjọ Tí Ó Dúró Ṣinṣin",
     "description": "Ìtọrẹ rẹ ń ràn CHADI lọ́wọ́ láti pèsè ẹ̀kọ́ oúnjẹ oníjẹ̀unnini, ìrànlọ́wọ́ ẹ̀kọ́, ìrànlọ́wọ́ pàjáwìrì, ìdàgbàsókè àwọn ọ̀dọ́ àti àwọn ètò ìlera àwùjọ.",
     "donateNow": "Ṣetọrẹ Nísisìyí",
+    "projectDonate": {
+      "seoTitle": "Ṣetọrẹ fún {{title}}",
+      "backToProject": "Padà sí iṣẹ́ náà",
+      "giveHeading": "Ṣe Ẹ̀bùn Rẹ"
+    },
     "calculator": {
       "eyebrow": "Wo Ipa Rẹ",
       "title": "Ohun Tí Ìtọrẹ Rẹ Ń Pèsè",
@@ -299,6 +316,21 @@
       "back": "Padà Sí Ìròyìn"
     }
   },
+  "blog": {
+    "seoTitle": "Bulọ́ọ̀gì",
+    "seoDescription": "Ìjìnlẹ̀ òye, àwọn ìtàn àti ìsọfúnni láti ọwọ́ iṣẹ́ CHADI International ní àwùjọ káàkiri Nàìjíríà.",
+    "seoFallbackDescription": "Ka {{title}} lórí bulọ́ọ̀gì CHADI International.",
+    "title": "Ìjìnlẹ̀ Òye & Àwọn Ìtàn Láti Ojú Ìṣẹ́lẹ̀",
+    "subtitle": "Àwọn ìtàn ìpalára gidi láti àwọn àwùjọ tí a ń ṣe ìránṣẹ́ fún.",
+    "allFilter": "Gbogbo",
+    "empty": "Kò sí àwọn ìtàn bulọ́ọ̀gì síbẹ̀.",
+    "noMatch": "Kò sí àwọn ìtàn tó bá ẹ̀ka yìí mu.",
+    "notFound": {
+      "title": "A Kò Rí Ìtàn Náà",
+      "description": "Ìtàn tí o ń wá lè ti yí padà.",
+      "back": "Padà sí Bulọ́ọ̀gì"
+    }
+  },
   "notFound": {
     "seoTitle": "A Kò Rí Ojú-Ìwé Náà",
     "eyebrow": "404",
@@ -342,7 +374,8 @@
     "noResults": "Kò sí èsì fún \"{{query}}\".",
     "projects": "Àwọn Iṣẹ́",
     "news": "Ìròyìn",
-    "events": "Àwọn Ìṣẹ̀lẹ̀"
+    "events": "Àwọn Ìṣẹ̀lẹ̀",
+    "blog": "Bulọ́ọ̀gì"
   },
   "stories": {
     "seoTitle": "Àwọn Ìtàn Ipa",

@@ -4,6 +4,7 @@
     "about": "关于我们",
     "projects": "项目",
     "news": "新闻",
+    "blog": "博客",
     "getInvolved": "参与",
     "contact": "联系我们",
     "donate": "捐赠"
@@ -96,7 +97,7 @@
     },
     "featuredProjects": {
       "eyebrow": "我们的项目",
-      "title": "创造可持续的影响",
+      "title": "落地实施的项目",
       "subtitle": "通过创新项目和战略合作伙伴关系,CHADI International 正在改变服务不足社区的生活。"
     },
     "latestNews": {
@@ -104,6 +105,12 @@
       "title": "CHADI 动态",
       "subtitle": "关注项目进展、实地活动和社区故事。",
       "viewAll": "查看全部新闻"
+    },
+    "latestBlog": {
+      "eyebrow": "博客精选",
+      "title": "来自一线的见解与故事",
+      "subtitle": "来自我们所服务社区的真实影响故事。",
+      "viewAll": "查看所有文章"
     },
     "partnersSection": {
       "eyebrow": "合作伙伴关系",
@@ -161,6 +168,10 @@
     },
     "newsCard": {
       "readArticle": "阅读文章 →"
+    },
+    "blogCard": {
+      "story": "故事",
+      "readStory": "阅读故事 →"
     },
     "volunteerModal": {
       "title": "志愿服务",
@@ -238,7 +249,8 @@
       "downloading": "下载中...",
       "downloadError": "无法下载收据",
       "done": "完成"
-    }
+    },
+    "recommended": "推荐"
   },
   "donate": {
     "seoTitle": "捐赠",
@@ -248,6 +260,11 @@
     "heading": "帮助维持社区影响力",
     "description": "您的捐赠帮助 CHADI 提供营养教育、学习支持、紧急救援、青年发展和社区福祉项目。",
     "donateNow": "立即捐赠",
+    "projectDonate": {
+      "seoTitle": "捐赠给{{title}}",
+      "backToProject": "返回项目",
+      "giveHeading": "立即捐赠"
+    },
     "calculator": {
       "eyebrow": "查看您的影响力",
       "title": "您的捐赠能提供什么",
@@ -299,6 +316,21 @@
       "back": "返回新闻"
     }
   },
+  "blog": {
+    "seoTitle": "博客",
+    "seoDescription": "来自CHADI国际组织在尼日利亚各地社区工作的见解、故事和最新消息。",
+    "seoFallbackDescription": "在CHADI国际博客上阅读{{title}}。",
+    "title": "来自一线的见解与故事",
+    "subtitle": "来自我们所服务社区的真实影响故事。",
+    "allFilter": "全部",
+    "empty": "暂无博客文章。",
+    "noMatch": "没有符合此类别的文章。",
+    "notFound": {
+      "title": "未找到文章",
+      "description": "您查找的故事可能已被移动。",
+      "back": "返回博客"
+    }
+  },
   "notFound": {
     "seoTitle": "页面未找到",
     "eyebrow": "404",
@@ -342,7 +374,8 @@
     "noResults": "未找到“{{query}}”的结果。",
     "projects": "项目",
     "news": "新闻",
-    "events": "活动"
+    "events": "活动",
+    "blog": "博客"
   },
   "stories": {
     "seoTitle": "影响力故事",

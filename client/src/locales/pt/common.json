@@ -4,6 +4,7 @@
     "about": "Sobre Nós",
     "projects": "Projetos",
     "news": "Notícias",
+    "blog": "Blog",
     "getInvolved": "Participe",
     "contact": "Contato",
     "donate": "Doar"
@@ -96,7 +97,7 @@
     },
     "featuredProjects": {
       "eyebrow": "NOSSOS PROJETOS",
-      "title": "Criando Impacto Sustentável",
+      "title": "Projetos no Terreno",
       "subtitle": "Por meio de programas inovadores e parcerias estratégicas, a CHADI International está transformando vidas em comunidades carentes."
     },
     "latestNews": {
@@ -104,6 +105,12 @@
       "title": "Novidades da CHADI",
       "subtitle": "Acompanhe os marcos dos programas, atividades de campo e histórias da comunidade.",
       "viewAll": "Ver Todas as Notícias"
+    },
+    "latestBlog": {
+      "eyebrow": "Do Blog",
+      "title": "Reflexões e Histórias do Campo",
+      "subtitle": "Histórias reais de impacto das comunidades que servimos.",
+      "viewAll": "Ver Todas as Publicações"
     },
     "partnersSection": {
       "eyebrow": "Parcerias",
@@ -161,6 +168,10 @@
     },
     "newsCard": {
       "readArticle": "Ler Artigo →"
+    },
+    "blogCard": {
+      "story": "História",
+      "readStory": "Ler História →"
     },
     "volunteerModal": {
       "title": "Voluntariado",
@@ -238,7 +249,8 @@
       "downloading": "Baixando...",
       "downloadError": "Não foi possível baixar o recibo",
       "done": "Concluído"
-    }
+    },
+    "recommended": "Recomendado"
   },
   "donate": {
     "seoTitle": "Doar",
@@ -248,6 +260,11 @@
     "heading": "Ajude a Sustentar o Impacto Comunitário",
     "description": "Sua doação ajuda a CHADI a fornecer educação nutricional, apoio à aprendizagem, ajuda emergencial, desenvolvimento juvenil e programas de bem-estar comunitário.",
     "donateNow": "Doe Agora",
+    "projectDonate": {
+      "seoTitle": "Doar para {{title}}",
+      "backToProject": "Voltar ao projeto",
+      "giveHeading": "Faça Sua Doação"
+    },
     "calculator": {
       "eyebrow": "Veja Seu Impacto",
       "title": "O Que Sua Doação Fornece",
@@ -299,6 +316,21 @@
       "back": "Voltar para Notícias"
     }
   },
+  "blog": {
+    "seoTitle": "Blog",
+    "seoDescription": "Reflexões, histórias e novidades do trabalho da CHADI International em comunidades por toda a Nigéria.",
+    "seoFallbackDescription": "Leia {{title}} no blog da CHADI International.",
+    "title": "Reflexões e Histórias do Campo",
+    "subtitle": "Histórias reais de impacto das comunidades que servimos.",
+    "allFilter": "Todos",
+    "empty": "Ainda não há publicações no blog.",
+    "noMatch": "Nenhuma publicação corresponde a esta categoria.",
+    "notFound": {
+      "title": "Publicação Não Encontrada",
+      "description": "A história que você procura pode ter sido movida.",
+      "back": "Voltar ao Blog"
+    }
+  },
   "notFound": {
     "seoTitle": "Página Não Encontrada",
     "eyebrow": "404",
@@ -342,7 +374,8 @@
     "noResults": "Nenhum resultado para \"{{query}}\".",
     "projects": "Projetos",
     "news": "Notícias",
-    "events": "Eventos"
+    "events": "Eventos",
+    "blog": "Blog"
   },
   "stories": {
     "seoTitle": "Histórias de Impacto",

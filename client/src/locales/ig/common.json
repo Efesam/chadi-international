@@ -4,6 +4,7 @@
     "about": "Maka Anyị",
     "projects": "Ọrụ Anyị",
     "news": "Akụkọ",
+    "blog": "Blog",
     "getInvolved": "Sonyere",
     "contact": "Kpọtụrụ Anyị",
     "donate": "Nye Onyinye"
@@ -96,13 +97,19 @@
     },
     "featuredProjects": {
       "eyebrow": "ỌRỤ ANYỊ",
-      "title": "Ịmepụta Mmetụta Na-adịgide Adịgide",
+      "title": "Ọrụ Ndị Anyị Na-arụ N'ala",
       "subtitle": "Site na mmemme mmepụta ọhụrụ na mmekọrịta atụmatụ, CHADI International na-agbanwe ndụ n'ofe obodo a na-elekwaghị anya."
     },
     "latestNews": {
       "eyebrow": "Akụkọ Ọhụrụ",
       "title": "Ihe Ọhụrụ Site N'aka CHADI",
       "subtitle": "Soro nlele ọganihu mmemme, ọrụ ubi na akụkọ obodo.",
+      "viewAll": "Lee Akụkọ Niile"
+    },
+    "latestBlog": {
+      "eyebrow": "Site na Blog",
+      "title": "Nghọta & Akụkọ Si N'Ubi Ọrụ",
+      "subtitle": "Ezigbo akụkọ mmetụta si n'obodo anyị na-eje ozi.",
       "viewAll": "Lee Akụkọ Niile"
     },
     "partnersSection": {
@@ -161,6 +168,10 @@
     },
     "newsCard": {
       "readArticle": "Gụọ Akụkọ →"
+    },
+    "blogCard": {
+      "story": "Akụkọ",
+      "readStory": "Gụọ Akụkọ →"
     },
     "volunteerModal": {
       "title": "Nyere Aka N'afọ Ofufu",
@@ -238,7 +249,8 @@
       "downloading": "Na-ebudata...",
       "downloadError": "Enweghị ike ibudata akwụkwọ nnata",
       "done": "Emechaala"
-    }
+    },
+    "recommended": "Nke A Kwadoro"
   },
   "donate": {
     "seoTitle": "Nye Onyinye",
@@ -248,6 +260,11 @@
     "heading": "Nyere Aka Ịkwado Mmetụta Obodo Na-adịgide Adịgide",
     "description": "Onyinye gị na-enyere CHADI aka inye ozizi nri na-eweta ahụike, nkwado mmụta, enyemaka mberede, mmepe ndị na-eto eto na mmemme afọ ojuju obodo.",
     "donateNow": "Nye Onyinye Ugbu A",
+    "projectDonate": {
+      "seoTitle": "Nye onyinye maka {{title}}",
+      "backToProject": "Laghachi na ọrụ",
+      "giveHeading": "Nye Onyinye Gị"
+    },
     "calculator": {
       "eyebrow": "Hụ Mmetụta Gị",
       "title": "Ihe Onyinye Gị Na-enye",
@@ -299,6 +316,21 @@
       "back": "Laghachi Na Akụkọ"
     }
   },
+  "blog": {
+    "seoTitle": "Blog",
+    "seoDescription": "Nghọta, akụkọ na mmelite site n'ọrụ CHADI International n'obodo gburugburu Naịjirịa.",
+    "seoFallbackDescription": "Gụọ {{title}} na blog CHADI International.",
+    "title": "Nghọta & Akụkọ Si N'Ubi Ọrụ",
+    "subtitle": "Ezigbo akụkọ mmetụta si n'obodo anyị na-eje ozi.",
+    "allFilter": "Niile",
+    "empty": "Enweghị akụkọ blog ugbu a.",
+    "noMatch": "Ọ nweghị akụkọ dabara na ngalaba a.",
+    "notFound": {
+      "title": "Ahụghị Akụkọ A",
+      "description": "Akụkọ ị na-achọ nwere ike ịbụ na akwafuola.",
+      "back": "Laghachi na Blog"
+    }
+  },
   "notFound": {
     "seoTitle": "Ahụghị Ibe Ahụ",
     "eyebrow": "404",
@@ -342,7 +374,8 @@
     "noResults": "Enweghị nsonaazụ maka \"{{query}}\".",
     "projects": "Ọrụ",
     "news": "Akụkọ",
-    "events": "Ihe Omume"
+    "events": "Ihe Omume",
+    "blog": "Blog"
   },
   "stories": {
     "seoTitle": "Akụkọ Mmetụta",
