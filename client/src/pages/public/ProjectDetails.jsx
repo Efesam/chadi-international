@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FaHeart, FaHandsHelping, FaExpand, FaPlay } from "react-icons/fa";
 import Seo from "../../components/common/Seo";
 import PageHeader from "../../components/common/PageHeader";
 import DetailSkeleton from "../../components/common/DetailSkeleton";
-import DonateModal from "../../components/common/DonateModal";
 import VolunteerModal from "../../components/common/VolunteerModal";
 import Reveal from "../../components/common/Reveal";
 import StaggerGrid, { StaggerItem } from "../../components/common/StaggerGrid";
@@ -17,7 +16,6 @@ import Newsletter from "../../components/common/Newsletter";
 function ProjectDetails() {
   const { t, i18n } = useTranslation();
   const { slug } = useParams();
-  const [donateOpen, setDonateOpen] = useState(false);
   const [volunteerOpen, setVolunteerOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const { data: project, loading, error } = useCollection(() => projectsApi.get(slug, i18n.language), [slug, i18n.language]);
@@ -291,14 +289,13 @@ function ProjectDetails() {
                   </div>
                 )}
 
-                <button
-                  type="button"
-                  onClick={() => setDonateOpen(true)}
+                <Link
+                  to={`/donate/${slug}`}
                   className="mt-5 flex w-full items-center justify-center gap-2 rounded-lg bg-chadi-gold px-6 py-3 font-semibold text-black transition hover:scale-105"
                 >
                   <FaHeart size={14} />
                   {t("projectDetails.donateButton")}
-                </button>
+                </Link>
 
                 <button
                   type="button"
@@ -314,12 +311,6 @@ function ProjectDetails() {
           </div>
         </div>
       </section>
-
-      <DonateModal
-        open={donateOpen}
-        onClose={() => setDonateOpen(false)}
-        project={{ id: project.id, title: project.title }}
-      />
 
       <VolunteerModal
         open={volunteerOpen}

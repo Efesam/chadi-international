@@ -26,9 +26,28 @@ function mockPaystackPopup() {
   };
 }
 
+/**
+ * The form opens on Hope Alive Circle (monthly) - the one-off flows below
+ * switch to it explicitly rather than relying on it being the default.
+ */
+function selectOneTime() {
+  fireEvent.click(screen.getByRole("button", { name: /^one-time$/i }));
+}
+
 describe("DonateModal", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+  });
+
+  it("opens on Hope Alive Circle, with one-time giving as the secondary option", () => {
+    mockPaystackPopup();
+    render(<DonateModal open onClose={vi.fn()} />);
+
+    expect(screen.getByRole("button", { name: /join hope alive circle/i })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /^give ₦/i })).not.toBeInTheDocument();
+
+    selectOneTime();
+    expect(screen.getByRole("button", { name: /^give ₦5,000$/i })).toBeInTheDocument();
   });
 
   it("replaces the form with an animated success screen and a working receipt download once the server confirms payment", async () => {
@@ -40,6 +59,7 @@ describe("DonateModal", () => {
 
     fireEvent.change(screen.getByPlaceholderText("Full name"), { target: { value: "Test Donor" } });
     fireEvent.change(screen.getByPlaceholderText("Email address"), { target: { value: "donor@example.com" } });
+    selectOneTime();
     fireEvent.click(screen.getByRole("button", { name: /give ₦5,000/i }));
 
     await waitFor(() => expect(screen.getByText("Payment Received!")).toBeInTheDocument());
@@ -64,6 +84,7 @@ describe("DonateModal", () => {
 
     fireEvent.change(screen.getByPlaceholderText("Full name"), { target: { value: "Test Donor" } });
     fireEvent.change(screen.getByPlaceholderText("Email address"), { target: { value: "donor@example.com" } });
+    selectOneTime();
     fireEvent.click(screen.getByRole("button", { name: /give ₦5,000/i }));
 
     await waitFor(() => expect(screen.getByText(/could not confirm it automatically/i)).toBeInTheDocument());
@@ -91,6 +112,7 @@ describe("DonateModal", () => {
 
     fireEvent.change(screen.getByPlaceholderText("Full name"), { target: { value: "Test Donor" } });
     fireEvent.change(screen.getByPlaceholderText("Email address"), { target: { value: "donor@example.com" } });
+    selectOneTime();
     fireEvent.click(screen.getByRole("button", { name: /give ₦5,000/i }));
     await waitFor(() => expect(screen.getByText("Payment Received!")).toBeInTheDocument());
 

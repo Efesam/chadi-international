@@ -2,12 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FaHeart, FaHandsHelping } from "react-icons/fa";
-import DonateModal from "../common/DonateModal";
 import VolunteerModal from "../common/VolunteerModal";
 
 function ProjectCard({ project }) {
   const { t } = useTranslation();
-  const [donateOpen, setDonateOpen] = useState(false);
   const [volunteerOpen, setVolunteerOpen] = useState(false);
 
   return (
@@ -58,7 +56,7 @@ function ProjectCard({ project }) {
         <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
           <Link
             to={`/projects/${project.slug}`}
-            className="inline-flex font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
+            className="inline-flex py-1.5 font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
           >
             {t("common.projectCard.learnMore")}
           </Link>
@@ -73,23 +71,16 @@ function ProjectCard({ project }) {
               {t("common.projectCard.volunteer")}
             </button>
 
-            <button
-              type="button"
-              onClick={() => setDonateOpen(true)}
+            <Link
+              to={`/donate/${project.slug}`}
               className="flex items-center gap-2 rounded-full bg-chadi-gold px-4 py-2 text-sm font-semibold text-black transition hover:scale-105"
             >
               <FaHeart size={12} />
               {t("common.projectCard.donate")}
-            </button>
+            </Link>
           </div>
         </div>
       </div>
-
-      <DonateModal
-        open={donateOpen}
-        onClose={() => setDonateOpen(false)}
-        project={{ id: project.id, title: project.title }}
-      />
 
       <VolunteerModal
         open={volunteerOpen}

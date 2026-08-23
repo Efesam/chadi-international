@@ -33,6 +33,7 @@ import ProjectDetails from "../pages/public/ProjectDetails";
 import GetInvolved from "../pages/public/GetInvolved";
 import Contact from "../pages/public/Contact";
 import Donate from "../pages/public/Donate";
+import ProjectDonate from "../pages/public/ProjectDonate";
 import DonorPortal from "../pages/public/DonorPortal";
 import DonorPortalVerify from "../pages/public/DonorPortalVerify";
 import NotFound from "../pages/public/NotFound";
@@ -103,6 +104,7 @@ function AppRoutes() {
 
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/donate/:slug" element={<ProjectDonate />} />
         <Route path="/donor-portal" element={<DonorPortal />} />
         <Route path="/donor-portal/verify" element={<DonorPortalVerify />} />
         <Route path="/privacy" element={<Privacy />} />

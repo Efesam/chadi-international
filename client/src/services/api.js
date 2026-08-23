@@ -77,8 +77,22 @@ export function recordDonationInterest(payload) {
   return request("/donations", { method: "POST", body: JSON.stringify(payload) });
 }
 
-export function verifyPayment(reference) {
-  return request("/payments/verify", { method: "POST", body: JSON.stringify({ reference }) });
+/**
+ * Retries a few times with backoff before giving up - a donor has already
+ * been charged by the time this is called, so a brief network blip or the
+ * server restarting mid-request should never be the reason they see "we
+ * could not confirm your payment" when a moment's wait would have worked.
+ * (A server-side sweep also catches anything that still slips past this -
+ * see autoReconcilePayments in server/src/routes/payments.js.)
+ */
+export async function verifyPayment(reference, attempt = 1) {
+  try {
+    return await request("/payments/verify", { method: "POST", body: JSON.stringify({ reference }) });
+  } catch (error) {
+    if (attempt >= 4) throw error;
+    await new Promise((resolve) => setTimeout(resolve, attempt * 1500));
+    return verifyPayment(reference, attempt + 1);
+  }
 }
 
 /** Gets (or has the server create) a reusable Paystack Plan for a monthly Hope Alive Circle amount. */
