@@ -113,12 +113,16 @@ function Footer() {
               <p className="text-xs font-semibold uppercase tracking-[2px] text-chadi-lightgreen">
                 {column.title}
               </p>
-              <div className="mt-4 flex flex-col gap-3">
+              {/* py-1.5 lifts each link from a 20px line box to a ~32px
+                  target and, with the reduced gap, keeps the column the same
+                  overall height - 21 links stacked at 20px each were fiddly
+                  to hit on a phone. */}
+              <div className="mt-3 flex flex-col gap-0.5">
                 {column.links.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="text-sm font-semibold text-white/85 transition hover:text-chadi-gold"
+                    className="py-1.5 text-sm font-semibold text-white/85 transition hover:text-chadi-gold"
                   >
                     {link.label}
                   </Link>
@@ -135,7 +139,7 @@ function Footer() {
           href={FEED_URL}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-1.5 hover:text-white"
+          className="flex items-center gap-1.5 py-1.5 hover:text-white"
         >
           <FaRss size={12} /> {t("footer.rss")}
         </a>

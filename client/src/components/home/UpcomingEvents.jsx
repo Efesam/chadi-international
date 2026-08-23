@@ -15,7 +15,7 @@ function UpcomingEvents() {
   if (!loading && events.length === 0) return null;
 
   return (
-    <section className="bg-white py-24 dark:bg-gray-900">
+    <section className="bg-white py-16 dark:bg-gray-900 sm:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-12 text-center">

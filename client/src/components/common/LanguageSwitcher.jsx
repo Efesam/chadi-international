@@ -19,7 +19,9 @@ function LanguageSwitcher({ dark = false }) {
       value={i18n.resolvedLanguage}
       onChange={(event) => i18n.changeLanguage(event.target.value)}
       aria-label="Choose language"
-      className={`rounded-md border bg-transparent px-2 py-1 text-sm font-medium outline-none ${
+      // min-h-11 gives the control a 44px tap target; at py-1 it rendered
+      // only 27px tall, which is awkward to hit on a phone.
+      className={`min-h-11 rounded-md border bg-transparent px-2 py-1 text-sm font-medium outline-none ${
         dark
           ? "border-white/40 text-white [&>option]:text-black"
           : "border-gray-300 text-gray-700 dark:text-gray-200"

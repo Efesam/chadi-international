@@ -22,7 +22,7 @@ function StaggerGrid({ children, className = "" }) {
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: "some" }}
       variants={container}
       className={className}
     >

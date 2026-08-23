@@ -15,7 +15,7 @@ function PartnersSection() {
   const partners = (data || []).slice(0, 6);
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-gray-950">
+    <section className="bg-gray-50 py-16 dark:bg-gray-950 sm:py-20">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_1.2fr] lg:items-center">
         <Reveal direction="left">
           <div>

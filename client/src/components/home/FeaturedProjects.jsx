@@ -13,8 +13,10 @@ function FeaturedProjects() {
 
   if (!loading && featured.length === 0) return null;
 
+  // Anchor section: the actual work is the most important thing on this
+  // page, so it gets the most vertical air of any content section.
   return (
-    <section className="bg-gray-50 py-24 dark:bg-gray-950">
+    <section className="bg-white py-28 dark:bg-gray-900 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-16 text-center">
@@ -22,7 +24,7 @@ function FeaturedProjects() {
               {t("home.featuredProjects.eyebrow")}
             </span>
 
-            <h2 className="mt-4 text-5xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+            <h2 className="mt-4 text-4xl font-bold text-chadi-green dark:text-chadi-lightgreen sm:text-5xl">
               {t("home.featuredProjects.title")}
             </h2>
 

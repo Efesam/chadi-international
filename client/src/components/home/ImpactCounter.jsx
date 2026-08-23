@@ -15,12 +15,15 @@ function ImpactCounter() {
   const { data: settings, loading } = useCollection(getSettings);
   const stats = settings?.stats || [];
 
+  // Anchor section: the proof-in-numbers moment gets more vertical air than
+  // the supporting sections around it, so the page reads with a rhythm
+  // instead of a dozen identically-spaced blocks.
   return (
-    <section className="bg-white py-24 dark:bg-gray-900">
+    <section className="bg-gray-50 py-28 dark:bg-gray-950 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-50 sm:text-5xl">
               {t("home.impactCounter.title")}
             </h2>
 

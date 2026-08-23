@@ -27,7 +27,7 @@ function NewsCard({ article }) {
 
         <Link
           to={`/news/${article.slug}`}
-          className="mt-6 inline-block font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
+          className="mt-5 inline-block py-1.5 font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
         >
           {t("common.newsCard.readArticle")}
         </Link>

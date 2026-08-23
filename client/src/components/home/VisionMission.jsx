@@ -9,7 +9,7 @@ function VisionMission() {
 
   return (
     <section
-      className="relative overflow-hidden bg-gray-50 bg-cover bg-center py-24"
+      className="relative overflow-hidden bg-gray-50 bg-cover bg-center py-16 sm:py-20"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/93" />
@@ -18,7 +18,7 @@ function VisionMission() {
 
         <Reveal>
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">
+            <h2 className="text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">
               {t("home.visionMission.title")}
             </h2>
 

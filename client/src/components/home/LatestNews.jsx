@@ -16,7 +16,7 @@ function LatestNews() {
   if (!loading && latest.length === 0) return null;
 
   return (
-    <section className="bg-chadi-cream py-24">
+    <section className="bg-chadi-cream py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -34,7 +34,7 @@ function LatestNews() {
 
             <Link
               to="/news"
-              className="font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
+              className="inline-block py-1.5 font-semibold text-chadi-green hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
             >
               {t("home.latestNews.viewAll")}
             </Link>

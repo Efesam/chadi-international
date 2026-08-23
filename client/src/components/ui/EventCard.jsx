@@ -51,7 +51,7 @@ function EventCard({ event }) {
         <button
           type="button"
           onClick={() => setSignupOpen(true)}
-          className="flex items-center gap-2 pt-1 font-semibold text-chadi-green transition hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
+          className="flex items-center gap-2 py-2 font-semibold text-chadi-green transition hover:text-chadi-gold-dark dark:text-chadi-lightgreen dark:hover:text-chadi-gold"
         >
           <FaCalendarCheck size={14} />
           {t("common.eventCard.signUp")}

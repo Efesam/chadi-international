@@ -21,12 +21,12 @@ function WhyChooseUs() {
   }));
 
   return (
-    <section className="bg-gray-50 py-24 dark:bg-gray-950">
+    <section className="bg-white py-16 dark:bg-gray-900 sm:py-20">
       <div className="mx-auto max-w-7xl px-6">
 
         <Reveal>
           <div className="mb-16 text-center">
-            <h2 className="text-5xl font-bold text-chadi-green dark:text-chadi-lightgreen">
+            <h2 className="text-3xl font-bold text-chadi-green dark:text-chadi-lightgreen sm:text-4xl">
               {t("home.whyChooseUs.title")}
             </h2>
 

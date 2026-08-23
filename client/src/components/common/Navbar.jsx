@@ -98,11 +98,14 @@ function Navbar() {
 
         {/* Mobile Button */}
 
+        {/* -mr-2 keeps the icon optically aligned with the container edge
+            while the padding grows the tap target to 44px - this is the
+            primary navigation control on mobile and was only 24x24. */}
         <button
           type="button"
           aria-label="Toggle navigation menu"
           onClick={() => setMobileMenu(!mobileMenu)}
-          className={`text-2xl lg:hidden ${
+          className={`-mr-2 flex h-11 w-11 items-center justify-center text-2xl lg:hidden ${
             scrolled ? "text-chadi-green dark:text-chadi-lightgreen" : "text-white"
           }`}
         >

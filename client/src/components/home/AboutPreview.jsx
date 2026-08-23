@@ -30,7 +30,7 @@ function AboutPreview() {
             {t("home.aboutPreview.eyebrow")}
           </span>
 
-          <h2 className="mt-5 text-5xl font-black text-chadi-green dark:text-chadi-lightgreen">
+          <h2 className="mt-5 text-4xl font-black text-chadi-green dark:text-chadi-lightgreen sm:text-5xl">
             {t("home.aboutPreview.title")}
           </h2>
 

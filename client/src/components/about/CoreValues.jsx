@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { FaHeart, FaBalanceScale, FaLightbulb, FaUsers, FaMedal, FaHandshake } from "react-icons/fa";
 import Reveal from "../common/Reveal";
 import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
-import bgImage from "../../assets/projects/start.jpg";
 
 const VALUE_ICONS = {
   compassion: FaHeart,
@@ -24,14 +23,13 @@ function CoreValues() {
     description: t(`about.coreValues.${key}.description`),
   }));
 
+  // A clean solid section, not another photo-behind-a-90%-overlay - the
+  // section immediately above this one on the About page (VisionMission)
+  // already uses that exact treatment, so running it twice in a row made
+  // the two read as one undifferentiated block with no boundary between them.
   return (
-    <section
-      className="relative overflow-hidden bg-gray-50 bg-cover bg-center py-24"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
-      <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/93" />
-
-      <div className="relative mx-auto max-w-7xl px-6">
+    <section className="bg-white py-24 dark:bg-gray-900">
+      <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <h2 className="text-center text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">
             {t("about.coreValues.title")}

@@ -37,11 +37,11 @@ function SocialProof() {
   if (!UPLOADS_PLAYLIST_ID && activeSocials.length === 0) return null;
 
   return (
-    <section className="bg-white py-24 dark:bg-gray-900">
+    <section className="bg-gray-50 py-16 dark:bg-gray-950 sm:py-20">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <Reveal>
           <p className="font-semibold uppercase tracking-widest text-chadi-gold-dark dark:text-chadi-gold">{t("home.socialProof.eyebrow")}</p>
-          <h2 className="mt-3 text-4xl font-bold text-chadi-green sm:text-5xl dark:text-chadi-lightgreen">{t("home.socialProof.title")}</h2>
+          <h2 className="mt-3 text-3xl font-bold text-chadi-green sm:text-4xl dark:text-chadi-lightgreen">{t("home.socialProof.title")}</h2>
         </Reveal>
 
         {UPLOADS_PLAYLIST_ID && (

@@ -72,11 +72,11 @@ function DashboardLayout() {
       )}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-40 w-72 transform bg-chadi-green transition-transform duration-200 lg:static lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 flex w-72 transform flex-col bg-chadi-green transition-transform duration-200 lg:static lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between px-6 py-6">
+        <div className="flex shrink-0 items-center justify-between px-6 py-6">
           <Logo light />
           <button
             type="button"
@@ -88,7 +88,14 @@ function DashboardLayout() {
           </button>
         </div>
 
-        <nav className="mt-2 space-y-1 px-4">
+        {/* flex-1 + overflow-y-auto (rather than the old absolute-positioned
+            footer below) - with this many nav items, the list is taller than
+            the viewport on most screens; without this, the fixed footer sat
+            on top of the last couple of nav links (Admin Users, Settings)
+            instead of the list scrolling underneath it, so a click meant for
+            "Settings" actually landed on the invisible Log out button
+            overlapping it. */}
+        <nav className="flex-1 space-y-1 overflow-y-auto px-4">
           {visibleNavItems.map(({ to, label, icon: Icon }) => (
             <NavLink
               key={to}
@@ -108,7 +115,7 @@ function DashboardLayout() {
           ))}
         </nav>
 
-        <div className="absolute bottom-0 w-full border-t border-white/10 p-4">
+        <div className="w-full shrink-0 border-t border-white/10 p-4">
           <p className="truncate px-2 text-sm font-semibold text-white">
             {user?.name}
           </p>
