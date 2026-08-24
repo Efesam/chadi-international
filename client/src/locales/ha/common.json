@@ -17,6 +17,7 @@
       "resources": "Albarkatu"
     },
     "links": {
+      "ourApproach": "Hanyarmu",
       "events": "Abubuwan da suka faru",
       "gallery": "Hotuna",
       "stories": "Labarai",
@@ -86,9 +87,9 @@
     },
     "visionMission": {
       "title": "Manufarmu",
-      "subtitle": "Ƙirƙirar tasiri mai dorewa ta hanyar ƙarfafa waɗanda aka ware da al'ummomin da ba a kula da su ba.",
-      "vision": { "title": "Hangen Nesa", "description": "Ƙarfafa waɗanda aka ware da al'ummomin da ba a kula da su ba ta hanyar ci gaba mai dorewa, sabuntawa, ilimi, kiwon lafiya da shiga tsakani na jin ƙai." },
-      "mission": { "title": "Manufa", "description": "Tsarawa da aiwatar da shirye-shirye masu sabuntawa da ke inganta lafiya, ilimi, rayuwa, dorewar muhalli, zaman lafiya, samun fasaha da juriyar al'umma a fadin Afirka." }
+      "subtitle": "Duniya inda kowane yaro da matashi ke cikin aminci, yana rayuwa da bege da mutunci, kuma an ba shi ƙarfin isa ga cikakkiyar ƙarfinsa.",
+      "vision": { "title": "Hangen Nesa", "description": "Duniya inda kowane yaro da matashi ke cikin aminci, yana rayuwa da bege da mutunci, kuma an ba shi ƙarfin isa ga cikakkiyar ƙarfinsa." },
+      "mission": { "title": "Manufa", "description": "Ciyar da kariyar yara gaba da kuma ƙarfafa yara da matasa ta hanyar ingantaccen ilimi, lafiya, haɓaka ƙwarewa, ba da shawarwari, da mafita masu dorewa na al'umma da za su ba su damar bunƙasa." }
     },
     "successStories": {
       "title": "Labaran Nasara",
@@ -143,6 +144,7 @@
     }
   },
   "common": {
+    "orgFullName": "Children and Youth Hope Alive Development Initiative",
     "teamShowcase": {
       "title": "Ku Sadu da Ƙungiyarmu",
       "subtitle": "A bayan kowane sauyi mai nasara na al'umma akwai ƙwararrun ma'aikata masu sadaukar da kai wajen ƙirƙirar tasiri mai dorewa.",
@@ -649,19 +651,21 @@
       "eyebrow": "Game da CHADI",
       "title1": "Ƙarfafa Rayuka.",
       "title2": "Sauya Al'ummomi.",
-      "p1": "Caleb Hope Alive Development Initiative (CHADI) ƙungiya ce mai zaman kanta da ke sadaukar da kai wajen ƙarfafa waɗanda aka ware da al'ummomin da ba a kula da su ba a fadin Najeriya ta hanyar ci gaba mai dorewa, ilimi, kiwon lafiya, sabuntawa, da shiga tsakani na jin ƙai.",
+      "p1": "Children and Youth Hope Alive Development Initiative (CHADI) ƙungiya ce ta ci gaban al'umma da ta fi mayar da hankali kan yara da matasa, wadda ta sadaukar da kai wajen kare yara, ƙarfafa matasa da gina al'ummomi masu juriya inda kowane yaro da matashi zai iya rayuwa cikin aminci, koyo, bunƙasa da kuma isa ga cikakkiyar ƙarfinsa.",
       "p2": "Mun yi imani kowane mutum ya cancanci mutunci, dama, ingantaccen kiwon lafiya, ilimi, da bege ba tare da la'akari da inda suke zama ba ko yanayin da ke kewaye da su.",
       "quote": "Muna maido da mutunci, samar da dama, da kuma kawo bege — ta hanyar aiki.",
       "readStory": "Karanta Labarinmu"
     },
     "coreValues": {
       "title": "Ainihin Ƙimarmu",
-      "compassion": { "title": "Jin Ƙai", "description": "Bautawa ɗan adam da tausayi da ƙauna." },
-      "integrity": { "title": "Mutunci", "description": "Bayyana gaskiya da ɗawainiya a duk abin da muke yi." },
-      "innovation": { "title": "Sabuntawa", "description": "Ƙirƙirar mafita mai dorewa don ƙalubalen al'umma." },
-      "inclusion": { "title": "Haɗa Kai", "description": "Tabbatar da kowa na da dama daidai." },
-      "excellence": { "title": "Fifiko", "description": "Isar da shirye-shirye masu tasiri da inganci." },
-      "collaboration": { "title": "Haɗin Gwiwa", "description": "Yin aiki tare da abokan hulɗa da al'ummomi." }
+      "hope": { "title": "Bege", "description": "Mun yi imani kowane yaro da matashi ya cancanci damar yin mafarki, girma da samun nasara." },
+      "integrity": { "title": "Mutunci", "description": "Muna aiki da gaskiya, bayyana gaskiya da ɗawainiya a duk abin da muke yi." },
+      "compassion": { "title": "Jin Ƙai", "description": "Muna hidima da tausayi, girmamawa da mutunci, muna sanya buƙatun yara da matasa a gaba." },
+      "inclusion": { "title": "Haɗa Kai", "description": "Muna daraja bambancin ra'ayi kuma muna tabbatar da cewa kowane yaro da matashi, ba tare da la'akari da iyawa, jinsi ko asali ba, yana da dama daidai." },
+      "empowerment": { "title": "Ƙarfafawa", "description": "Muna ba yara da matasa ilimi, ƙwarewa da ƙarfin gwiwa don tsara makomarsu." },
+      "excellence": { "title": "Fifiko", "description": "Muna neman inganci, sabuntawa da tasiri mai ma'auni a kowane shiri da haɗin gwiwa." },
+      "collaboration": { "title": "Haɗin Gwiwa", "description": "Mun yi imani ana samun canji mai dorewa ta hanyar ƙarfin haɗin gwiwa da al'ummomi, gwamnatoci, masu bayarwa da sauran masu ruwa da tsaki." },
+      "resilience": { "title": "Juriya", "description": "Muna ƙarfafa ikon yara, matasa da al'ummomi na shawo kan ƙalubale da gina makoma mai dorewa." }
     },
     "timeline": {
       "title": "Tafiyarmu",
@@ -669,6 +673,146 @@
       "health": { "title": "Shirye-shiryen Lafiya & Abinci Mai Gina Jiki", "description": "An faɗaɗa shirye-shiryen lafiyar uwa da yaro a fadin al'ummomin karkara." },
       "youth": { "title": "Ƙarfafa Matasa", "description": "An kaddamar da horon ƙwarewar dijital da kasuwanci ga matasa." },
       "expansion": { "title": "Faɗaɗawar Yanki", "description": "An faɗaɗa ayyuka a fadin jihohi da dama a Arewacin Najeriya ta hanyar haɗin gwiwa mai dabara." }
+    }
+  },
+  "ourApproach": {
+    "seoTitle": "Tsarin Dabararmu",
+    "seoDescription": "Ka'idar Canji ta CHADI International da ginshiƙai uku na dabara — Kariya, Ƙarfafawa da Bunƙasa — waɗanda ke jagorantar yadda muke kare yara, ƙarfafa matasa da gina al'ummomi masu juriya.",
+    "pageTitle": "Tsarin Dabararmu",
+    "pageSubtitle": "Kariya. Ƙarfafawa. Bunƙasa.",
+    "theoryOfChange": {
+      "title": "Ka'idar Canjinmu",
+      "description": "Idan aka kare yara da matasa daga cutarwa, aka ƙarfafa su da ilimi da ƙwarewar rayuwa, kuma aka tallafa musu su bunƙasa a cikin al'ummomi masu lafiya, masu haɗa kai da juriya, sun fi shirye don cimma cikakkiyar ƙarfinsu, karya zagayowar talauci da ba da gudummawa mai ma'ana ga ci gaba mai dorewa."
+    },
+    "impactStatement": {
+      "title": "Bayanin Tasirinmu",
+      "description": "CHADI ƙungiya ce ta ci gaban al'umma da ta fi mayar da hankali kan yara da matasa, wadda ta sadaukar da kai wajen kare yara, ƙarfafa matasa da gina al'ummomi masu juriya inda kowane yaro da matashi zai iya rayuwa cikin aminci, koyo, bunƙasa da kuma isa ga cikakkiyar ƙarfinsa."
+    },
+    "programmeModel": {
+      "title": "Tsarin Shirinmu",
+      "protect": "Kiyaye yara da matasa lafiya.",
+      "empower": "Ba yara da matasa ilimi, ƙwarewa da dama.",
+      "thrive": "Gina al'ummomi masu lafiya, juriya da haɗa kai inda yara da matasa ke bunƙasa."
+    },
+    "flagshipLabel": "Manyan Ayyuka",
+    "sdgLabel": "SDGs Da Wannan Ginshiƙi Ke Ciyarwa Gaba",
+    "pillars": {
+      "protect": {
+        "name": "Kariya",
+        "description": "Kare haƙƙoƙi, lafiya, aminci da jin daɗin yara da matasa."
+      },
+      "empower": {
+        "name": "Ƙarfafawa",
+        "description": "Ba yara da matasa ilimi, ƙwarewa da dama don isa ga cikakkiyar ƙarfinsu."
+      },
+      "thrive": {
+        "name": "Bunƙasa",
+        "description": "Gina al'ummomi masu lafiya, juriya da haɗa kai inda yara da matasa ke bunƙasa."
+      }
+    },
+    "projects": {
+      "sovcest": {
+        "name": "Aikin SOVCEST",
+        "description": "Babban shirin CHADI na kariya da ci gaban yara wanda ke tallafa wa yara masu nakasa, marayu da yara masu rauni ta hanyar kariya, shawarwari, ilimi, samun ƙwarewa da haɓaka baiwa."
+      },
+      "miycan": {
+        "name": "Aikin MIYCAN",
+        "description": "Inganta lafiyar uwa, jariri, yara da matasa ta hanyar abinci mai gina jiki, ilimin lafiya da kiwon lafiya na rigakafi."
+      },
+      "childReliefRecovery": {
+        "name": "Taimako da Farfaɗowar Yara",
+        "description": "Kare yara a lokutan gaggawa yayin da ake ƙarfafa makarantu masu aminci da al'ummomi masu juriya."
+      },
+      "futureReady": {
+        "name": "Shirin Shirye don Nan Gaba",
+        "description": "Shirya yara da matasa don ilimi, aikin yi da kasuwanci."
+      },
+      "choices": {
+        "name": "Aikin CHOICES",
+        "description": "Ƙirƙirar Dama Masu Lafiya, Zaɓuɓɓuka Masu Sanarwa da Ɗalibai Masu Ƙarfi."
+      },
+      "youthLeadership": {
+        "name": "Shirin Jagorancin Matasa da Shigar Jama'a",
+        "description": "Gina wata tsara ta shugabannin matasa masu ɗa'a, ƙarfin gwiwa da tunanin al'umma."
+      },
+      "padPeriodCareBank": {
+        "name": "Bankin Kayan Al'ada na CHADI",
+        "description": "Kawo ƙarshen talaucin kayan al'ada da inganta mutuncin al'ada domin 'yan mata su ci gaba da lafiya, ƙarfin gwiwa da kasancewa a makaranta."
+      },
+      "stillHere": {
+        "name": "Har Yanzu Muna Nan",
+        "description": "Inganta lafiyar hankali da rayuwar yara da matasa da ƙalubalen lafiyar hankali da cutar ƙwayar jini (sickle cell) suka shafa, ta hanyar wayar da kai, rigakafi, ba da shawarwari, shawarwari da tallafa wa waɗanda suka tsira."
+      },
+      "greenFutures": {
+        "name": "Makoma Kore",
+        "description": "Ƙarfafa yara da matasa su jagoranci aikin yanayi, kiyaye muhalli, gina zaman lafiya da ci gaban al'umma mai juriya."
+      }
+    },
+    "components": {
+      "startTalentAdvancement": "Haɓaka Baiwa (START)",
+      "childProtectionSafeguarding": "Kariya da Tsaron Yara",
+      "childRightsAdvocacy": "Haƙƙoƙin Yara da Ba da Shawarwari",
+      "counsellingPsychosocialSupport": "Shawarwari da Tallafin Zaman Jama'a",
+      "educationSupport": "Tallafin Ilimi",
+      "skillsAcquisition": "Samun Ƙwarewa",
+      "familyStrengthening": "Ƙarfafa Iyali",
+      "emergencyChildSupport": "Tallafin Gaggawa Ga Yara",
+      "miycn": "Abincin Uwa, Jariri da Ƙaramin Yaro",
+      "healthHour": "Sa'ar Lafiya",
+      "schoolHealthProgramme": "Shirin Lafiyar Makaranta",
+      "adolescentHealth": "Lafiyar Matasa",
+      "mentalHealthPromotion": "Inganta Lafiyar Hankali",
+      "nutritionEducation": "Ilimin Abinci Mai Gina Jiki",
+      "humanitarianResponse": "Martanin Jin Ƙai",
+      "wash": "WASH (Ruwa, Tsafta da Lafiya)",
+      "safeSchools": "Makarantu Masu Aminci",
+      "childProtectionEmergencies": "Kariyar Yara a Lokutan Gaggawa",
+      "disasterRecovery": "Farfaɗowa Daga Bala'i",
+      "communityResilience": "Juriyar Al'umma",
+      "digitalLiteracy": "Ilimin Dijital",
+      "stemEducation": "Ilimin STEM",
+      "financialLiteracy": "Ilimin Kuɗi",
+      "careerDevelopment": "Haɓaka Sana'a",
+      "entrepreneurship": "Kasuwanci",
+      "employabilitySkills": "Ƙwarewar Samun Aiki",
+      "drugAbusePrevention": "Rigakafin Shan Ƙwaya",
+      "lifeSkills": "Ƙwarewar Rayuwa",
+      "leadershipDevelopment": "Haɓaka Jagoranci",
+      "mentorship": "Jagora",
+      "civicEducation": "Ilimin Ɗan Adam da Al'umma",
+      "positiveBehaviourChange": "Canjin Hali Mai Kyau",
+      "youthLeadership": "Jagorancin Matasa",
+      "volunteerism": "Ba da Agaji",
+      "advocacy": "Ba da Shawarwari",
+      "communityService": "Hidimar Al'umma",
+      "peerEducation": "Ilimin Takwarori",
+      "socialInnovation": "Sabuntawar Zamantakewa",
+      "climateAction": "Aikin Yanayi",
+      "peacebuilding": "Gina Zaman Lafiya",
+      "environmentalEducation": "Ilimin Muhalli",
+      "treePlanting": "Dasa Bishiyoyi",
+      "youthClimateLeadership": "Jagorancin Matasa Kan Yanayi",
+      "menstrualHealth": "Lafiyar Al'ada",
+      "periodPovertyPrevention": "Rigakafin Talaucin Kayan Al'ada",
+      "schoolRetentionForGirls": "Riƙe 'Yan Mata a Makaranta",
+      "mentalHealthAwareness": "Wayar da Kai Kan Lafiyar Hankali",
+      "sickleCellSupport": "Tallafi Ga Masu Cutar Ƙwayar Jini",
+      "counselling": "Shawarwari",
+      "survivorSupport": "Tallafa Wa Waɗanda Suka Tsira"
+    },
+    "sdgs": {
+      "2": "Kawar da Yunwa",
+      "3": "Lafiya da Jin Daɗi",
+      "4": "Ingantaccen Ilimi",
+      "5": "Daidaiton Jinsi",
+      "6": "Ruwa Mai Tsafta da Tsaftar Muhalli",
+      "8": "Aikin Yi Mai Kyau da Ci Gaban Tattalin Arziki",
+      "9": "Masana'antu, Sabuntawa da Ababen More Rayuwa",
+      "10": "Rage Rashin Daidaito",
+      "11": "Birane da Al'ummomi Masu Dorewa",
+      "13": "Aikin Yanayi",
+      "16": "Zaman Lafiya, Adalci da Cibiyoyi Masu Ƙarfi",
+      "17": "Haɗin Gwiwa Don Cimma Manufofin"
     }
   }
 }

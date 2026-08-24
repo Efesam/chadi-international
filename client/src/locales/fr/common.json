@@ -17,6 +17,7 @@
       "resources": "Ressources"
     },
     "links": {
+      "ourApproach": "Notre Approche",
       "events": "Événements",
       "gallery": "Galerie",
       "stories": "Témoignages",
@@ -85,10 +86,10 @@
       "climate": "Action climatique"
     },
     "visionMission": {
-      "title": "Notre raison d'être",
-      "subtitle": "Créer un impact durable en autonomisant les personnes marginalisées et les communautés mal desservies.",
-      "vision": { "title": "Vision", "description": "Autonomiser les personnes marginalisées et les communautés mal desservies grâce au développement durable, à l'innovation, à l'éducation, à la santé et à l'action humanitaire." },
-      "mission": { "title": "Mission", "description": "Concevoir et mettre en œuvre des programmes innovants qui améliorent la santé, l'éducation, les moyens de subsistance, la durabilité environnementale, la paix, l'accès à la technologie et la résilience communautaire à travers l'Afrique." }
+      "title": "Notre Raison d'Être",
+      "subtitle": "Un monde où chaque enfant et chaque jeune est en sécurité, vit avec espoir et dignité, et est en mesure de réaliser son plein potentiel.",
+      "vision": { "title": "Vision", "description": "Un monde où chaque enfant et chaque jeune est en sécurité, vit avec espoir et dignité, et est en mesure de réaliser son plein potentiel." },
+      "mission": { "title": "Mission", "description": "Faire progresser la protection de l'enfance et autonomiser les enfants et les jeunes grâce à une éducation de qualité, à la santé, au développement des compétences, au plaidoyer et à des solutions communautaires durables qui leur permettent de s'épanouir." }
     },
     "successStories": {
       "title": "Témoignages de réussite",
@@ -143,6 +144,7 @@
     }
   },
   "common": {
+    "orgFullName": "Children and Youth Hope Alive Development Initiative",
     "teamShowcase": {
       "title": "Rencontrez Notre Équipe",
       "subtitle": "Derrière chaque transformation communautaire réussie se trouve une équipe passionnée engagée à créer un impact durable.",
@@ -649,19 +651,21 @@
       "eyebrow": "À Propos de CHADI",
       "title1": "Autonomiser des Vies.",
       "title2": "Transformer des Communautés.",
-      "p1": "Caleb Hope Alive Development Initiative (CHADI) est une organisation à but non lucratif dédiée à l'autonomisation des personnes marginalisées et des communautés mal desservies à travers le Nigeria grâce au développement durable, à l'éducation, à la santé, à l'innovation et aux interventions humanitaires.",
+      "p1": "Children and Youth Hope Alive Development Initiative (CHADI) est une organisation de développement communautaire axée sur l'enfance et la jeunesse, dédiée à la protection des enfants, à l'autonomisation des jeunes et à la construction de communautés résilientes où chaque enfant et chaque jeune peut vivre en sécurité, apprendre, s'épanouir et réaliser son plein potentiel.",
       "p2": "Nous croyons que chaque individu mérite la dignité, des opportunités, des soins de santé de qualité, l'éducation et l'espoir, peu importe où il vit ou les circonstances qui l'entourent.",
       "quote": "Nous restaurons la dignité, créons des opportunités et redonnons espoir — par l'action.",
       "readStory": "Lire Notre Histoire"
     },
     "coreValues": {
       "title": "Nos Valeurs Fondamentales",
-      "compassion": { "title": "Compassion", "description": "Servir l'humanité avec empathie et amour." },
-      "integrity": { "title": "Intégrité", "description": "Transparence et redevabilité dans tout ce que nous faisons." },
-      "innovation": { "title": "Innovation", "description": "Créer des solutions durables aux défis communautaires." },
-      "inclusion": { "title": "Inclusion", "description": "Garantir à chacun des chances égales." },
-      "excellence": { "title": "Excellence", "description": "Livrer des programmes percutants avec qualité." },
-      "collaboration": { "title": "Collaboration", "description": "Travailler avec les partenaires et les communautés." }
+      "hope": { "title": "Espoir", "description": "Nous croyons que chaque enfant et chaque jeune mérite la possibilité de rêver, de grandir et de réussir." },
+      "integrity": { "title": "Intégrité", "description": "Nous agissons avec honnêteté, transparence et responsabilité dans tout ce que nous faisons." },
+      "compassion": { "title": "Compassion", "description": "Nous servons avec empathie, respect et dignité, en plaçant les besoins des enfants et des jeunes en priorité." },
+      "inclusion": { "title": "Inclusion", "description": "Nous valorisons la diversité et veillons à ce que chaque enfant et chaque jeune, quel que soit son handicap, son genre ou son origine, bénéficie de chances égales." },
+      "empowerment": { "title": "Autonomisation", "description": "Nous dotons les enfants et les jeunes des connaissances, des compétences et de la confiance nécessaires pour façonner leur propre avenir." },
+      "excellence": { "title": "Excellence", "description": "Nous recherchons la qualité, l'innovation et un impact mesurable dans chaque programme et partenariat." },
+      "collaboration": { "title": "Collaboration", "description": "Nous croyons qu'un changement durable s'obtient grâce à des partenariats solides avec les communautés, les gouvernements, les donateurs et les autres parties prenantes." },
+      "resilience": { "title": "Résilience", "description": "Nous renforçons la capacité des enfants, des jeunes et des communautés à surmonter les défis et à bâtir un avenir durable." }
     },
     "timeline": {
       "title": "Notre Parcours",
@@ -669,6 +673,146 @@
       "health": { "title": "Programmes de Santé et de Nutrition", "description": "Extension des initiatives de santé maternelle et infantile dans les communautés rurales." },
       "youth": { "title": "Autonomisation des Jeunes", "description": "Lancement de formations en compétences numériques et entrepreneuriat pour les jeunes." },
       "expansion": { "title": "Expansion Régionale", "description": "Extension des projets à plusieurs États du nord du Nigeria grâce à des partenariats stratégiques." }
+    }
+  },
+  "ourApproach": {
+    "seoTitle": "Notre Cadre Stratégique",
+    "seoDescription": "La théorie du changement de CHADI International et ses trois piliers stratégiques — Protéger, Autonomiser et S'épanouir — qui guident notre action pour protéger les enfants, autonomiser les jeunes et bâtir des communautés résilientes.",
+    "pageTitle": "Notre Cadre Stratégique",
+    "pageSubtitle": "Protéger. Autonomiser. S'épanouir.",
+    "theoryOfChange": {
+      "title": "Notre Théorie du Changement",
+      "description": "Lorsque les enfants et les jeunes sont protégés du danger, dotés d'une éducation et de compétences de vie, et soutenus pour s'épanouir dans des communautés saines, inclusives et résilientes, ils sont mieux armés pour réaliser leur plein potentiel, rompre les cycles de pauvreté et contribuer de manière significative au développement durable."
+    },
+    "impactStatement": {
+      "title": "Notre Déclaration d'Impact",
+      "description": "CHADI est une organisation de développement communautaire axée sur l'enfance et la jeunesse, dédiée à la protection des enfants, à l'autonomisation des jeunes et à la construction de communautés résilientes où chaque enfant et chaque jeune peut vivre en sécurité, apprendre, s'épanouir et réaliser son plein potentiel."
+    },
+    "programmeModel": {
+      "title": "Notre Modèle de Programme",
+      "protect": "Assurer la sécurité des enfants et des jeunes.",
+      "empower": "Doter les enfants et les jeunes de connaissances, de compétences et d'opportunités.",
+      "thrive": "Bâtir des communautés saines, résilientes et inclusives où les enfants et les jeunes s'épanouissent."
+    },
+    "flagshipLabel": "Projets Phares",
+    "sdgLabel": "ODD que ce Pilier Fait Progresser",
+    "pillars": {
+      "protect": {
+        "name": "Protéger",
+        "description": "Protéger les droits, la santé, la sécurité et le bien-être des enfants et des jeunes."
+      },
+      "empower": {
+        "name": "Autonomiser",
+        "description": "Doter les enfants et les jeunes des connaissances, des compétences et des opportunités pour réaliser leur plein potentiel."
+      },
+      "thrive": {
+        "name": "S'épanouir",
+        "description": "Bâtir des communautés saines, résilientes et inclusives où les enfants et les jeunes s'épanouissent."
+      }
+    },
+    "projects": {
+      "sovcest": {
+        "name": "Projet SOVCEST",
+        "description": "Le programme phare de CHADI en matière de protection et de développement de l'enfance, qui soutient les enfants handicapés, les orphelins et les enfants vulnérables grâce à la protection, au conseil, à l'éducation, à l'acquisition de compétences et au développement des talents."
+      },
+      "miycan": {
+        "name": "Projet MIYCAN",
+        "description": "Améliorer la santé maternelle, néonatale, infantile et adolescente grâce à la nutrition, à l'éducation sanitaire et aux soins de santé préventifs."
+      },
+      "childReliefRecovery": {
+        "name": "Secours et Rétablissement de l'Enfance",
+        "description": "Protéger les enfants pendant les urgences tout en renforçant des écoles sûres et des communautés résilientes."
+      },
+      "futureReady": {
+        "name": "Initiative Prêts pour l'Avenir",
+        "description": "Préparer les enfants et les jeunes à l'éducation, à l'emploi et à l'entrepreneuriat."
+      },
+      "choices": {
+        "name": "Projet CHOICES",
+        "description": "Créer des opportunités saines, des choix éclairés et des élèves autonomes."
+      },
+      "youthLeadership": {
+        "name": "Initiative pour le Leadership des Jeunes et l'Engagement Civique",
+        "description": "Former une génération de jeunes leaders éthiques, confiants et engagés envers leur communauté."
+      },
+      "padPeriodCareBank": {
+        "name": "Banque de Serviettes Hygiéniques CHADI",
+        "description": "Mettre fin à la précarité menstruelle et promouvoir la dignité menstruelle afin que les filles restent en bonne santé, confiantes et scolarisées."
+      },
+      "stillHere": {
+        "name": "Toujours Là",
+        "description": "Promouvoir le bien-être mental et améliorer la vie des enfants et des jeunes touchés par des troubles de santé mentale et la drépanocytose, grâce à la sensibilisation, à la prévention, au plaidoyer, au conseil et au soutien aux survivants."
+      },
+      "greenFutures": {
+        "name": "Avenirs Verts",
+        "description": "Donner aux enfants et aux jeunes les moyens de mener l'action climatique, la conservation de l'environnement, la consolidation de la paix et le développement communautaire résilient."
+      }
+    },
+    "components": {
+      "startTalentAdvancement": "Développement des Talents (START)",
+      "childProtectionSafeguarding": "Protection et Sauvegarde de l'Enfance",
+      "childRightsAdvocacy": "Droits de l'Enfant et Plaidoyer",
+      "counsellingPsychosocialSupport": "Conseil et Soutien Psychosocial",
+      "educationSupport": "Soutien Éducatif",
+      "skillsAcquisition": "Acquisition de Compétences",
+      "familyStrengthening": "Renforcement Familial",
+      "emergencyChildSupport": "Soutien d'Urgence à l'Enfance",
+      "miycn": "Nutrition Maternelle, Infantile et du Jeune Enfant",
+      "healthHour": "Heure de la Santé",
+      "schoolHealthProgramme": "Programme de Santé Scolaire",
+      "adolescentHealth": "Santé des Adolescents",
+      "mentalHealthPromotion": "Promotion de la Santé Mentale",
+      "nutritionEducation": "Éducation Nutritionnelle",
+      "humanitarianResponse": "Réponse Humanitaire",
+      "wash": "WASH (Eau, Assainissement et Hygiène)",
+      "safeSchools": "Écoles Sûres",
+      "childProtectionEmergencies": "Protection de l'Enfance en Situation d'Urgence",
+      "disasterRecovery": "Relèvement après Catastrophe",
+      "communityResilience": "Résilience Communautaire",
+      "digitalLiteracy": "Littératie Numérique",
+      "stemEducation": "Éducation STIM",
+      "financialLiteracy": "Littératie Financière",
+      "careerDevelopment": "Développement de Carrière",
+      "entrepreneurship": "Entrepreneuriat",
+      "employabilitySkills": "Compétences d'Employabilité",
+      "drugAbusePrevention": "Prévention de la Toxicomanie",
+      "lifeSkills": "Compétences de Vie",
+      "leadershipDevelopment": "Développement du Leadership",
+      "mentorship": "Mentorat",
+      "civicEducation": "Éducation Civique",
+      "positiveBehaviourChange": "Changement de Comportement Positif",
+      "youthLeadership": "Leadership des Jeunes",
+      "volunteerism": "Bénévolat",
+      "advocacy": "Plaidoyer",
+      "communityService": "Service Communautaire",
+      "peerEducation": "Éducation par les Pairs",
+      "socialInnovation": "Innovation Sociale",
+      "climateAction": "Action Climatique",
+      "peacebuilding": "Consolidation de la Paix",
+      "environmentalEducation": "Éducation Environnementale",
+      "treePlanting": "Plantation d'Arbres",
+      "youthClimateLeadership": "Leadership Climatique des Jeunes",
+      "menstrualHealth": "Santé Menstruelle",
+      "periodPovertyPrevention": "Prévention de la Précarité Menstruelle",
+      "schoolRetentionForGirls": "Maintien des Filles à l'École",
+      "mentalHealthAwareness": "Sensibilisation à la Santé Mentale",
+      "sickleCellSupport": "Soutien aux Personnes Atteintes de Drépanocytose",
+      "counselling": "Conseil",
+      "survivorSupport": "Soutien aux Survivants"
+    },
+    "sdgs": {
+      "2": "Faim « zéro »",
+      "3": "Bonne santé et bien-être",
+      "4": "Éducation de qualité",
+      "5": "Égalité entre les sexes",
+      "6": "Eau propre et assainissement",
+      "8": "Travail décent et croissance économique",
+      "9": "Industrie, innovation et infrastructure",
+      "10": "Inégalités réduites",
+      "11": "Villes et communautés durables",
+      "13": "Mesures relatives à la lutte contre les changements climatiques",
+      "16": "Paix, justice et institutions efficaces",
+      "17": "Partenariats pour la réalisation des objectifs"
     }
   }
 }

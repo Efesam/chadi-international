@@ -17,6 +17,7 @@
       "resources": "资源"
     },
     "links": {
+      "ourApproach": "我们的方法",
       "events": "活动",
       "gallery": "图库",
       "stories": "故事",
@@ -86,9 +87,9 @@
     },
     "visionMission": {
       "title": "我们的宗旨",
-      "subtitle": "通过赋能被边缘化的人群和服务不足的社区,创造持久的影响。",
-      "vision": { "title": "愿景", "description": "通过可持续发展、创新、教育、医疗保健和人道主义干预,赋能被边缘化的人群和服务不足的社区。" },
-      "mission": { "title": "使命", "description": "设计并实施创新项目,改善整个非洲的医疗、教育、生计、环境可持续性、和平、技术获取和社区韧性。" }
+      "subtitle": "一个每个儿童和年轻人都安全、怀抱希望和尊严生活、并有能力充分发挥自身潜力的世界。",
+      "vision": { "title": "愿景", "description": "一个每个儿童和年轻人都安全、怀抱希望和尊严生活、并有能力充分发挥自身潜力的世界。" },
+      "mission": { "title": "使命", "description": "推动儿童保护工作,通过优质教育、医疗、技能发展、倡导以及可持续的社区解决方案,赋能儿童和年轻人,使他们能够茁壮成长。" }
     },
     "successStories": {
       "title": "成功故事",
@@ -143,6 +144,7 @@
     }
   },
   "common": {
+    "orgFullName": "Children and Youth Hope Alive Development Initiative",
     "teamShowcase": {
       "title": "认识我们的团队",
       "subtitle": "每一次成功的社区转变背后,都有一支致力于创造持久影响的热情团队。",
@@ -649,19 +651,21 @@
       "eyebrow": "关于 CHADI",
       "title1": "赋予生命力量。",
       "title2": "改变社区。",
-      "p1": "Caleb Hope Alive Development Initiative(CHADI)是一家非营利组织,致力于通过可持续发展、教育、医疗保健、创新和人道主义干预,赋能整个尼日利亚被边缘化的人群和服务不足的社区。",
+      "p1": "Children and Youth Hope Alive Development Initiative(CHADI)是一家以儿童和青年为核心的社区发展组织,致力于保护儿童、赋能年轻人,并建设有韧性的社区,使每个儿童和年轻人都能安全生活、学习、茁壮成长并充分发挥自身潜力。",
       "p2": "我们相信,无论人们居住在哪里或身处何种境况,每个人都应享有尊严、机会、优质医疗、教育和希望。",
       "quote": "我们通过实际行动恢复尊严、创造机会、带来希望。",
       "readStory": "阅读我们的故事"
     },
     "coreValues": {
       "title": "我们的核心价值观",
-      "compassion": { "title": "同情心", "description": "以同理心和爱心服务人类。" },
-      "integrity": { "title": "诚信", "description": "在我们所做的一切事情中保持透明和问责。" },
-      "innovation": { "title": "创新", "description": "为社区挑战创造可持续的解决方案。" },
-      "inclusion": { "title": "包容", "description": "确保人人享有平等机会。" },
-      "excellence": { "title": "卓越", "description": "以高质量交付有影响力的项目。" },
-      "collaboration": { "title": "协作", "description": "与合作伙伴和社区携手合作。" }
+      "hope": { "title": "希望", "description": "我们相信每个儿童和年轻人都应享有梦想、成长和成功的机会。" },
+      "integrity": { "title": "诚信", "description": "我们在所做的一切事情中都秉持诚实、透明和问责。" },
+      "compassion": { "title": "同情心", "description": "我们以同理心、尊重和尊严提供服务,始终将儿童和年轻人的需求放在首位。" },
+      "inclusion": { "title": "包容", "description": "我们重视多样性,确保每个儿童和年轻人,无论能力、性别或背景如何,都享有平等的机会。" },
+      "empowerment": { "title": "赋能", "description": "我们为儿童和年轻人提供知识、技能和信心,让他们塑造自己的未来。" },
+      "excellence": { "title": "卓越", "description": "我们在每个项目和合作中追求质量、创新和可衡量的影响。" },
+      "collaboration": { "title": "协作", "description": "我们相信,持久的改变要通过与社区、政府、捐赠者及其他利益相关方建立牢固的伙伴关系来实现。" },
+      "resilience": { "title": "韧性", "description": "我们增强儿童、年轻人和社区克服挑战、建设可持续未来的能力。" }
     },
     "timeline": {
       "title": "我们的历程",
@@ -669,6 +673,146 @@
       "health": { "title": "健康与营养项目", "description": "在农村社区扩大孕产妇和儿童健康倡议。" },
       "youth": { "title": "青年赋能", "description": "为年轻人推出数字技能和创业培训。" },
       "expansion": { "title": "区域扩展", "description": "通过战略合作伙伴关系将项目扩展到尼日利亚北部多个州。" }
+    }
+  },
+  "ourApproach": {
+    "seoTitle": "我们的战略框架",
+    "seoDescription": "CHADI International 的变革理论及其三大战略支柱——保护、赋能与茁壮成长——指导我们如何保护儿童、赋能年轻人并建设有韧性的社区。",
+    "pageTitle": "我们的战略框架",
+    "pageSubtitle": "保护。赋能。茁壮成长。",
+    "theoryOfChange": {
+      "title": "我们的变革理论",
+      "description": "当儿童和年轻人免受伤害、获得教育和生活技能的赋能,并在健康、包容和有韧性的社区中得到支持茁壮成长时,他们就能更好地充分发挥自身潜力,打破贫困循环,并为可持续发展做出有意义的贡献。"
+    },
+    "impactStatement": {
+      "title": "我们的影响力声明",
+      "description": "CHADI 是一家以儿童和青年为核心的社区发展组织,致力于保护儿童、赋能年轻人,并建设有韧性的社区,使每个儿童和年轻人都能安全生活、学习、茁壮成长并充分发挥自身潜力。"
+    },
+    "programmeModel": {
+      "title": "我们的项目模式",
+      "protect": "保障儿童和年轻人的安全。",
+      "empower": "为儿童和年轻人提供知识、技能和机会。",
+      "thrive": "建设健康、有韧性且包容的社区,让儿童和年轻人茁壮成长。"
+    },
+    "flagshipLabel": "旗舰项目",
+    "sdgLabel": "该支柱推动的可持续发展目标",
+    "pillars": {
+      "protect": {
+        "name": "保护",
+        "description": "保护儿童和年轻人的权利、健康、安全与福祉。"
+      },
+      "empower": {
+        "name": "赋能",
+        "description": "为儿童和年轻人提供知识、技能和机会,使其充分发挥自身潜力。"
+      },
+      "thrive": {
+        "name": "茁壮成长",
+        "description": "建设健康、有韧性且包容的社区,让儿童和年轻人茁壮成长。"
+      }
+    },
+    "projects": {
+      "sovcest": {
+        "name": "SOVCEST 项目",
+        "description": "CHADI 的旗舰儿童保护与发展项目,通过保护、辅导、教育、技能培训和才能发展,支持残疾儿童、孤儿及弱势儿童。"
+      },
+      "miycan": {
+        "name": "MIYCAN 项目",
+        "description": "通过营养、健康教育和预防性医疗保健,改善孕产妇、新生儿、儿童和青少年的健康状况。"
+      },
+      "childReliefRecovery": {
+        "name": "儿童救援与恢复项目",
+        "description": "在紧急情况下保护儿童,同时加强安全学校建设和社区韧性。"
+      },
+      "futureReady": {
+        "name": "Future Ready 未来准备计划",
+        "description": "为儿童和年轻人的教育、就业和创业做好准备。"
+      },
+      "choices": {
+        "name": "CHOICES 项目",
+        "description": "创造健康的机会、明智的选择和自信的学生。"
+      },
+      "youthLeadership": {
+        "name": "青年领导力与公民参与倡议",
+        "description": "培养一代有道德、自信且心系社区的青年领袖。"
+      },
+      "padPeriodCareBank": {
+        "name": "CHADI 卫生巾与经期护理银行",
+        "description": "终结经期贫困、维护月经尊严,让女孩们保持健康、自信并留在学校。"
+      },
+      "stillHere": {
+        "name": "Still Here",
+        "description": "通过意识提升、预防、倡导、辅导和幸存者支持,促进心理健康,改善受心理健康问题和镰状细胞病影响的儿童和年轻人的生活。"
+      },
+      "greenFutures": {
+        "name": "Green Futures",
+        "description": "赋能儿童和年轻人引领气候行动、环境保护、和平建设和有韧性的社区发展。"
+      }
+    },
+    "components": {
+      "startTalentAdvancement": "才能发展计划(START)",
+      "childProtectionSafeguarding": "儿童保护与安全保障",
+      "childRightsAdvocacy": "儿童权利与倡导",
+      "counsellingPsychosocialSupport": "辅导与心理社会支持",
+      "educationSupport": "教育支持",
+      "skillsAcquisition": "技能培训",
+      "familyStrengthening": "家庭建设",
+      "emergencyChildSupport": "儿童紧急援助",
+      "miycn": "孕产妇、婴幼儿营养",
+      "healthHour": "健康时刻",
+      "schoolHealthProgramme": "校园健康项目",
+      "adolescentHealth": "青少年健康",
+      "mentalHealthPromotion": "心理健康促进",
+      "nutritionEducation": "营养教育",
+      "humanitarianResponse": "人道主义响应",
+      "wash": "水、卫生与环境卫生(WASH)",
+      "safeSchools": "安全学校",
+      "childProtectionEmergencies": "紧急情况下的儿童保护",
+      "disasterRecovery": "灾后恢复",
+      "communityResilience": "社区韧性",
+      "digitalLiteracy": "数字素养",
+      "stemEducation": "STEM 教育",
+      "financialLiteracy": "金融素养",
+      "careerDevelopment": "职业发展",
+      "entrepreneurship": "创业",
+      "employabilitySkills": "就业能力技能",
+      "drugAbusePrevention": "预防药物滥用",
+      "lifeSkills": "生活技能",
+      "leadershipDevelopment": "领导力发展",
+      "mentorship": "导师指导",
+      "civicEducation": "公民教育",
+      "positiveBehaviourChange": "积极行为改变",
+      "youthLeadership": "青年领导力",
+      "volunteerism": "志愿服务",
+      "advocacy": "倡导",
+      "communityService": "社区服务",
+      "peerEducation": "同伴教育",
+      "socialInnovation": "社会创新",
+      "climateAction": "气候行动",
+      "peacebuilding": "和平建设",
+      "environmentalEducation": "环境教育",
+      "treePlanting": "植树",
+      "youthClimateLeadership": "青年气候领导力",
+      "menstrualHealth": "月经健康",
+      "periodPovertyPrevention": "预防经期贫困",
+      "schoolRetentionForGirls": "女童留校率提升",
+      "mentalHealthAwareness": "心理健康意识",
+      "sickleCellSupport": "镰状细胞病支持",
+      "counselling": "辅导",
+      "survivorSupport": "幸存者支持"
+    },
+    "sdgs": {
+      "2": "消除饥饿",
+      "3": "良好健康与福祉",
+      "4": "优质教育",
+      "5": "性别平等",
+      "6": "清洁饮水和卫生设施",
+      "8": "体面工作和经济增长",
+      "9": "产业、创新和基础设施",
+      "10": "减少不平等",
+      "11": "可持续城市和社区",
+      "13": "气候行动",
+      "16": "和平、正义与强大机构",
+      "17": "促进目标实现的伙伴关系"
     }
   }
 }

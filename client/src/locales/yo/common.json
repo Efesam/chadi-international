@@ -17,6 +17,7 @@
       "resources": "Àwọn Ohun Èlò"
     },
     "links": {
+      "ourApproach": "Ọ̀nà Tí A Ń Gbà",
       "events": "Àwọn Ìṣẹ̀lẹ̀",
       "gallery": "Àwòrán",
       "stories": "Àwọn Ìtàn",
@@ -86,9 +87,9 @@
     },
     "visionMission": {
       "title": "Ète Wa",
-      "subtitle": "Ṣíṣẹ̀dá ipa tí ó dúró ṣinṣin nípa fífún àwọn tí a fi sílẹ̀ àti àwọn àwùjọ tí a kò tọ́jú ní agbára.",
-      "vision": { "title": "Ìran", "description": "Fífún àwọn tí a fi sílẹ̀ àti àwọn àwùjọ tí a kò tọ́jú ní agbára nípasẹ̀ ìdàgbàsókè tí ó dúró ṣinṣin, ìmúdàgbàsókè, ẹ̀kọ́, ìtọ́jú ìlera àti ìdásí ọ̀tọ̀ọ̀tọ̀." },
-      "mission": { "title": "Iṣẹ́ Àṣesìnlú", "description": "Láti ṣe ìlànà àti ṣe àmúlò àwọn ètò tí ó ní ìmúdàgbàsókè tí ó ń mú ìlera, ẹ̀kọ́, ìgbésí ayé, ìdúróṣinṣin àyíká, àlàáfíà, àǹfààní sí ìmọ̀ ẹ̀rọ àti ìfaradà àwùjọ sunwọ̀n sí i káàkiri Áfíríkà." }
+      "subtitle": "Ayé kan níbi tí ọmọdé àti ọ̀dọ́ kọ̀ọ̀kan ti wà láìléwu, tí ó sì ń gbé pẹ̀lú ìrètí àti ọ̀wọ̀, tí a sì fún ní agbára láti dé ibi tí agbára rẹ̀ dé.",
+      "vision": { "title": "Ìran", "description": "Ayé kan níbi tí ọmọdé àti ọ̀dọ́ kọ̀ọ̀kan ti wà láìléwu, tí ó sì ń gbé pẹ̀lú ìrètí àti ọ̀wọ̀, tí a sì fún ní agbára láti dé ibi tí agbára rẹ̀ dé." },
+      "mission": { "title": "Iṣẹ́ Àṣesìnlú", "description": "Láti gbé ìdáàbòbò ọmọdé lárugẹ àti láti fún àwọn ọmọdé àti ọ̀dọ́ ní agbára nípasẹ̀ ẹ̀kọ́ dídára, ìtọ́jú ìlera, ìdàgbàsókè ọgbọ́n, ìjà fún ẹ̀tọ́, àti àwọn ọ̀nà àbáyọ àwùjọ tí ó dúró ṣinṣin tí ó máa jẹ́ kí wọ́n gbèrú." }
     },
     "successStories": {
       "title": "Àwọn Ìtàn Àṣeyọrí",
@@ -143,6 +144,7 @@
     }
   },
   "common": {
+    "orgFullName": "Children and Youth Hope Alive Development Initiative",
     "teamShowcase": {
       "title": "Ẹ Pàdé Ẹgbẹ́ Wa",
       "subtitle": "Lẹ́yìn gbogbo ìyípadà àwùjọ tí ó ṣàṣeyọrí ni ẹgbẹ́ onífẹ̀ẹ́ tí ó ṣe ìfaramọ́ láti ṣẹ̀dá ipa tí ó dúró ṣinṣin.",
@@ -649,19 +651,21 @@
       "eyebrow": "Nípa CHADI",
       "title1": "Ìkápá Ẹ̀mí.",
       "title2": "Ìyípadà Àwọn Àwùjọ.",
-      "p1": "Caleb Hope Alive Development Initiative (CHADI) jẹ́ àjọ aláìlérè-jíjẹ́ tí ó ń fi ara rẹ̀ fún kíkápá àwọn tí a fi sílẹ̀ àti àwọn àwùjọ tí a kò tọ́jú jákèjádò Nàìjíríà nípasẹ̀ ìdàgbàsókè tí ó dúró ṣinṣin, ẹ̀kọ́, ìtọ́jú ìlera, ìmúdàgbàsókè, àti ìdásí ọ̀tọ̀ọ̀tọ̀.",
+      "p1": "Children and Youth Hope Alive Development Initiative (CHADI) jẹ́ àjọ ìdàgbàsókè àwùjọ tí ó pọkàn sí ọmọdé àti ọ̀dọ́, tí ó ń fi ara rẹ̀ fún ìdáàbòbò ọmọdé, fífún àwọn ọ̀dọ́ ní agbára àti kíkọ́ àwọn àwùjọ tí ó lágbára tí ọmọdé àti ọ̀dọ́ kọ̀ọ̀kan lè fi gbé láìléwu, kẹ́kọ̀ọ́, gbèrú, kí wọ́n sì dé ibi tí agbára wọn dé.",
       "p2": "A gbàgbọ́ pé olúkúlùkù ẹnìkọ̀ọ̀kan yẹ kí ó ní ọ̀wọ̀, àǹfààní, ìtọ́jú ìlera dídára, ẹ̀kọ́, àti ìrètí láìka ibi tí wọ́n ń gbé tàbí àwọn ipò tí ó yí wọn ká sí.",
       "quote": "A ń mú ọ̀wọ̀ padà bọ̀, a ń ṣẹ̀dá àǹfààní, a sì ń mú ìrètí wá sí ayé — nípa iṣẹ́ ṣíṣe.",
       "readStory": "Ka Ìtàn Wa"
     },
     "coreValues": {
       "title": "Àwọn Ìlànà Ìpìlẹ̀ Wa",
-      "compassion": { "title": "Ìyọ́nú", "description": "Bíbá aráyé ṣiṣẹ́ pẹ̀lú ìmọ̀lára àti ìfẹ́." },
-      "integrity": { "title": "Ìdúróṣinṣin", "description": "Ìṣírò ó ye kí àti ìṣirò nínú ohun gbogbo tí a ń ṣe." },
-      "innovation": { "title": "Ìmúdàgbàsókè", "description": "Ṣíṣẹ̀dá ọ̀nà àbáyọ tí ó dúró ṣinṣin fún àwọn ìpèníjà àwùjọ." },
-      "inclusion": { "title": "Ìsopọ̀mọ́ra", "description": "Rí i dájú pé gbogbo ènìyàn ní àǹfààní dọ́gba." },
-      "excellence": { "title": "Ìtayọlọ́lá", "description": "Fífi àwọn ètò tí ó ní ipa hàn pẹ̀lú ìdára." },
-      "collaboration": { "title": "Ìfọwọ́sowọ́pọ̀", "description": "Ṣíṣiṣẹ́ pọ̀ pẹ̀lú alábàáṣepọ̀ àti àwùjọ." }
+      "hope": { "title": "Ìrètí", "description": "A gbàgbọ́ pé ọmọdé àti ọ̀dọ́ kọ̀ọ̀kan yẹ kí ó ní àǹfààní láti la àlá, dàgbà, kí ó sì ṣàṣeyọrí." },
+      "integrity": { "title": "Ìdúróṣinṣin", "description": "A ń ṣe nǹkan pẹ̀lú òdodo, ìṣírò ó ye kí àti ìṣirò nínú ohun gbogbo tí a ń ṣe." },
+      "compassion": { "title": "Ìyọ́nú", "description": "A ń sìn pẹ̀lú ìmọ̀lára, ọ̀wọ̀ àti iyì, ní fífi àìní àwọn ọmọdé àti ọ̀dọ́ sí ipò àkọ́kọ́." },
+      "inclusion": { "title": "Ìsopọ̀mọ́ra", "description": "A ń fi iye lé onírúurú, a sì ń rí i dájú pé ọmọdé àti ọ̀dọ́ kọ̀ọ̀kan, láìka agbára, ìbálòpọ̀ tàbí ìpìlẹ̀ wọn sí, ní àǹfààní dọ́gba." },
+      "empowerment": { "title": "Ìkápá", "description": "A ń fún àwọn ọmọdé àti ọ̀dọ́ ní ìmọ̀, ọgbọ́n àti ìgboyà láti fi ṣe àpẹrẹ ọjọ́ ọ̀la tiwọn fúnra wọn." },
+      "excellence": { "title": "Ìtayọlọ́lá", "description": "A ń lépa ìdára, ìmúdàgbàsókè àti ipa tí ó ní ìwọ̀n nínú ètò àti ìfọwọ́sowọ́pọ̀ kọ̀ọ̀kan." },
+      "collaboration": { "title": "Ìfọwọ́sowọ́pọ̀", "description": "A gbàgbọ́ pé ìyípadà tí ó dúró ṣinṣin ni a lè ṣàṣeyọrí rẹ̀ nípasẹ̀ ìfọwọ́sowọ́pọ̀ tí ó lágbára pẹ̀lú àwọn àwùjọ, ìjọba, olùtọrẹ àti àwọn mìíràn tí ó kàn." },
+      "resilience": { "title": "Ìfaradà", "description": "A ń mú agbára àwọn ọmọdé, ọ̀dọ́ àti àwùjọ lágbára láti borí ìpèníjà kí wọ́n sì kọ́ ọjọ́ ọ̀la tí ó dúró ṣinṣin." }
     },
     "timeline": {
       "title": "Ìrìnàjò Wa",
@@ -669,6 +673,146 @@
       "health": { "title": "Àwọn Ètò Ìlera & Oúnjẹ Oníjẹ̀unnini", "description": "A gbòòrò àwọn ìlọ́wọ́sí ìlera ìyá àti ọmọdé jákèjádò àwọn àwùjọ ìgbèríko." },
       "youth": { "title": "Ìkápá Àwọn Ọ̀dọ́", "description": "A ṣe ìfilọ́lẹ̀ ìdánilẹ́kọ̀ọ́ ọgbọ́n dìjítàlì àti ìṣòwò fún àwọn ọ̀dọ́." },
       "expansion": { "title": "Ìgbòòrò Agbègbè", "description": "A gbòòrò àwọn iṣẹ́ jákèjádò àwọn ìpínlẹ̀ mélòó kan ní Àríwá Nàìjíríà nípasẹ̀ ìfọwọ́sowọ́pọ̀ tí ó ní ète." }
+    }
+  },
+  "ourApproach": {
+    "seoTitle": "Ìlànà Àṣesìnlú Wa",
+    "seoDescription": "Ìlànà Ìyípadà CHADI International àti àwọn ọ̀wọ́n mẹ́ta rẹ̀ ti àṣesìnlú — Dáàbò bò, Fún ní Agbára àti Gbèrú — tí ó ń darí bí a ṣe ń dáàbò bo ọmọdé, ṣe fún àwọn ọ̀dọ́ ní agbára, tí a sì ń kọ́ àwọn àwùjọ tí ó lágbára.",
+    "pageTitle": "Ìlànà Àṣesìnlú Wa",
+    "pageSubtitle": "Dáàbò bò. Fún ní Agbára. Gbèrú.",
+    "theoryOfChange": {
+      "title": "Ìlànà Ìyípadà Wa",
+      "description": "Nígbà tí a bá dáàbò bo àwọn ọmọdé àti ọ̀dọ́ kúrò lọ́wọ́ ewu, tí a fún wọn ní agbára pẹ̀lú ẹ̀kọ́ àti ọgbọ́n ìgbésí ayé, tí a sì ràn wọ́n lọ́wọ́ láti gbèrú nínú àwọn àwùjọ tí ó ní ìlera, tí ó sí sílẹ̀ fún gbogbo ènìyàn, tí ó sì lágbára, wọ́n máa ń dára jùlọ sí àti dé ibi tí agbára wọn dé, láti já àwọn àyíká ìṣẹ́ tán, kí wọ́n sì fi ọwọ́ kan ìdàgbàsókè tí ó dúró ṣinṣin ní ọ̀nà tí ó ní ìtumọ̀."
+    },
+    "impactStatement": {
+      "title": "Gbólóhùn Ipa Wa",
+      "description": "CHADI jẹ́ àjọ ìdàgbàsókè àwùjọ tí ó pọkàn sí ọmọdé àti ọ̀dọ́, tí ó ń fi ara rẹ̀ fún ìdáàbòbò ọmọdé, fífún àwọn ọ̀dọ́ ní agbára àti kíkọ́ àwọn àwùjọ tí ó lágbára tí ọmọdé àti ọ̀dọ́ kọ̀ọ̀kan lè fi gbé láìléwu, kẹ́kọ̀ọ́, gbèrú, kí wọ́n sì dé ibi tí agbára wọn dé."
+    },
+    "programmeModel": {
+      "title": "Ìlànà Ètò Wa",
+      "protect": "Rí i dájú pé ọmọdé àti ọ̀dọ́ wà láìléwu.",
+      "empower": "Fífún àwọn ọmọdé àti ọ̀dọ́ ní ìmọ̀, ọgbọ́n àti àǹfààní.",
+      "thrive": "Kíkọ́ àwọn àwùjọ tí ó ní ìlera, tí ó lágbára, tí ó sì sí sílẹ̀ fún gbogbo ènìyàn níbi tí ọmọdé àti ọ̀dọ́ ti ń gbèrú."
+    },
+    "flagshipLabel": "Àwọn Iṣẹ́ Aṣíwájú",
+    "sdgLabel": "Àwọn Èròngbà SDG Tí Ọ̀wọ́n Yìí Ń Gbé Lárugẹ",
+    "pillars": {
+      "protect": {
+        "name": "Dáàbò bò",
+        "description": "Dídáàbò bo ẹ̀tọ́, ìlera, ààbò àti ire àwọn ọmọdé àti ọ̀dọ́."
+      },
+      "empower": {
+        "name": "Fún ní Agbára",
+        "description": "Fífún àwọn ọmọdé àti ọ̀dọ́ ní ìmọ̀, ọgbọ́n àti àǹfààní láti dé ibi tí agbára wọn dé."
+      },
+      "thrive": {
+        "name": "Gbèrú",
+        "description": "Kíkọ́ àwọn àwùjọ tí ó ní ìlera, tí ó lágbára, tí ó sì sí sílẹ̀ fún gbogbo ènìyàn níbi tí ọmọdé àti ọ̀dọ́ ti ń gbèrú."
+      }
+    },
+    "projects": {
+      "sovcest": {
+        "name": "Iṣẹ́ SOVCEST",
+        "description": "Ètò aṣíwájú CHADI ti ìdáàbòbò àti ìdàgbàsókè ọmọdé tí ó ń ṣàtìlẹ́yìn fún àwọn ọmọdé aláàbùkù, àwọn ọmọ òrukàn àti àwọn ọmọdé tí ó wà nínú ewu nípasẹ̀ ìdáàbòbò, ìmọ̀ràn, ẹ̀kọ́, ìdálẹ́kọ̀ọ́ ọgbọ́n àti ìdàgbàsókè ẹ̀bùn."
+      },
+      "miycan": {
+        "name": "Iṣẹ́ MIYCAN",
+        "description": "Ìmúdára ìlera ìyá, ọmọ tuntun, ọmọdé àti ọ̀dọ́langba nípasẹ̀ oúnjẹ oníjẹ̀unnini, ẹ̀kọ́ ìlera àti ìtọ́jú ìlera ìdènà."
+      },
+      "childReliefRecovery": {
+        "name": "Ìrànlọ́wọ́ àti Ìmúpadàbọ̀sípò Ọmọdé",
+        "description": "Dídáàbò bo àwọn ọmọdé nígbà pàjáwìrì, bákan náà ni a ń mú àwọn ilé-ìwé tí ó láìléwu àti àwọn àwùjọ tí ó lágbára lágbára sí i."
+      },
+      "futureReady": {
+        "name": "Ìlànà Future Ready",
+        "description": "Ìmúrasílẹ̀ àwọn ọmọdé àti ọ̀dọ́ fún ẹ̀kọ́, iṣẹ́ àti ìṣòwò ara ẹni."
+      },
+      "choices": {
+        "name": "Iṣẹ́ CHOICES",
+        "description": "Ṣíṣẹ̀dá àǹfààní tí ó ní ìlera, àṣàyàn tí ó ní ìmọ̀ àti àwọn akẹ́kọ̀ọ́ tí a fún ní agbára."
+      },
+      "youthLeadership": {
+        "name": "Ìlànà Ìdarí Àwọn Ọ̀dọ́ àti Ìlọ́wọ́sí Ìjọba Ìlú",
+        "description": "Kíkọ́ ìran àwọn aṣíwájú ọ̀dọ́ tí ó ní ìwà rere, tí ó ní ìgboyà, tí ó sì bìkítà nípa àwùjọ."
+      },
+      "padPeriodCareBank": {
+        "name": "Ilé Ìfowópamọ́ Aṣọ Òsùn àti Ìtọ́jú Nǹkan Oṣù CHADI",
+        "description": "Fífòpin sí òṣì nǹkan oṣù àti ìgbélárugẹ iyì nǹkan oṣù kí àwọn ọmọbìnrin lè máa wà ní ìlera, ní ìgboyà, kí wọ́n sì máa wà ní ilé-ìwé."
+      },
+      "stillHere": {
+        "name": "Still Here",
+        "description": "Ìgbélárugẹ ire ọpọlọ àti ìmúdára ìgbésí ayé àwọn ọmọdé àti ọ̀dọ́ tí àwọn ìpèníjà ìlera ọpọlọ àti àìsàn sẹ́ẹ̀lì dòjijì ti kàn nípasẹ̀ ìmọ̀ jíjinlẹ̀, ìdènà, ìjà fún ẹ̀tọ́, ìmọ̀ràn àti àtìlẹ́yìn fún àwọn tí ó la a já."
+      },
+      "greenFutures": {
+        "name": "Green Futures",
+        "description": "Fífún àwọn ọmọdé àti ọ̀dọ́ ní agbára láti darí ìgbésẹ̀ ojú-ọjọ́, ìtọ́jú àyíká, kíkọ́ àlàáfíà àti ìdàgbàsókè àwùjọ tí ó lágbára."
+      }
+    },
+    "components": {
+      "startTalentAdvancement": "Ìdàgbàsókè Ẹ̀bùn (START)",
+      "childProtectionSafeguarding": "Ìdáàbòbò àti Ìṣọ́ Ọmọdé",
+      "childRightsAdvocacy": "Ẹ̀tọ́ Ọmọdé àti Ìjà Fún Ẹ̀tọ́",
+      "counsellingPsychosocialSupport": "Ìmọ̀ràn àti Àtìlẹ́yìn Ọpọlọ-Àwùjọ",
+      "educationSupport": "Àtìlẹ́yìn Ẹ̀kọ́",
+      "skillsAcquisition": "Ìdálẹ́kọ̀ọ́ Ọgbọ́n",
+      "familyStrengthening": "Ìmúlágbára Ìdílé",
+      "emergencyChildSupport": "Àtìlẹ́yìn Pàjáwìrì Fún Ọmọdé",
+      "miycn": "Oúnjẹ Oníjẹ̀unnini Ìyá, Ọmọ Ọwọ́ àti Ọmọdé",
+      "healthHour": "Wákàtí Ìlera",
+      "schoolHealthProgramme": "Ètò Ìlera Ilé-Ìwé",
+      "adolescentHealth": "Ìlera Ọ̀dọ́langba",
+      "mentalHealthPromotion": "Ìgbélárugẹ Ìlera Ọpọlọ",
+      "nutritionEducation": "Ẹ̀kọ́ Oúnjẹ Oníjẹ̀unnini",
+      "humanitarianResponse": "Ìdáhùn Ọ̀tọ̀ọ̀tọ̀",
+      "wash": "Omi, Ìmọ́tótó àti Ìwà Mímọ́ (WASH)",
+      "safeSchools": "Ilé-Ìwé Tí Ó Láìléwu",
+      "childProtectionEmergencies": "Ìdáàbòbò Ọmọdé Nígbà Pàjáwìrì",
+      "disasterRecovery": "Ìmúpadàbọ̀sípò Lẹ́yìn Àjálù",
+      "communityResilience": "Ìfaradà Àwùjọ",
+      "digitalLiteracy": "Ìmọ̀ Kíkọ Dìjítàlì",
+      "stemEducation": "Ẹ̀kọ́ STEM",
+      "financialLiteracy": "Ìmọ̀ Nípa Owó",
+      "careerDevelopment": "Ìdàgbàsókè Iṣẹ́ Àkọ́ṣẹ́",
+      "entrepreneurship": "Ìṣòwò Ara Ẹni",
+      "employabilitySkills": "Ọgbọ́n Fún Rírí Iṣẹ́",
+      "drugAbusePrevention": "Ìdènà Lílo Oògùn Olóró",
+      "lifeSkills": "Ọgbọ́n Ìgbésí Ayé",
+      "leadershipDevelopment": "Ìdàgbàsókè Ìdarí",
+      "mentorship": "Ìtọ́sọ́nà",
+      "civicEducation": "Ẹ̀kọ́ Ìjọba Ìlú",
+      "positiveBehaviourChange": "Ìyípadà Ìwà Rere",
+      "youthLeadership": "Ìdarí Àwọn Ọ̀dọ́",
+      "volunteerism": "Ìyọ̀ǹda Ara Ẹni",
+      "advocacy": "Ìjà Fún Ẹ̀tọ́",
+      "communityService": "Iṣẹ́ Ìsìn Àwùjọ",
+      "peerEducation": "Ẹ̀kọ́ Láti Ọ̀dọ̀ Ẹgbẹ́",
+      "socialInnovation": "Ìmúdàgbàsókè Àwùjọ",
+      "climateAction": "Ìgbésẹ̀ Ojú-Ọjọ́",
+      "peacebuilding": "Kíkọ́ Àlàáfíà",
+      "environmentalEducation": "Ẹ̀kọ́ Àyíká",
+      "treePlanting": "Gbígbin Igi",
+      "youthClimateLeadership": "Ìdarí Àwọn Ọ̀dọ́ Lórí Ojú-Ọjọ́",
+      "menstrualHealth": "Ìlera Nǹkan Oṣù",
+      "periodPovertyPrevention": "Ìdènà Òṣì Nǹkan Oṣù",
+      "schoolRetentionForGirls": "Rírí i Dájú Pé Àwọn Ọmọbìnrin Wà Ní Ilé-Ìwé",
+      "mentalHealthAwareness": "Ìmọ̀ Nípa Ìlera Ọpọlọ",
+      "sickleCellSupport": "Àtìlẹ́yìn Fún Àìsàn Sẹ́ẹ̀lì Dòjijì",
+      "counselling": "Ìmọ̀ràn",
+      "survivorSupport": "Àtìlẹ́yìn Fún Àwọn Tí Ó La A Já"
+    },
+    "sdgs": {
+      "2": "Ìparun Ebi",
+      "3": "Ìlera àti Ire Gbígbé Dáradára",
+      "4": "Ẹ̀kọ́ Dídára",
+      "5": "Ìdọ́gba Ìbálòpọ̀",
+      "6": "Omi Mímọ́ àti Ìmọ́tótó",
+      "8": "Iṣẹ́ Tí Ó Yẹ àti Ìdàgbàsókè Ọrọ̀-Ajé",
+      "9": "Iṣẹ́ Ilé-Iṣẹ́, Ìmúdàgbàsókè àti Ohun Àmúlò Ìpìlẹ̀",
+      "10": "Ìdínkù Àìdọ́gba",
+      "11": "Àwọn Ìlú àti Àwùjọ Tí Ó Dúró Ṣinṣin",
+      "13": "Ìgbésẹ̀ Ojú-Ọjọ́",
+      "16": "Àlàáfíà, Ìdájọ́ Òdodo àti Àwọn Ilé-Iṣẹ́ Tí Ó Lágbára",
+      "17": "Ìfọwọ́sowọ́pọ̀ Fún Àwọn Èròngbà"
     }
   }
 }

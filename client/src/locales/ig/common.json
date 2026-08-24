@@ -17,6 +17,7 @@
       "resources": "Akụrụngwa"
     },
     "links": {
+      "ourApproach": "Ụzọ Anyị",
       "events": "Ihe Omume",
       "gallery": "Foto",
       "stories": "Akụkọ",
@@ -86,9 +87,9 @@
     },
     "visionMission": {
       "title": "Ebumnobi Anyị",
-      "subtitle": "Ịmepụta mmetụta na-adịgide adịgide site n'inye ndị a hapụrụ na obodo a na-elekwaghị anya ike.",
-      "vision": { "title": "Ọhụụ", "description": "Inye ndị a hapụrụ na obodo a na-elekwaghị anya ike site na mmepe na-adịgide adịgide, mmepụta ọhụrụ, agụmakwụkwọ, ahụike na ntinye aka mmadụ." },
-      "mission": { "title": "Ebumnobi", "description": "Ịhazi na imezinye mmemme mmepụta ọhụrụ na-emeziwanye ahụike, agụmakwụkwọ, ndụ, mmekọrịta gburugburu na-adịgide adịgide, udo, ohere ịnweta teknụzụ na ike obodo iguzosi ike n'ofe Africa." }
+      "subtitle": "Ụwa ebe nwata ọ bụla na onye na-eto eto nọ n'enweghị ihe egwu, na-ebi ndụ nwere olileanya na ugwu, ma nwee ikike iru n'ebumnuche ha zuru oke.",
+      "vision": { "title": "Ọhụụ", "description": "Ụwa ebe nwata ọ bụla na onye na-eto eto nọ n'enweghị ihe egwu, na-ebi ndụ nwere olileanya na ugwu, ma nwee ikike iru n'ebumnuche ha zuru oke." },
+      "mission": { "title": "Ebumnobi", "description": "Ịkwalite nchekwa ụmụaka na inye ụmụaka na ndị na-eto eto ike site n'agụmakwụkwọ dị mma, ahụike, mmepe nka, mkpalite, na ngwọta obodo na-adịgide adịgide nke ga-eme ka ha na-eto eto nke ọma." }
     },
     "successStories": {
       "title": "Akụkọ Ihe Ịga Nke Ọma",
@@ -143,6 +144,7 @@
     }
   },
   "common": {
+    "orgFullName": "Children and Youth Hope Alive Development Initiative",
     "teamShowcase": {
       "title": "Zute Ndị Otu Anyị",
       "subtitle": "N'azụ mgbanwe obodo ọ bụla nke gara nke ọma bụ ndị otu nwere ọkụ n'obi na-arụsi ọrụ ike iji mepụta mmetụta na-adịgide adịgide.",
@@ -649,19 +651,21 @@
       "eyebrow": "Gbasara CHADI",
       "title1": "Inye Ndụ Ike.",
       "title2": "Ịgbanwe Obodo.",
-      "p1": "Caleb Hope Alive Development Initiative (CHADI) bụ ọrụ ebumnobi na-arụghị ọrụ maka uru onwe ya nke raara onwe ya nye inye ndị a hapụrụ na obodo a na-elekwaghị anya ike gafere Naịjirịa site na mmepe na-adịgide adịgide, agụmakwụkwọ, ahụike, mmepụta ọhụrụ, na ntinye aka mmadụ.",
+      "p1": "Children and Youth Hope Alive Development Initiative (CHADI) bụ ọrụ mmepe obodo lekwasịrị anya n'ụmụaka na ndị na-eto eto, nke raara onwe ya nye ichekwa ụmụaka, inye ndị na-eto eto ike na iwuli obodo siri ike ebe nwata ọ bụla na onye na-eto eto nwere ike ibi ndụ n'enweghị ihe egwu, mụta ihe, too eto ma ruo n'ebumnuche ha zuru oke.",
       "p2": "Anyị kwenyere na onye ọ bụla kwesịrị ugwu, ohere, ahụike dị mma, agụmakwụkwọ, na olileanya n'agbanyeghị ebe ha bi ma ọ bụ ọnọdụ gbara ha gburugburu.",
       "quote": "Anyị na-eweghachi ugwu, na-emepụta ohere, ma na-ewetakwa olileanya — site n'ọrụ.",
       "readStory": "Gụọ Akụkọ Anyị"
     },
     "coreValues": {
       "title": "Ụkpụrụ Isi Anyị",
-      "compassion": { "title": "Ọmịiko", "description": "Ije ozi ụmụ mmadụ site n'ọmịiko na ịhụnanya." },
-      "integrity": { "title": "Izi Ezi", "description": "Ịnụ ihe ọhụrụ na gbasara ihe ego n'ihe niile anyị na-eme." },
-      "innovation": { "title": "Mmepụta Ọhụrụ", "description": "Ịmepụta ngwọta na-adịgide adịgide maka nsogbu obodo." },
-      "inclusion": { "title": "Itinye Onye Ọ Bụla", "description": "Ịhụ na onye ọ bụla nwere ohere hà nhà." },
-      "excellence": { "title": "Ịkacha Mma", "description": "Inyefe mmemme nwere mmetụta site n'ịdị mma." },
-      "collaboration": { "title": "Mmekọrịta", "description": "Iso ndị mmekọ na obodo rụkọọ ọrụ." }
+      "hope": { "title": "Olileanya", "description": "Anyị kwenyere na nwata ọ bụla na onye na-eto eto kwesịrị ohere ịrọ nrọ, too eto na iru na nke ọma." },
+      "integrity": { "title": "Izi Ezi", "description": "Anyị na-eme ihe niile anyị na-eme site n'eziokwu, ihe ọhụrụ na gbasara ihe ego." },
+      "compassion": { "title": "Ọmịiko", "description": "Anyị na-eje ozi site n'ọmịiko, nkwanye ùgwù na ugwu, na-ebubu mkpa ụmụaka na ndị na-eto eto nke mbụ." },
+      "inclusion": { "title": "Itinye Onye Ọ Bụla", "description": "Anyị na-akwanyere ọdịiche ùgwù ma na-ahụ na nwata ọ bụla na onye na-eto eto, n'agbanyeghị ikike, okike ma ọ bụ akụkọ ndụ ha, nwere ohere ha nhata." },
+      "empowerment": { "title": "Ikike Inye", "description": "Anyị na-enye ụmụaka na ndị na-eto eto ihe ọmụma, nka na obi ike iji kpụọ ọdịnihu nke ha." },
+      "excellence": { "title": "Ịkacha Mma", "description": "Anyị na-achụso ịdị mma, mmepụta ọhụrụ na mmetụta a pụrụ ịtụ na mmemme na mmekọrịta ọ bụla." },
+      "collaboration": { "title": "Mmekọrịta", "description": "Anyị kwenyere na a na-enweta mgbanwe na-adịgide adịgide site na mmekọrịta siri ike na obodo, ọchịchị, ndị na-enye onyinye na ndị ọzọ metụtara." },
+      "resilience": { "title": "Iguzosi Ike", "description": "Anyị na-emesi ike ikike ụmụaka, ndị na-eto eto na obodo iji merie ihe ịma aka ma wuo ọdịnihu na-adịgide adịgide." }
     },
     "timeline": {
       "title": "Njem Anyị",
@@ -669,6 +673,146 @@
       "health": { "title": "Mmemme Ahụike & Nri Na-eweta Ahụike", "description": "Gbasaa ngwa nlekọta ahụike nne na nwa gafere obodo ime obodo." },
       "youth": { "title": "Inye Ndị Na-eto Eto Ike", "description": "Malitere ọzụzụ nka dijitalụ na ọzụzụ ịrụ ọrụ onwe onye maka ndị na-eto eto." },
       "expansion": { "title": "Mgbasa Mpaghara", "description": "Gbasaa ọrụ gafere steeti ọtụtụ na Ugwu Naịjirịa site na mmekọrịta enwere atụmatụ." }
+    }
+  },
+  "ourApproach": {
+    "seoTitle": "Usoro Atụmatụ Anyị",
+    "seoDescription": "Tiori Mgbanwe nke CHADI International na ogidi atụmatụ atọ — Nchekwa, Ikike Inye na Ito Eto — na-eduzi otu anyị si echekwa ụmụaka, na-enye ndị na-eto eto ike ma na-ewu obodo siri ike.",
+    "pageTitle": "Usoro Atụmatụ Anyị",
+    "pageSubtitle": "Chekwaa. Nye Ike. Too Eto.",
+    "theoryOfChange": {
+      "title": "Tiori Mgbanwe Anyị",
+      "description": "Mgbe echekwara ụmụaka na ndị na-eto eto pụọ na mmerụ ahụ, e nyere ha ike site n'agụmakwụkwọ na nka ndụ, ma kwado ha ka ha too eto n'obodo nwere ahụike, na-etinye onye ọ bụla, na nke siri ike, ha na-adịkwu njikere iru n'ebumnuche ha zuru oke, gbochie okirikiri ụkọ akụ, ma tinye aka n'ụzọ bara uru na mmepe na-adịgide adịgide."
+    },
+    "impactStatement": {
+      "title": "Nkwupụta Mmetụta Anyị",
+      "description": "CHADI bụ ọrụ mmepe obodo lekwasịrị anya n'ụmụaka na ndị na-eto eto, nke raara onwe ya nye ichekwa ụmụaka, inye ndị na-eto eto ike na iwuli obodo siri ike ebe nwata ọ bụla na onye na-eto eto nwere ike ibi ndụ n'enweghị ihe egwu, mụta ihe, too eto ma ruo n'ebumnuche ha zuru oke."
+    },
+    "programmeModel": {
+      "title": "Ụdị Mmemme Anyị",
+      "protect": "Ichekwa ụmụaka na ndị na-eto eto ka ha nọrọ n'enweghị ihe egwu.",
+      "empower": "Inye ụmụaka na ndị na-eto eto ihe ọmụma, nka na ohere.",
+      "thrive": "Iwuli obodo nwere ahụike, siri ike ma na-etinye onye ọ bụla ebe ụmụaka na ndị na-eto eto na-eto eto nke ọma."
+    },
+    "flagshipLabel": "Ọrụ Isi",
+    "sdgLabel": "SDGs Ogidi A Na-akwalite",
+    "pillars": {
+      "protect": {
+        "name": "Chekwaa",
+        "description": "Ichekwa ikike, ahụike, nchekwa na ọdịmma ụmụaka na ndị na-eto eto."
+      },
+      "empower": {
+        "name": "Nye Ike",
+        "description": "Inye ụmụaka na ndị na-eto eto ihe ọmụma, nka na ohere iji ruo n'ebumnuche ha zuru oke."
+      },
+      "thrive": {
+        "name": "Too Eto",
+        "description": "Iwuli obodo nwere ahụike, siri ike ma na-etinye onye ọ bụla ebe ụmụaka na ndị na-eto eto na-eto eto nke ọma."
+      }
+    },
+    "projects": {
+      "sovcest": {
+        "name": "Ọrụ SOVCEST",
+        "description": "Isi mmemme CHADI nke nchekwa na mmepe ụmụaka na-akwado ụmụaka nwere nkwarụ, ndị na-enweghị nne na nna na ụmụaka nọ n'ọnọdụ ike ọgbaghara site na nchekwa, ndụmọdụ, agụmakwụkwọ, mmụta nka na mmepe onyinye aka."
+      },
+      "miycan": {
+        "name": "Ọrụ MIYCAN",
+        "description": "Imelite ahụike nne, nwa ọhụrụ, nwata na okorobịa/agbọghọ site na nri na-eweta ahụike, agụmakwụkwọ ahụike na nlekọta ahụike mgbochi."
+      },
+      "childReliefRecovery": {
+        "name": "Enyemaka na Ntọghata Ụmụaka",
+        "description": "Ichekwa ụmụaka n'oge mberede ebe a na-emesi ụlọ akwụkwọ nchekwa na obodo siri ike ike."
+      },
+      "futureReady": {
+        "name": "Atụmatụ Njikere Ọdịnihu",
+        "description": "Ịkwado ụmụaka na ndị na-eto eto maka agụmakwụkwọ, ọrụ na ịrụ ọrụ onwe onye."
+      },
+      "choices": {
+        "name": "Ọrụ CHOICES",
+        "description": "Ịmepụta Ohere Ahụike, Nhọrọ Nwere Ozi na Ụmụ Akwụkwọ Enyere Ike."
+      },
+      "youthLeadership": {
+        "name": "Atụmatụ Ndudo Ndị Na-eto Eto na Itinye Aka Obodo",
+        "description": "Iwuli ọgbọ ndị ndu na-eto eto nwere ezi omume, obi ike na uche gbasara obodo."
+      },
+      "padPeriodCareBank": {
+        "name": "Ụlọ Nchekwa Ihe Nlekọta Nsọ Nwanyị nke CHADI",
+        "description": "Ikwụsị ụkọ ihe nsọ nwanyị na ịkwalite ugwu nsọ nwanyị ka ụmụ agbọghọ nwere ike nọgide nwee ahụike, obi ike na ịga akwụkwọ."
+      },
+      "stillHere": {
+        "name": "Ka Anyị Nọ",
+        "description": "Ịkwalite ọdịmma uche na imelite ndụ ụmụaka na ndị na-eto eto ihe ịma aka ahụike uche na ọrịa sickle cell metụtara, site na ịmụbawanye mmata, mgbochi, mkpalite, ndụmọdụ na nkwado ndị lanarịrị ọnwụ."
+      },
+      "greenFutures": {
+        "name": "Ọdịnihu Ndụ Akwụkwọ",
+        "description": "Inye ụmụaka na ndị na-eto eto ike iduzi omume ihu igwe, nchekwa gburugburu ebe obibi, iwu udo na mmepe obodo siri ike."
+      }
+    },
+    "components": {
+      "startTalentAdvancement": "Mmepe Onyinye Aka (START)",
+      "childProtectionSafeguarding": "Nchekwa na Nchebe Ụmụaka",
+      "childRightsAdvocacy": "Ikike Ụmụaka na Mkpalite",
+      "counsellingPsychosocialSupport": "Ndụmọdụ na Nkwado Uche na Mmekọrịta",
+      "educationSupport": "Nkwado Agụmakwụkwọ",
+      "skillsAcquisition": "Mmụta Nka",
+      "familyStrengthening": "Imesi Ezinụlọ Ike",
+      "emergencyChildSupport": "Nkwado Mberede Ụmụaka",
+      "miycn": "Nri Nne, Nwa Ọhụrụ na Nwata Dị Obere",
+      "healthHour": "Elekere Ahụike",
+      "schoolHealthProgramme": "Mmemme Ahụike Ụlọ Akwụkwọ",
+      "adolescentHealth": "Ahụike Okorobịa na Agbọghọ",
+      "mentalHealthPromotion": "Ịkwalite Ahụike Uche",
+      "nutritionEducation": "Agụmakwụkwọ Nri Na-eweta Ahụike",
+      "humanitarianResponse": "Nzaghachi Enyemaka Mmadụ",
+      "wash": "WASH (Mmiri, Idi Ọcha na Ahụike)",
+      "safeSchools": "Ụlọ Akwụkwọ Nchekwa",
+      "childProtectionEmergencies": "Nchekwa Ụmụaka n'Oge Mberede",
+      "disasterRecovery": "Ntọghata Site n'Ọdachi",
+      "communityResilience": "Iguzosi Ike Obodo",
+      "digitalLiteracy": "Ịma Ihe Banyere Dijitalụ",
+      "stemEducation": "Agụmakwụkwọ STEM",
+      "financialLiteracy": "Ịma Ihe Banyere Ego",
+      "careerDevelopment": "Mmepe Ọrụ Ndụ",
+      "entrepreneurship": "Ịrụ Ọrụ Onwe Onye",
+      "employabilitySkills": "Nka Ị Ga-eji Nweta Ọrụ",
+      "drugAbusePrevention": "Mgbochi Ojiji Ọgwụ Ọjọọ",
+      "lifeSkills": "Nka Ndụ",
+      "leadershipDevelopment": "Mmepe Ndudo",
+      "mentorship": "Ndudo Nkuzi",
+      "civicEducation": "Agụmakwụkwọ Obodo",
+      "positiveBehaviourChange": "Mgbanwe Omume Dị Mma",
+      "youthLeadership": "Ndudo Ndị Na-eto Eto",
+      "volunteerism": "Ọrụ Afọ Ofufu",
+      "advocacy": "Mkpalite",
+      "communityService": "Ọrụ Obodo",
+      "peerEducation": "Agụmakwụkwọ Ndị Ogbo",
+      "socialInnovation": "Mmepụta Ọhụrụ Mmekọrịta",
+      "climateAction": "Omume Ihu Igwe",
+      "peacebuilding": "Iwu Udo",
+      "environmentalEducation": "Agụmakwụkwọ Gburugburu Ebe Obibi",
+      "treePlanting": "Ịkụ Osisi",
+      "youthClimateLeadership": "Ndudo Ndị Na-eto Eto Banyere Ihu Igwe",
+      "menstrualHealth": "Ahụike Nsọ Nwanyị",
+      "periodPovertyPrevention": "Mgbochi Ụkọ Ihe Nsọ Nwanyị",
+      "schoolRetentionForGirls": "Ime ka Ụmụ Agbọghọ Nọgide n'Ụlọ Akwụkwọ",
+      "mentalHealthAwareness": "Mmata Banyere Ahụike Uche",
+      "sickleCellSupport": "Nkwado Ndị Nwere Ọrịa Sickle Cell",
+      "counselling": "Ndụmọdụ",
+      "survivorSupport": "Nkwado Ndị Lanarịrị Ọnwụ"
+    },
+    "sdgs": {
+      "2": "Ịkagbu Agụụ",
+      "3": "Ezi Ahụike na Ọdịmma",
+      "4": "Agụmakwụkwọ Dị Mma",
+      "5": "Ohaeze Nwoke na Nwanyị",
+      "6": "Mmiri Dị Ọcha na Ịdị Ọcha",
+      "8": "Ọrụ Kwesịrị Ekwesị na Uto Akụ na Ụba",
+      "9": "Ganihu Ụlọ Ọrụ, Mmepụta Ọhụrụ na Akụrụngwa",
+      "10": "Ibelata Enweghị Ohaeze",
+      "11": "Obodo na Mpaghara Na-adịgide Adịgide",
+      "13": "Omume Ihu Igwe",
+      "16": "Udo, Ikpe Ziri Ezi na Ụlọ Ọrụ Siri Ike",
+      "17": "Mmekọrịta Maka Ebumnobi Ndị Ahụ"
     }
   }
 }

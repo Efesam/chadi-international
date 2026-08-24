@@ -17,6 +17,7 @@
       "resources": "Ressourcen"
     },
     "links": {
+      "ourApproach": "Unser Ansatz",
       "events": "Veranstaltungen",
       "gallery": "Galerie",
       "stories": "Geschichten",
@@ -86,9 +87,9 @@
     },
     "visionMission": {
       "title": "Unser Auftrag",
-      "subtitle": "Nachhaltige Wirkung schaffen, indem wir marginalisierte Menschen und unterversorgte Gemeinschaften stärken.",
-      "vision": { "title": "Vision", "description": "Stärkung marginalisierter Menschen und unterversorgter Gemeinschaften durch nachhaltige Entwicklung, Innovation, Bildung, Gesundheitsversorgung und humanitäre Maßnahmen." },
-      "mission": { "title": "Mission", "description": "Innovative Programme zu entwerfen und umzusetzen, die Gesundheit, Bildung, Lebensgrundlagen, ökologische Nachhaltigkeit, Frieden, Zugang zu Technologie und die Widerstandsfähigkeit von Gemeinschaften in ganz Afrika verbessern." }
+      "subtitle": "Eine Welt, in der jedes Kind und jeder junge Mensch sicher ist, mit Hoffnung und Würde lebt und befähigt wird, sein volles Potenzial zu entfalten.",
+      "vision": { "title": "Vision", "description": "Eine Welt, in der jedes Kind und jeder junge Mensch sicher ist, mit Hoffnung und Würde lebt und befähigt wird, sein volles Potenzial zu entfalten." },
+      "mission": { "title": "Mission", "description": "Den Kinderschutz voranzutreiben und Kinder und junge Menschen durch hochwertige Bildung, Gesundheit, Kompetenzentwicklung, Interessenvertretung und nachhaltige Gemeinschaftslösungen zu stärken, die es ihnen ermöglichen, zu gedeihen." }
     },
     "successStories": {
       "title": "Erfolgsgeschichten",
@@ -143,6 +144,7 @@
     }
   },
   "common": {
+    "orgFullName": "Children and Youth Hope Alive Development Initiative",
     "teamShowcase": {
       "title": "Lernen Sie Unser Team Kennen",
       "subtitle": "Hinter jeder erfolgreichen gesellschaftlichen Transformation steht ein leidenschaftliches Team, das sich für nachhaltige Wirkung einsetzt.",
@@ -649,19 +651,21 @@
       "eyebrow": "Über CHADI",
       "title1": "Leben Stärken.",
       "title2": "Gemeinschaften Verändern.",
-      "p1": "Die Caleb Hope Alive Development Initiative (CHADI) ist eine gemeinnützige Organisation, die sich der Stärkung marginalisierter Menschen und unterversorgter Gemeinschaften in ganz Nigeria durch nachhaltige Entwicklung, Bildung, Gesundheitsversorgung, Innovation und humanitäre Maßnahmen widmet.",
+      "p1": "Die Children and Youth Hope Alive Development Initiative (CHADI) ist eine auf Kinder und junge Menschen ausgerichtete Organisation für Gemeindeentwicklung, die sich dem Schutz von Kindern, der Stärkung junger Menschen und dem Aufbau widerstandsfähiger Gemeinschaften widmet, in denen jedes Kind und jeder junge Mensch sicher leben, lernen, gedeihen und sein volles Potenzial entfalten kann.",
       "p2": "Wir glauben, dass jeder Mensch Würde, Chancen, qualitativ hochwertige Gesundheitsversorgung, Bildung und Hoffnung verdient, unabhängig davon, wo er lebt oder unter welchen Umständen.",
       "quote": "Wir stellen Würde wieder her, schaffen Chancen und bringen Hoffnung — durch Taten.",
       "readStory": "Unsere Geschichte Lesen"
     },
     "coreValues": {
       "title": "Unsere Grundwerte",
-      "compassion": { "title": "Mitgefühl", "description": "Der Menschheit mit Empathie und Liebe dienen." },
-      "integrity": { "title": "Integrität", "description": "Transparenz und Rechenschaftspflicht in allem, was wir tun." },
-      "innovation": { "title": "Innovation", "description": "Nachhaltige Lösungen für gesellschaftliche Herausforderungen schaffen." },
-      "inclusion": { "title": "Inklusion", "description": "Sicherstellen, dass jeder gleiche Chancen hat." },
-      "excellence": { "title": "Exzellenz", "description": "Wirkungsvolle Programme mit Qualität umsetzen." },
-      "collaboration": { "title": "Zusammenarbeit", "description": "Gemeinsam mit Partnern und Gemeinschaften arbeiten." }
+      "hope": { "title": "Hoffnung", "description": "Wir glauben, dass jedes Kind und jeder junge Mensch die Chance verdient, zu träumen, zu wachsen und erfolgreich zu sein." },
+      "integrity": { "title": "Integrität", "description": "Wir handeln in allem, was wir tun, ehrlich, transparent und rechenschaftspflichtig." },
+      "compassion": { "title": "Mitgefühl", "description": "Wir dienen mit Empathie, Respekt und Würde und stellen die Bedürfnisse von Kindern und jungen Menschen an erste Stelle." },
+      "inclusion": { "title": "Inklusion", "description": "Wir schätzen Vielfalt und stellen sicher, dass jedes Kind und jeder junge Mensch, unabhängig von Fähigkeit, Geschlecht oder Herkunft, gleiche Chancen hat." },
+      "empowerment": { "title": "Stärkung", "description": "Wir vermitteln Kindern und jungen Menschen das Wissen, die Fähigkeiten und das Selbstvertrauen, um ihre eigene Zukunft zu gestalten." },
+      "excellence": { "title": "Exzellenz", "description": "Wir streben in jedem Programm und jeder Partnerschaft nach Qualität, Innovation und messbarer Wirkung." },
+      "collaboration": { "title": "Zusammenarbeit", "description": "Wir glauben, dass dauerhafter Wandel durch starke Partnerschaften mit Gemeinschaften, Regierungen, Spendern und anderen Interessengruppen erreicht wird." },
+      "resilience": { "title": "Widerstandsfähigkeit", "description": "Wir stärken die Fähigkeit von Kindern, jungen Menschen und Gemeinschaften, Herausforderungen zu meistern und eine nachhaltige Zukunft aufzubauen." }
     },
     "timeline": {
       "title": "Unser Werdegang",
@@ -669,6 +673,146 @@
       "health": { "title": "Gesundheits- und Ernährungsprogramme", "description": "Ausweitung der Initiativen für die Gesundheit von Müttern und Kindern in ländlichen Gemeinschaften." },
       "youth": { "title": "Stärkung Junger Menschen", "description": "Start von Schulungen in digitalen Fähigkeiten und Unternehmertum für junge Menschen." },
       "expansion": { "title": "Regionale Expansion", "description": "Ausweitung von Projekten auf mehrere Bundesstaaten in Nordnigeria durch strategische Partnerschaften." }
+    }
+  },
+  "ourApproach": {
+    "seoTitle": "Unser Strategischer Rahmen",
+    "seoDescription": "Die Theory of Change von CHADI International und die drei strategischen Säulen — Schützen, Stärken und Gedeihen — die leiten, wie wir Kinder schützen, junge Menschen stärken und widerstandsfähige Gemeinschaften aufbauen.",
+    "pageTitle": "Unser Strategischer Rahmen",
+    "pageSubtitle": "Schützen. Stärken. Gedeihen.",
+    "theoryOfChange": {
+      "title": "Unsere Theory of Change",
+      "description": "Wenn Kinder und junge Menschen vor Schaden geschützt, mit Bildung und Lebenskompetenzen gestärkt und dabei unterstützt werden, in gesunden, inklusiven und widerstandsfähigen Gemeinschaften zu gedeihen, sind sie besser in der Lage, ihr volles Potenzial zu entfalten, den Kreislauf der Armut zu durchbrechen und sinnvoll zur nachhaltigen Entwicklung beizutragen."
+    },
+    "impactStatement": {
+      "title": "Unser Wirkungsversprechen",
+      "description": "CHADI ist eine auf Kinder und junge Menschen ausgerichtete Organisation für Gemeindeentwicklung, die sich dem Schutz von Kindern, der Stärkung junger Menschen und dem Aufbau widerstandsfähiger Gemeinschaften widmet, in denen jedes Kind und jeder junge Mensch sicher leben, lernen, gedeihen und sein volles Potenzial entfalten kann."
+    },
+    "programmeModel": {
+      "title": "Unser Programmmodell",
+      "protect": "Kinder und junge Menschen sicher halten.",
+      "empower": "Kinder und junge Menschen mit Wissen, Fähigkeiten und Chancen ausstatten.",
+      "thrive": "Aufbau gesunder, widerstandsfähiger und inklusiver Gemeinschaften, in denen Kinder und junge Menschen aufblühen."
+    },
+    "flagshipLabel": "Vorzeigeprojekte",
+    "sdgLabel": "SDGs, die diese Säule voranbringt",
+    "pillars": {
+      "protect": {
+        "name": "Schützen",
+        "description": "Schutz der Rechte, Gesundheit, Sicherheit und des Wohlergehens von Kindern und jungen Menschen."
+      },
+      "empower": {
+        "name": "Stärken",
+        "description": "Ausstattung von Kindern und jungen Menschen mit Wissen, Fähigkeiten und Chancen, um ihr volles Potenzial zu entfalten."
+      },
+      "thrive": {
+        "name": "Gedeihen",
+        "description": "Aufbau gesunder, widerstandsfähiger und inklusiver Gemeinschaften, in denen Kinder und junge Menschen aufblühen."
+      }
+    },
+    "projects": {
+      "sovcest": {
+        "name": "SOVCEST-Projekt",
+        "description": "Das Vorzeigeprogramm von CHADI für Kinderschutz und -entwicklung, das Kinder mit Behinderungen, Waisen und gefährdete Kinder durch Schutz, Beratung, Bildung, Kompetenzerwerb und Talentförderung unterstützt."
+      },
+      "miycan": {
+        "name": "MIYCAN-Projekt",
+        "description": "Verbesserung der Gesundheit von Müttern, Neugeborenen, Kindern und Jugendlichen durch Ernährung, Gesundheitsbildung und präventive Gesundheitsversorgung."
+      },
+      "childReliefRecovery": {
+        "name": "Kinderhilfe und -erholung",
+        "description": "Schutz von Kindern während Notfällen bei gleichzeitiger Stärkung sicherer Schulen und widerstandsfähiger Gemeinschaften."
+      },
+      "futureReady": {
+        "name": "Future-Ready-Initiative",
+        "description": "Vorbereitung von Kindern und jungen Menschen auf Bildung, Beschäftigung und Unternehmertum."
+      },
+      "choices": {
+        "name": "CHOICES-Projekt",
+        "description": "Schaffung gesunder Möglichkeiten, informierter Entscheidungen und gestärkter Schüler."
+      },
+      "youthLeadership": {
+        "name": "Initiative für Jugendführung und bürgerschaftliches Engagement",
+        "description": "Aufbau einer Generation ethischer, selbstbewusster und gemeinschaftsorientierter junger Führungskräfte."
+      },
+      "padPeriodCareBank": {
+        "name": "CHADI Binden- und Menstruationsbank",
+        "description": "Beendigung von Menstruationsarmut und Förderung der Menstruationswürde, damit Mädchen gesund, selbstbewusst und in der Schule bleiben können."
+      },
+      "stillHere": {
+        "name": "Still Here",
+        "description": "Förderung des seelischen Wohlbefindens und Verbesserung des Lebens von Kindern und jungen Menschen, die von psychischen Herausforderungen und Sichelzellenkrankheit betroffen sind, durch Aufklärung, Prävention, Interessenvertretung, Beratung und Unterstützung von Überlebenden."
+      },
+      "greenFutures": {
+        "name": "Green Futures",
+        "description": "Befähigung von Kindern und jungen Menschen, Klimaschutz, Umweltschutz, Friedensförderung und widerstandsfähige Gemeindeentwicklung anzuführen."
+      }
+    },
+    "components": {
+      "startTalentAdvancement": "Talentförderung (START)",
+      "childProtectionSafeguarding": "Kinderschutz und Prävention",
+      "childRightsAdvocacy": "Kinderrechte und Interessenvertretung",
+      "counsellingPsychosocialSupport": "Beratung und psychosoziale Unterstützung",
+      "educationSupport": "Bildungsförderung",
+      "skillsAcquisition": "Kompetenzerwerb",
+      "familyStrengthening": "Stärkung der Familie",
+      "emergencyChildSupport": "Nothilfe für Kinder",
+      "miycn": "Ernährung von Müttern, Säuglingen und Kleinkindern",
+      "healthHour": "Gesundheitsstunde",
+      "schoolHealthProgramme": "Schulgesundheitsprogramm",
+      "adolescentHealth": "Jugendgesundheit",
+      "mentalHealthPromotion": "Förderung der psychischen Gesundheit",
+      "nutritionEducation": "Ernährungsbildung",
+      "humanitarianResponse": "Humanitäre Hilfe",
+      "wash": "WASH (Wasser, Sanitärversorgung und Hygiene)",
+      "safeSchools": "Sichere Schulen",
+      "childProtectionEmergencies": "Kinderschutz in Notsituationen",
+      "disasterRecovery": "Katastrophenerholung",
+      "communityResilience": "Widerstandsfähigkeit der Gemeinschaft",
+      "digitalLiteracy": "Digitale Kompetenz",
+      "stemEducation": "MINT-Bildung",
+      "financialLiteracy": "Finanzielle Bildung",
+      "careerDevelopment": "Karriereentwicklung",
+      "entrepreneurship": "Unternehmertum",
+      "employabilitySkills": "Beschäftigungsfähigkeit",
+      "drugAbusePrevention": "Prävention von Drogenmissbrauch",
+      "lifeSkills": "Lebenskompetenzen",
+      "leadershipDevelopment": "Führungskompetenzentwicklung",
+      "mentorship": "Mentoring",
+      "civicEducation": "Politische Bildung",
+      "positiveBehaviourChange": "Positive Verhaltensänderung",
+      "youthLeadership": "Jugendführung",
+      "volunteerism": "Freiwilligenarbeit",
+      "advocacy": "Interessenvertretung",
+      "communityService": "Gemeinschaftsdienst",
+      "peerEducation": "Peer-Education",
+      "socialInnovation": "Soziale Innovation",
+      "climateAction": "Klimaschutz",
+      "peacebuilding": "Friedensförderung",
+      "environmentalEducation": "Umweltbildung",
+      "treePlanting": "Baumpflanzung",
+      "youthClimateLeadership": "Jugendliche Klimaführung",
+      "menstrualHealth": "Menstruationsgesundheit",
+      "periodPovertyPrevention": "Prävention von Menstruationsarmut",
+      "schoolRetentionForGirls": "Schulverbleib für Mädchen",
+      "mentalHealthAwareness": "Bewusstsein für psychische Gesundheit",
+      "sickleCellSupport": "Unterstützung bei Sichelzellenkrankheit",
+      "counselling": "Beratung",
+      "survivorSupport": "Unterstützung von Überlebenden"
+    },
+    "sdgs": {
+      "2": "Kein Hunger",
+      "3": "Gesundheit und Wohlergehen",
+      "4": "Hochwertige Bildung",
+      "5": "Geschlechtergleichheit",
+      "6": "Sauberes Wasser und Sanitäreinrichtungen",
+      "8": "Menschenwürdige Arbeit und Wirtschaftswachstum",
+      "9": "Industrie, Innovation und Infrastruktur",
+      "10": "Weniger Ungleichheiten",
+      "11": "Nachhaltige Städte und Gemeinden",
+      "13": "Maßnahmen zum Klimaschutz",
+      "16": "Frieden, Gerechtigkeit und starke Institutionen",
+      "17": "Partnerschaften zur Erreichung der Ziele"
     }
   }
 }

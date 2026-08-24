@@ -17,6 +17,7 @@
       "resources": "Resources"
     },
     "links": {
+      "ourApproach": "Our Approach",
       "events": "Events",
       "gallery": "Gallery",
       "stories": "Stories",
@@ -36,6 +37,7 @@
     "rss": "RSS"
   },
   "common": {
+    "orgFullName": "Children and Youth Hope Alive Development Initiative",
     "teamShowcase": {
       "title": "Meet Our Team",
       "subtitle": "Behind every successful community transformation is a passionate team committed to creating lasting impact.",
@@ -196,9 +198,9 @@
     },
     "visionMission": {
       "title": "Our Purpose",
-      "subtitle": "Creating lasting impact by empowering marginalized individuals and underserved communities.",
-      "vision": { "title": "Vision", "description": "Empowering marginalized individuals and underserved communities through sustainable development, innovation, education, healthcare and humanitarian interventions." },
-      "mission": { "title": "Mission", "description": "To design and implement innovative programs that improve health, education, livelihoods, environmental sustainability, peace, technology access and community resilience across Africa." }
+      "subtitle": "A world where every child and young person is safe, lives with hope and dignity, and is empowered to reach their full potential.",
+      "vision": { "title": "Vision", "description": "A world where every child and young person is safe, lives with hope and dignity, and is empowered to reach their full potential." },
+      "mission": { "title": "Mission", "description": "To advance child protection and empower children and young people through quality education, health, skills development, advocacy, and sustainable community solutions that enable them to thrive." }
     },
     "successStories": {
       "title": "Success Stories",
@@ -649,19 +651,21 @@
       "eyebrow": "About CHADI",
       "title1": "Empowering Lives.",
       "title2": "Transforming Communities.",
-      "p1": "Caleb Hope Alive Development Initiative (CHADI) is a non-profit organization dedicated to empowering marginalized individuals and underserved communities across Nigeria through sustainable development, education, healthcare, innovation, and humanitarian interventions.",
+      "p1": "Children and Youth Hope Alive Development Initiative (CHADI) is a child and youth-focused community development organization dedicated to protecting children, empowering young people and building resilient communities where every child and young person can live safely, learn, thrive and reach their full potential.",
       "p2": "We believe every individual deserves dignity, opportunity, quality healthcare, education, and hope regardless of where they live or the circumstances surrounding them.",
       "quote": "We restore dignity, create opportunity, and bring hope alive — through action.",
       "readStory": "Read our story"
     },
     "coreValues": {
       "title": "Our Core Values",
-      "compassion": { "title": "Compassion", "description": "Serving humanity with empathy and love." },
-      "integrity": { "title": "Integrity", "description": "Transparency and accountability in everything we do." },
-      "innovation": { "title": "Innovation", "description": "Creating sustainable solutions for community challenges." },
-      "inclusion": { "title": "Inclusion", "description": "Ensuring everyone has equal opportunities." },
-      "excellence": { "title": "Excellence", "description": "Delivering impactful programs with quality." },
-      "collaboration": { "title": "Collaboration", "description": "Working together with partners and communities." }
+      "hope": { "title": "Hope", "description": "We believe every child and young person deserves the opportunity to dream, grow and succeed." },
+      "integrity": { "title": "Integrity", "description": "We act with honesty, transparency and accountability in all that we do." },
+      "compassion": { "title": "Compassion", "description": "We serve with empathy, respect and dignity, putting the needs of children and young people first." },
+      "inclusion": { "title": "Inclusion", "description": "We value diversity and ensure that every child and young person, regardless of ability, gender or background, has equal opportunities." },
+      "empowerment": { "title": "Empowerment", "description": "We equip children and young people with the knowledge, skills and confidence to shape their own futures." },
+      "excellence": { "title": "Excellence", "description": "We pursue quality, innovation and measurable impact in every programme and partnership." },
+      "collaboration": { "title": "Collaboration", "description": "We believe lasting change is achieved through strong partnerships with communities, governments, donors and other stakeholders." },
+      "resilience": { "title": "Resilience", "description": "We strengthen the capacity of children, young people and communities to overcome challenges and build sustainable futures." }
     },
     "timeline": {
       "title": "Our Journey",
@@ -669,6 +673,146 @@
       "health": { "title": "Health & Nutrition Programs", "description": "Expanded maternal and child health initiatives across rural communities." },
       "youth": { "title": "Youth Empowerment", "description": "Launched digital skills and entrepreneurship training for young people." },
       "expansion": { "title": "Regional Expansion", "description": "Extended projects across several states in Northern Nigeria through strategic partnerships." }
+    }
+  },
+  "ourApproach": {
+    "seoTitle": "Our Strategic Framework",
+    "seoDescription": "CHADI International's Theory of Change and three strategic pillars — Protect, Empower and Thrive — guiding how we protect children, empower young people and build resilient communities.",
+    "pageTitle": "Our Strategic Framework",
+    "pageSubtitle": "Protect. Empower. Thrive.",
+    "theoryOfChange": {
+      "title": "Our Theory of Change",
+      "description": "When children and young people are protected from harm, empowered with education and life skills, and supported to thrive in healthy, inclusive and resilient communities, they are better equipped to realize their full potential, break cycles of poverty and contribute meaningfully to sustainable development."
+    },
+    "impactStatement": {
+      "title": "Our Impact Statement",
+      "description": "CHADI is a child and youth-focused community development organization dedicated to protecting children, empowering young people and building resilient communities where every child and young person can live safely, learn, thrive and reach their full potential."
+    },
+    "programmeModel": {
+      "title": "Our Programme Model",
+      "protect": "Keeping children and young people safe.",
+      "empower": "Equipping children and young people with knowledge, skills and opportunities.",
+      "thrive": "Building healthy, resilient and inclusive communities where children and young people flourish."
+    },
+    "flagshipLabel": "Flagship Projects",
+    "sdgLabel": "SDGs This Pillar Advances",
+    "pillars": {
+      "protect": {
+        "name": "Protect",
+        "description": "Protecting the rights, health, safety and wellbeing of children and young people."
+      },
+      "empower": {
+        "name": "Empower",
+        "description": "Equipping children and young people with knowledge, skills and opportunities to reach their full potential."
+      },
+      "thrive": {
+        "name": "Thrive",
+        "description": "Building healthy, resilient and inclusive communities where children and young people flourish."
+      }
+    },
+    "projects": {
+      "sovcest": {
+        "name": "SOVCEST Project",
+        "description": "CHADI's flagship child protection and development programme supporting children with disabilities, orphans and vulnerable children through protection, counselling, education, skills acquisition and talent development."
+      },
+      "miycan": {
+        "name": "MIYCAN Project",
+        "description": "Improving maternal, newborn, child and adolescent health through nutrition, health education and preventive healthcare."
+      },
+      "childReliefRecovery": {
+        "name": "Child Relief and Recovery",
+        "description": "Protecting children during emergencies while strengthening safe schools and resilient communities."
+      },
+      "futureReady": {
+        "name": "Future Ready Initiative",
+        "description": "Preparing children and young people for education, employment and entrepreneurship."
+      },
+      "choices": {
+        "name": "CHOICES Project",
+        "description": "Creating Healthy Opportunities, Informed Choices and Empowered Students."
+      },
+      "youthLeadership": {
+        "name": "Youth Leadership and Civic Engagement Initiative",
+        "description": "Building a generation of ethical, confident and community-minded young leaders."
+      },
+      "padPeriodCareBank": {
+        "name": "CHADI Pad and Period Care Bank",
+        "description": "Ending period poverty and promoting menstrual dignity so girls can remain healthy, confident and in school."
+      },
+      "stillHere": {
+        "name": "Still Here",
+        "description": "Promoting mental wellbeing and improving the lives of children and young people affected by mental health challenges and sickle cell disease through awareness, prevention, advocacy, counselling and survivor support."
+      },
+      "greenFutures": {
+        "name": "Green Futures",
+        "description": "Empowering children and young people to lead climate action, environmental conservation, peacebuilding and resilient community development."
+      }
+    },
+    "components": {
+      "startTalentAdvancement": "Talent Advancement (START)",
+      "childProtectionSafeguarding": "Child Protection and Safeguarding",
+      "childRightsAdvocacy": "Child Rights and Advocacy",
+      "counsellingPsychosocialSupport": "Counselling and Psychosocial Support",
+      "educationSupport": "Education Support",
+      "skillsAcquisition": "Skills Acquisition",
+      "familyStrengthening": "Family Strengthening",
+      "emergencyChildSupport": "Emergency Child Support",
+      "miycn": "Maternal, Infant and Young Child Nutrition",
+      "healthHour": "Health Hour",
+      "schoolHealthProgramme": "School Health Programme",
+      "adolescentHealth": "Adolescent Health",
+      "mentalHealthPromotion": "Mental Health Promotion",
+      "nutritionEducation": "Nutrition Education",
+      "humanitarianResponse": "Humanitarian Response",
+      "wash": "WASH",
+      "safeSchools": "Safe Schools",
+      "childProtectionEmergencies": "Child Protection in Emergencies",
+      "disasterRecovery": "Disaster Recovery",
+      "communityResilience": "Community Resilience",
+      "digitalLiteracy": "Digital Literacy",
+      "stemEducation": "STEM Education",
+      "financialLiteracy": "Financial Literacy",
+      "careerDevelopment": "Career Development",
+      "entrepreneurship": "Entrepreneurship",
+      "employabilitySkills": "Employability Skills",
+      "drugAbusePrevention": "Drug Abuse Prevention",
+      "lifeSkills": "Life Skills",
+      "leadershipDevelopment": "Leadership Development",
+      "mentorship": "Mentorship",
+      "civicEducation": "Civic Education",
+      "positiveBehaviourChange": "Positive Behaviour Change",
+      "youthLeadership": "Youth Leadership",
+      "volunteerism": "Volunteerism",
+      "advocacy": "Advocacy",
+      "communityService": "Community Service",
+      "peerEducation": "Peer Education",
+      "socialInnovation": "Social Innovation",
+      "climateAction": "Climate Action",
+      "peacebuilding": "Peacebuilding",
+      "environmentalEducation": "Environmental Education",
+      "treePlanting": "Tree Planting",
+      "youthClimateLeadership": "Youth Climate Leadership",
+      "menstrualHealth": "Menstrual Health",
+      "periodPovertyPrevention": "Period Poverty Prevention",
+      "schoolRetentionForGirls": "School Retention for Girls",
+      "mentalHealthAwareness": "Mental Health Awareness",
+      "sickleCellSupport": "Sickle Cell Support",
+      "counselling": "Counselling",
+      "survivorSupport": "Survivor Support"
+    },
+    "sdgs": {
+      "2": "Zero Hunger",
+      "3": "Good Health and Well-being",
+      "4": "Quality Education",
+      "5": "Gender Equality",
+      "6": "Clean Water and Sanitation",
+      "8": "Decent Work and Economic Growth",
+      "9": "Industry, Innovation and Infrastructure",
+      "10": "Reduced Inequalities",
+      "11": "Sustainable Cities and Communities",
+      "13": "Climate Action",
+      "16": "Peace, Justice and Strong Institutions",
+      "17": "Partnerships for the Goals"
     }
   }
 }
