@@ -2,8 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.chadi-international.org/</loc></url>
   <url><loc>https://www.chadi-international.org/about</loc></url>
+  <url><loc>https://www.chadi-international.org/our-approach</loc></url>
   <url><loc>https://www.chadi-international.org/projects</loc></url>
   <url><loc>https://www.chadi-international.org/news</loc></url>
+  <url><loc>https://www.chadi-international.org/blog</loc></url>
   <url><loc>https://www.chadi-international.org/team</loc></url>
   <url><loc>https://www.chadi-international.org/events</loc></url>
   <url><loc>https://www.chadi-international.org/gallery</loc></url>
@@ -32,6 +34,20 @@
   <url><loc>https://www.chadi-international.org/projects/maternal-health</loc></url>
   <url><loc>https://www.chadi-international.org/projects/food-security</loc></url>
   <url><loc>https://www.chadi-international.org/projects/community-health</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/choices-project</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/youth-leadership-civic-engagement</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/pad-period-care-bank</loc></url>
+  <url><loc>https://www.chadi-international.org/projects/still-here</loc></url>
   <url><loc>https://www.chadi-international.org/news/miycn-community-outreach</loc></url>
   <url><loc>https://www.chadi-international.org/news/digital-skills-training</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/rebuilding-childhoods-skills-training-orphaned-children</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/solar-power-smartphones-quiet-tech-revolution-africa-villages</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/from-beneficiary-to-business-owner-vocational-skills-training</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/climate-change-poverty-multiplier-rural-families</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/depression-doesnt-discriminate-breaking-mental-health-silence</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/why-educating-girls-is-the-most-powerful-tool-against-poverty</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/sickle-cell-disease-silent-epidemic-across-africa</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/mobile-technology-transforming-healthcare-learning-remote-villages</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/breaking-the-cycle-what-works-in-poverty-alleviation</loc></url>
+  <url><loc>https://www.chadi-international.org/blog/community-health-workers-closing-rural-healthcare-gap</loc></url>
 </urlset>

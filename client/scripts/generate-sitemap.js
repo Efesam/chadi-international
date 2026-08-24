@@ -14,8 +14,10 @@ const SITE_URL = process.env.VITE_SITE_URL || "https://www.chadi-international.o
 const STATIC_ROUTES = [
   "/",
   "/about",
+  "/our-approach",
   "/projects",
   "/news",
+  "/blog",
   "/team",
   "/events",
   "/gallery",
@@ -47,15 +49,17 @@ async function readSlugs(fileName) {
 }
 
 async function generateSitemap() {
-  const [projectSlugs, newsSlugs] = await Promise.all([
+  const [projectSlugs, newsSlugs, blogSlugs] = await Promise.all([
     readSlugs("projects.json"),
     readSlugs("news.json"),
+    readSlugs("blog.json"),
   ]);
 
   const urls = [
     ...STATIC_ROUTES,
     ...projectSlugs.map((slug) => `/projects/${slug}`),
     ...newsSlugs.map((slug) => `/news/${slug}`),
+    ...blogSlugs.map((slug) => `/blog/${slug}`),
   ];
 
   const body = urls
@@ -66,7 +70,7 @@ async function generateSitemap() {
 
   const outPath = path.join(clientDir, "public", "sitemap.xml");
   await writeFile(outPath, xml);
-  console.log(`[sitemap] wrote ${urls.length} URLs to ${outPath} (${projectSlugs.length} projects, ${newsSlugs.length} news articles)`);
+  console.log(`[sitemap] wrote ${urls.length} URLs to ${outPath} (${projectSlugs.length} projects, ${newsSlugs.length} news articles, ${blogSlugs.length} blog posts)`);
 }
 
 generateSitemap();
