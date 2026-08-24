@@ -6,7 +6,14 @@ const fields = [
   { name: "title", label: "Title", required: true },
   { name: "slug", label: "Slug", required: true, hint: "Used in the project URL, e.g. community-miycn" },
   { name: "image", label: "Cover Image", type: "image" },
-  { name: "program", label: "Program" },
+  { name: "program", label: "Program", hint: "The flagship project this belongs to, e.g. SOVCEST, MIYCAN, Future Ready Initiative - shown as a filter category on the public Projects page." },
+  {
+    name: "pillar",
+    label: "Strategic Pillar",
+    type: "select",
+    options: ["PROTECT", "EMPOWER", "THRIVE"],
+    hint: "Which of CHADI's three strategic pillars this project sits under - see /our-approach.",
+  },
   { name: "location", label: "Location" },
   {
     name: "status",
@@ -58,6 +65,7 @@ const fields = [
 
 const baseColumns = [
   { key: "title", label: "Title" },
+  { key: "pillar", label: "Pillar" },
   { key: "program", label: "Program" },
   { key: "location", label: "Location" },
   { key: "status", label: "Status" },

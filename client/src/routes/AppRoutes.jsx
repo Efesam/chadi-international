@@ -10,6 +10,7 @@ import PublicRoute from "./PublicRoute";
 
 import Home from "../pages/public/Home";
 import About from "../pages/public/About";
+import OurApproach from "../pages/public/OurApproach";
 import Projects from "../pages/public/Projects";
 import News from "../pages/public/News";
 import NewsDetails from "../pages/public/NewsDetails";
@@ -81,6 +82,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
 
         <Route path="/about" element={<About />} />
+        <Route path="/our-approach" element={<OurApproach />} />
 
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetails />} />

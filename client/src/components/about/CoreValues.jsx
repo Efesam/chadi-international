@@ -1,18 +1,20 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { FaHeart, FaBalanceScale, FaLightbulb, FaUsers, FaMedal, FaHandshake } from "react-icons/fa";
+import { FaSun, FaBalanceScale, FaHeart, FaUsers, FaBolt, FaMedal, FaHandshake, FaMountain } from "react-icons/fa";
 import Reveal from "../common/Reveal";
 import StaggerGrid, { StaggerItem } from "../common/StaggerGrid";
 
 const VALUE_ICONS = {
-  compassion: FaHeart,
+  hope: FaSun,
   integrity: FaBalanceScale,
-  innovation: FaLightbulb,
+  compassion: FaHeart,
   inclusion: FaUsers,
+  empowerment: FaBolt,
   excellence: FaMedal,
   collaboration: FaHandshake,
+  resilience: FaMountain,
 };
-const VALUE_KEYS = ["compassion", "integrity", "innovation", "inclusion", "excellence", "collaboration"];
+const VALUE_KEYS = ["hope", "integrity", "compassion", "inclusion", "empowerment", "excellence", "collaboration", "resilience"];
 
 function CoreValues() {
   const { t } = useTranslation();

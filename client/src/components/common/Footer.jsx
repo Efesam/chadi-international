@@ -29,6 +29,7 @@ function getFooterColumns(t) {
       title: t("footer.columns.explore"),
       links: [
         { label: t("nav.about"), path: "/about" },
+        { label: t("footer.links.ourApproach"), path: "/our-approach" },
         { label: t("nav.projects"), path: "/projects" },
         { label: t("footer.links.events"), path: "/events" },
         { label: t("footer.links.gallery"), path: "/gallery" },
@@ -79,7 +80,7 @@ function Footer() {
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.3fr_2fr]">
         <div>
-          <Logo light />
+          <Logo light showFullName />
           <p className="mt-5 max-w-sm leading-7 text-white/80">
             {t("footer.tagline")}
           </p>
