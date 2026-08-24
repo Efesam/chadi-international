@@ -46,7 +46,7 @@ function Navbar() {
 
         {/* Logo */}
 
-        <Logo light={!scrolled} />
+        <Logo light={!scrolled} showFullName compact />
 
         {/* Desktop */}
 

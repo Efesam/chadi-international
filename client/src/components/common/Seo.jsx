@@ -16,7 +16,7 @@ const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "NGO",
   name: SITE_NAME,
-  alternateName: "Caleb Hope Alive Development Initiative",
+  alternateName: "Children and Youth Hope Alive Development Initiative",
   url: SITE_URL || undefined,
   logo: DEFAULT_IMAGE,
   description: DEFAULT_DESCRIPTION,

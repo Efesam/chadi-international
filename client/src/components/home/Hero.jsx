@@ -64,6 +64,8 @@ function Hero() {
             {t("home.hero.badge")}
           </span>
 
+          <p className="mt-4 text-base font-semibold text-white sm:text-lg">{t("common.orgFullName")}</p>
+
           <h1 className="mt-6 text-4xl font-black leading-[1.08] text-white drop-shadow-sm sm:text-5xl lg:text-6xl">
             {t("home.hero.title1")}
             <span className="block text-chadi-gold">{t("home.hero.title2")}</span>
